@@ -85,7 +85,8 @@
 > 2. In the adaptive chosen ciphertext attack setting, the second phase adversary $\mathcal A_2$ is not allowed to query $c^*$ to the oracle.
 
 > [!definition] $(t,\varepsilon)$-IND-ATK security of a PKE 
-> A PKE scheme is **$(t, \varepsilon)$-IND-ATK secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have: $$\text{Adv}_{\text{PKE}}^{\text{ind-atk}}(\mathcal A) \leq \varepsilon$$
+> A PKE scheme is **$(t, \varepsilon)$-IND-ATK secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have: 
+> $$\text{Adv}_{\text{PKE}}^{\text{ind-atk}}(\mathcal A) \leq \varepsilon$$
 
 > [!remark]
 > 1. ATK here is a placeholder for the attacker.
@@ -142,7 +143,8 @@
 > 1. $R$ is a predicate.
 
 > [!definition] $(t,\varepsilon)$-NM-ATK security of a PKE 
-> A PKE scheme is **$(t, \varepsilon)$-NM-ATK secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have: $$\text{Adv}_{\text{PKE}}^{\text{nm-atk}}(\mathcal A) \leq \varepsilon$$
+> A PKE scheme is **$(t, \varepsilon)$-NM-ATK secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have: 
+> $$\text{Adv}_{\text{PKE}}^{\text{nm-atk}}(\mathcal A) \leq \varepsilon$$
 
 ### One-way Encryption
 
@@ -157,7 +159,8 @@
 > \end{array} \right]$$
 
 > [!definition] $(t,\varepsilon)$-OWE security of a PKE 
-> A PKE scheme is **$(t, \varepsilon)$-OWE secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have: $$\text{Adv}_{\text{PKE}}^{\text{owe}}(\mathcal A) \leq \varepsilon$$
+> A PKE scheme is **$(t, \varepsilon)$-OWE secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have: 
+> $$\text{Adv}_{\text{PKE}}^{\text{owe}}(\mathcal A) \leq \varepsilon$$
 
 ### One-Wayness under Chosen Plaintext Attacks
 
@@ -177,15 +180,18 @@
 > 
 > Message space for $\mathcal E_{TDF}$ is $\mathcal M$, ciphertext space is $\mathcal Y \times \mathcal C$.
 > - The key generation algorithm for $\mathcal E_{TDF}$ is the key generation algorithm for $\mathcal T$.
-> - For a given public key $pk$, and a given message $m \in \mathcal M$, the encryption algorithm runs as follows: $$E(pk, m) = x \xleftarrow{R} \mathcal X, y \leftarrow F(pk, x), k \leftarrow H(x), c \xleftarrow{R} E_s(k, m), \text{output } (y, c)$$
-> - For a given secret key $sk$, and a given ciphertext $(y, c) \in \mathcal Y \times \mathcal C$, the decryption algorithm runs as follows: $$D(sk, (y, c)) = x \leftarrow I(sk, y), k \leftarrow H(x), m \leftarrow D_s(k, c), \text{output } m.$$
+> - For a given public key $pk$, and a given message $m \in \mathcal M$, the encryption algorithm runs as follows: 
+> $$E(pk, m) = x \xleftarrow{R} \mathcal X, y \leftarrow F(pk, x), k \leftarrow H(x), c \xleftarrow{R} E_s(k, m), \text{output } (y, c)$$
+> - For a given secret key $sk$, and a given ciphertext $(y, c) \in \mathcal Y \times \mathcal C$, the decryption algorithm runs as follows: 
+> $$D(sk, (y, c)) = x \leftarrow I(sk, y), k \leftarrow H(x), m \leftarrow D_s(k, c), \text{output } m.$$
 > 
 > Thus $\mathcal E_{TDF} = (G, E, D)$, and is defined over $(\mathcal M, \mathcal Y \times \mathcal C)$.
 
 > [!theorem] 
 > Assume $H: \mathcal X \rightarrow \mathcal K$ is modeled as a random oracle. If $\mathcal T$ is one-way and $\mathcal E_s$ is semantically secure, then $\mathcal E_{TDF}$ is semantically secure.
 > 
-> In particular, for every [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal A$ that attacks $\mathcal E_{TDF}$, there exists an [[knowledge/cryptography/public-key encryption/Public Key Encryption#One-way Security\|inverting]] adversary $\mathcal B_{ow}$ that attacks $\mathcal T$, and an [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal B_s$ that attacks $\mathcal E_s$, where $\mathcal B_{ow}$ and $\mathcal B_s$ are elementary wrappers around $\mathcal A$, such that $$\text{SS}^{ro}\text{adv}[\mathcal A, \mathcal E_{TDF}] \leq 2 \cdot \text{OWadv}[\mathcal B_{ow}, \mathcal T] + \text{SSadv}[\mathcal B_s, \mathcal E_s]$$
+> In particular, for every [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal A$ that attacks $\mathcal E_{TDF}$, there exists an [[knowledge/cryptography/public-key encryption/Public Key Encryption#One-way Security\|inverting]] adversary $\mathcal B_{ow}$ that attacks $\mathcal T$, and an [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal B_s$ that attacks $\mathcal E_s$, where $\mathcal B_{ow}$ and $\mathcal B_s$ are elementary wrappers around $\mathcal A$, such that 
+> $$\text{SS}^{ro}\text{adv}[\mathcal A, \mathcal E_{TDF}] \leq 2 \cdot \text{OWadv}[\mathcal B_{ow}, \mathcal T] + \text{SSadv}[\mathcal B_s, \mathcal E_s]$$
 
 ## Case Study
 
@@ -193,14 +199,18 @@
 
 > [!algorithm] RSA Trapdoor Function Scheme
 > The basic RSA encryption scheme is $\mathcal E_{RSA} = (G, E, D)$, with message space $\mathcal M$ and ciphertext space $\mathcal X \times \mathcal C$, where
-> - The key generation algorithm runs as follows: $$G() = (n, d) \xleftarrow{R} \text{RSAGen}(\ell, e), pk \leftarrow (n, e), sk \leftarrow (n, d), \text{output } (pk, sk);$$
-> - For a given public key $pk = (n, e)$, and message $m \in \mathcal M$, the encryption algorithm runs as follows: $$E(pk, m) = x \xleftarrow{R} \mathbb Z_n, y \leftarrow x^e, k \leftarrow H(x), c \xleftarrow{R} E_s(k, m), \text{output } (y, c) \in \mathcal X \times \mathcal C'$$
-> - For a given secret key $sk = (n, d)$, and a given ciphertext $(y, c) \in \mathcal X \times \mathcal C$, where $y$ represents an element of $\mathbb Z_n$, the decryption algorithm runs as follows: $$D(sk, (y, c)) = x \leftarrow y^d, k \leftarrow H(x), m \leftarrow D_s(k, c), \text{output } m.$$
+> - The key generation algorithm runs as follows: 
+> $$G() = (n, d) \xleftarrow{R} \text{RSAGen}(\ell, e), pk \leftarrow (n, e), sk \leftarrow (n, d), \text{output } (pk, sk);$$
+> - For a given public key $pk = (n, e)$, and message $m \in \mathcal M$, the encryption algorithm runs as follows: 
+> $$E(pk, m) = x \xleftarrow{R} \mathbb Z_n, y \leftarrow x^e, k \leftarrow H(x), c \xleftarrow{R} E_s(k, m), \text{output } (y, c) \in \mathcal X \times \mathcal C'$$
+> - For a given secret key $sk = (n, d)$, and a given ciphertext $(y, c) \in \mathcal X \times \mathcal C$, where $y$ represents an element of $\mathbb Z_n$, the decryption algorithm runs as follows: 
+> $$D(sk, (y, c)) = x \leftarrow y^d, k \leftarrow H(x), m \leftarrow D_s(k, c), \text{output } m.$$
 
 > [!theorem]
 > Assume $H : \mathcal X \rightarrow \mathcal K$ is modeled as a random oracle. If the RSA assumption holds for parameters $(\ell, e)$, and $\mathcal E_s$ is semantically secure, then $\mathcal E_{RSA}$ is semantically secure.
 > 
-> In particular, for any [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] $\mathcal A$ that attacks $\mathcal E_{RSA}$, there exist an RSA adversary $\mathcal B_{rsa}$ that breaks the [[knowledge/cryptography/special functions/Trapdoor Functions#A Trapdoor Permutation Scheme Based on RSA\|RSA assumption]] for $(\ell, e)$, and an [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal B_s$ that attacks $\mathcal E_s$, where $\mathcal B_{rsa}$ and $\mathcal B_s$ are elementary wrappers around $\mathcal A$, such that $$\text{SS}^{ro}\text{adv}^*[\mathcal A, \mathcal E_{RSA}] \leq \text{RSAadv}[\mathcal B_{RSA}, \ell, e] + \text{SSadv}^*[\mathcal B_s, \mathcal E_s].$$
+> In particular, for any [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] $\mathcal A$ that attacks $\mathcal E_{RSA}$, there exist an RSA adversary $\mathcal B_{rsa}$ that breaks the [[knowledge/cryptography/special functions/Trapdoor Functions#A Trapdoor Permutation Scheme Based on RSA\|RSA assumption]] for $(\ell, e)$, and an [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal B_s$ that attacks $\mathcal E_s$, where $\mathcal B_{rsa}$ and $\mathcal B_s$ are elementary wrappers around $\mathcal A$, such that 
+> $$\text{SS}^{ro}\text{adv}^*[\mathcal A, \mathcal E_{RSA}] \leq \text{RSAadv}[\mathcal B_{RSA}, \ell, e] + \text{SSadv}^*[\mathcal B_s, \mathcal E_s].$$
 
 ### ElGamal Encryption
 
@@ -210,17 +220,20 @@
 > - A symmetric cipher $\mathcal E_s = (E_s, D_s)$, defined over $(\mathcal K, \mathcal M, \mathcal C)$,
 > - A hash function $H: \mathbb G^2 \rightarrow \mathcal K$.
 > The key generation, encryption, and decryption algorithms for $\mathcal E_{EG}$.
-> - The key generation algorithm runs as follows: $$\begin{align} G() = \quad &\alpha \xleftarrow{R} \mathbb Z_q, u \leftarrow g^\alpha, \\ &pk \leftarrow u, sk \leftarrow \alpha \\ &\text{output }(pk, sk); \end{align}$$
+> - The key generation algorithm runs as follows: 
+> $$\begin{align} G() = \quad &\alpha \xleftarrow{R} \mathbb Z_q, u \leftarrow g^\alpha, \\ &pk \leftarrow u, sk \leftarrow \alpha \\ &\text{output }(pk, sk); \end{align}$$
 > - For a given public key $pk = u \in \mathbb G$ and message $m \in \mathcal M$, the encryption algorithm runs as follows:
 > $$E(pk, m) = \beta \xleftarrow{R} \mathbb Z_q, v \leftarrow g^\beta, w \leftarrow u^\beta, k \leftarrow H(v, w), c \leftarrow E_s(k, m), \text{output } (v, c);$$
-> - For a given secret key $sk = \alpha \in \mathbb Z_q$ and a ciphertext $(v, c) \in \mathbb G \times \mathcal C$, the decryption algorithm runs as follows: $$D(sk, (v, c)) = w \leftarrow v^\alpha, k \leftarrow H(v, w), m \leftarrow D_s(k, c), \text{output } m.$$
+> - For a given secret key $sk = \alpha \in \mathbb Z_q$ and a ciphertext $(v, c) \in \mathbb G \times \mathcal C$, the decryption algorithm runs as follows: 
+> $$D(sk, (v, c)) = w \leftarrow v^\alpha, k \leftarrow H(v, w), m \leftarrow D_s(k, c), \text{output } m.$$
 > 
 > Thus, $\mathcal E_{EG} = (G, E, D)$, and is defined over $(\mathcal M, \mathbb G \times \mathcal C)$.
 
 > [!theorem]
 > Assume $H: \mathbb G^2 \rightarrow \mathcal K$ is modeled as a random oracle. If the CDH assumption holds for $\mathbb G$, and $\mathcal E_s$ is semantically secure, then $\mathcal E_{EG}$ is semantically secure.
 > 
-> In particular, for every [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal A$ with respect to $\mathcal E_{EG}$, and makes at most $Q$ queries to the random oracle, there exist a [[knowledge/cryptography/key establishment/key exchange/Key Exchange#Computational Diffie-Hellman\|computational Diffie-Hellman]] adversary $\mathcal B_{cdh}$ with respect to $\mathbb G$, and an [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal B_s$ with respect to $\mathcal E_s$, where $\mathcal B_{cdh}$ and $\mathcal B_s$ are elementary wrappers around $\mathcal A$, such that $$\text{SS}^{ro}\text{adv}[\mathcal A, \mathcal E_{EG}] \leq 2Q \cdot \text{CDHadv}[\mathcal B_{cdh}, \mathbb G] + \text{SSadv}[\mathcal B_s, \mathcal E_s].$$
+> In particular, for every [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal A$ with respect to $\mathcal E_{EG}$, and makes at most $Q$ queries to the random oracle, there exist a [[knowledge/cryptography/key establishment/key exchange/Key Exchange#Computational Diffie-Hellman\|computational Diffie-Hellman]] adversary $\mathcal B_{cdh}$ with respect to $\mathbb G$, and an [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal B_s$ with respect to $\mathcal E_s$, where $\mathcal B_{cdh}$ and $\mathcal B_s$ are elementary wrappers around $\mathcal A$, such that 
+> $$\text{SS}^{ro}\text{adv}[\mathcal A, \mathcal E_{EG}] \leq 2Q \cdot \text{CDHadv}[\mathcal B_{cdh}, \mathbb G] + \text{SSadv}[\mathcal B_s, \mathcal E_s].$$
 
 ### Lattice-Based Instantiation
 
