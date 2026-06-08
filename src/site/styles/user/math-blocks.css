@@ -1,0 +1,120 @@
+/* ================================
+   Base Math / Crypto Callout Wrapper
+   ================================ */
+
+.callout[data-callout="theorem"],
+.callout[data-callout="lemma"],
+.callout[data-callout="corollary"],
+.callout[data-callout="conjecture"],
+.callout[data-callout="proposition"],
+.callout[data-callout="definition"],
+.callout[data-callout="principle"],
+.callout[data-callout="example"],
+.callout[data-callout="algorithm"],
+.callout[data-callout="question"],
+.callout[data-callout="remark"],
+.callout[data-callout="axiom"],
+.callout[data-callout="proof"],
+.callout[data-callout="security"],
+.callout[data-callout="construction"],
+.callout[data-callout="scheme"],
+.callout[data-callout="attack"],
+.callout[data-callout="intuition"],
+.callout[data-callout="property"] {
+  border-left-width: 4px;
+  border-radius: 6px;
+  padding: 0.8em 1em;
+  margin: 1em 0;
+  background-color: var(--background-secondary);
+}
+
+/* ================================
+   Titles
+   ================================ */
+
+.callout[data-callout="theorem"] .callout-title,
+.callout[data-callout="lemma"] .callout-title,
+.callout[data-callout="corollary"] .callout-title,
+.callout[data-callout="conjecture"] .callout-title,
+.callout[data-callout="proposition"] .callout-title {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.callout[data-callout="definition"] .callout-title,
+.callout[data-callout="example"] .callout-title,
+.callout[data-callout="algorithm"] .callout-title,
+.callout[data-callout="question"] .callout-title,
+.callout[data-callout="remark"] .callout-title,
+.callout[data-callout="security"] .callout-title,
+.callout[data-callout="construction"] .callout-title,
+.callout[data-callout="scheme"] .callout-title,
+.callout[data-callout="attack"] .callout-title,
+.callout[data-callout="intuition"] .callout-title,
+.callout[data-callout="property"] .callout-title {
+  font-weight: bold;
+}
+
+.callout[data-callout="proof"] .callout-title {
+  font-style: italic;
+}
+
+.callout[data-callout="axiom"] .callout-title,
+.callout[data-callout="principle"] .callout-title {
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+
+/* ================================
+   Hide callout icons (everywhere except question/remark/intuition)
+   ================================ */
+
+.callout[data-callout] .callout-icon {
+  display: none;
+}
+
+.callout[data-callout="question"] .callout-icon,
+.callout[data-callout="remark"] .callout-icon,
+.callout[data-callout="intuition"] .callout-icon {
+  display: inline-flex;
+}
+
+
+/* ================================
+   Border colors
+   ================================ */
+
+.callout[data-callout="theorem"]      { border-color: #6a5acd; }
+.callout[data-callout="lemma"]        { border-color: #4682b4; }
+.callout[data-callout="corollary"]    { border-color: #20b2aa; }
+.callout[data-callout="conjecture"]   { border-color: #123456; }
+.callout[data-callout="definition"]   { border-color: #2e8b57; }
+.callout[data-callout="example"]      { border-color: #cd853f; }
+.callout[data-callout="algorithm"]    { border-color: #b22222; }
+.callout[data-callout="proof"]        { border-color: #555;    }
+.callout[data-callout="proposition"]  { border-color: #8a2be2; }
+.callout[data-callout="question"]     { border-color: #d97706; }
+.callout[data-callout="principle"]    { border-color: #444;    }
+.callout[data-callout="remark"]       { border-color: #888;    }
+.callout[data-callout="axiom"]        { border-color: #222;    }
+
+/* New crypto-flavoured callouts */
+.callout[data-callout="security"]     { border-color: #c2185b; }   /* magenta — security claims */
+.callout[data-callout="construction"] { border-color: #00838f; }   /* teal — "build X from Y" */
+.callout[data-callout="scheme"]       { border-color: #2e7d32; }   /* deep green — full scheme spec */
+.callout[data-callout="attack"]       { border-color: #d32f2f; }   /* red — attacks / breaks */
+.callout[data-callout="intuition"]    { border-color: #f9a825; }   /* amber — informal picture */
+.callout[data-callout="property"]     { border-color: #0277bd; }   /* deep sky blue — non-adversarial conditions */
+
+
+/* ================================
+   QED marker (Proof only)
+   ================================ */
+
+.callout[data-callout="proof"] .callout-content::after {
+  content: "□";
+  float: right;
+  margin-top: 0.5em;
+  font-weight: bold;
+}

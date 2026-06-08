@@ -1,0 +1,23 @@
+/* --- Custom Purple Dataview Header --- */
+.table-view-table thead tr th {
+    color: #ffffff !important;            /* White text */
+    border-bottom: 2px solid #5b22a8;     /* Slightly darker purple border */
+    padding: 8px 10px;
+}
+
+/* Optional: rounded corners on the first/last column */
+.table-view-table thead tr th:first-child {
+    border-top-left-radius: 6px;
+}
+.table-view-table thead tr th:last-child {
+    border-top-right-radius: 6px;
+}
+
+/* Optional: zebra striping for readability */
+.table-view-table tbody tr:nth-child(odd) {
+    background-color: rgba(142, 68, 173, 0.06); /* very light purple */
+}
+
+.table-view-table tbody tr:hover {
+    background-color: rgba(142, 68, 173, 0.15) !important;
+}
