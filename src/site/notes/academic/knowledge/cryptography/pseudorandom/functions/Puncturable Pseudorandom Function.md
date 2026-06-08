@@ -5,7 +5,7 @@
 ## Syntax
 
 > [!definition] Puncturable Pseudorandom Function
-> A puncturable pseudorandom function (PPRF) is defined to be a triple of [[daily/Temp/PPT\|PPT]] algorithms $\text{PPRF} = (\text{Gen}, \text{Puncture}, \text{Eval})$ with the following syntax:
+> A puncturable pseudorandom function (PPRF) is defined to be a triple of [[PPT\|PPT]] algorithms $\text{PPRF} = (\text{Gen}, \text{Puncture}, \text{Eval})$ with the following syntax:
 > - $k \leftarrow \text{Gen}(1^n, 1^{d(n)})$: takes as input the security parameter $1^n$, an input length $1^{d(n)}$ and outputs a key $k$.
 > - $k_X \leftarrow \text{Puncture}(k, X)$: takes an input a key $k$ and a polynomial size set $\emptyset \neq X \subseteq D = \{0, 1\}^{d(n)}$ and outputs a punctured key $k_X$.
 > - $r \leftarrow \text{Eval}(k, x)$: is deterministic, takes a key $k$ and an element $x \in \mathcal D$ as input and outputs an element $r \in \mathcal R = \{0, 1\}^{r(n)}$.
@@ -22,7 +22,7 @@
 ### Pseudorandomness
 
 > [!security] Pseudorandomness
-> For any $d(n) = \text{poly}(n)$ and any [[daily/Temp/PPT\|PPT]] algorithm $\mathcal A$ the following is negligible: 
+> For any $d(n) = \text{poly}(n)$ and any [[PPT\|PPT]] algorithm $\mathcal A$ the following is negligible: 
 > $$\left|\; 
 > \Pr\!\left[ \mathcal{A}(St, k_X, (r_x)_{x \in X}) = 1 \;\middle|\; 
 > \begin{array}{l} 
