@@ -16,7 +16,8 @@
 > - $m \leftarrow \text{Dec}(sk, c)$: The deterministic decryption algorithm takes a secret key $sk$ and a ciphertext $c$, and outputs either a message $m \in \mathcal M$ or a special symbol $\perp$ to indicate **rejection**. 
 
 > [!algorithm] Public-key Encryption Scheme (Mathematical Detail)
-> A **public-key encryption scheme** consists of three algorithms, $G$, $E$, and $D$, along with two families of spaces with system parameterization $P$: $$M = \{\mathcal M_{\lambda, \Lambda}\}_{\lambda, \Lambda} \quad \text{and} \quad C = \{\mathcal C_{\lambda, \Lambda}\}_{\lambda, \Lambda},$$
+> A **public-key encryption scheme** consists of three algorithms, $G$, $E$, and $D$, along with two families of spaces with system parameterization $P$: 
+> $$M = \{\mathcal M_{\lambda, \Lambda}\}_{\lambda, \Lambda} \quad \text{and} \quad C = \{\mathcal C_{\lambda, \Lambda}\}_{\lambda, \Lambda},$$
 > such that
 > 1. $M$ and $C$ are efficiently recognizable.
 > 2. $M$ has an effective length function.
@@ -35,7 +36,8 @@
 ### Correctness
 
 > [!definition] PKE $(1-\delta)$-Correctness
-> A public-key encryption scheme $\text{PKE}$ is $(1-\delta)$-correct if $$E[\max_{m \in \mathcal M} \Pr[\text{Dec}(sk, \text{Enc}(pk, m)) = m]] \geq 1 - \delta$$
+> A public-key encryption scheme $\text{PKE}$ is $(1-\delta)$-correct if 
+> $$E[\max_{m \in \mathcal M} \Pr[\text{Dec}(sk, \text{Enc}(pk, m)) = m]] \geq 1 - \delta$$
 
 > [!remark]
 > For some literature, this definition comes from the decryption failure rate and thus we have the following correctness definition. So in writing please use the above definition instead.
@@ -43,11 +45,14 @@
 ### Min-Entropy
 
 > [!definition] Min-Entropy
-> Given $(pk, sk) \in \mathcal K, m \in \mathcal M$, we define the **min-entropy** of $\text{Enc}(pk, m)$ by $$\gamma(pk, m) = -\log \max_{c \in \mathcal C} \Pr[c = \text{Enc}(pk, m; r) \; | \; r \in \mathcal R].$$
-> We say that a $\text{PKE}$ is $\gamma$**-spread** if: $$\forall (pk, sk) \in \mathcal K, m \in \mathcal M, c \in \mathcal C: \gamma(pk, m) \geq \gamma$$
+> Given $(pk, sk) \in \mathcal K, m \in \mathcal M$, we define the **min-entropy** of $\text{Enc}(pk, m)$ by 
+> $$\gamma(pk, m) = -\log \max_{c \in \mathcal C} \Pr[c = \text{Enc}(pk, m; r) \; | \; r \in \mathcal R].$$
+> We say that a $\text{PKE}$ is $\gamma$**-spread** if: 
+> $$\forall (pk, sk) \in \mathcal K, m \in \mathcal M, c \in \mathcal C: \gamma(pk, m) \geq \gamma$$
 
 > [!corollary]
-> For every ciphertext $c \in \mathcal C$, we have $$\Pr[c = \text{Enc}(pk, m; r) \; | \; r \leftarrow \mathcal R] \leq 2^{-\gamma}$$
+> For every ciphertext $c \in \mathcal C$, we have 
+> $$\Pr[c = \text{Enc}(pk, m; r) \; | \; r \leftarrow \mathcal R] \leq 2^{-\gamma}$$
 
 ### Rigidity
 
@@ -89,7 +94,8 @@
  > [!security]
  > If a public-key encryption scheme $\mathcal E$ is semantically secure, then it is also CPA secure.
  > 
- > In particular, for every [[knowledge/cryptography/public-key encryption/Public Key Encryption#Chosen Plaintext Attack Security\|CPA security]] adversary $\mathcal A$ with respect to $\mathcal E$, and which makes at most $Q$ queries to its challenger, there exists an [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal B$, where $\mathcal B$ is an elementary wrapper around $\mathcal A$, such that $$\text{CPAadv}[\mathcal A, \mathcal E] = Q \cdot \text{SSadv}[\mathcal B, \mathcal E].$$
+ > In particular, for every [[knowledge/cryptography/public-key encryption/Public Key Encryption#Chosen Plaintext Attack Security\|CPA security]] adversary $\mathcal A$ with respect to $\mathcal E$, and which makes at most $Q$ queries to its challenger, there exists an [[knowledge/cryptography/public-key encryption/Public Key Encryption#Semantic Security\|semantic security]] adversary $\mathcal B$, where $\mathcal B$ is an elementary wrapper around $\mathcal A$, such that 
+ > $$\text{CPAadv}[\mathcal A, \mathcal E] = Q \cdot \text{SSadv}[\mathcal B, \mathcal E].$$
 
 ### Non-Malleability
 
