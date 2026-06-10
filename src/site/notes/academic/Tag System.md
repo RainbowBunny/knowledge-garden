@@ -5,7 +5,9 @@
 
 # Tag System
 
-Probability: $\Pr$
+Probability: Use $\Pr$ notation.
+When you use equation by double $ instead of single $, then you need the new line.
+Random: use $ to sample from a distribution ($A \xleftarrow{\$} B$)
 
 The vault uses **two layers** of semantic markup. They serve different jobs and shouldn't be collapsed into each other.
 
