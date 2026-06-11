@@ -146,7 +146,8 @@ tags:
 **`area/*`** — sub-area, hierarchical, mirrors folder layout:
 
 - Crypto: `area/crypto/foundations`, `area/crypto/symmetric`, `area/crypto/mac`, `area/crypto/pke`, `area/crypto/sig`, `area/crypto/kex`, `area/crypto/kem`, `area/crypto/id`, `area/crypto/zk`, `area/crypto/threshold`, `area/crypto/mpc`, `area/crypto/he`, `area/crypto/ecc`, `area/crypto/pq/lattice`, `area/crypto/pq/code`, `area/crypto/assumptions/dlp`, `area/crypto/assumptions/lattice`, `area/crypto/assumptions/idealized`, `area/crypto/cryptanalysis`
-- CS: `area/cs/foundations`, `area/cs/data-structures`, `area/cs/algorithms/dp`, `area/cs/algorithms/greedy`, `area/cs/graph`, `area/cs/computability`, `area/cs/complexity`, `area/cs/math`, `area/cs/problems`
+- CS: `area/cs/foundations`, `area/cs/data-structures`, `area/cs/algorithms/dp`, `area/cs/algorithms/greedy`, `area/cs/graph`, `area/cs/computability`, `area/cs/math`, `area/cs/problems`
+- Complexity (separate domain): `area/complexity/foundations`, `area/complexity/time`, `area/complexity/space`, `area/complexity/randomized`, `area/complexity/circuit`, `area/complexity/interactive`, `area/complexity/quantum`, `area/complexity/conjectures`
 - Math: `area/math/algebra`, `area/math/calculus`, `area/math/linear-algebra`, `area/math/number-theory`, `area/math/probability`
 
 **`kind/*`** — what role the note plays:
