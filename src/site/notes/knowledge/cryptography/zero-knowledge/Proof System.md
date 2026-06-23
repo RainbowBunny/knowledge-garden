@@ -30,7 +30,7 @@
 ### Knowledge Soundness
 
 > [!definition] Proof System's Knowledge Soundness
-> 
+> Let $\mathcal O_{P^*}$ be an oracle 
 
 > [!remark]
 > Knowledge Soundness means if you prove a statement, you must actually know a witness
@@ -40,8 +40,12 @@
 ### Zero Knowledge
 
 > [!definition] Zero Knowledge Proof System
-> A proof system is zero knowledge if there exist a [[simulator\|simulator]] $\text{Sim}$ and let $\text{View}_V$ be a random variable from the space of available information that given to $V$ and we should have its distribution similar to the simulating distribution:
+> A proof system is zero knowledge if there exist a [[simulator\|simulator]] $\text{Sim}$ and let $\text{View}_V$ be a random variable from the space of available information that given to verifier $V$ and we should have its distribution and the simulating distribution computationally indistinguishable:
 > $$\text{View}_V(x, r_V, \text{Execute}_{P, V}(x, w)) \sim \text{Sim}(x)$$
+
+> [!definition] Honest Verifier Zero Knowledge
+> Restrict verifier $V$ of the above definition to be honest.
+
 
 ## Overview
 
