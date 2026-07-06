@@ -2,28 +2,13 @@
 {"dg-publish":true,"permalink":"/knowledge/cryptography/symmetric-encryption/symmetric-key-encryption/","dg-note-properties":{}}
 ---
 
-
-| Term                                                      | Reference                                   |                    |
-| --------------------------------------------------------- | ------------------------------------------- | ------------------ |
-| Attack Game 2.1 (Semantic Security)                       | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Semantic Security\|#Semantic Security]]                      | $\text{SSadv}$     |
-| Attack Game 2.2 (Message Recovery)                        | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Message Recovery\|#Message Recovery]]                       | $\text{MRadv}$     |
-| Attack Game 2.3 (Parity Prediction)                       | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Parity Prediction\|#Parity Prediction]]                      | $\text{Parityadv}$ |
-| Attack Game 2.4 (Semantic Security: Bit-guessing Version) | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Semantic Security Bit-guessing Version\|#Semantic Security Bit-guessing Version]] | $\text{SSadv}^*$   |
-| Attack Game 3.3 (Distinguishing $P_0$ from $P_1$)         | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Indistinguishability\|#Indistinguishability]]                   | $\text{Distadv}$   |
-| Attack Game 5.1 (Multi-key Semantic Security)             | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Multi-key Semantic Security\|#Multi-key Semantic Security]]            | $\text{MSSadv}$    |
-| Attack Game 5.2 (CPA Security)                            | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Chosen Plaintext Attack Security\|#Chosen Plaintext Attack Security]]       | $\text{CPAadv}$    |
-| Attack Game 5.3 (Nonce-based CPA Security)                | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Nonce-based CPA Security\|#Nonce-based CPA Security]]               | $\text{nCPAadv}$   |
-| Attack Game 8.3 (Guessing Advantage)                      | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Key Derivation Problem\|#Key Derivation Problem]]                 | $\text{Guessadv}$  |
-| Attack Game 9.1 (Ciphertext Integrity)                    | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Ciphertext Integrity\|#Ciphertext Integrity]]                   | $\text{CIadv}$     |
-| Attack Game 9.2 (Chosen Ciphertext Attack)                | [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Chosen Ciphertext Attack Security\|#Chosen Ciphertext Attack Security]]      | $\text{CCAadv}$    |
-
 ## Syntax
 
 > [!definition] Symmetric Key Encryption Scheme
-> A **symmetric key encryption scheme** $\text{SKE} = (\text{Enc}, \text{Dec})$ is a pair of efficient algorithms with a message space $\mathcal M$, ciphertext space $\mathcal C$ and a key space $\mathcal K$.
-> - $k \leftarrow \text{KeyGen}$: The key generation randomized algorithm that outputs a key $k \in \mathcal K$. 
-> - $c \leftarrow \text{Enc}(k, m)$: The encryption algorithm takes a key $k \in \mathcal K$ and a message $m$ to produce a ciphertext $c$.
-> - $m \leftarrow \text{Dec}(k, c)$: The decryption algorithm takes a key $k \in \mathcal K$ and a ciphertext $c$ to produce a message $m$.
+> A **symmetric-key encryption scheme** $\text{SKE} = (\text{KeyGen}, \text{Enc}, \text{Dec})$ is a triple of efficient algorithms with a message space $\mathcal M$, ciphertext space $\mathcal C$, randomness space $\mathcal R$ and key space $\mathcal K$.
+> - $k \leftarrow \text{KeyGen}()$: The key-generation algorithm $\text{KeyGen}$ returns a key $k \in \mathcal K$ (often simply $k \xleftarrow{\$} \mathcal K$).
+> - $c \leftarrow \text{Enc}(k, m)$ (Deterministic) or $c \leftarrow \text{Enc}(k, m; r)$ (Probabilistic): The encryption algorithm takes a key $k \in \mathcal K$, a message $m \in \mathcal M$ and possibly an internal random $r \leftarrow \mathcal R$ to produce a ciphertext $c \in \mathcal C$.
+> - $m \leftarrow \text{Dec}(k, c)$: The deterministic decryption algorithm takes a key $k \in \mathcal K$ and a ciphertext $c$, and outputs either a message $m \in \mathcal M$ or a special symbol $\perp$ to indicate **rejection**.
 
 > [!algorithm] Computational Cipher (Mathematical Detail)
 > Let $\mathcal E = (E, D)$ be a computational cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$. We associate with $\mathcal E$ families of key, message, and ciphertext spaces, indexed by
@@ -45,12 +30,16 @@
 > [!definition] Correctness
 > A symmetric cipher $\mathcal E = (E, D)$ is **correct** if for all keys $k \in \mathcal K$ and all messages $m \in \mathcal M$: $$D(k, E(k, m)) = m.$$
 
-### Uniformity
+### Min-Entropy
 
-> [!definition] $\gamma$-Uniformity
-> For given $k \in \mathcal K, m \in \mathcal M$ and $c \in \mathcal C$, define $$\gamma(m, c) = \Pr[c = E(k, m; r) \;|\; r \in \mathcal R].$$
-> We say that a symmetric cipher $\mathcal E$ is $\gamma$-uniform if: $$\forall k \in \mathcal K, m \in \mathcal M, c \in \mathcal C: \gamma(m, c) \leq \gamma.$$
-> Equivalently, in *bit* form ($\gamma$-spreadness, Hofheinz-Hövelmanns-Kiltz 2017): the ciphertext distribution has min-entropy at least $\gamma$ bits for every fixed message and key.
+> [!definition] Min-Entropy
+> Given $k \in \mathcal K, m \in \mathcal M$, we define the **min-entropy** of $\text{Enc}(k, m)$ by
+> $$\gamma(k, m) = -\log \max_{c \in \mathcal C} \Pr[c = \text{Enc}(k, m; r) \; | \; r \leftarrow \mathcal R].$$
+> We say that a $\text{SKE}$ is $\gamma$**-spread** if:
+> $$\forall k \in \mathcal K, m \in \mathcal M: \gamma(k, m) \geq \gamma$$
+
+> [!remark]
+> Equivalent formulation ($\gamma$-uniformity): $\mathcal E$ is $\gamma$-uniform if $\Pr[c = E(k, m; r) \;|\; r \in \mathcal R] \leq \gamma$ for all $k, m, c$. A $\gamma$-spread scheme is $2^{-\gamma}$-uniform (Hofheinz–Hövelmanns–Kiltz 2017). This matches the [[knowledge/cryptography/public-key encryption/Public Key Encryption#Min-Entropy\|PKE min-entropy]] definition.
 
 ## Security
 
@@ -59,210 +48,79 @@
 > [!definition] Perfect Security
 > Let $\mathcal E = (E, D)$ be a Shannon cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$. Consider a probabilistic experiment in which the random variable $K$ is uniformly distributed over $\mathcal K$. If for all $m_0, m_1 \in \mathcal M$ and all $c \in \mathcal C$: $$P[E(K, m_0) = c] = P[E(K, m_1) = c],$$ then $\mathcal E$ is **perfectly secure**.
 
-> [!theorem] Equivalent Characterizations of Perfect Security
-> Let $\mathcal E = (E, D)$ be a Shannon cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$. The following are equivalent:
-> 1. $\mathcal E$ is perfectly secure.
-> 2. For every $c \in \mathcal C$, there exists an integer $N_c$ (possibly depending on $c$) such that for all $m \in \mathcal M$: $$|\{k \in \mathcal K : E(k, m) = c\}| = N_c.$$
-> 3. If $K$ is uniformly distributed over $\mathcal K$, then each of the random variables $E(K, m)$, for $m \in \mathcal M$, has the same distribution.
-
-> [!theorem] Predicate Form
-> Consider a probabilistic experiment in which $K$ is uniformly distributed over $\mathcal K$. Then $\mathcal E$ is perfectly secure iff for every predicate $\phi$ on $\mathcal C$, and for all $m_0, m_1 \in \mathcal M$: $$P[\phi(E(K, m_0))] = P[\phi(E(K, m_1))].$$
-
-> [!theorem] Independence Form
-> Consider a random experiment in which $K$ and $M$ are random variables such that $K$ is uniform over $\mathcal K$, $M$ is distributed over $\mathcal M$, and $K \perp M$. Let $C = E(K, M)$. Then:
-> - If $\mathcal E$ is perfectly secure, then $C$ and $M$ are independent.
-> - Conversely, if $C$ and $M$ are independent and each message in $\mathcal M$ occurs with nonzero probability, then $\mathcal E$ is perfectly secure.
-
 > [!theorem] Shannon's Theorem
 > Let $\mathcal E = (E, D)$ be a Shannon cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$. If $\mathcal E$ is perfectly secure, then $|\mathcal K| \geq |\mathcal M|$.
 
 > [!theorem] Generalized Shannon's Theorem
-> Let $\mathcal E$ be a cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$. Suppose [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Semantic Security\|semantic security]] advantage $\text{SSadv}[\mathcal A, \mathcal E] \leq \epsilon$ for all adversaries $\mathcal A$, including **computationally unbounded** ones. Then $|\mathcal K| \geq (1 - \epsilon) |\mathcal M|$.
+> Let $\mathcal E$ be a cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$. Suppose the semantic security advantage $\text{SSadv}[\mathcal A, \mathcal E] \leq \epsilon$ for all adversaries $\mathcal A$, including **computationally unbounded** ones. Then $|\mathcal K| \geq (1 - \epsilon) |\mathcal M|$.
 
-### Indistinguishability under the Eavesdropping Attacks
-
-> [!definition] IND-EAV Advantage
-> For any adversary $\mathcal A = (\mathcal A_\text{find}, \mathcal A_\text{guess})$, we define the IND-EAV advantage: 
-> $$\text{Adv}_{\text{SKE}}^{\text{EAV}} = 
-> \left|\; \Pr\!\left[ b = b' \;\middle | \; 
-> \begin{array}{l}
-> (pk, sk) \leftarrow \text{KeyGen}(); \\
-> (m_0, m_1, s) \leftarrow \mathcal A_\text{find}(pk); \\
-> b \leftarrow \{0, 1\}; c^* \leftarrow \text{Enc}(pk, m_b); \\
-> b' \leftarrow \mathcal A_\text{guess}(s, c^*)
-> \end{array} \right] 
-> \;- \frac{1}{2}
-> \right|.$$
-
-> [!definition] $(t, \varepsilon)$-IND-EAV security of a SKE
-> A SKE scheme is $(t, \varepsilon)$**-IND-EAV secure** if for every adversary $\mathcal A$ that has running time bounded by $t$, we have $$\text{Adv}_\text{SKE}^{\text{EAV}} \leq \varepsilon$$
-
-#### Message Recovery
-
-> [!algorithm] Message Recovery
-> For a given cipher $\mathcal E = (E, D)$, the attack game proceeds as follows:
-> - The challenger computes $m \xleftarrow{R} \mathcal M, k \xleftarrow{R} \mathcal K, c \xleftarrow{R} E(k, m)$, and sends $c$ to the adversary.
-> - The adversary outputs a message $\hat{m} \in \mathcal M$.
->
-> Let $W$ be the event that $\hat{m} = m$. Define $$\text{MRadv}[\mathcal A, \mathcal E] = \Pr[W] - 1/|\mathcal M|.$$
-
-> [!definition] Security Against Message Recovery
-> A cipher $\mathcal E$ is **secure against message recovery** if for all efficient adversaries $\mathcal A$, $\text{MRadv}[\mathcal A, \mathcal E]$ is negligible.
-
-> [!theorem]
-> If $\mathcal E$ is semantically secure then $\mathcal E$ is secure against message recovery.
-
-#### Parity Prediction
-
-> [!algorithm] Parity Prediction
-> For a given cipher $\mathcal E = (E, D)$, the attack game proceeds as follows:
-> - The challenger computes $m \xleftarrow{R} \mathcal M, k \xleftarrow{R} \mathcal K, c \xleftarrow{R} E(k, m)$, and sends $c$ to the adversary.
-> - The adversary outputs $\hat{b} \in \{0, 1\}$.
->
-> Let $W$ be the event that $\hat{b} = \text{parity}(m)$. Define $$\text{Parityadv}[\mathcal A, \mathcal E] = |P[W] - 1/2|.$$
-
-> [!definition] Parity Prediction Security
-> A cipher $\mathcal E$ is **secure against parity prediction** if for all efficient adversaries $\mathcal A$, $\text{Parityadv}[\mathcal A, \mathcal E]$ is negligible.
-
-> [!theorem]
-> Let $\mathcal E$ be a cipher with $\mathcal M = \{0, 1\}^L$. If $\mathcal E$ is semantically secure, then $\mathcal E$ is secure against parity prediction.
-
-#### Semantic Security: Bit-guessing Version
-
-> [!algorithm] Semantic Security: Bit-guessing Version
-> The attack game runs as follows:
-> - The adversary computes $m_0, m_1 \in \mathcal M$, of the same length, and sends them to the challenger.
-> - The challenger computes $b \xleftarrow{R} \{0, 1\}, k \xleftarrow{R} \mathcal K, c \xleftarrow{R} E(k, m_b)$, and sends $c$ to the adversary.
-> - The adversary outputs $\hat{b} \in \{0, 1\}$.
->
-> $\mathcal A$ **wins** if $\hat{b} = b$.
-
-> [!definition] Bit-guessing Semantic Security
-> If $W$ denotes the event that $\mathcal A$ wins, define $$\text{SSadv}^*[\mathcal A, \mathcal E] = |P[W] - 1/2|.$$
-
-> [!theorem]
-> For every cipher $\mathcal E$ and every adversary $\mathcal A$: $$\text{SSadv}[\mathcal A, \mathcal E] = 2 \cdot \text{SSadv}^*[\mathcal A, \mathcal E].$$
+> [!remark]
+> The equivalent characterizations (counting form, predicate form, independence form) are collected in [[knowledge/cryptography/symmetric encryption/Perfect Security\|Perfect Security]]. The canonical perfectly secure cipher is the [[knowledge/cryptography/symmetric encryption/classical/One-time Pad\|One-time Pad]].
 
 ### Indistinguishability
 
-> [!algorithm] Distinguishing $P_0$ from $P_1$
-> For probability distributions $P_0$ and $P_1$ on a finite set $\mathcal R$, and adversary $\mathcal A$, define two experiments. For $b = 0, 1$:
-> **Experiment $b$:**
-> - The challenger samples $x \xleftarrow{R} P_b$ and sends $x$ to the adversary.
-> - The adversary outputs $\hat{b} \in \{0, 1\}$.
+> [!definition] SKE Indistinguishability Advantage
+> For any adversary $\mathcal A = (\mathcal A_\text{find}, \mathcal A_\text{guess})$, we define the indistinguishability advantage:
+> $$\text{Adv}_\text{SKE}^{\text{ind-atk}}(\mathcal A) =
+> \left|\; \Pr\!\left[ b = b' \;\middle |\;
+> \begin{array}{l}
+> k \leftarrow \text{KeyGen}(); \\
+> (m_0, m_1, s) \leftarrow \mathcal A_\text{find}^{\mathcal O_\text{find}}(); \\
+> b \xleftarrow{\$} \{0, 1\}; c^* \leftarrow \text{Enc}(k, m_b); \\
+> b' \leftarrow \mathcal A_\text{guess}^{\mathcal O_\text{guess}}(s, c^*)
+> \end{array} \right]
+> \;- \frac{1}{2}
+> \right|.$$
+> Where:
+> 1. Eavesdropping Attack: $\text{atk} = \text{eav}$ then $\mathcal O_\text{find}(\cdot) = \varepsilon$ and $\mathcal O_\text{guess}(\cdot) = \varepsilon$.
+> 2. Chosen Plaintext Attack: $\text{atk} = \text{cpa}$ then $\mathcal O_\text{find}(\cdot) = \text{Enc}(k, \cdot)$ and $\mathcal O_\text{guess}(\cdot) = \text{Enc}(k, \cdot)$.
+> 3. Chosen Ciphertext Attack: $\text{atk} = \text{cca}$ then $\mathcal O_\text{find}(\cdot) = \{\text{Enc}(k, \cdot), \text{Dec}(k, \cdot)\}$ and $\mathcal O_\text{guess}(\cdot) = \{\text{Enc}(k, \cdot), \text{Dec}(k, \cdot)\}$.
 >
-> Let $W_b$ be the event that $\mathcal A$ outputs 1 in Experiment $b$. Define $$\text{Distadv}[\mathcal A, P_0, P_1] = |P[W_0] - P[W_1]|.$$
+> Also:
+> 1. The first phase adversary $\mathcal A_\text{find}$'s output should have $|m_0| = |m_1|$.
+> 2. In the chosen ciphertext attack setting, the second phase adversary $\mathcal A_\text{guess}$ is not allowed to query $c^*$ to the decryption oracle.
 
-> [!definition] Computational Indistinguishability
-> $P_0$ and $P_1$ are **computationally indistinguishable** if $\text{Distadv}[\mathcal A, P_0, P_1]$ is negligible for all efficient adversaries.
+> [!definition] $(t,\varepsilon)$-IND-ATK security of a SKE
+> A SKE scheme is **$(t, \varepsilon)$-IND-ATK secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have:
+> $$\text{Adv}_{\text{SKE}}^{\text{ind-atk}}(\mathcal A) \leq \varepsilon$$
 
-> [!definition] Statistical Distance
-> $$\Delta[P_0, P_1] = \frac{1}{2} \sum_{r \in \mathcal R} |P_0(r) - P_1(r)|.$$
+> [!remark]
+> 1. ATK here is a placeholder for the attacker. Unlike [[knowledge/cryptography/public-key encryption/Public Key Encryption#Indistinguishability\|PKE]], there is no public key, so even IND-CPA requires an explicit encryption oracle.
+> 2. IND-EAV in bit-guessing form is exactly **semantic security** (Boneh–Shoup): $\text{SSadv}[\mathcal A, \mathcal E] = 2 \cdot \text{SSadv}^*[\mathcal A, \mathcal E]$, where $\text{SSadv}^*$ is the advantage above.
+> 3. The multi-query (distinguishing) forms $\text{CPAadv}$ and $\text{CCAadv}$, where the adversary adaptively submits pairs $(m_{i0}, m_{i1})$ and must distinguish Experiment 0 from Experiment 1, are the versions used in the Construction theorems below; they relate to the bit-guessing form by a factor of 2.
+> 4. 1CCA security restricts the adversary to a single encryption query; it is the notion used in [[knowledge/cryptography/message authentication/Authenticated Encryption\|Authenticated Encryption]].
 
-> [!theorem]
-> $$\max_{\mathcal R' \subseteq \mathcal R}|P_0[\mathcal R'] - P_1[\mathcal R']| = \Delta[P_0, P_1].$$
+> [!theorem] Semantic Security $\Rightarrow$ Message Recovery Security
+> In the message recovery game, the challenger samples $m \xleftarrow{R} \mathcal M, k \xleftarrow{R} \mathcal K, c \xleftarrow{R} E(k, m)$ and the adversary outputs $\hat m$; define $\text{MRadv}[\mathcal A, \mathcal E] = \Pr[\hat m = m] - 1/|\mathcal M|$. If $\mathcal E$ is semantically secure, then $\text{MRadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
 
-> [!theorem]
-> For every adversary $\mathcal A$: $\text{Distadv}[\mathcal A, P_0, P_1] \leq \Delta[P_0, P_1]$.
-
-> [!definition] Statistical Indistinguishability
-> $P_0$ and $P_1$ are **statistically indistinguishable** if $\Delta[P_0, P_1]$ is negligible.
-
-> [!corollary]
-> Statistical indistinguishability implies computational indistinguishability.
-
-> [!theorem] Data-Processing Inequality
-> If $f: \mathcal S \rightarrow \mathcal T$ is a function and $X, Y$ are random variables on $\mathcal S$, then $\Delta[f(X), f(Y)] \leq \Delta[X, Y]$.
+> [!theorem] Semantic Security $\Rightarrow$ Parity Prediction Security
+> Let $\mathcal M = \{0, 1\}^L$. In the parity prediction game, the challenger acts as above and the adversary outputs $\hat b$; define $\text{Parityadv}[\mathcal A, \mathcal E] = |\Pr[\hat b = \text{parity}(m)] - 1/2|$. If $\mathcal E$ is semantically secure, then $\text{Parityadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
 
 ### Multi-key Semantic Security
 
-> [!algorithm] Multi-key Semantic Security
-> For $b = 0, 1$, **Experiment $b$:**
-> - The adversary submits a sequence of queries. For $i = 1, 2, \dots$, the $i$-th query is $(m_{i0}, m_{i1}) \in \mathcal M^2$, of the same length. The challenger computes $k_i \xleftarrow{R} \mathcal K, c_i \xleftarrow{R} E(k_i, m_{ib})$, and sends $c_i$ to the adversary.
-> - The adversary outputs $\hat{b} \in \{0, 1\}$.
->
-> Define $\text{MSSadv}[\mathcal A, \mathcal E] = |P[W_0] - P[W_1]|.$
+> [!definition] SKE Multi-key Semantic Security Advantage
+> For any adversary $\mathcal A$ and $b = 0, 1$, in Experiment $b$ the adversary submits queries $(m_{i0}, m_{i1}) \in \mathcal M^2$ of the same length ($i = 1, 2, \dots$); the challenger computes $k_i \leftarrow \text{KeyGen}(), c_i \leftarrow \text{Enc}(k_i, m_{ib})$ and returns $c_i$; finally the adversary outputs $\hat b \in \{0, 1\}$. Letting $W_b$ denote the event that $\hat b = 1$ in Experiment $b$, define:
+> $$\text{Adv}_\text{SKE}^{\text{mss}}(\mathcal A) = |\Pr[W_0] - \Pr[W_1]|.$$
 
-> [!definition] Multi-key Semantic Security
-> A cipher $\mathcal E$ is **multi-key semantically secure** if $\text{MSSadv}[\mathcal A, \mathcal E]$ is negligible for all efficient $\mathcal A$.
+> [!definition] $(t,\varepsilon)$-Multi-key Semantic Security of a SKE
+> A SKE scheme is **$(t, \varepsilon)$-multi-key semantically secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have:
+> $$\text{Adv}_{\text{SKE}}^{\text{mss}}(\mathcal A) \leq \varepsilon$$
 
 > [!theorem]
-> If $\mathcal E$ is semantically secure, it is multi-key semantically secure. For every MSS adversary $\mathcal A$ making at most $Q$ queries, there exists an SS adversary $\mathcal B$ (elementary wrapper) such that $$\text{MSSadv}[\mathcal A, \mathcal E] = Q \cdot \text{SSadv}[\mathcal B, \mathcal E].$$
-
-### Chosen Plaintext Attack Security
-
-> [!algorithm] CPA Security
-> For $b = 0, 1$, **Experiment $b$:**
-> - The challenger selects $k \xleftarrow{R} \mathcal K$.
-> - The adversary submits queries $(m_{i0}, m_{i1})$ for $i = 1, 2, \dots$ The challenger computes $c_i \xleftarrow{R} E(k, m_{ib})$ and returns $c_i$.
-> - The adversary outputs $\hat{b} \in \{0, 1\}$.
->
-> Define $\text{CPAadv}[\mathcal A, \mathcal E] = |P[W_0] - P[W_1]|.$
-
-> [!definition] CPA Security
-> A cipher $\mathcal E$ is called **CPA secure** if $\text{CPAadv}[\mathcal A, \mathcal E]$ is negligible for all efficient $\mathcal A$.
-
-> [!definition] $(t, \varepsilon)$-CPA Security
-> A cipher $\mathcal E$ is **$(t, \varepsilon)$-CPA secure** if every $\mathcal A$ running in time at most $t$ satisfies $\text{CPAadv}[\mathcal A, \mathcal E] \leq \varepsilon$.
-
-> [!remark] Bit-guessing Version
-> If the challenger chooses $b \in \{0, 1\}$ at random and runs Experiment $b$, define $\text{CPAadv}^*[\mathcal A, \mathcal E] = |P[\hat{b} = b] - 1/2|$. Then $\text{CPAadv}[\mathcal A, \mathcal E] = 2 \cdot \text{CPAadv}^*[\mathcal A, \mathcal E]$.
+> If $\mathcal E$ is semantically secure, it is multi-key semantically secure. For every MSS adversary $\mathcal A$ making at most $Q$ queries, there exists an SS adversary $\mathcal B$ ([[knowledge/cryptography/foundations/Elementary Wrapper\|elementary wrapper]]) such that $$\text{MSSadv}[\mathcal A, \mathcal E] = Q \cdot \text{SSadv}[\mathcal B, \mathcal E].$$
 
 ### Nonce-based CPA Security
 
-> [!algorithm] Nonce-based CPA Security
-> For a cipher $\mathcal E$ defined over $(\mathcal K, \mathcal M, \mathcal C, \mathcal N)$, for $b = 0, 1$:
-> - The challenger selects $k \xleftarrow{R} \mathcal K$.
-> - The adversary submits queries $(m_{i0}, m_{i1}, n_i)$ where $n_i \in \mathcal N \setminus \{n_1, \dots, n_{i-1}\}$. The challenger computes $c_i \leftarrow E(k, m_{ib}, n_i)$ and returns $c_i$.
-> - The adversary outputs $\hat{b}$.
->
-> Define $\text{nCPAadv}[\mathcal A, \mathcal E] = |P[W_0] - P[W_1]|.$
+> [!definition] SKE nCPA Advantage
+> For a nonce-based cipher $\mathcal E$ defined over $(\mathcal K, \mathcal M, \mathcal C, \mathcal N)$, any adversary $\mathcal A$ and $b = 0, 1$, in Experiment $b$ the challenger selects $k \leftarrow \text{KeyGen}()$; the adversary submits queries $(m_{i0}, m_{i1}, n_i)$ with $|m_{i0}| = |m_{i1}|$ and $n_i \in \mathcal N \setminus \{n_1, \dots, n_{i-1}\}$; the challenger returns $c_i \leftarrow E(k, m_{ib}, n_i)$; finally the adversary outputs $\hat b \in \{0, 1\}$. Letting $W_b$ denote the event that $\hat b = 1$ in Experiment $b$, define:
+> $$\text{Adv}_\text{SKE}^{\text{ncpa}}(\mathcal A) = |\Pr[W_0] - \Pr[W_1]|.$$
 
-> [!definition] Nonce-based CPA Security
-> A nonce-based cipher $\mathcal E$ is **nCPA secure** if $\text{nCPAadv}[\mathcal A, \mathcal E]$ is negligible for all efficient $\mathcal A$.
+> [!definition] $(t,\varepsilon)$-nCPA security of a SKE
+> A nonce-based SKE scheme is **$(t, \varepsilon)$-nCPA secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have:
+> $$\text{Adv}_{\text{SKE}}^{\text{ncpa}}(\mathcal A) \leq \varepsilon$$
 
-### Key Derivation Problem
-
-> [!algorithm] Guessing Advantage
-> Let $P$ be a probability distribution on a finite set $\mathcal S$ and let $I$ be a function on $\mathcal S$. For an adversary $\mathcal A$:
-> - The challenger samples $s$ from $P$ and sends $I(s)$ to $\mathcal A$.
-> - The adversary outputs $\hat{s}$ and wins if $\hat{s} = s$.
->
-> Denote the winning probability by $\text{Guessadv}[\mathcal A, P, I]$.
-
-### Ciphertext Integrity
-
-> [!algorithm] Ciphertext Integrity
-> For an adversary $\mathcal A$:
-> - The challenger chooses $k \xleftarrow{R} \mathcal K$.
-> - For $i = 1, 2, \dots$, $\mathcal A$ submits $m_i \in \mathcal M$; the challenger returns $c_i \xleftarrow{R} E(k, m_i)$.
-> - $\mathcal A$ eventually outputs a candidate ciphertext $c \notin \{c_1, c_2, \dots\}$.
->
-> $\mathcal A$ wins if $D(k, c) \neq \text{reject}$. Define $\text{CIadv}[\mathcal A, \mathcal E] = \Pr[\mathcal A \text{ wins}]$. $\mathcal A$ is a **$Q$-query adversary** if it issues at most $Q$ encryption queries.
-
-> [!definition] Ciphertext Integrity
-> A cipher $\mathcal E$ provides **ciphertext integrity** (CI) if $\text{CIadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
-
-> [!definition] One-time Ciphertext Integrity
-> $\mathcal E$ provides **one-time ciphertext integrity** if $\text{CIadv}[\mathcal A, \mathcal E]$ is negligible for every efficient single-query $\mathcal A$.
-
-### Chosen Ciphertext Attack Security
-
-> [!algorithm] CCA Security
-> For $b = 0, 1$, **Experiment $b$:**
-> - The challenger selects $k \xleftarrow{R} \mathcal K$.
-> - $\mathcal A$ makes a series of queries of two types:
->   - **Encryption query**: $(m_{i0}, m_{i1}) \in \mathcal M^2$. The challenger returns $c_i \xleftarrow{R} E(k, m_{ib})$.
->   - **Decryption query**: $\hat{c_j} \in \mathcal C$ with $\hat{c_j} \notin \{c_1, c_2, \dots\}$. The challenger returns $\hat{m_j} \leftarrow D(k, \hat{c_j})$.
-> - $\mathcal A$ outputs $\hat{b} \in \{0, 1\}$.
->
-> Define $\text{CCAadv}[\mathcal A, \mathcal E] = |P[W_0] - P[W_1]|.$
-
-> [!definition] CCA Security
-> A cipher $\mathcal E$ is **CCA-secure** if $\text{CCAadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
-
-> [!definition] 1CCA Security
-> If $\mathcal A$ is restricted to a single encryption query, denote its advantage $\text{1CCAadv}$. $\mathcal E$ is **1CCA-secure** if $\text{1CCAadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
+> [!remark]
+> Integrity notions — ciphertext integrity (CI) and AE security — live in [[knowledge/cryptography/message authentication/Authenticated Encryption\|Authenticated Encryption]]. The distribution-distinguishing toolkit ($\text{Distadv}$, statistical distance, data-processing inequality) lives in [[knowledge/cryptography/foundations/Computational Indistinguishability\|Computational Indistinguishability]] and [[knowledge/math/probability/Statistical Distance\|Statistical Distance]]. The guessing-advantage game lives in [[knowledge/cryptography/key establishment/Key Derivation Problem\|Key Derivation Problem]].
 
 ## Construction
 
@@ -345,7 +203,7 @@
 
 ### One-time Pad — Canonical Perfectly-Secure Cipher
 
-See [[knowledge/cryptography/symmetric encryption/classical/One-time Pad\|One-time Pad]]. The one-time pad is the canonical example of perfect security: $\mathcal K = \mathcal M = \mathcal C = \{0, 1\}^L$ with $E(k, m) = D(k, m) = k \oplus m$. By Shannon's Theorem this achieves the minimum-possible $|\mathcal K| = |\mathcal M|$ for any perfectly-secure cipher.
+See [[knowledge/cryptography/symmetric encryption/classical/One-time Pad\|One-time Pad]]. The one-time pad is the canonical example of [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Perfect Security\|perfect security]]: $\mathcal K = \mathcal M = \mathcal C = \{0, 1\}^L$ with $E(k, m) = D(k, m) = k \oplus m$. By Shannon's Theorem this achieves the minimum-possible $|\mathcal K| = |\mathcal M|$ for any perfectly-secure cipher.
 
 ### Classical schemes
 
