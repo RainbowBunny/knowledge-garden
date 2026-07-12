@@ -71,21 +71,21 @@
 > \;- \frac{1}{2}
 > \right|.$$
 > Where:
-> 1. Chosen Ciphertext Attack: $\text{atk} = \text{cca}$ then $\mathcal O_\text{find}(\cdot) = \varepsilon$ and $\mathcal O_\text{guess}(\cdot) = \varepsilon$.
-> 2. Lunch Time Attack: $\text{atk} = \text{lta}$ then $\mathcal O_\text{find}(\cdot) = \text{Dec}(sk, \cdot)$ and $\mathcal O_\text{guess}(\cdot) = \varepsilon$.
-> 3. Adaptive Chosen Ciphertext Attack: $\text{atk} = \text{cca}$ then $\mathcal O_\text{find}(\cdot) = \text{Dec}(sk, \cdot)$ and $\mathcal O_\text{guess}(sk, \cdot)$
+> 1. Chosen Plaintext Attack: $\text{atk} = \text{cpa}$ then $\mathcal O_\text{find}(\cdot) = \varepsilon$ and $\mathcal O_\text{guess}(\cdot) = \varepsilon$.
+> 2. Lunch Time Attack: $\text{atk} = \text{lta}$ (or sometimes $\text{cca1}$) then $\mathcal O_\text{find}(\cdot) = \text{Dec}(sk, \cdot)$ and $\mathcal O_\text{guess}(\cdot) = \varepsilon$.
+> 3. Adaptive Chosen Ciphertext Attack: $\text{atk} = \text{cca}$ then $\mathcal O_\text{find}(\cdot) = \text{Dec}(sk, \cdot)$ and $\mathcal O_\text{guess}(\cdot) = \text{Dec}(sk, \cdot)$
 > 
 > Also:
-> 1. The first phase adversary $\mathcal A_\text{find}$'s output should have $|m_0| = |m_1|$.
-> 2. In the adaptive chosen ciphertext attack setting, the second phase adversary $\mathcal A_2$ is not allowed to query $c^*$ to the oracle.
+> 4. The first phase adversary $\mathcal A_\text{find}$'s output should have $|m_0| = |m_1|$.
+> 5. In the adaptive chosen ciphertext attack setting, the second phase adversary $\mathcal A_2$ is not allowed to query $c^*$ to the oracle.
 
 > [!definition] $(t,\varepsilon)$-IND-ATK security of a PKE 
 > A PKE scheme is **$(t, \varepsilon)$-IND-ATK secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have: 
 > $$\text{Adv}_{\text{PKE}}^{\text{ind-atk}}(\mathcal A) \leq \varepsilon$$
 
 > [!remark]
-> 1. ATK here is a placeholder for the attacker.
-> 2. Lunch time attack means that only one phase (before lunch) for oracle.
+> 6. ATK here is a placeholder for the attacker.
+> 7. Lunch time attack means that only one phase (before lunch) for oracle.
 
  > [!security]
  > If a public-key encryption scheme $\mathcal E$ is semantically secure, then it is also CPA secure.

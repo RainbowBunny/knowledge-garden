@@ -26,6 +26,9 @@
 > [!corollary]
 > Statistical indistinguishability implies computational indistinguishability. The converse fails: e.g. the output of a secure PRG is computationally, but not statistically, indistinguishable from uniform.
 
+> [!theorem]
+> If $\mathcal S$ and $\mathcal T$ are finite sets, $X$ and $Y$ are random variables taking values in $\mathcal S$, and $f: \mathcal S \rightarrow \mathcal T$ is a function, then $\Delta[f(X), f(Y)] \leq \Delta[X, Y]$
+
 ## Application
 
 - [[knowledge/cryptography/symmetric encryption/Symmetric Key Encryption#Indistinguishability\|Symmetric Key Encryption#Indistinguishability]] and [[knowledge/cryptography/public-key encryption/Public Key Encryption#Indistinguishability\|Public Key Encryption#Indistinguishability]] — security definitions are distinguishing games between two ciphertext distributions.
