@@ -131,6 +131,13 @@ Paper index, grouped by area. Rows marked ★ are canonical high-impact papers a
 |---|---|
 | Split gadget lattice trapdoor (limited usage due to weak security model) | [Partial Lattice Trapdoors: How to Split Lattice Trapdoors, Literally](https://eprint.iacr.org/2025/367) |
 
+## Code-based
+
+| Paper                                                           | Link                                  |
+| --------------------------------------------------------------- | ------------------------------------- |
+| LowMS: a new rank metric code-based KEM without ideal structure | https://eprint.iacr.org/2022/1596.pdf |
+
+
 ## MPC
 
 | Paper | Link |
