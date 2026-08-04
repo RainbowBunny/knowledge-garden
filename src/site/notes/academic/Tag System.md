@@ -257,3 +257,13 @@ The tagging is opt-in. You don't need to backfill every note before it's useful.
 3. After a month or two, run a `grep` audit for notes still missing `tags:` and decide whether to bulk-tag the largest folders.
 
 The callouts are already in place across the vault — the new types (`security`, `construction`, `scheme`, `attack`, `intuition`) just need to be used going forward; existing notes are unchanged.
+
+
+$$\begin{array}{lcl} 
+\textbf{Prover} & & \textbf{Verifier} \\[4pt] 
+(x = \log_g h) & & \\[6pt] 
+r \xleftarrow{\$} \mathbb{Z}_p & & \\ 
+a \leftarrow g^r & \xrightarrow{\quad a \quad} & \\[6pt] 
+& \xleftarrow{\quad e \quad} & e \xleftarrow{\$} \mathbb{Z}_p \\[6pt]
+\sigma \leftarrow ex + r & \xrightarrow{\quad \sigma \quad} & g^{\sigma} \stackrel{?}{=} h^{e} a 
+\end{array}$$
