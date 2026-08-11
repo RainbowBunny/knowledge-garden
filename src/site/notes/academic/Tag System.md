@@ -3,26 +3,66 @@
 ---
 
 
-# Tag System
 
 Probability: Use $\Pr$ notation.
 When you use equation by double $ instead of single $, then you need the new line.
 Random: use $ to sample from a distribution ($A \xleftarrow{\$} B$)
+PMF: $P$; PDF: $f$.
+Expected Value: $\mathbb E$
+Even though \gets and \leftarrow is equivalence, pref use \leftarrow
 
-The vault uses **two layers** of semantic markup. They serve different jobs and shouldn't be collapsed into each other.
+| Type                                   | Style                |
+| -------------------------------------- | -------------------- |
+| Variable                               | \mathrm              |
+| Algorithms, Adv, Property              | \mathsf              |
+| Scalar                                 | Lowercase            |
+| Vector                                 | \mathbf, \boldsymbol |
+| Matrix                                 | Uppercase            |
+| sets, relations, families, adversaries | \mathcal             |
 
-| Layer | Lives in | Answers | Cardinality |
-|---|---|---|---|
-| **Inline callouts** | Body of the note | "What *parts* are in here?" | Many per note |
-| **YAML frontmatter `tags`** | Top of the note | "What *is* this note?" | One set per note |
+Need to refactor!!! Don't be lazy
+Communication:
 
-Callouts give content typing (every definition, theorem, scheme is wrapped in a styled block). Frontmatter tags give note typing (queryable via Obsidian's tag pane and Dataview's `file.tags`).
+$$\begin{array}{lcl} 
+\mathsf{Prover} & & \mathsf{Verifier} \\[4pt] 
+(x = \log_g h) & & \\[6pt] 
+r \xleftarrow{\$} \mathbb{Z}_p & & \\ 
+a \leftarrow g^r & \xrightarrow{\quad a \quad} & \\[6pt] 
+& \xleftarrow{\quad e \quad} & e \xleftarrow{\$} \mathbb{Z}_p \\[6pt]
+\sigma \leftarrow ex + r & \xrightarrow{\quad \sigma \quad} & g^{\sigma} \stackrel{?}{=} h^{e} a 
+\end{array}$$
 
----
 
-## Layer 1 — Inline callouts (`> [!type]`)
+| Base                                | Kind                                                              |
+| ----------------------------------- | ----------------------------------------------------------------- |
+| $\varepsilon_\bullet$               | error probability (something fails)                               |
+| $\mathsf{Adv}^{\bullet}_{\bullet}$​ | advantage (∣Pr⁡−1/2∣\vert\Pr - 1/2\vert ∣Pr−1/2∣ or a difference) |
+| $\Delta(\cdot,\cdot)$               | statistical distance                                              |
 
-All callout names are **lowercase**. Capitalized variants don't get styled — the CSS selectors are case-sensitive. Styles live in `.obsidian/snippets/math-blocks.css` and `pseudocode-callout.css`.
+
+| Parameter | Meaning                |
+| --------- | ---------------------- |
+| $\lambda$ | Computational Security |
+| $\kappa$  | Statistical Security   |
+
+
+|                     |     |
+| ------------------- | --- |
+| Knowledge Soundness | ks  |
+
+ $$\text{Adv}_\text{MLWE}^\text{search}(\mathcal A) = 
+ \Pr\!\left[ 
+ \begin{array}{l}
+ s \in \chi_s^k \\
+ (b - As \bmod q) \in \chi_e^m
+ \end{array} 
+ \;\middle |\; 
+ \begin{array}{l}
+ (A, b) \leftarrow \text{MLWE}(d, k, m, q, \chi_s, \chi_e) \\
+ s \leftarrow \mathcal A_\text{search}(A, b)
+ \end{array} \right] 
+ $$
+
 
 ### Mathematical content
 
@@ -123,147 +163,7 @@ Always lowercase. If you write `[!Definition]` or `[!Theorem]`, the styles will 
 
 ---
 
-## Layer 2 — YAML frontmatter `tags`
-
-Every note should ideally start with a frontmatter block. Hierarchical tags work natively (Obsidian renders `area/crypto/sig` as a nested tag in the tag pane, and Dataview can filter by prefix).
-
-```yaml
----
-tags:
-  - domain/crypto
-  - area/crypto/sig
-  - kind/scheme
-  - status/done
-  - source/boneh-shoup
----
-```
-
-### Tag namespaces
-
-**`domain/*`** — top-level subject:
-`domain/crypto`, `domain/cs`, `domain/math`, `domain/security`, `domain/econ`, `domain/finance`
-
-**`area/*`** — sub-area, hierarchical, mirrors folder layout:
-
-- Crypto: `area/crypto/foundations`, `area/crypto/symmetric`, `area/crypto/mac`, `area/crypto/pke`, `area/crypto/sig`, `area/crypto/kex`, `area/crypto/kem`, `area/crypto/id`, `area/crypto/zk`, `area/crypto/threshold`, `area/crypto/mpc`, `area/crypto/he`, `area/crypto/ecc`, `area/crypto/pq/lattice`, `area/crypto/pq/code`, `area/crypto/assumptions/dlp`, `area/crypto/assumptions/lattice`, `area/crypto/assumptions/idealized`, `area/crypto/cryptanalysis`
-- CS: `area/cs/foundations`, `area/cs/data-structures`, `area/cs/algorithms/dp`, `area/cs/algorithms/greedy`, `area/cs/graph`, `area/cs/computability`, `area/cs/math`, `area/cs/problems`
-- Complexity (separate domain): `area/complexity/foundations`, `area/complexity/time`, `area/complexity/space`, `area/complexity/randomized`, `area/complexity/circuit`, `area/complexity/interactive`, `area/complexity/quantum`, `area/complexity/conjectures`
-- Math: `area/math/algebra`, `area/math/calculus`, `area/math/linear-algebra`, `area/math/number-theory`, `area/math/probability`
-
-**`kind/*`** — what role the note plays:
-
-| Tag | Meaning |
-|---|---|
-| `kind/moc` | MOC index file (links to others, no original content) |
-| `kind/primitive` | Foundational primitive (PRF, hash, MAC) |
-| `kind/scheme` | A concrete named scheme (RSA, Kyber, AES) |
-| `kind/protocol` | An interactive protocol (Schnorr ID, ZK) |
-| `kind/problem` | A hard problem / assumption (DLP, LWE) |
-| `kind/attack` | A concrete attack (CRIME, Bleichenbacher) |
-| `kind/theory` | Security definitions, models |
-| `kind/notes` | Lecture-style scratch, not yet refined |
-
-**`status/*`** — completion stage:
-
-| Tag | Meaning |
-|---|---|
-| `status/stub` | Placeholder, mostly empty |
-| `status/draft` | First pass, may have holes |
-| `status/review` | Content present, needs second pass |
-| `status/done` | Ready to reference / share |
-
-**`source/*`** — textbook or origin:
-
-`source/boneh-shoup`, `source/silverman`, `source/katz-lindell`, `source/clrs`, `source/sipser`, `source/own`, `source/lecture`, `source/paper`
-
----
-
-## Examples
-
-### A scheme note (e.g. `digital signatures/Dilithium.md`)
-
-```yaml
----
-tags:
-  - domain/crypto
-  - area/crypto/sig
-  - area/crypto/pq/lattice     # cross-area: it's both a signature and PQ
-  - kind/scheme
-  - status/done
-  - source/own
----
-```
-
-Body uses `[!definition]` for the math objects, `[!scheme]` for the key-gen/sign/verify triple, `[!theorem]` for the EUF-CMA reduction, `[!security]` for the concrete bound.
-
-### A problem note (e.g. `assumptions/dlp/Discrete Logarithm Problem.md`)
-
-```yaml
----
-tags:
-  - domain/crypto
-  - area/crypto/hardproblem/dlp
-  - kind/problem
-  - status/done
-  - source/boneh-shoup
----
-```
-
-Body uses `[!definition]` for the problem statement, `[!theorem]` for hardness results, `[!algorithm]` for solvers (BSGS, Pohlig-Hellman) if they're inlined.
-
-### An MOC
-
-```yaml
----
-tags:
-  - domain/crypto
-  - kind/moc
-  - status/done
----
-```
-
----
-
-## Querying
-
-**Tag pane (sidebar):** click a hierarchical tag to filter notes — clicking `area/crypto` shows everything under crypto, clicking `area/crypto/sig` narrows to signatures.
-
-**Dataview** — show every signature scheme:
-
-````markdown
-| File | Tags | Modified |
-| ---- | ---- | -------- |
-
-{ .block-language-dataview}
-````
-
-**Dataview** — show every theorem in the crypto folder:
-
-````markdown
-| Note | Theorems |
-| ---- | -------- |
-
-{ .block-language-dataview}
-````
-
----
-
-## Migration plan
-
-The tagging is opt-in. You don't need to backfill every note before it's useful. A reasonable rollout:
-
-1. Start with MOCs: add `kind/moc` + the appropriate `domain/*` and `status/done`. ~20 files.
-2. As you touch any note for refactoring or expansion, add its frontmatter then.
-3. After a month or two, run a `grep` audit for notes still missing `tags:` and decide whether to bulk-tag the largest folders.
-
-The callouts are already in place across the vault — the new types (`security`, `construction`, `scheme`, `attack`, `intuition`) just need to be used going forward; existing notes are unchanged.
 
 
-$$\begin{array}{lcl} 
-\textbf{Prover} & & \textbf{Verifier} \\[4pt] 
-(x = \log_g h) & & \\[6pt] 
-r \xleftarrow{\$} \mathbb{Z}_p & & \\ 
-a \leftarrow g^r & \xrightarrow{\quad a \quad} & \\[6pt] 
-& \xleftarrow{\quad e \quad} & e \xleftarrow{\$} \mathbb{Z}_p \\[6pt]
-\sigma \leftarrow ex + r & \xrightarrow{\quad \sigma \quad} & g^{\sigma} \stackrel{?}{=} h^{e} a 
-\end{array}$$
+
+

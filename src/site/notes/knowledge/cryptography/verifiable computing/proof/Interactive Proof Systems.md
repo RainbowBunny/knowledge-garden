@@ -23,7 +23,7 @@ Reference: https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf
 > [!definition] Completeness Error
 > An interactive proof system $(\mathcal P, \mathcal V)$ is said to have **completeness error** $\delta_c$ if:
 > - For every $x \in \{0, 1\}^n$,
-> $$\text{Adv}_{\mathcal V}^\text{com}(\mathcal P) = 
+> $$\mathsf{Adv}_{\mathcal V}^\text{com}(\mathcal P) = 
 > \; \Pr\!\left[
 > \begin{array}{l}
 > \text{out}(\mathcal V, x, r, \mathcal P) = \text{accept}
@@ -44,8 +44,8 @@ Reference: https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf
 ### Soundness
 
 > [!definition] Soundness Error
-> An interactive proof system $(\mathcal V, \mathcal P)$ is said to have **soundness error** $\delta_s$ if for every deterministic prover strategy $\mathcal P'$:
-> $$\text{Adv}_{\mathcal V}^\text{snd}(\mathcal P') = 
+> An interactive proof system $(\mathcal V, \mathcal P)$ is said to have **soundness error** $\varepsilon_{\mathsf{snd}}$ if for every deterministic prover strategy $\mathcal P'$:
+> $$\text{Adv}_{\mathcal V}^\mathsf{snd}(\mathcal P') = 
 > \; \Pr\!\left[
 > \begin{array}{l}
 > y \neq f(x) \\
@@ -55,7 +55,7 @@ Reference: https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf
 > \begin{array}{l}
 > x \xleftarrow{\$} \{0, 1\}^n \\
 > y \leftarrow \mathcal P'()
-> \end{array} \right] \leq \delta_s$$
+> \end{array} \right] \leq \varepsilon_{\mathsf{snd}}$$
 
 > [!remark]
 > The soundness condition requires that false statement of the form "$f(x) = y$" for any $y \neq f(x)$ lack a convincing proof.
@@ -65,6 +65,10 @@ Reference: https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf
 > - If the prover computing power is bounded, we call the property **computationally soundness**.
 
 ### Knowledge Soundness
+
+> [!definition] Knowledge Soundness
+> An interactive prove $\Pi = (\mathcal P, \mathcal V)$ is knowledge sound for an [[knowledge/cryptography/verifiable computing/proof/Effective Relation\|Effective Relation]] $R$ if there exists an efficient [[Knowledge Extractor\|Knowledge Extractor]] $\mathcal E$, such that for all $(x, w) \in R$ and all provers $\mathcal P'$, we have
+> $$\text{Adv}_{\mathcal V}^{\text{knw-snd}}(\mathcal P') = \text{Adv}_{\mathcal V}^{\text{com}}(\mathcal P') - \Pr[(x, w') \in R \;|\; w' \leftarrow \mathcal E^{\mathcal P'}(x)]$$
 
 > [!remark]
 > Knowledge soundness condition requires that not only a witness exists but also the prover need to know one witness $w$.
