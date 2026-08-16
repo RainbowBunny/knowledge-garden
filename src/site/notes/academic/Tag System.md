@@ -17,8 +17,9 @@ Even though \gets and \leftarrow is equivalence, pref use \leftarrow
 | Algorithms, Adv, Property              | \mathsf              |
 | Scalar                                 | Lowercase            |
 | Vector                                 | \mathbf, \boldsymbol |
-| Matrix                                 | Uppercase            |
+| Matrix                                 | Bold Uppercase       |
 | sets, relations, families, adversaries | \mathcal             |
+Use \mbox for -
 
 Need to refactor!!! Don't be lazy
 Communication:
@@ -49,20 +50,51 @@ a \leftarrow g^r & \xrightarrow{\quad a \quad} & \\[6pt]
 |                     |     |
 | ------------------- | --- |
 | Knowledge Soundness | ks  |
+For any 
+$$\mathsf{Adv}_\mathsf{MLWE}^\mathsf{search}(\mathcal A) = 
+\Pr\!\left[ 
+\begin{array}{l}
+s \in \chi_s^k \\
+(b - As \bmod q) \in \chi_e^m
+\end{array} 
+\;\middle |\; 
+\begin{array}{l}
+(A, b) \leftarrow \mathsf{MLWE}(d, k, m, q, \chi_s, \chi_e) \\
+s \leftarrow \mathcal A_\mathsf{search}(A, b)
+\end{array} \right] 
+$$
 
- $$\text{Adv}_\text{MLWE}^\text{search}(\mathcal A) = 
- \Pr\!\left[ 
- \begin{array}{l}
- s \in \chi_s^k \\
- (b - As \bmod q) \in \chi_e^m
- \end{array} 
- \;\middle |\; 
- \begin{array}{l}
- (A, b) \leftarrow \text{MLWE}(d, k, m, q, \chi_s, \chi_e) \\
- s \leftarrow \mathcal A_\text{search}(A, b)
- \end{array} \right] 
- $$
-
+$$\mathsf{Adv}_\mathsf{PKE}^{\mathsf{nm-atk}}(\mathcal A) = 
+\left|\; \Pr\!\left[
+\begin{array}{l}
+c \notin (c_1, \dots, c_n) \; \\ 
+\perp \; \notin (m_1, \dots, m_n) \\ 
+R(m, (m_1, \dots, m_n))
+\end{array}
+\;\middle |\; 
+\begin{array}{l}
+(pk, sk) \leftarrow \text{Gen}(); \\
+(M, s) \leftarrow \mathcal A_\text{find}^{\mathcal O_\text{find}}(pk); \\
+m \leftarrow M; c \leftarrow \text{Enc}(pk, m) \\
+(R, (c_1, \dots, c_n)) \leftarrow \mathcal A_\text{maul}^{\mathcal O_\text{maul}} (M, s, c); \\
+(m_1, \dots, m_n) \leftarrow \text{Dec}(sk, (y_1, \dots, y_n)))
+\end{array} \right] 
+\;- 
+\Pr\!\left[
+\begin{array}{l}
+c \notin (c_1, \dots, c_n) \; \\ 
+\perp \; \notin (m_1, \dots, m_n) \\ 
+R(\tilde m, (m_1, \dots, m_n))
+\end{array}
+\;\middle |\; 
+\begin{array}{l}
+(pk, sk) \leftarrow \text{Gen}(); \\
+(M, s) \leftarrow \mathcal A_\text{find}^{\mathcal O_\text{find}}(pk); \\
+m, \tilde m \leftarrow M; c \leftarrow \text{Enc}(pk, m) \\
+(R, (c_1, \dots, c_n)) \leftarrow \mathcal A_\text{maul}^{\mathcal O_\text{maul}} (M, s, c); \\
+(m_1, \dots, m_n) \leftarrow \text{Dec}(sk, (y_1, \dots, y_n)))
+\end{array} \right] 
+\right|.$$
 
 ### Mathematical content
 

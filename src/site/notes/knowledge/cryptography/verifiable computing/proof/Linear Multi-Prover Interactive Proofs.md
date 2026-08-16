@@ -9,7 +9,7 @@ Reference:
 
 > [!definition] Linear Multi-Prover Interactive Proofs
 > ### Parameters
-> - $(x, w)$: Element of [[knowledge/cryptography/verifiable computing/proof/Effective Relation\|Effective Relation]] of $\text{NP}$ language.
+> - $(x, w)$: Element of [[knowledge/cryptography/verifiable computing/relations/Effective Relation\|Effective Relation]] of $\text{NP}$ language.
 > - $n$: Proof length.
 > - $\ell$: Number of provers
 > - $\mathbb F$: Finite field.

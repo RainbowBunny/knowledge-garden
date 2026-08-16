@@ -14,7 +14,8 @@
 
 ### Completeness
 
-- See interactive proof system [[knowledge/cryptography/verifiable computing/proof/Interactive Proof Systems#Completeness\|Completeness]].
+> [!definition] Completeness
+> See interactive proof system [[knowledge/cryptography/verifiable computing/proof/Interactive Proof Systems#Completeness\|Completeness]].
 
 ### Succinct
 

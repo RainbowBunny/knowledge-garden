@@ -45,7 +45,7 @@ Reference: https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf
 
 > [!definition] Soundness Error
 > An interactive proof system $(\mathcal V, \mathcal P)$ is said to have **soundness error** $\varepsilon_{\mathsf{snd}}$ if for every deterministic prover strategy $\mathcal P'$:
-> $$\text{Adv}_{\mathcal V}^\mathsf{snd}(\mathcal P') = 
+> $$\mathsf{Adv}_{\mathcal V}^\mathsf{snd}(\mathcal P') = 
 > \; \Pr\!\left[
 > \begin{array}{l}
 > y \neq f(x) \\
@@ -67,8 +67,8 @@ Reference: https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf
 ### Knowledge Soundness
 
 > [!definition] Knowledge Soundness
-> An interactive prove $\Pi = (\mathcal P, \mathcal V)$ is knowledge sound for an [[knowledge/cryptography/verifiable computing/proof/Effective Relation\|Effective Relation]] $R$ if there exists an efficient [[Knowledge Extractor\|Knowledge Extractor]] $\mathcal E$, such that for all $(x, w) \in R$ and all provers $\mathcal P'$, we have
-> $$\text{Adv}_{\mathcal V}^{\text{knw-snd}}(\mathcal P') = \text{Adv}_{\mathcal V}^{\text{com}}(\mathcal P') - \Pr[(x, w') \in R \;|\; w' \leftarrow \mathcal E^{\mathcal P'}(x)]$$
+> An interactive prove $\Pi = (\mathcal P, \mathcal V)$ is knowledge sound for an [[knowledge/cryptography/verifiable computing/relations/Effective Relation\|Effective Relation]] $R$ if there exists an efficient [[Knowledge Extractor\|Knowledge Extractor]] $\mathcal E$, such that for all $(x, w) \in R$ and all provers $\mathcal P'$, we have
+> $$\mathsf{Adv}_{\mathcal V}^{\mathsf{ks}}(\mathcal P') = \mathsf{Adv}_{\mathcal V}^{\mathsf{com}}(\mathcal P') - \Pr[(x, w') \in R \;|\; w' \leftarrow \mathcal E^{\mathcal P'}(x)]$$
 
 > [!remark]
 > Knowledge soundness condition requires that not only a witness exists but also the prover need to know one witness $w$.
