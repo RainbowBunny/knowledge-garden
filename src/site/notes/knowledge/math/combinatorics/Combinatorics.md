@@ -50,10 +50,12 @@
 > Let $S$ be a set containing $n$ distinct objects. A **combination of** $r$ objects of $S$ is a subset consisting of exactly $r$ distinct elements of $S$, where the order of the objects in the subset does not matter.
 
 > [!proposition]
-> The number of possible combinations of $r$ objects chosen from a set of $n$ objects is equal to $$\binom{n}{r} = \frac{n!}{r!(n - r)!}$$
+> The number of possible combinations of $r$ objects chosen from a set of $n$ objects is equal to 
+> $$\binom{n}{r} = \frac{n!}{r!(n - r)!}$$
 
 > [!definition] Multinomial Coefficients
-> The number of ways to divide $n$ distinct objects to $r$ distinct groups of sizes $n_1, n_2, \dots, n_r$ is given by $$\binom{n}{n_1, n_2, \dots, n_r} = \frac{n!}{n_1! n_2! \dots n_r!}$$
+> The number of ways to divide $n$ distinct objects to $r$ distinct groups of sizes $n_1, n_2, \dots, n_r$ is given by 
+> $$\binom{n}{n_1, n_2, \dots, n_r} = \frac{n!}{n_1! n_2! \dots n_r!}$$
 
 | Properties               | Remark         | Formula                                                                                                                                                                                   |
 | ------------------------ | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -72,7 +74,8 @@
 
 > [!proposition] Multinomial Formula
 > Suppose that an experiment has $r$ possible outcomes, so the sample space is given by $$S = \{s_1, s_2, \dots, s_r\}.$$
-> Also suppose that $P(s_i) = p_i$ for $i = 1, 2, \dots, r$. Then for $n = n_1 + n_2 + \dots + n_r$ independent trials of this experiment, the probability that each $s_i$ appears $n_i$ times is given by $$\binom{n}{n_1, n_2, \dots, n_r} p_1^{n_1} p_2^{n_2} \dots p_r^{n_r} = \frac{n!}{n_1! n_2! \dots n_r!} p_1^{n_1} p_2^{n_2} \dots p_r^{n_r}.$$
+> Also suppose that $P(s_i) = p_i$ for $i = 1, 2, \dots, r$. Then for $n = n_1 + n_2 + \dots + n_r$ independent trials of this experiment, the probability that each $s_i$ appears $n_i$ times is given by 
+> $$\binom{n}{n_1, n_2, \dots, n_r} p_1^{n_1} p_2^{n_2} \dots p_r^{n_r} = \frac{n!}{n_1! n_2! \dots n_r!} p_1^{n_1} p_2^{n_2} \dots p_r^{n_r}.$$
 
 > [!example]
 > Let $p$ be a prime number.
@@ -81,7 +84,8 @@
 > 3. $(a + b)^p \equiv a^p + b^p \pmod p$
 
 > [!definition] Binomial of real number
-> Let $\alpha$ is an arbitrary real numbers, then $$\binom{\alpha}{n} = \frac{\alpha (\alpha - 1) \cdots (\alpha - n + 1)}{n!}$$
+> Let $\alpha$ is an arbitrary real numbers, then 
+> $$\binom{\alpha}{n} = \frac{\alpha (\alpha - 1) \cdots (\alpha - n + 1)}{n!}$$
 
 ## Unordered Sampling with Replacement
 
@@ -89,7 +93,10 @@
 > The total number of distinct $k$ samples from an $n$-element set such that repetition is allowed and ordering does not matter is the same as the number of distinct solutions to the equation $$x_1 + x_2 + \dots + x_n = k, \text{where } x_i \in \{0, 1, 2, 3, \dots\}.$$
 
 > [!theorem]
-> The number of distinct solutions to the equation $$x_1 + x_2 + \dots + x_n = k, \text{where } x_i \in \{0, 1, 2, 3, \dots\}.$$ is equal to $$\binom{n + k - 1}{k} = \binom{n + k - 1}{n - 1}.$$
+> The number of distinct solutions to the equation 
+> $$x_1 + x_2 + \dots + x_n = k, \text{where } x_i \in \{0, 1, 2, 3, \dots\}.$$ 
+> is equal to 
+> $$\binom{n + k - 1}{k} = \binom{n + k - 1}{n - 1}.$$
 
 > [!proof]
 > We can represent the equation by the unary representation $x_i$ to get a sequence of $k$ character $1$ and $n - 1$ character $+$
@@ -100,8 +107,11 @@
 
 > [!proposition]
 > Let $b_n$ denote the number of different binary trees with $n$ nodes:
-> 1. Recurrence formula: $b_0 = 1$ and for $n \geq 1$, $$b_n = \sum_{k = 0}^{n - 1} b_k b_{n - 1 - k}$$
-> 2. Let $B(x)$ be the generating function $$B(x) = \sum_{n = 0}^\infty b_n x^n.$$ Then $B(x) = xB(x)^2 + 1$, and hence $B(x) = \frac{1}{2x}(1 - \sqrt{1 - 4x})$.
+> 1. Recurrence formula: $b_0 = 1$ and for $n \geq 1$, 
+> $$b_n = \sum_{k = 0}^{n - 1} b_k b_{n - 1 - k}$$
+> 2. Let $B(x)$ be the generating function 
+> $$B(x) = \sum_{n = 0}^\infty b_n x^n.$$ 
+> Then $B(x) = xB(x)^2 + 1$, and hence $B(x) = \frac{1}{2x}(1 - \sqrt{1 - 4x})$.
 > 3. $b_n = \frac{1}{n + 1} \binom{2n}{n}$ is the $n$-th **Catalan number**.
 > 4. $b_n = \frac{4^n}{\sqrt{\pi} n^{3/2}} (1 + O(1 / n))$.
 
