@@ -70,7 +70,8 @@
 |                          |                |                                                                                                                                                                                           |
 
 > [!proposition] Binomial Formula
-> For $n$ independent Bernoulli trials where each trial success probability $p$, the probability of $k$ successes is given by $$P(k) = \binom{n}{k} p^k (1 - p)^{n - k}$$
+> For $n$ independent Bernoulli trials where each trial success probability $p$, the probability of $k$ successes is given by 
+> $$P(k) = \binom{n}{k} p^k (1 - p)^{n - k}$$
 
 > [!proposition] Multinomial Formula
 > Suppose that an experiment has $r$ possible outcomes, so the sample space is given by $$S = \{s_1, s_2, \dots, s_r\}.$$

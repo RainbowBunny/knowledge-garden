@@ -13,6 +13,11 @@ Reference:
 > - $\boldsymbol{\pi} \leftarrow \mathsf{Prove}(\mathcal{CS}, \mathbf{x}, \mathbf{w})$: On statement $\mathbf{x} \in \mathbb{F}^n$ and a witness $\mathbf{w} \in \mathbb{F}^{N_w}$, the prove algorithm outputs a proof $\boldsymbol{\pi} \in \mathbb{F}^m$.
 > - $b \leftarrow \mathsf{Verify}(\mathrm{st}, \mathbf{x}, \mathbf{a})$: On input the verification state $\mathrm{st}$, the statement $\mathbf{x} \in \mathbb{F}^n$, and a vector of responses $\mathbf{a} \in \mathbb{F}^k$, the verification algorithm outputs a bit $b \in \{0, 1\}$.
 
+> [!definition] Linear Oracle
+> For $\boldsymbol{\pi} \in \mathbb F^m$ and $\mathbf{Q} \in \mathbb{F}^{m \times k}$, the responses $\mathbf{a}$ is calculated as follow:
+> $$\mathbf a_{\boldsymbol\pi, \mathbf Q} := \mathbf Q^T\boldsymbol\pi = \big(\langle \mathbf q_1, \boldsymbol\pi\rangle, \dots, \langle \mathbf q_k, \boldsymbol\pi\rangle\big) \in \mathbb F^k.$$
+> Note that the verifier $\mathcal V$ only has access to this response, not the proof string $\boldsymbol{\pi}$.
+
 ## Property
 
 ### Completeness
