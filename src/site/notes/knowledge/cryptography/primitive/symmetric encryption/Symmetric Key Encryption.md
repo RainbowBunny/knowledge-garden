@@ -207,8 +207,8 @@ See [[knowledge/cryptography/primitive/symmetric encryption/classical/One-time P
 
 ### Classical schemes
 
-See [[symmetric encryption/classical/\|classical/]] for the historical schemes: [[knowledge/cryptography/primitive/symmetric encryption/classical/Substitution Cipher\|Substitution Cipher]], [[knowledge/cryptography/primitive/symmetric encryption/classical/Multiplicative Encryption\|Multiplicative Encryption]], [[knowledge/cryptography/primitive/symmetric encryption/classical/Affine Cipher\|Affine Cipher]], [[knowledge/cryptography/primitive/symmetric encryption/classical/Hill Cipher\|Hill Cipher]], [[knowledge/cryptography/primitive/symmetric encryption/classical/Vigenère cipher\|Vigenère cipher]], and others. These illustrate the development of the field but are insecure by modern standards.
+See  for the historical schemes: [[knowledge/cryptography/primitive/symmetric encryption/classical/Substitution Cipher\|Substitution Cipher]], [[knowledge/cryptography/primitive/symmetric encryption/classical/Multiplicative Encryption\|Multiplicative Encryption]], [[knowledge/cryptography/primitive/symmetric encryption/classical/Affine Cipher\|Affine Cipher]], [[knowledge/cryptography/primitive/symmetric encryption/classical/Hill Cipher\|Hill Cipher]], [[knowledge/cryptography/primitive/symmetric encryption/classical/Vigenère cipher\|Vigenère cipher]], and others. These illustrate the development of the field but are insecure by modern standards.
 
 ### Modern schemes
 
-See [[symmetric encryption/schemes/\|schemes/]] for deployed modern ciphers (AES, ChaCha20, DES, …).
+See  for deployed modern ciphers (AES, ChaCha20, DES, …).

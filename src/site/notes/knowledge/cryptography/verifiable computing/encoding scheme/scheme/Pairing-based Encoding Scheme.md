@@ -7,10 +7,10 @@
 > [!scheme] Pairing-based Encoding Scheme
 > ### Parameters
 > - $p$: Prime.
-> - $\mathbb G$: Source [[knowledge/math/algebra/structures/groups/special groups/Cyclic Groups#Basic Definition\|Cyclic Group]] of order $p$.
-> - $\mathbb G_T$: Target [[knowledge/math/algebra/structures/groups/special groups/Cyclic Groups#Basic Definition\|Cyclic Group]] of order $p$.
+> - $\mathbb G$: Source [[knowledge/math/algebra/structures/groups/special groups/Cyclic Group#Basic Definition\|Cyclic Group]] of order $p$.
+> - $\mathbb G_T$: Target [[knowledge/math/algebra/structures/groups/special groups/Cyclic Group#Basic Definition\|Cyclic Group]] of order $p$.
 > - $g$: A fixed generator of $\mathbb G$.
-> - $e: \mathbb G \times \mathbb G \rightarrow \mathbb G_T$: The [[knowledge/math/algebra/properties/Bilinear#Basic Definition\|Bilinear]] map that satisfies:
+> - $e: \mathbb G \times \mathbb G \rightarrow \mathbb G_T$: The [[knowledge/math/properties/map/Bilinearity#Basic Definition\|Bilinear]] map that satisfies:
 > 	1. $\forall a, b \in \mathbb Z_p: e(g^a, g^b) = e(g, g)^{ab}$
 > 	2. $\langle g \rangle = \mathbb G \implies \langle e(g, g) \rangle = \mathbb G_T$.
 > 

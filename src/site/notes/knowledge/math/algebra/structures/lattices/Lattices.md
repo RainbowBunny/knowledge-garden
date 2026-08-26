@@ -17,7 +17,7 @@ Reference:
 > Any two bases for a lattice $L$ are related by a matrix having integer coefficients and determinant equal to $\pm 1$.
 
 > [!theorem]
-> A subset of $\mathbb R^m$ is a lattice if and only if it is a [[knowledge/math/algebra/Algebra Structure#Group\|discrete additive subgroup]].
+> A subset of $\mathbb R^m$ is a lattice if and only if it is a [[knowledge/math/algebra/structures/Algebra Structure#Group\|discrete additive subgroup]].
 
 ### Integer Lattices
 
@@ -70,7 +70,7 @@ Reference:
 ## Smoothing Parameter
 
 > [!definition] Smoothing Parameter
-> For an $n$-dimensional lattice $\Lambda \subseteq \mathbb Z^n$ and a positive real $\epsilon > 0$, the smoothing parameter $\eta_\epsilon(\Lambda)$ is the smallest real $r > 0$, such that $\rho_{1 / r}(\Lambda^* \backslash \{0\}) \leq \epsilon$ with $\rho$ is the [[knowledge/math/algebra/structures/set theory/functions/Unnormalized Gaussian Function#Basic Definition\|Unnormalized Gaussian Function]].
+> For an $n$-dimensional lattice $\Lambda \subseteq \mathbb Z^n$ and a positive real $\epsilon > 0$, the smoothing parameter $\eta_\epsilon(\Lambda)$ is the smallest real $r > 0$, such that $\rho_{1 / r}(\Lambda^* \backslash \{0\}) \leq \epsilon$ with $\rho$ is the [[knowledge/math/algebra/structures/set theory/function/Unnormalized Gaussian Function#Basic Definition\|Unnormalized Gaussian Function]].
 
 > [!lemma] Consequence of Smoothing
 > For any $\epsilon \in (0, 1), r \geq \eta_\epsilon(\Lambda)$ (smoothing parameter) and $\mathbf{c} \in \mathbb R^n$, we have

@@ -40,7 +40,7 @@ v & g_v(X_v) \leftarrow g(r_1, \dots, r_{v - 1}, X_v) & \xrightarrow{g_v(X)} & g
 ### Completeness
 
 > [!property] Completeness of Sum-Check Protocol
-> The sum-check protocol is an [[knowledge/cryptography/verifiable computing/proof/Interactive Proof Systems#Syntax\|Interactive Proof System]] for language $\mathcal L$ with [[knowledge/cryptography/verifiable computing/proof/Interactive Proof Systems#Completeness\|Compleness Error]] $\delta_c = 0$.
+> The sum-check protocol is an [[knowledge/cryptography/verifiable computing/proof/interactive/Interactive Proof Systems#Syntax\|Interactive Proof System]] for language $\mathcal L$ with [[knowledge/cryptography/verifiable computing/proof/interactive/Interactive Proof Systems#Completeness\|Compleness Error]] $\delta_c = 0$.
 
 ### Complexity
 
@@ -53,4 +53,4 @@ v & g_v(X_v) \leftarrow g(r_1, \dots, r_{v - 1}, X_v) & \xrightarrow{g_v(X)} & g
 ### Soundness
 
 > [!security] Soundness of Sum-Check Protocol
-> The sum-check protocol is an [[knowledge/cryptography/verifiable computing/proof/Interactive Proof Systems#Syntax\|Interactive Proof System]] for language $\mathcal L$ with [[knowledge/cryptography/verifiable computing/proof/Interactive Proof Systems#Soundness\|Soundness Error]] $\delta_s \leq vd / \mathbb F$.
+> The sum-check protocol is an [[knowledge/cryptography/verifiable computing/proof/interactive/Interactive Proof Systems#Syntax\|Interactive Proof System]] for language $\mathcal L$ with [[knowledge/cryptography/verifiable computing/proof/interactive/Interactive Proof Systems#Soundness\|Soundness Error]] $\delta_s \leq vd / \mathbb F$.

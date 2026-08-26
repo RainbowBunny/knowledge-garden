@@ -30,7 +30,7 @@
 > - [[knowledge/cryptography/assumptions/lattice-based/LWE/Module Learning With Error\|Module Learning With Error]]: 
 > 	- $k \in \mathbb{Z}$: MLWE secret rank
 > 	- $s \in \mathbb{R}$: MLWE error width.
-> - [[knowledge/math/probability/continuous probability/distribution/Discrete Gaussian Distribution\|Discrete Gaussian Distribution]]:
+> - [[knowledge/math/probability/discrete probability/distribution/Discrete Gaussian Distribution\|Discrete Gaussian Distribution]]:
 > 	- $\mathcal D$: Distribution
 > 	- $r > 0 \in \mathbb{R}$:  Re-randomization width.
 > - [[knowledge/math/algebra/structures/lattices/Lattices#$q$-ary Lattices\|q-ary Lattices]]: $\Lambda_q^\perp$
