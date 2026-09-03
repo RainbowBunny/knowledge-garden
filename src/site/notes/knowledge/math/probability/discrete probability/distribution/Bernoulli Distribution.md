@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/knowledge/math/probability/discrete-probability/distribution/bernoulli-distribution/","dg-note-properties":{}}
 ---
 
-## Basic Definition
+## Definition
 
 > [!definition] Bernoulli Random Variable
 > Let $p \in [0, 1]$. A random variable $x$ is called a **Bernoulli random variable** with **parameter** $p$, written $X \sim \mathrm{Bernoulli}(p)$, if $X$ takes values in $\{0, 1\}$ and takes the value $1$ with probability $p$. It models a single trial with two outcomes — "success" $(X = 1)$ and "failure" $(X = 0)$ — such as one toss of a coin that lands heads with probability $p$.

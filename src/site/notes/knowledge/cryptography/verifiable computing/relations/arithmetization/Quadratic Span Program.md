@@ -4,7 +4,7 @@
 
 Reference: https://eprint.iacr.org/2014/718.pdf
 
-## Basic Definition
+## Definition
 
 > [!definition] Quadratic Span Program
 > A quadratic span program over a field $\mathbb F$ contains: 

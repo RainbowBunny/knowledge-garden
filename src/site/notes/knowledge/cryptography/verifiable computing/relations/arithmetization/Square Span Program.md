@@ -5,7 +5,7 @@
 Reference: 
 - https://eprint.iacr.org/2014/718.pdf
 
-## Basic Definition
+## Definition
 
 > [!definition] Square Span Program
 > A Square Span Program (SSP) $Q$ over the field $\mathbb F$ is a tuple consisting of 
@@ -18,7 +18,7 @@ Reference:
 > $$p(x) = (v_0(x) + \sum_{i = 1}^m a_i v_i(x))^2 - 1$$
 
 > [!definition] Square Span Program verifies a Circuit
-> We say that SSP $S$ verifies a [[knowledge/complexity/circuit/Boolean Circuit#Basic Definition\|Boolean Circuit]] $C : \{0, 1\}^\ell \rightarrow \{0, 1\}$ if it accepts exactly those inputs $(a_1, \dots, a_\ell) \in \{0, 1\}^\ell$, satisfying $C(a_1, \dots, a_\ell) = 1$.
+> We say that SSP $S$ verifies a [[knowledge/complexity/circuit/Boolean Circuit#Definition\|Boolean Circuit]] $C : \{0, 1\}^\ell \rightarrow \{0, 1\}$ if it accepts exactly those inputs $(a_1, \dots, a_\ell) \in \{0, 1\}^\ell$, satisfying $C(a_1, \dots, a_\ell) = 1$.
 
 ### Property
 
@@ -31,7 +31,7 @@ Reference:
 > where $\circ$ denotes the Hadamard product.
 
 > [!theorem]
-> For any [[knowledge/complexity/circuit/Boolean Circuit#Basic Definition\|Boolean Circuit]] $C$ of $m$ wires and $n$ fan-in 2 gates and for any prime $p \geq \max(n, 8)$, there exist polynomials $v_0(x), \dots, v_m(x)$ such that, for any distinct roots $r_1, \dots, r_d \in \mathbb F$, $C$ is satisfiable if and only if:
+> For any [[knowledge/complexity/circuit/Boolean Circuit#Definition\|Boolean Circuit]] $C$ of $m$ wires and $n$ fan-in 2 gates and for any prime $p \geq \max(n, 8)$, there exist polynomials $v_0(x), \dots, v_m(x)$ such that, for any distinct roots $r_1, \dots, r_d \in \mathbb F$, $C$ is satisfiable if and only if:
 > $$\prod_{i = 1}^d (x - r_i) \;|\; p(x) = (v_0(x) + \sum_{i = 1}^m c_i v_i(x))^2 - 1$$
 > where $c_1, \dots, c_m \in \{0, 1\}$ correspond the the values on the wires in a satisfying assignment for the circuit.
 > 

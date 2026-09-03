@@ -12,7 +12,7 @@ Link: https://courses.grainger.illinois.edu/cs598dk/fa2019/Files/fujisaki_okamot
 > 
 > ---
 > ### Building Block
-> - $\text{PKE} = (\text{Gen}, \text{Enc}, \text{Dec})$: A [[knowledge/cryptography/primitive/public-key encryption/Public Key Encryption\|Public Key Encryption]] scheme.
+> - $\text{PKE} = (\text{Gen}, \text{Enc}, \text{Dec})$: A [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption\|Public-Key Encryption]] scheme.
 > - $\text{SKE} = (\text{Enc}, \text{Dec})$: A [[knowledge/cryptography/primitive/symmetric encryption/Symmetric Key Encryption\|Symmetric Key Encryption]] scheme.
 > - $G: \mathcal M_\text{PKE} \rightarrow \mathcal K_\text{SKE}$
 > - $H: \mathcal M_\text{PKE} \times \mathcal M_\text{SKE} \rightarrow \mathcal R_\text{PKE}$

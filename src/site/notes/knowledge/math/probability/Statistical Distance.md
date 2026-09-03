@@ -18,6 +18,9 @@
 > If $f: \mathcal S \rightarrow \mathcal T$ is a function and $X, Y$ are random variables on $\mathcal S$, then
 > $$\Delta[f(X), f(Y)] \leq \Delta[X, Y].$$
 
+> [!corollary] Optimal Distinguisher (game form)
+> $$\Delta[P_0, P_1] = \max_{\mathcal A} \mathsf{Adv}^{1\mbox{-}\mathsf{Dist}}_{P_0, P_1}(\mathcal A)$$
+> where the maximum ranges over **all** single-sample adversaries, including unbounded ones, and is attained by $\mathcal A(r) = 1 \iff P_0(r) > P_1(r)$ — the acceptance set of the Event Characterization above. Statistical distance *is* the best unbounded distinguishing advantage.
 ## Application
 
 - [[knowledge/cryptography/foundations/Indistinguishability\|Indistinguishability]] — for every adversary $\mathcal A$: $\text{Distadv}[\mathcal A, P_0, P_1] \leq \Delta[P_0, P_1]$; negligible $\Delta$ gives **statistical indistinguishability**, which implies computational indistinguishability.

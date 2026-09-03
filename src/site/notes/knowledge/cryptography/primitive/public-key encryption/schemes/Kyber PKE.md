@@ -5,28 +5,31 @@
 Link: https://eprint.iacr.org/2017/634.pdf
 ## Scheme
 
-> [!scheme] Kyber PKE
-> Reference Name: $\text{Kyber.PKE}$
-> 
-> ---
-> ### Parameters
+Reference Name: $\mathsf{Kyber.PKE}$
+
+### Parameters
+
+> [!definition] Parameters
 > - $\eta$: Noise parameter.
 > - $\beta_\eta$: Centered binomial distribution with parameter $\eta$.
 > - $k$: Module rank, the dimension of vectors and matrices over $R_q$.
 > - $d_t$: Public-key compression parameter for each coefficient $t$.
 > - $d_u$: Ciphertext compression parameter for $u$.
 > - $d_v$: Ciphertext compression parameter for $v$.
-> 
-> ---
-> ### Building Block
+
+### Building Blocks
+
+> [!definition] Building Blocks
 > - $\text{Sam}$: Extendable output function.
 > - $\text{Compress}_q(x, d)$: Takes an element $x \in \mathbb Z_q$ and outputs an integer in $\{0, \dots, 2^d - 1\}$, where $d < \lceil \log_2(q) \rceil$:
 > 	1. Output $\lceil (2^d / q) \cdot x \rfloor \mod 2^d$.
 > - $\text{Decompress}_q(x, d)$: Output an element $x'$ close to $x$ that satisfies $|x' - x \mod^{\pm} q| \leq B_q = \lceil \frac{q}{2^{d + 1}} \rfloor$.
 > 	1. Output $\lceil (q / 2^d) \cdot x \rfloor$
 > 
-> ---
-> ### Algorithms
+
+### Algorithms
+
+> [!scheme] Kyber PKE
 > - $(pk, sk) \leftarrow \text{Gen}()$:
 > 	1. $\rho, \sigma \leftarrow \{0, 1\}^{256}$
 > 	2. $A \sim R_q^{k \times k} = \text{Sam}(\rho)$
@@ -65,6 +68,6 @@ Link: https://eprint.iacr.org/2017/634.pdf
 ### Indistinguishability under Chosen-Plaintext Attacks
 
 > [!security]
-> For any [[knowledge/cryptography/primitive/public-key encryption/Public Key Encryption#Indistinguishability under Chosen-Plaintext Attacks\|CPA adversary]] $\mathcal A$, there exists an [[knowledge/cryptography/assumptions/lattice-based/LWE/Module Learning With Error#Assumption\|MLWE adversary]] $\mathcal B$ such that: 
+> For any [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption#Indistinguishability under Chosen-Plaintext Attacks\|CPA adversary]] $\mathcal A$, there exists an [[knowledge/cryptography/assumptions/lattice-based/LWE/Module Learning With Error#Assumption\|MLWE adversary]] $\mathcal B$ such that: 
 > $$\text{Adv}_{Kyber.PKE}^{\text{cpa}}(\mathcal A) \leq 2 \cdot \text{Adv}_{k + 1, k, \eta}^{\text{mlwe}}(\mathcal B).$$
 

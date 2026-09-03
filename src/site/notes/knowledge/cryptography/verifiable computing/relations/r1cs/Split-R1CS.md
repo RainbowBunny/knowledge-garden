@@ -5,7 +5,7 @@
 Reference:
 - https://eprint.iacr.org/2025/373.pdf
 
-## Basic Definition
+## Definition
 
 > [!definition] Split-R1CS
 > Given a [[knowledge/cryptography/verifiable computing/relations/r1cs/Rank-1 Constraint Satisfiability\|R1CS]] $\mathcal{CS} = (n, N_g, N_v, \{\mathbf{a}_i, \mathbf{b}_i, \mathbf{c}_i\}_{i \in [N_g]})$ over $\mathbb F$, with extended witness $\mathbf{z} = (z_0, \dots, z_{N_v}), z_0 = 1$. A **split** of $\mathcal{CS}$ is a partition of the variable indices

@@ -4,14 +4,14 @@
 
 Reference: https://eprint.iacr.org/2022/1690.pdf
 
-## Basic Definition
+## Definition
 
 ### Probability Mass Function
 
 > [!definition] PMF of Discrete Gaussian Distribution
-> Given a [[knowledge/math/algebra/structures/lattices/Lattices#Basic Definition\|Lattice]] $\Lambda \subseteq \mathbb R^n$, a parameter $r$ and a vector $\mathbf{c} \in \mathbb R^n$, the discrete Gaussian distribution with parameter $r$ and support $\Lambda + \mathbf{c}$ is defined as
+> Given a [[knowledge/math/algebra/structures/lattices/Lattices#Definition\|Lattice]] $\Lambda \subseteq \mathbb R^n$, a parameter $r$ and a vector $\mathbf{c} \in \mathbb R^n$, the discrete Gaussian distribution with parameter $r$ and support $\Lambda + \mathbf{c}$ is defined as
 > $$\mathcal D_{\Lambda + \mathbf{c}, r}(\mathbf{x}) = \frac{\rho_r(\mathbf{x})}{\rho_r(\Lambda + \mathbf{c})} \forall x \in \Lambda + \mathbf{c}$$
-> where $\rho$ is the [[knowledge/math/algebra/structures/set theory/function/Unnormalized Gaussian Function\|Unnormalized Gaussian Function]].
+> where $\rho$ is the [[knowledge/math/set theory/function/Unnormalized Gaussian Function\|Unnormalized Gaussian Function]].
 
 > [!remark]
 > $r = \sqrt{2 \pi} \cdot \sigma$

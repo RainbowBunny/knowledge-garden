@@ -4,7 +4,7 @@
 
 Reference: https://snargsbook.org/
 
-## Basic Definition
+## Definition
 
 > [!definition] Random Oracles
 > Given a domain $X$ and a range set $Y$, we denote by $\mathcal U(X \rightarrow Y)$ the uniform distribution over all functions of the form $f: X \rightarrow Y$; equivalently, if $f$ is sampled from $\mathcal U(X \rightarrow Y)$, then for every input $x$ it holds that $y = f(x)$ is a uniformly random element in $Y$ (sampled indepedently for each input).

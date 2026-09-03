@@ -39,7 +39,7 @@
 > $$\forall k \in \mathcal K, m \in \mathcal M: \gamma(k, m) \geq \gamma$$
 
 > [!remark]
-> Equivalent formulation ($\gamma$-uniformity): $\mathcal E$ is $\gamma$-uniform if $\Pr[c = E(k, m; r) \;|\; r \in \mathcal R] \leq \gamma$ for all $k, m, c$. A $\gamma$-spread scheme is $2^{-\gamma}$-uniform (Hofheinz–Hövelmanns–Kiltz 2017). This matches the [[knowledge/cryptography/primitive/public-key encryption/Public Key Encryption#Min-Entropy\|PKE min-entropy]] definition.
+> Equivalent formulation ($\gamma$-uniformity): $\mathcal E$ is $\gamma$-uniform if $\Pr[c = E(k, m; r) \;|\; r \in \mathcal R] \leq \gamma$ for all $k, m, c$. A $\gamma$-spread scheme is $2^{-\gamma}$-uniform (Hofheinz–Hövelmanns–Kiltz 2017). This matches the [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption#Min-Entropy\|PKE min-entropy]] definition.
 
 ## Security
 
@@ -85,7 +85,7 @@
 > $$\text{Adv}_{\text{SKE}}^{\text{ind-atk}}(\mathcal A) \leq \varepsilon$$
 
 > [!remark]
-> 1. ATK here is a placeholder for the attacker. Unlike [[knowledge/cryptography/primitive/public-key encryption/Public Key Encryption#Indistinguishability\|PKE]], there is no public key, so even IND-CPA requires an explicit encryption oracle.
+> 1. ATK here is a placeholder for the attacker. Unlike [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption#Indistinguishability\|PKE]], there is no public key, so even IND-CPA requires an explicit encryption oracle.
 > 2. IND-EAV in bit-guessing form is exactly **semantic security** (Boneh–Shoup): $\text{SSadv}[\mathcal A, \mathcal E] = 2 \cdot \text{SSadv}^*[\mathcal A, \mathcal E]$, where $\text{SSadv}^*$ is the advantage above.
 > 3. The multi-query (distinguishing) forms $\text{CPAadv}$ and $\text{CCAadv}$, where the adversary adaptively submits pairs $(m_{i0}, m_{i1})$ and must distinguish Experiment 0 from Experiment 1, are the versions used in the Construction theorems below; they relate to the bit-guessing form by a factor of 2.
 > 4. 1CCA security restricts the adversary to a single encryption query; it is the notion used in [[knowledge/cryptography/primitive/message authentication/Authenticated Encryption\|Authenticated Encryption]].

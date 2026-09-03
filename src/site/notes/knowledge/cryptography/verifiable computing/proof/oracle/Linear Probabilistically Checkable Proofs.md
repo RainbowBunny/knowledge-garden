@@ -2,13 +2,13 @@
 {"dg-publish":true,"permalink":"/knowledge/cryptography/verifiable-computing/proof/oracle/linear-probabilistically-checkable-proofs/","dg-note-properties":{}}
 ---
 
-	Reference:
+Reference:
 - https://eprint.iacr.org/2022/1690.pdf (LUNA, CCS '24)
 
 ## Syntax
 
 > [!definition] Linear PCP
-> Let $\mathbb{F}$ be a finite field and $\mathcal{CS} = (n, N_g, N_v, \{a_i, b_i, c_i\}_{i \in [N_g]})$ an [[knowledge/cryptography/verifiable computing/relations/r1cs/Rank-1 Constraint Satisfiability#Basic Definition\|R1CS]] over $\mathbb{F}$. A **$k$-query input-independent linear PCP** for $\mathcal{CS}$ with query length $m$ is a tuple of algorithms $\Pi_{\mathsf{LPCP}} = (\mathsf{Query}, \mathsf{Prove}, \mathsf{Verify})$:
+> Let $\mathbb{F}$ be a finite field and $\mathcal{CS} = (n, N_g, N_v, \{a_i, b_i, c_i\}_{i \in [N_g]})$ an [[knowledge/cryptography/verifiable computing/relations/r1cs/Rank-1 Constraint Satisfiability#Definition\|R1CS]] over $\mathbb{F}$. A **$k$-query input-independent linear PCP** for $\mathcal{CS}$ with query length $m$ is a tuple of algorithms $\Pi_{\mathsf{LPCP}} = (\mathsf{Query}, \mathsf{Prove}, \mathsf{Verify})$:
 > - $(\mathrm{st}, \mathbf{Q}) \leftarrow \mathsf{Query}(\mathcal {CS})$: The query generation algorithms outputs a query matrix $\mathbf{Q} \in \mathbb{F}^{m \times k}$ and a verification state $\mathrm{st}$. 
 > - $\boldsymbol{\pi} \leftarrow \mathsf{Prove}(\mathcal{CS}, \mathbf{x}, \mathbf{w})$: On input the statement $\mathbf{x} \in \mathbb{F}^n$ and a witness $\mathbf{w} \in \mathbb{F}^{N_v - n}$, the prove algorithm outputs a proof $\boldsymbol{\pi} \in \mathbb{F}^m$.
 > - $b \leftarrow \mathsf{Verify}(\mathrm{st}, \mathbf{x}, \mathbf{a})$: On input verification state $\mathrm{st}$, the statement $\mathbf{x} \in \mathbb{F}^n$, and a vector of responses $\mathbf{a} \in \mathbb{F}^k$, the verification algorithm outputs a bit $b \in \{0, 1\}$.
