@@ -132,7 +132,7 @@ b = 1
 (\mathbf{x}, \mathbf{w}) \leftarrow \mathcal{A}_\mathsf{choose}(\mathcal{CS}) \\
 (\widetilde{\mathrm{st}}, \widetilde{\mathbf{Q}}, \mathrm{st}_{\mathcal{S}}) \leftarrow \mathcal{S}_\mathsf{query}(\mathcal{CS}) \\
 \widetilde{\mathbf{a}} \leftarrow \mathcal{S}_\mathsf{prove}(\mathrm{st}_\mathcal{S}, \mathbf{x}) \\
-b \leftarrow \mathcal{A}_\mathsf{guess}(\mathrm{st}, \mathbf{Q}, \widetilde{\mathbf{a}})
+b \leftarrow \mathcal{A}_\mathsf{guess}(\widetilde{\mathrm{st}}, \widetilde{\mathbf{Q}}, \widetilde{\mathbf{a}})
 \end{array} \right] 
 \right|.$$
 

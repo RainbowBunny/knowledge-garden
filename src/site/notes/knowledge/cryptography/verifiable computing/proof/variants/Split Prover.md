@@ -15,6 +15,12 @@ Reference:
 > 
 > Also, we can write $\mathbf{C} = \mathbf{C}_{II}(\mathbf{x}_{II}, \mathbf{w}_{II}, \mathbf{C}_{I}(\mathbf{x}_I, \mathbf{w}_I))$
 
+> [!remark] View of Each Party
+> **Public View**: $\mathcal{R}, \mathbf{C}, \mathcal{X}_{II}, \mathcal{W}_{II}$.
+> **Prover I**: $\mathrm{srs}_I, \mathbf{x}_I, \mathbf{w}_I$.
+> **Prover II**: $\mathrm{srs}_{II}, \mathbf{x}_{II}, \mathbf{w}_{II}, \mathrm{aux}$. 
+> **Verifier**: $\tilde{\mathrm{st}}, \mathbf{x}, \mathbf{\pi}$.
+
 ## Property
  
 ### Split Correctness
