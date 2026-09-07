@@ -55,7 +55,7 @@ Reference:
 > 	4. Samples $\mathbf{T} \leftarrow \mathcal U(R_p^{\tau \times \ell})$ (Transformation matrix).
 > 	5. Returns $\mathrm{sk} = (\mathbf{S}, \mathbf{T}, \mathbf{A}, \mathbf{E})$.
 > - $\mathbf{C}_i \leftarrow \mathsf{Enc}(i, \mathrm{sk}, \boldsymbol{\mu}) \in R_q^{m_q \times (k + \ell')}$: Given the message index $i$, secret key $\mathrm{sk}$ and a message vector $\boldsymbol{\mu}_i^T = (\mu_{i, 1}, \dots, \mu_{i, \ell}) \in R_p^\ell$, computes the ciphertext.
-> 	1. Computes $\bar{\mu_i}^T = \begin{bmatrix}\mu_i^T & (T \mu_i)^T\end{bmatrix} \in R_p^{\ell'} = (\bar{\mu}_{i, 1}, \dots, \bar{\mu}_{i, \ell'})$.
+> 	1. Computes $\bar{\mu_i}^T = \begin{bmatrix}\mu_i^T & (T \mu_i)^T\end{bmatrix} \in R_p^{\ell} = (\bar{\mu}_{i, 1}, \dots, \bar{\mu}_{i, \ell'})$.
 > 	2. Computes $\mathbf{H}_i = \begin{bmatrix}\mathbf{0}^{m_q \times k} & \bar{\mu}_{i, 1} \mathbf{g} & \cdots & \bar{\mu}_{i, \ell'} \mathbf{g}\end{bmatrix} \in R_q^{m_q \times (k + \ell')}$.
 > 	3. Returns $\mathbf{C}_i = \begin{bmatrix}A_i & A_i S + E_i\end{bmatrix} + \frac{q}{p} \cdot \mathbf{H}_i \in R_q^{m_q \times (k + \ell')}$.
 > - $c^{*} \leftarrow \mathsf{Add}(\{\mathbf{C}_i\}_{i \in [m]}, \{a_i \in R_q\}_{i \in [m]}) \in R_q^{1 \times (k + \ell')}$:
