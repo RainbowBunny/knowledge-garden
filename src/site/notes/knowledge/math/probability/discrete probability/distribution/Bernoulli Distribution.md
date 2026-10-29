@@ -10,7 +10,7 @@
 ### Probability Mass Function
 
 > [!definition] PMF of Bernoulli Distribution
-> $$P_X(x) = \begin{cases}p &\mathrm{for } x = 1 \\ 1 - p &\text{for } x = 0 \\ 0 &\text{otherwise}\end{cases}$$
+> $$P_X(x) = \begin{cases}p &\text{for } x = 1 \\ 1 - p &\text{for } x = 0 \\ 0 &\text{otherwise}\end{cases}$$
 
 ## Property
 

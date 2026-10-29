@@ -2,7 +2,8 @@
 {"dg-publish":true,"permalink":"/knowledge/cryptography/primitive/public-key-encryption/fujisaki-okamoto-transformation/","dg-note-properties":{}}
 ---
 
-Link: https://courses.grainger.illinois.edu/cs598dk/fa2019/Files/fujisaki_okamoto.pdf
+Reference:
+- `[FO99]` — E. Fujisaki, T. Okamoto, _Secure Integration of Asymmetric and Symmetric Encryption Schemes_, CRYPTO 1999, LNCS 1666, pp. 537–554: https://courses.grainger.illinois.edu/cs598dk/fa2019/Files/fujisaki_okamoto.pdf
 ## Syntax
 
 > [!definition] Fujisaki-Okamoto Transformation
@@ -12,15 +13,15 @@ Link: https://courses.grainger.illinois.edu/cs598dk/fa2019/Files/fujisaki_okamot
 > 
 > ---
 > ### Building Block
-> - $\text{PKE} = (\text{Gen}, \text{Enc}, \text{Dec})$: A [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption\|Public-Key Encryption]] scheme.
+> - $\text{PKE} = (\mathsf{KeyGen}, \text{Enc}, \text{Dec})$: A [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption Scheme (Old)\|Public-Key Encryption Scheme (Old)]] scheme.
 > - $\text{SKE} = (\text{Enc}, \text{Dec})$: A [[knowledge/cryptography/primitive/symmetric encryption/Symmetric Key Encryption\|Symmetric Key Encryption]] scheme.
 > - $G: \mathcal M_\text{PKE} \rightarrow \mathcal K_\text{SKE}$
 > - $H: \mathcal M_\text{PKE} \times \mathcal M_\text{SKE} \rightarrow \mathcal R_\text{PKE}$
 > 
 > ---
 > ### Algorithms
-> - $(pk, sk) \leftarrow \text{Gen}()$:
-> 	1. Return $\text{PKE}.\text{Gen}()$
+> - $(pk, sk) \leftarrow \mathsf{KeyGen}()$:
+> 	1. Return $\text{PKE}.\mathsf{KeyGen}()$
 > - $c \leftarrow \text{Enc}(pk, m)$:
 > 	1. $\sigma \xleftarrow{R} \mathcal M_\text{PKE}$
 > 	2. $r_1 \leftarrow H(\sigma, m)$
@@ -35,4 +36,11 @@ Link: https://courses.grainger.illinois.edu/cs598dk/fa2019/Files/fujisaki_okamot
 > 	4. $\hat r_1 \leftarrow H(\hat \sigma; \hat r_1)$
 > 	5. If $c_1 = \text{PKE}.\text{Enc}(\hat \sigma; \hat r_1)$ then $m \leftarrow \hat{m}$, else $m = \perp$
 > 	6. Return $m$
+
+> [!remark] Notation in the literature
+> Key generation is $\mathsf{KeyGen}$ in this vault ([[Note Layouts\|Note Layouts]] § *Game form*).
+>
+> | source | algorithms | differences |
+> | --- | --- | --- |
+> | `[FO99 Def 2, §3]` | asymmetric $\Pi^{\mathrm{asym}} = (K^{\mathrm{asym}}, E^{\mathrm{asym}}, D^{\mathrm{asym}})$, symmetric $\Pi^{\mathrm{sym}} = (E^{\mathrm{sym}}, D^{\mathrm{sym}})$, hybrid $\Pi^{\mathrm{hy}} = (K^{\mathrm{hy}}, E^{\mathrm{hy}}, D^{\mathrm{hy}})$ | key generation takes $1^k$, left implicit here; $K^{\mathrm{hy}}(1^k)$ runs $K^{\mathrm{asym}}(1^k)$; the coin and message spaces are listed as components of each scheme. |
 

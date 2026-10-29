@@ -20,7 +20,7 @@
 > 
 > ---
 > ### Building Block
-> - [[knowledge/math/algebra/structures/lattices/Lattice Gadget Algorithm\|Lattice Gadget Algorithm]]: 
+> - [[knowledge/math/algebra/structures/lattice/Lattice Gadget Algorithm\|Lattice Gadget Algorithm]]: 
 > 	- $\beta$: Gadget base.
 > 	- $m_q = \lceil \log_\beta q \rceil$: Gadget length.
 > 	- $L$: Rows of re-randomization matrix.
@@ -33,7 +33,7 @@
 > - [[knowledge/math/probability/discrete probability/distribution/Discrete Gaussian Distribution\|Discrete Gaussian Distribution]]:
 > 	- $\mathcal D$: Distribution
 > 	- $r > 0 \in \mathbb{R}$:  Re-randomization width.
-> - [[knowledge/math/algebra/structures/lattices/Lattices#$q$-ary Lattices\|q-ary Lattices]]: $\Lambda_q^\perp$
+> - [[knowledge/math/algebra/structures/lattice/Lattices#$q$-ary Lattices\|q-ary Lattices]]: $\Lambda_q^\perp$
 > ---
 > ### Algorithms
 > 1. Samples $\mathbf{A} \xleftarrow{\$} R_q^{L \times k}$

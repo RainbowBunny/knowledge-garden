@@ -2,26 +2,23 @@
 {"dg-publish":true,"permalink":"/knowledge/cryptography/primitive/symmetric-encryption/symmetric-key-encryption/","dg-note-properties":{}}
 ---
 
+Reference:
+- `[BS]` — D. Boneh, V. Shoup, _A Graduate Course in Applied Cryptography_, v0.6, 2023: https://toc.cryptobook.us/ (Ch. 2: Definition 2.1, Theorem 2.5, Attack Games 2.1–2.4, Definition 2.2; Ch. 5: Attack Games 5.1–5.3; Ch. 9: Attack Game 9.2). Definition 2.1, Theorem 2.5, Attack Game 2.1 and Definition 2.2 were checked in the book. `⚠️ CLAUDE – verify:` WebFetch returns only the first ~17 pages of the book, so Attack Games 2.2–2.4, 5.1–5.3 and 9.2 could not be read: their tables redraw the wording this note already had, and their numbers are those of the index in [[knowledge/cryptography/primitive/symmetric encryption/Symmetric Encryption MOC\|Symmetric Encryption MOC]].
+- `[KL]` — J. Katz, Y. Lindell, _Introduction to Modern Cryptography_, 2nd ed., CRC Press, 2014: §3.2 ($\mathsf{PrivK}^{\mathsf{eav}}$), §3.4 ($\mathsf{PrivK}^{\mathsf{cpa}}$), Definition 3.33 ($\mathsf{PrivK}^{\mathsf{cca}}$). Read through lecture slides that follow the book: https://user.eng.umd.edu/~danadach/Intro_Crypto_Spring_18/lec_8_18.pdf (eav and cpa) and https://www.cs.purdue.edu/homes/jblocki/courses/555_Spring21/slides/Week3.pdf (Definition 3.33).
+- `⚠️ CLAUDE – verify:` — a point I could not check against the source.
+
 ## Syntax
 
 > [!definition] Symmetric Key Encryption Scheme
-> A **symmetric-key encryption scheme** $\text{SKE} = (\text{Gen}, \text{Enc}, \text{Dec})$ is a triple of efficient algorithms with a message space $\mathcal M$, ciphertext space $\mathcal C$, randomness space $\mathcal R$ and key space $\mathcal K$.
-> - $k \leftarrow \text{Gen}()$: The key-generation algorithm $\text{Gen}$ returns a key $k \in \mathcal K$ (often simply $k \xleftarrow{\$} \mathcal K$).
+> A **symmetric-key encryption scheme** $\text{SKE} = (\mathsf{KeyGen}, \text{Enc}, \text{Dec})$ is a triple of efficient algorithms with a message space $\mathcal M$, ciphertext space $\mathcal C$, randomness space $\mathcal R$ and key space $\mathcal K$.
+> - $k \leftarrow \mathsf{KeyGen}()$: The key-generation algorithm $\mathsf{KeyGen}$ returns a key $k \in \mathcal K$ (often simply $k \xleftarrow{\$} \mathcal K$).
 > - $c \leftarrow \text{Enc}(k, m)$ (Deterministic) or $c \leftarrow \text{Enc}(k, m; r)$ (Probabilistic): The encryption algorithm takes a key $k \in \mathcal K$, a message $m \in \mathcal M$ and possibly an internal random $r \leftarrow \mathcal R$ to produce a ciphertext $c \in \mathcal C$.
 > - $m \leftarrow \text{Dec}(k, c)$: The deterministic decryption algorithm takes a key $k \in \mathcal K$ and a ciphertext $c$, and outputs either a message $m \in \mathcal M$ or a special symbol $\perp$ to indicate **rejection**.
 
-> [!algorithm] Computational Cipher (Mathematical Detail)
-> Let $\mathcal E = (E, D)$ be a computational cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$. We associate with $\mathcal E$ families of key, message, and ciphertext spaces, indexed by
-> - A **security parameter** $\lambda \in \mathbb Z_{\geq 1}$, and
-> - A **system parameter** $\Lambda$ (a bit string).
->
-> Thus, instead of finite sets, we have families $\{\mathcal K_{\lambda, \Lambda}\}, \{\mathcal M_{\lambda, \Lambda}\}, \{\mathcal C_{\lambda, \Lambda}\}$ such that:
-> 1. $K, M, C$ are efficiently recognizable.
-> 2. $K$ is efficiently sampleable.
-> 3. $M$ has an effective length function.
-> 4. $E$ is an efficient probabilistic algorithm that on input $\lambda, \Lambda, k, m$ outputs an element of $\mathcal C_{\lambda, \Lambda}$.
-> 5. $D$ is an efficient deterministic algorithm that on input $\lambda, \Lambda, k, c$ outputs either an element of $\mathcal M_{\lambda, \Lambda}$ or the special symbol $\text{reject} \notin \mathcal M_{\lambda, \Lambda}$.
-> 6. Correctness: for all valid inputs, $D(\lambda, \Lambda; k, E(\lambda, \Lambda; k, m)) = m$.
+> [!remark] Notation in the literature
+> - `[KL]` writes $\Pi = (\mathsf{Gen}, \mathsf{Enc}, \mathsf{Dec})$ with $\mathsf{Gen}(1^n)$; here the security parameter is left implicit.
+> - `[BS]` writes a **cipher** $\mathcal E = (E, D)$ defined over $(\mathcal K, \mathcal M, \mathcal C)$ and has no key-generation algorithm: its games pick $k \xleftarrow{R} \mathcal K$. A cipher is the case where $\mathsf{KeyGen}$ samples $k \xleftarrow{\$} \mathcal K$, and the games below taken from `[BS]` write that sampling.
+> - The vault calls key generation $\mathsf{KeyGen}$ whatever the source writes ([[Note Layouts\|Note Layouts]] § *Game form*).
 
 ## Property
 
@@ -39,16 +36,16 @@
 > $$\forall k \in \mathcal K, m \in \mathcal M: \gamma(k, m) \geq \gamma$$
 
 > [!remark]
-> Equivalent formulation ($\gamma$-uniformity): $\mathcal E$ is $\gamma$-uniform if $\Pr[c = E(k, m; r) \;|\; r \in \mathcal R] \leq \gamma$ for all $k, m, c$. A $\gamma$-spread scheme is $2^{-\gamma}$-uniform (Hofheinz–Hövelmanns–Kiltz 2017). This matches the [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption#Min-Entropy\|PKE min-entropy]] definition.
+> Equivalent formulation ($\gamma$-uniformity): $\mathcal E$ is $\gamma$-uniform if $\Pr[c = E(k, m; r) \;|\; r \in \mathcal R] \leq \gamma$ for all $k, m, c$. A $\gamma$-spread scheme is $2^{-\gamma}$-uniform (Hofheinz–Hövelmanns–Kiltz 2017). This matches the [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption Scheme (Old)#Min-Entropy\|PKE min-entropy]] definition.
 
 ## Security
 
 ### Perfect Security
 
-> [!definition] Perfect Security
+> [!definition] Perfect Security `[BS Def 2.1]`
 > Let $\mathcal E = (E, D)$ be a Shannon cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$. Consider a probabilistic experiment in which the random variable $K$ is uniformly distributed over $\mathcal K$. If for all $m_0, m_1 \in \mathcal M$ and all $c \in \mathcal C$: $$P[E(K, m_0) = c] = P[E(K, m_1) = c],$$ then $\mathcal E$ is **perfectly secure**.
 
-> [!theorem] Shannon's Theorem
+> [!theorem] Shannon's Theorem `[BS Thm 2.5]`
 > Let $\mathcal E = (E, D)$ be a Shannon cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$. If $\mathcal E$ is perfectly secure, then $|\mathcal K| \geq |\mathcal M|$.
 
 > [!theorem] Generalized Shannon's Theorem
@@ -59,65 +56,266 @@
 
 ### Indistinguishability
 
-> [!definition] SKE Indistinguishability Advantage
-> For any adversary $\mathcal A = (\mathcal A_\text{find}, \mathcal A_\text{guess})$, we define the indistinguishability advantage:
-> $$\text{Adv}_\text{SKE}^{\text{ind-atk}}(\mathcal A) =
-> \left|\; \Pr\!\left[ b = b' \;\middle |\;
-> \begin{array}{l}
-> k \leftarrow \text{Gen}(); \\
-> (m_0, m_1, s) \leftarrow \mathcal A_\text{find}^{\mathcal O_\text{find}}(); \\
-> b \xleftarrow{\$} \{0, 1\}; c^* \leftarrow \text{Enc}(k, m_b); \\
-> b' \leftarrow \mathcal A_\text{guess}^{\mathcal O_\text{guess}}(s, c^*)
-> \end{array} \right]
-> \;- \frac{1}{2}
-> \right|.$$
-> Where:
-> 1. Eavesdropping Attack: $\text{atk} = \text{eav}$ then $\mathcal O_\text{find}(\cdot) = \varepsilon$ and $\mathcal O_\text{guess}(\cdot) = \varepsilon$.
-> 2. Chosen Plaintext Attack: $\text{atk} = \text{cpa}$ then $\mathcal O_\text{find}(\cdot) = \text{Enc}(k, \cdot)$ and $\mathcal O_\text{guess}(\cdot) = \text{Enc}(k, \cdot)$.
-> 3. Chosen Ciphertext Attack: $\text{atk} = \text{cca}$ then $\mathcal O_\text{find}(\cdot) = \{\text{Enc}(k, \cdot), \text{Dec}(k, \cdot)\}$ and $\mathcal O_\text{guess}(\cdot) = \{\text{Enc}(k, \cdot), \text{Dec}(k, \cdot)\}$.
->
-> Also:
-> 1. The first phase adversary $\mathcal A_\text{find}$'s output should have $|m_0| = |m_1|$.
-> 2. In the chosen ciphertext attack setting, the second phase adversary $\mathcal A_\text{guess}$ is not allowed to query $c^*$ to the decryption oracle.
+> [!definition] Parameters
+> - [[knowledge/cryptography/primitive/symmetric encryption/Symmetric Key Encryption#Syntax\|SKE]] $= (\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$ with spaces $(\mathcal K, \mathcal M, \mathcal C, \mathcal R)$.
+> - $\mathsf{atk} \in \{\mathsf{eav}, \mathsf{cpa}, \mathsf{cca}\}$: the attack; it fixes which queries are allowed.
+> - $\mathbb A$: the class of efficient [[knowledge/cryptography/foundations/Adversary\|adversaries]]. $t$: the running-time bound. $\varepsilon$: the advantage bound.
 
-> [!definition] $(t,\varepsilon)$-IND-ATK security of a SKE
-> A SKE scheme is **$(t, \varepsilon)$-IND-ATK secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have:
-> $$\text{Adv}_{\text{SKE}}^{\text{ind-atk}}(\mathcal A) \leq \varepsilon$$
+> [!definition] SKE Indistinguishability (IND-ATK)
+> ### Scope
+> A symmetric-key encryption scheme $\text{SKE} = (\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$ and the adversary class $\mathbb A$ of Parameters.
+>
+> ---
+> ### Condition
+> - **Access** — there is no public key, so $\mathcal A$ sees encryptions only through the challenger; $\mathsf{atk}$ fixes which queries it may make:
+>     - $\mathsf{eav}$ (eavesdropping attack): no query — rows 2, 3, 6 and 7 are skipped.
+>     - $\mathsf{cpa}$ (chosen-plaintext attack): encryption queries before and after the challenge — rows 2 and 6.
+>     - $\mathsf{cca}$ (chosen-ciphertext attack): encryption and decryption queries before and after the challenge — rows 2, 3, 6 and 7 — except a decryption query on $c^*$.
+> - **Promise** — the two challenge messages have equal length, $|m_0| = |m_1|$.
+> - **Quantifier** — $\forall \mathcal A \in \mathbb A$ of running time at most $t$.
+> - **Adaptivity** — the queries and the choice of $m_0, m_1$ are adaptive; the queries of rows 2–3, and those of rows 6–7, may be interleaved in any order. One challenge.
+>
+> ---
+> ### Experiment
+> A distinguishing game: two branches that differ in row 5 only, **Game 0** and **Game 1**. `[KL §3.2]` ($\mathsf{eav}$), `[KL §3.4]` ($\mathsf{cpa}$), `[KL Def 3.33]` ($\mathsf{cca}$); the case $\mathsf{atk} = \mathsf{eav}$ is `[BS Attack Game 2.1]`.
+>
+> | | challenger $\mathcal C$ | | adversary $\mathcal A$ |
+> | --- | --- | --- | --- |
+> | 1 | $k \leftarrow \mathsf{KeyGen}()$ | | |
+> | 2 | | $\xleftarrow{\ m_i\ }$ | **Encryption queries** (repeated, adaptive; $\mathsf{cpa}$ and $\mathsf{cca}$ only): sends $m_i \in \mathcal M$ |
+> | | $c_i \leftarrow \mathsf{Enc}(k, m_i)$ | $\xrightarrow{\ c_i\ }$ | |
+> | 3 | | $\xleftarrow{\ \hat c_j\ }$ | **Decryption queries** (repeated, adaptive; $\mathsf{cca}$ only): sends $\hat c_j \in \mathcal C$ |
+> | | $\hat m_j \leftarrow \mathsf{Dec}(k, \hat c_j)$ | $\xrightarrow{\ \hat m_j\ }$ | |
+> | 4 | | $\xleftarrow{\ m_0,\, m_1\ }$ | chooses $m_0, m_1 \in \mathcal M$ with $\lvert m_0 \rvert = \lvert m_1 \rvert$ |
+> | 5 | **Game 0**: $c^* \leftarrow \mathsf{Enc}(k, m_0)$<br>**Game 1**: $c^* \leftarrow \mathsf{Enc}(k, m_1)$ | $\xrightarrow{\ c^*\ }$ | |
+> | 6 | | $\xleftarrow{\ m_i\ }$ | **Encryption queries** (repeated, adaptive; $\mathsf{cpa}$ and $\mathsf{cca}$ only): sends $m_i \in \mathcal M$ |
+> | | $c_i \leftarrow \mathsf{Enc}(k, m_i)$ | $\xrightarrow{\ c_i\ }$ | |
+> | 7 | | $\xleftarrow{\ \hat c_j\ }$ | **Decryption queries** (repeated, adaptive; $\mathsf{cca}$ only): sends $\hat c_j \in \mathcal C$ with $\hat c_j \neq c^*$ |
+> | | $\hat m_j \leftarrow \mathsf{Dec}(k, \hat c_j)$ | $\xrightarrow{\ \hat m_j\ }$ | |
+> | 8 | | $\xleftarrow{\ b'\ }$ | outputs a bit $b'$ |
+>
+> **Goal**
+> - **Output** — $\mathsf{Expt}^{\mathsf{ind}\text{-}\mathsf{atk}}_b(\mathcal A)$, the bit $b'$ in Game $b$.
+> - **Measure** — how far apart $\Pr[\mathsf{Expt}^{\mathsf{ind}\text{-}\mathsf{atk}}_0(\mathcal A) = 1]$ and $\Pr[\mathsf{Expt}^{\mathsf{ind}\text{-}\mathsf{atk}}_1(\mathcal A) = 1]$ are.
+>
+> ---
+> ### Property
+> $$\text{Adv}_\text{SKE}^{\text{ind-atk}}(\mathcal A) = \Big|\Pr\big[\mathsf{Expt}^{\mathsf{ind}\text{-}\mathsf{atk}}_0(\mathcal A) = 1\big] - \Pr\big[\mathsf{Expt}^{\mathsf{ind}\text{-}\mathsf{atk}}_1(\mathcal A) = 1\big]\Big|.$$
+> - **$(t,\varepsilon)$-IND-ATK security** — a SKE scheme is $(t, \varepsilon)$-IND-ATK secure if $\text{Adv}_\text{SKE}^{\text{ind-atk}}(\mathcal A) \leq \varepsilon$ for every adversary $\mathcal A$ with running time at most $t$.
+> - A SKE scheme is **IND-ATK secure** if the advantage is negligible for every efficient $\mathcal A$ `[KL]`.
+> - With $\mathsf{atk} = \mathsf{eav}$ and a $\mathsf{KeyGen}$ that samples $k \xleftarrow{\$} \mathcal K$, the advantage is $\text{SSadv}[\mathcal A, \mathcal E]$ of `[BS Attack Game 2.1]`, and IND-EAV security is **semantic security** `[BS Def 2.2]`.
+>
+> It is a *distinguishing* game, see [[knowledge/cryptography/foundations/Security Game\|Security Game]].
+
+> [!remark] Notation in the literature
+> - `[KL]` calls the three experiments $\mathsf{PrivK}^{\mathsf{eav}}_{\mathcal A, \Pi}(n)$, $\mathsf{PrivK}^{\mathsf{cpa}}_{\mathcal A, \Pi}(n)$ and $\mathsf{PrivK}^{\mathsf{cca}}_{\mathcal A, \Pi}(n)$: $k \leftarrow \mathsf{Gen}(1^n)$, the adversary gets $1^n$ and oracle access to $\mathsf{Enc}_k$ (cpa), or to $\mathsf{Enc}_k$ and $\mathsf{Dec}_k$ (cca), a uniform bit $b$ selects the challenge, and the experiment outputs $1$ iff $b' = b$. Security is $\Pr[\mathsf{PrivK} = 1] \leq 1/2 + \mathsf{negl}(n)$. This bit-guessing form is half of the advantage above, since $2\Pr[b' = b] - 1 = \Pr[\mathsf{Expt}_1 = 1] - \Pr[\mathsf{Expt}_0 = 1]$. The adversary of `[KL]` is already one machine that keeps its oracles after the challenge.
+> - `[BS]` writes the output bit $\hat b$ and the event $W_b$ that $\mathcal A$ outputs $1$ in Experiment $b$, so $\text{SSadv}[\mathcal A, \mathcal E] = |\Pr[W_0] - \Pr[W_1]|$. In its Attack Game 2.1 the challenger picks $k$ only after $\mathcal A$ has sent $m_0, m_1$; with no query, that changes nothing. Its bit-guessing versions $\text{SSadv}^*$, $\text{CPAadv}^*$, … are half of the difference forms: $\text{SSadv}[\mathcal A, \mathcal E] = 2 \cdot \text{SSadv}^*[\mathcal A, \mathcal E]$ `[BS Attack Game 2.4]`.
 
 > [!remark]
-> 1. ATK here is a placeholder for the attacker. Unlike [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption#Indistinguishability\|PKE]], there is no public key, so even IND-CPA requires an explicit encryption oracle.
-> 2. IND-EAV in bit-guessing form is exactly **semantic security** (Boneh–Shoup): $\text{SSadv}[\mathcal A, \mathcal E] = 2 \cdot \text{SSadv}^*[\mathcal A, \mathcal E]$, where $\text{SSadv}^*$ is the advantage above.
-> 3. The multi-query (distinguishing) forms $\text{CPAadv}$ and $\text{CCAadv}$, where the adversary adaptively submits pairs $(m_{i0}, m_{i1})$ and must distinguish Experiment 0 from Experiment 1, are the versions used in the Construction theorems below; they relate to the bit-guessing form by a factor of 2.
-> 4. 1CCA security restricts the adversary to a single encryption query; it is the notion used in [[knowledge/cryptography/primitive/message authentication/Authenticated Encryption\|Authenticated Encryption]].
+> 1. ATK here is a placeholder for the attack. Unlike [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption Scheme (Old)#Indistinguishability\|PKE]], there is no public key, so even IND-CPA requires an explicit encryption oracle.
+> 2. 1CCA security restricts the adversary to a single encryption query; it is the notion used in [[knowledge/cryptography/primitive/message authentication/Authenticated Encryption\|Authenticated Encryption]]. It is stated in the multi-challenge form below.
+
+#### Multi-challenge form: CPA and CCA security
+
+> [!definition] Parameters
+> - $\mathcal E = (E, D)$: a cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$ — a SKE whose $\mathsf{KeyGen}$ samples $k \xleftarrow{\$} \mathcal K$, in the notation of `[BS]`.
+> - $\mathsf{atk} \in \{\mathsf{cpa}, \mathsf{cca}\}$: the attack.
+> - $Q_e$, $Q_d$: the maximal numbers of encryption and decryption queries.
+
+> [!definition] CPA and CCA Security
+> ### Scope
+> A cipher $\mathcal E = (E, D)$ and all efficient adversaries.
+>
+> ---
+> ### Condition
+> - **Access** — every encryption query is a *pair* of messages, answered with an encryption of one of them, the same side in every query: there is no separate challenge.
+>     - $\mathsf{cpa}$: encryption queries only — row 2.
+>     - $\mathsf{cca}$: encryption and decryption queries, interleaved in any order — rows 2 and 3.
+> - **Promise** — every encryption query has $|m_{i,0}| = |m_{i,1}|$; every decryption query has $\hat c_j \notin \{c_1, c_2, \dots\}$, the answers to the earlier encryption queries.
+> - **Quantifier** — $\forall$ efficient $\mathcal A$; **1CCA** restricts to $Q_e = 1$.
+> - **Adaptivity** — each query may depend on the earlier answers. Up to $Q_e$ challenges under one hidden branch.
+>
+> ---
+> ### Experiment
+> A distinguishing game: two branches that differ in the answer of row 2 only. `[BS Attack Game 5.2]` ($\mathsf{cpa}$), `[BS Attack Game 9.2]` ($\mathsf{cca}$).
+>
+> | | challenger $\mathcal C$ | | adversary $\mathcal A$ |
+> | --- | --- | --- | --- |
+> | 1 | $k \xleftarrow{\$} \mathcal K$ | | |
+> | 2 | | $\xleftarrow{\ m_{i,0},\, m_{i,1}\ }$ | **Encryption queries** (repeated, adaptive, at most $Q_e$ times): chooses $m_{i,0}, m_{i,1} \in \mathcal M$ with $\lvert m_{i,0} \rvert = \lvert m_{i,1} \rvert$ |
+> | | **Game 0**: $c_i \leftarrow E(k, m_{i,0})$<br>**Game 1**: $c_i \leftarrow E(k, m_{i,1})$ | $\xrightarrow{\ c_i\ }$ | |
+> | 3 | | $\xleftarrow{\ \hat c_j\ }$ | **Decryption queries** (repeated, adaptive, at most $Q_d$ times; $\mathsf{cca}$ only): sends $\hat c_j \in \mathcal C$ with $\hat c_j \notin \{c_1, c_2, \dots\}$ |
+> | | $\hat m_j \leftarrow D(k, \hat c_j)$ | $\xrightarrow{\ \hat m_j\ }$ | |
+> | 4 | | $\xleftarrow{\ b'\ }$ | outputs a bit $b'$ |
+>
+> **Goal**
+> - **Output** — $\mathsf{Expt}^{\mathsf{atk}}_b(\mathcal A)$, the bit $b'$ in Game $b$; the same branch answers every encryption query.
+> - **Measure** — how far apart $\Pr[\mathsf{Expt}^{\mathsf{atk}}_0(\mathcal A) = 1]$ and $\Pr[\mathsf{Expt}^{\mathsf{atk}}_1(\mathcal A) = 1]$ are.
+>
+> ---
+> ### Property
+> $$\text{CPAadv}[\mathcal A, \mathcal E] = \Big|\Pr\big[\mathsf{Expt}^{\mathsf{cpa}}_0(\mathcal A) = 1\big] - \Pr\big[\mathsf{Expt}^{\mathsf{cpa}}_1(\mathcal A) = 1\big]\Big|$$
+> $$\text{CCAadv}[\mathcal A, \mathcal E] = \Big|\Pr\big[\mathsf{Expt}^{\mathsf{cca}}_0(\mathcal A) = 1\big] - \Pr\big[\mathsf{Expt}^{\mathsf{cca}}_1(\mathcal A) = 1\big]\Big|$$
+> - $\mathcal E$ is **CPA secure** if $\text{CPAadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
+> - $\mathcal E$ is **CCA secure** if $\text{CCAadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$, and **1CCA secure** if this holds for every efficient $\mathcal A$ with $Q_e = 1$.
+> - With $\mathsf{atk} = \mathsf{cpa}$ and $Q_e = 1$ this is `[BS Attack Game 2.1]` again: $\text{CPAadv}$ of a single-query adversary is $\text{SSadv}$.
+
+> [!remark] The two forms
+> The multi-challenge forms $\text{CPAadv}$ and $\text{CCAadv}$ are the versions used in the Construction theorems below and in [[knowledge/cryptography/primitive/message authentication/Authenticated Encryption\|Authenticated Encryption]]. `⚠️ CLAUDE – verify:` my reasoning, not taken from a source: an encryption query $m$ of the single-challenge game is the pair $(m, m)$ here and its challenge is one more pair, so a single-challenge advantage is at most the $\text{CPAadv}$ of a wrapper with one more query; conversely a hybrid over the $Q_e$ pairs gives $\text{CPAadv} \leq Q_e$ times a single-challenge advantage. The same argument applies to $\mathsf{cca}$.
+
+#### Message recovery
+
+> [!definition] Parameters
+> - $\mathcal E = (E, D)$: a cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$, with $\mathcal M$ finite.
+
+> [!definition] Message Recovery Security
+> ### Scope
+> A cipher $\mathcal E$ and all efficient adversaries.
+>
+> ---
+> ### Condition
+> - **Access** — $\mathcal A$ receives one encryption of a uniform message; no query.
+> - **Promise** — none.
+> - **Quantifier** — $\forall$ efficient $\mathcal A$.
+> - **Adaptivity** — none: one message from the challenger, one answer.
+>
+> ---
+> ### Experiment
+> A search game: one branch. `[BS Attack Game 2.2]`
+>
+> | | challenger $\mathcal C$ | | adversary $\mathcal A$ |
+> | --- | --- | --- | --- |
+> | 1 | $m \xleftarrow{\$} \mathcal M$<br>$k \xleftarrow{\$} \mathcal K$<br>$c \leftarrow E(k, m)$ | $\xrightarrow{\ c\ }$ | |
+> | 2 | | $\xleftarrow{\ \hat m\ }$ | outputs a message $\hat m \in \mathcal M$ |
+> | 3 | compares $\hat m$ with $m$ | | |
+>
+> **Goal** — $\mathcal A$ wins iff:
+> - $\hat m = m$.
+>
+> ---
+> ### Property
+> $$\text{MRadv}[\mathcal A, \mathcal E] = \Pr[\mathcal A \text{ wins}] - \frac{1}{|\mathcal M|}.$$
+> - $\mathcal E$ is **message recovery secure** if $\text{MRadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
+> - $1/|\mathcal M|$ is the winning probability of a blind guess. `⚠️ CLAUDE – verify:` I believe `[BS]` takes the absolute value, $|\Pr[\mathcal A \text{ wins}] - 1/|\mathcal M||$; the formula above is the one this note had.
 
 > [!theorem] Semantic Security $\Rightarrow$ Message Recovery Security
-> In the message recovery game, the challenger samples $m \xleftarrow{R} \mathcal M, k \xleftarrow{R} \mathcal K, c \xleftarrow{R} E(k, m)$ and the adversary outputs $\hat m$; define $\text{MRadv}[\mathcal A, \mathcal E] = \Pr[\hat m = m] - 1/|\mathcal M|$. If $\mathcal E$ is semantically secure, then $\text{MRadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
+> If $\mathcal E$ is semantically secure, then $\text{MRadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
+
+#### Parity prediction
+
+> [!definition] Parameters
+> - $\mathcal E = (E, D)$: a cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$ with $\mathcal M = \{0, 1\}^L$.
+> - $\text{parity}(m)$: the XOR of the bits of $m$.
+
+> [!definition] Parity Prediction Security
+> ### Scope
+> A cipher $\mathcal E$ and all efficient adversaries.
+>
+> ---
+> ### Condition
+> - **Access** — $\mathcal A$ receives one encryption of a uniform message; no query.
+> - **Promise** — none.
+> - **Quantifier** — $\forall$ efficient $\mathcal A$.
+> - **Adaptivity** — none: one message from the challenger, one answer.
+>
+> ---
+> ### Experiment
+> A search game: one branch; the challenger acts as in the message recovery game. `[BS Attack Game 2.3]`
+>
+> | | challenger $\mathcal C$ | | adversary $\mathcal A$ |
+> | --- | --- | --- | --- |
+> | 1 | $m \xleftarrow{\$} \mathcal M$<br>$k \xleftarrow{\$} \mathcal K$<br>$c \leftarrow E(k, m)$ | $\xrightarrow{\ c\ }$ | |
+> | 2 | | $\xleftarrow{\ \hat b\ }$ | outputs a bit $\hat b \in \{0, 1\}$ |
+> | 3 | computes $\text{parity}(m)$ | | |
+>
+> **Goal** — $\mathcal A$ wins iff:
+> - $\hat b = \text{parity}(m)$.
+>
+> ---
+> ### Property
+> $$\text{Parityadv}[\mathcal A, \mathcal E] = \Big|\Pr[\mathcal A \text{ wins}] - \frac{1}{2}\Big|.$$
+> - $\mathcal E$ is **parity prediction secure** if $\text{Parityadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
 
 > [!theorem] Semantic Security $\Rightarrow$ Parity Prediction Security
-> Let $\mathcal M = \{0, 1\}^L$. In the parity prediction game, the challenger acts as above and the adversary outputs $\hat b$; define $\text{Parityadv}[\mathcal A, \mathcal E] = |\Pr[\hat b = \text{parity}(m)] - 1/2|$. If $\mathcal E$ is semantically secure, then $\text{Parityadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
+> If $\mathcal E$ is semantically secure, then $\text{Parityadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
 
 ### Multi-key Semantic Security
 
-> [!definition] SKE Multi-key Semantic Security Advantage
-> For any adversary $\mathcal A$ and $b = 0, 1$, in Experiment $b$ the adversary submits queries $(m_{i0}, m_{i1}) \in \mathcal M^2$ of the same length ($i = 1, 2, \dots$); the challenger computes $k_i \leftarrow \text{Gen}(), c_i \leftarrow \text{Enc}(k_i, m_{ib})$ and returns $c_i$; finally the adversary outputs $\hat b \in \{0, 1\}$. Letting $W_b$ denote the event that $\hat b = 1$ in Experiment $b$, define:
-> $$\text{Adv}_\text{SKE}^{\text{mss}}(\mathcal A) = |\Pr[W_0] - \Pr[W_1]|.$$
+> [!definition] Parameters
+> - $\mathcal E = (E, D)$: a cipher defined over $(\mathcal K, \mathcal M, \mathcal C)$ — a SKE whose $\mathsf{KeyGen}$ samples $k \xleftarrow{\$} \mathcal K$, in the notation of `[BS]`.
+> - $Q$: the maximal number of queries. $t$: the running-time bound. $\varepsilon$: the advantage bound.
 
-> [!definition] $(t,\varepsilon)$-Multi-key Semantic Security of a SKE
-> A SKE scheme is **$(t, \varepsilon)$-multi-key semantically secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have:
-> $$\text{Adv}_{\text{SKE}}^{\text{mss}}(\mathcal A) \leq \varepsilon$$
+> [!definition] SKE Multi-key Semantic Security
+> ### Scope
+> A cipher $\mathcal E$ and all adversaries of running time at most $t$.
+>
+> ---
+> ### Condition
+> - **Access** — each query is a pair of messages, answered with an encryption of one of them under a **fresh key**; the same side in every query.
+> - **Promise** — every query has $|m_{i,0}| = |m_{i,1}|$.
+> - **Quantifier** — $\forall \mathcal A$ of running time at most $t$.
+> - **Adaptivity** — each query may depend on the earlier answers.
+>
+> ---
+> ### Experiment
+> A distinguishing game: two branches that differ in the answer of row 1 only. `[BS Attack Game 5.1]`
+>
+> | | challenger $\mathcal C$ | | adversary $\mathcal A$ |
+> | --- | --- | --- | --- |
+> | 1 | | $\xleftarrow{\ m_{i,0},\, m_{i,1}\ }$ | **Queries** (repeated, adaptive, at most $Q$ times): chooses $m_{i,0}, m_{i,1} \in \mathcal M$ with $\lvert m_{i,0} \rvert = \lvert m_{i,1} \rvert$ |
+> | | $k_i \xleftarrow{\$} \mathcal K$<br>**Game 0**: $c_i \leftarrow E(k_i, m_{i,0})$<br>**Game 1**: $c_i \leftarrow E(k_i, m_{i,1})$ | $\xrightarrow{\ c_i\ }$ | |
+> | 2 | | $\xleftarrow{\ b'\ }$ | outputs a bit $b'$ |
+>
+> **Goal**
+> - **Output** — $\mathsf{Expt}^{\mathsf{mss}}_b(\mathcal A)$, the bit $b'$ in Game $b$.
+> - **Measure** — how far apart $\Pr[\mathsf{Expt}^{\mathsf{mss}}_0(\mathcal A) = 1]$ and $\Pr[\mathsf{Expt}^{\mathsf{mss}}_1(\mathcal A) = 1]$ are.
+>
+> ---
+> ### Property
+> $$\text{Adv}_\text{SKE}^{\text{mss}}(\mathcal A) = \text{MSSadv}[\mathcal A, \mathcal E] = \Big|\Pr\big[\mathsf{Expt}^{\mathsf{mss}}_0(\mathcal A) = 1\big] - \Pr\big[\mathsf{Expt}^{\mathsf{mss}}_1(\mathcal A) = 1\big]\Big|.$$
+> - **$(t,\varepsilon)$-multi-key semantic security** — a SKE scheme is $(t, \varepsilon)$-multi-key semantically secure if $\text{Adv}_\text{SKE}^{\text{mss}}(\mathcal A) \leq \varepsilon$ for every adversary $\mathcal A$ with running time at most $t$.
+> - $\mathcal E$ is **multi-key semantically secure** if $\text{MSSadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
 
 > [!theorem]
 > If $\mathcal E$ is semantically secure, it is multi-key semantically secure. For every MSS adversary $\mathcal A$ making at most $Q$ queries, there exists an SS adversary $\mathcal B$ ([[knowledge/cryptography/foundations/Elementary Wrapper\|elementary wrapper]]) such that $$\text{MSSadv}[\mathcal A, \mathcal E] = Q \cdot \text{SSadv}[\mathcal B, \mathcal E].$$
 
 ### Nonce-based CPA Security
 
-> [!definition] SKE nCPA Advantage
-> For a nonce-based cipher $\mathcal E$ defined over $(\mathcal K, \mathcal M, \mathcal C, \mathcal N)$, any adversary $\mathcal A$ and $b = 0, 1$, in Experiment $b$ the challenger selects $k \leftarrow \text{Gen}()$; the adversary submits queries $(m_{i0}, m_{i1}, n_i)$ with $|m_{i0}| = |m_{i1}|$ and $n_i \in \mathcal N \setminus \{n_1, \dots, n_{i-1}\}$; the challenger returns $c_i \leftarrow E(k, m_{ib}, n_i)$; finally the adversary outputs $\hat b \in \{0, 1\}$. Letting $W_b$ denote the event that $\hat b = 1$ in Experiment $b$, define:
-> $$\text{Adv}_\text{SKE}^{\text{ncpa}}(\mathcal A) = |\Pr[W_0] - \Pr[W_1]|.$$
+> [!definition] Parameters
+> - $\mathcal E = (E, D)$: a nonce-based cipher defined over $(\mathcal K, \mathcal M, \mathcal C, \mathcal N)$; $E(k, m, n)$ and $D(k, c, n)$ take a nonce $n \in \mathcal N$.
+> - $Q$: the maximal number of queries. $t$: the running-time bound. $\varepsilon$: the advantage bound.
 
-> [!definition] $(t,\varepsilon)$-nCPA security of a SKE
-> A nonce-based SKE scheme is **$(t, \varepsilon)$-nCPA secure** if for every adversary $\mathcal{A}$ that has running time bounded by $t$, we have:
-> $$\text{Adv}_{\text{SKE}}^{\text{ncpa}}(\mathcal A) \leq \varepsilon$$
+> [!definition] SKE nCPA Security
+> ### Scope
+> A nonce-based cipher $\mathcal E$ and all adversaries of running time at most $t$.
+>
+> ---
+> ### Condition
+> - **Access** — each query is a pair of messages and a nonce, answered with an encryption of one of the messages under that nonce; the same side in every query.
+> - **Promise** — every query has $|m_{i,0}| = |m_{i,1}|$ and a new nonce, $n_i \notin \{n_1, \dots, n_{i-1}\}$.
+> - **Quantifier** — $\forall \mathcal A$ of running time at most $t$.
+> - **Adaptivity** — each query, nonce included, may depend on the earlier answers.
+>
+> ---
+> ### Experiment
+> A distinguishing game: two branches that differ in the answer of row 2 only. `[BS Attack Game 5.3]`
+>
+> | | challenger $\mathcal C$ | | adversary $\mathcal A$ |
+> | --- | --- | --- | --- |
+> | 1 | $k \xleftarrow{\$} \mathcal K$ | | |
+> | 2 | | $\xleftarrow{\ m_{i,0},\, m_{i,1},\, n_i\ }$ | **Queries** (repeated, adaptive, at most $Q$ times): chooses $m_{i,0}, m_{i,1} \in \mathcal M$ with $\lvert m_{i,0} \rvert = \lvert m_{i,1} \rvert$ and a nonce $n_i \in \mathcal N \setminus \{n_1, \dots, n_{i-1}\}$ |
+> | | **Game 0**: $c_i \leftarrow E(k, m_{i,0}, n_i)$<br>**Game 1**: $c_i \leftarrow E(k, m_{i,1}, n_i)$ | $\xrightarrow{\ c_i\ }$ | |
+> | 3 | | $\xleftarrow{\ b'\ }$ | outputs a bit $b'$ |
+>
+> **Goal**
+> - **Output** — $\mathsf{Expt}^{\mathsf{ncpa}}_b(\mathcal A)$, the bit $b'$ in Game $b$.
+> - **Measure** — how far apart $\Pr[\mathsf{Expt}^{\mathsf{ncpa}}_0(\mathcal A) = 1]$ and $\Pr[\mathsf{Expt}^{\mathsf{ncpa}}_1(\mathcal A) = 1]$ are.
+>
+> ---
+> ### Property
+> $$\text{Adv}_\text{SKE}^{\text{ncpa}}(\mathcal A) = \text{nCPAadv}[\mathcal A, \mathcal E] = \Big|\Pr\big[\mathsf{Expt}^{\mathsf{ncpa}}_0(\mathcal A) = 1\big] - \Pr\big[\mathsf{Expt}^{\mathsf{ncpa}}_1(\mathcal A) = 1\big]\Big|.$$
+> - **$(t,\varepsilon)$-nCPA security** — a nonce-based SKE scheme is $(t, \varepsilon)$-nCPA secure if $\text{Adv}_\text{SKE}^{\text{ncpa}}(\mathcal A) \leq \varepsilon$ for every adversary $\mathcal A$ with running time at most $t$.
+> - $\mathcal E$ is **nCPA secure** if $\text{nCPAadv}[\mathcal A, \mathcal E]$ is negligible for every efficient $\mathcal A$.
 
 > [!remark]
 > Integrity notions — ciphertext integrity (CI) and AE security — live in [[knowledge/cryptography/primitive/message authentication/Authenticated Encryption\|Authenticated Encryption]]. The distribution-distinguishing toolkit ($\text{Distadv}$, statistical distance, data-processing inequality) lives in [[knowledge/cryptography/foundations/Indistinguishability\|Indistinguishability]] and [[knowledge/math/probability/Statistical Distance\|Statistical Distance]]. The guessing-advantage game lives in [[knowledge/cryptography/primitive/key establishment/Key Derivation Problem\|Key Derivation Problem]].
