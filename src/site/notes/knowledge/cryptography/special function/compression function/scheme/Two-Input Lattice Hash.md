@@ -35,11 +35,14 @@ Instantiates:: [[knowledge/cryptography/special function/compression function/Co
 > - $\mathbf H \leftarrow \mathsf{KeyGen}(1^\lambda)$: (Randomized) Key-generation algorithm.
 >     - **Input**: the security parameter $1^\lambda$.
 >     - **Output**: a key $\mathbf H \in \mathcal R_{q_H}^{n \times m}$.
->     - **Steps**: chooses $q_H, n, B$; samples $\mathbf H \xleftarrow{\$} \mathcal R_{q_H}^{n \times m}$.
+>     - **Steps**:
+>         1. Chooses $q_H, n, B$.
+>         2. Samples $\mathbf H \xleftarrow{\$} \mathcal R_{q_H}^{n \times m}$.
 > - $\mathbf u \leftarrow f_\mathbf H(\mathbf u_0, \mathbf u_1)$: (Deterministic) Hash algorithm.
 >     - **Input**: the key $\mathbf H$ and two blocks $\mathbf u_0, \mathbf u_1 \in \mathcal C_\beta^{n k_H}$.
 >     - **Output**: one block $\mathbf u \in \mathcal C_\beta^{n k_H}$.
->     - **Steps**: returns $\mathbf u = \mathsf{dec}_B(\mathbf H_0 \mathbf u_0 + \mathbf H_1 \mathbf u_1 \bmod q_H)$.
+>     - **Steps**:
+>         1. Returns $\mathbf u = \mathsf{dec}_B(\mathbf H_0 \mathbf u_0 + \mathbf H_1 \mathbf u_1 \bmod q_H)$.
 >
 > `[TNLPS26 Def 7]`
 

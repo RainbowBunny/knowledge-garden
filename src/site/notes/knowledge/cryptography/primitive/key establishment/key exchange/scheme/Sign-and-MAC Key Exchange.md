@@ -35,7 +35,7 @@ Instantiates:: [[knowledge/cryptography/primitive/key establishment/key exchange
 ### Building Blocks
 
 > [!definition] Building Blocks
-> - $\mathsf{sig}$: a [[knowledge/cryptography/primitive/digital signatures/Digital Signature\|Digital Signature]] scheme, [[knowledge/cryptography/primitive/digital signatures/Old Digital Signature#Unforgeability\|unforgeable under chosen-message attack]]; $\mathsf{sig}_i, \mathsf{sig}_r$ sign with the keys of $I$ and $R$.
+> - $\mathsf{sig}$: a [[knowledge/cryptography/primitive/digital signatures/Digital Signature\|Digital Signature]] scheme, [[knowledge/cryptography/primitive/digital signatures/Digital Signature#Unforgeability\|unforgeable under chosen-message attack]]; $\mathsf{sig}_i, \mathsf{sig}_r$ sign with the keys of $I$ and $R$.
 > - $\mathsf{mac}$: a [[knowledge/cryptography/primitive/message authentication/Message Integrity#MAC Security\|secure MAC]].
 > - $\mathsf{prf}$: a [[knowledge/cryptography/special function/pseudorandom function/Pseudorandom Function#Secure PRF\|secure PRF]], keyed with the Diffie–Hellman value $g^{xy}$.
 

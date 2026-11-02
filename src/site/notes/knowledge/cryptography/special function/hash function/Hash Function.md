@@ -4,6 +4,7 @@
 
 Reference:
 - `[BS]` — D. Boneh, V. Shoup, _A Graduate Course in Applied Cryptography_, v0.6, 2023: https://toc.cryptobook.us/ (§7.1 and §7.1.2: keyed hash functions; §8.1 and §8.1.1: collision resistance, Definition 8.1).
+- `[HK06]` — S. Halevi, H. Krawczyk, _Strengthening Digital Signatures via Randomized Hashing_, CRYPTO 2006: Introduction, §3 (TCR), §4 (eTCR): https://www.iacr.org/archive/crypto2006/41170039/41170039.pdf
 - `[HPS]` — J. Hoffstein, J. Pipher, J. H. Silverman, _An Introduction to Mathematical Cryptography_, 2nd ed., Springer, 2014, §8.1. `⚠️ CLAUDE – verify:` the informal description in Syntax follows this section's wording; the book could not be read.
 - `⚠️ CLAUDE – verify:` — added by me, not taken from a source.
 
@@ -105,15 +106,66 @@ Specializes [[knowledge/cryptography/special function/Special Functions#Collisio
 > [!remark] In an idealized model
 > When $H$ is built from a block cipher or a permutation modeled as ideal, $\mathcal A$ also gets oracle access to it, and the advantage is written $\mathsf{Adv}^{\mathsf{cr\text{-}ic}}_{H}(\mathcal A)$ — see [[knowledge/cryptography/special function/compression function/Davies-Meyer Compression Function#Security\|Davies-Meyer Compression Function#Security]] and [[knowledge/cryptography/special function/hash function/Sponge Construction#Security\|Sponge Construction#Security]].
 
+### Target Collision Resistance
+
+> [!definition] Parameters
+> - $H$: a keyed hash function defined over $(\mathcal K, \mathcal M, \mathcal T)$; the key $r \in \mathcal K$ is a public random **salt**.
+> - $\mathcal A$: an efficient [[knowledge/cryptography/foundations/Adversary\|Adversary]].
+
+> [!definition] Target Collision Resistance
+> ### Scope
+> A keyed hash function $H$ and an efficient adversary $\mathcal A$.
+>
+> ---
+> ### Condition
+> - **Access** — none; $\mathcal A$ evaluates $H$ itself once it has the salt.
+> - **Promise** — none.
+> - **Quantifier** — $\forall$ efficient $\mathcal A$.
+> - **Adaptivity** — $\mathcal A$ commits to its first message before it sees the salt.
+>
+> ---
+> ### Experiment
+> A search game: one branch. `[HK06 §3]`
+>
+> | | challenger $\mathcal C$ | | adversary $\mathcal A$ |
+> | --- | --- | --- | --- |
+> | 1 | | $\xleftarrow{\ m_0\ }$ | commits to a first message $m_0 \in \mathcal M$ |
+> | 2 | $r \xleftarrow{\$} \mathcal K$ | $\xrightarrow{\ r\ }$ | |
+> | 3 | | $\xleftarrow{\ m_1\ }$ | outputs a second message $m_1 \in \mathcal M$ |
+>
+> **Goal** — $\mathcal A$ wins iff all of:
+> - $m_1 \neq m_0$;
+> - $H(r, m_1) = H(r, m_0)$.
+>
+> ---
+> ### Property
+> $$\mathsf{Adv}^{\mathsf{tcr}}_{H}(\mathcal A) = \Pr[\mathcal A \text{ wins}].$$
+> - $H$ is **target collision resistant** (TCR) if $\mathsf{Adv}^{\mathsf{tcr}}_{H}(\mathcal A)$ is negligible for every efficient $\mathcal A$.
+
+### Enhanced Target Collision Resistance
+
+> [!definition] Parameters
+> - As in [[knowledge/cryptography/special function/hash function/Hash Function#Target Collision Resistance\|#Target Collision Resistance]].
+
+> [!definition] Enhanced Target Collision Resistance
+> The game of [[knowledge/cryptography/special function/hash function/Hash Function#Target Collision Resistance\|#Target Collision Resistance]], except that in row 3 $\mathcal A$ outputs a second message **and a second salt** $(m_1, r')$, and wins iff all of:
+> - $(m_1, r') \neq (m_0, r)$;
+> - $H(r', m_1) = H(r, m_0)$.
+>
+> The advantage is $\mathsf{Adv}^{\mathsf{etcr}}_{H}(\mathcal A)$; $H$ is **enhanced TCR** (eTCR) if it is negligible for every efficient $\mathcal A$ `[HK06 Introduction, §4]`.
+
+> [!remark] Why the enhancement
+> A signature on $(r, H(r, m))$ needs only TCR; a signature on $H(r, m)$ alone, with $r$ sent in the clear, lets a forger change the salt too, which is what eTCR rules out `[HK06 Introduction, §1.1]` — [[knowledge/cryptography/primitive/digital signatures/Hash-and-Sign with Target Collision Resistance\|Hash-and-Sign with Target Collision Resistance]], [[knowledge/cryptography/primitive/digital signatures/Randomized Lamport Signature\|Randomized Lamport Signature]].
+
 ## Related
 
 ### Instantiations
 
 | | built from | collision resistance rests on |
 | --- | --- | --- |
-| [[knowledge/cryptography/special function/hash function/scheme/SHA-256\|SHA-256]] | [[knowledge/cryptography/special function/hash function/Merkle-Damgard Transform\|Merkle–Damgård]] over [[knowledge/cryptography/special function/compression function/Davies-Meyer Compression Function\|Davies–Meyer]] on the SHACAL-2 cipher | heuristic: the cipher treated as an ideal cipher |
+| [[knowledge/cryptography/special function/hash function/scheme/Secure Hash Algorithm 256\|Secure Hash Algorithm 256]] | [[knowledge/cryptography/special function/hash function/Merkle-Damgard Transform\|Merkle–Damgård]] over [[knowledge/cryptography/special function/compression function/Davies-Meyer Compression Function\|Davies–Meyer]] on the SHACAL-2 cipher | heuristic: the cipher treated as an ideal cipher |
 | [[knowledge/cryptography/special function/hash function/scheme/Keccak\|Keccak]] | a [[knowledge/cryptography/special function/hash function/Sponge Construction\|sponge]] on Keccak-$f$ | heuristic: the permutation treated as random |
-| [[knowledge/cryptography/special function/hash function/scheme/MD5\|MD5]] | Merkle–Damgård | broken: collisions found in 2004 |
+| [[knowledge/cryptography/special function/hash function/scheme/Message-Digest Algorithm 5\|Message-Digest Algorithm 5]] | Merkle–Damgård | broken: collisions found in 2004 |
 | [[knowledge/cryptography/special function/hash function/scheme/Ajtai Hash Function\|Ajtai Hash Function]] | one random matrix over $\mathbb Z_q$ | [[knowledge/cryptography/assumptions/lattice-based/SIS/Short Integer Solution\|SIS]] |
 
 ### Constructions

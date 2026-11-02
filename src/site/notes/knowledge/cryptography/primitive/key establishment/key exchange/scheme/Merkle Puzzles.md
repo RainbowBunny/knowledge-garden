@@ -28,7 +28,7 @@ Instantiates:: [[knowledge/cryptography/primitive/key establishment/key exchange
 ### Building Blocks
 
 > [!definition] Building Blocks
-> - $F$: a strong encryption function — "any function the reader considers powerful" — such as a [[knowledge/cryptography/primitive/symmetric encryption/Block Ciphers\|block cipher]]; `[Mer78]` suggests Lucifer. $F_K(m)$ encrypts $m$ under the key $K$.
+> - $F$: a strong encryption function — "any function the reader considers powerful" — such as a [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]]; `[Mer78]` suggests Lucifer. $F_K(m)$ encrypts $m$ under the key $K$.
 
 ### Algorithms
 
@@ -72,4 +72,4 @@ Instantiates:: [[knowledge/cryptography/primitive/key establishment/key exchange
 - [[knowledge/cryptography/primitive/key establishment/key exchange/scheme/Diffie-Hellman Key Exchange\|Diffie-Hellman Key Exchange]] — the same goal with an exponential gap, under a number-theoretic assumption
 
 ### Prerequisites
-- [[knowledge/cryptography/primitive/key establishment/key exchange/Key Exchange\|Key Exchange]], [[knowledge/cryptography/primitive/symmetric encryption/Block Ciphers\|Block Ciphers]]
+- [[knowledge/cryptography/primitive/key establishment/key exchange/Key Exchange\|Key Exchange]], [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|Block Ciphers]]

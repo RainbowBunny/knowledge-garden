@@ -50,8 +50,8 @@ Reference:
 ## Related
 
 ### Constructions
-- [[knowledge/cryptography/special function/hash function/scheme/SHA-256\|SHA-256]] — over the [[knowledge/cryptography/special function/compression function/Davies-Meyer Compression Function\|Davies–Meyer]] compression function on SHACAL-2
-- [[knowledge/cryptography/special function/hash function/scheme/MD5\|MD5]] — over its own compression function
+- [[knowledge/cryptography/special function/hash function/scheme/Secure Hash Algorithm 256\|Secure Hash Algorithm 256]] — over the [[knowledge/cryptography/special function/compression function/Davies-Meyer Compression Function\|Davies–Meyer]] compression function on SHACAL-2
+- [[knowledge/cryptography/special function/hash function/scheme/Message-Digest Algorithm 5\|Message-Digest Algorithm 5]] — over its own compression function
 
 ### Siblings
 - [[knowledge/cryptography/special function/hash function/Sponge Construction\|Sponge Construction]] — the other way to hash long messages: iterate a permutation over a state with a hidden capacity, rather than a compression function

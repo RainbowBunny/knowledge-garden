@@ -6,6 +6,8 @@ Reference:
 - https://eprint.iacr.org/2017/633
 ## Scheme
 
+Instantiates:: [[knowledge/cryptography/primitive/digital signatures/Digital Signature\|Digital Signature]]
+
 > [!scheme] Dilithium Signature
 > Reference Name: $\text{Dilithium}$
 > 

@@ -201,8 +201,8 @@ Reference:
 - [[knowledge/cryptography/special function/hash function/scheme/Polynomial Universal Hash Function\|Polynomial Universal Hash Function]] — an $(\ell/p)$-UHF over $\mathbb Z_p$; its variant $H_\mathrm{xpoly}$ is an $((\ell + 1)/p)$-DUF
 
 ### Constructions
-- [[knowledge/cryptography/special function/hash function/Universal Hash Function from Prefix-Free PRF\|Universal Hash Function from Prefix-Free PRF]] — an extendable prefix-free PRF is a computational UHF; CBC and cascade are examples
-- [[knowledge/cryptography/special function/hash function/Parallel Universal Hash Function from PRF\|Parallel Universal Hash Function from PRF]] — $F^\oplus$, one PRF call per block, all in parallel
+- [[knowledge/cryptography/special function/hash function/Universal Hash Function from Prefix-Free Pseudorandom Function\|Universal Hash Function from Prefix-Free Pseudorandom Function]] — an extendable prefix-free PRF is a computational UHF; CBC and cascade are examples
+- [[knowledge/cryptography/special function/hash function/Parallel Universal Hash Function from Pseudorandom Function\|Parallel Universal Hash Function from Pseudorandom Function]] — $F^\oplus$, one PRF call per block, all in parallel
 
 ### Siblings
 - [[knowledge/cryptography/special function/hash function/Hash Function#Collision Resistance\|Hash Function#Collision Resistance]] — the key is public or absent, and the adversary evaluates $H$ itself

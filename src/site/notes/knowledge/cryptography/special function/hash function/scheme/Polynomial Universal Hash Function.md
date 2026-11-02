@@ -27,8 +27,9 @@ Instantiates:: [[knowledge/cryptography/special function/hash function/Universal
 > - $t \leftarrow H_\mathrm{poly}(k, m)$: (Deterministic) Hash algorithm.
 >     - **Input**: a key $k \in \mathbb Z_p$ and a message $m = (a_1, \dots, a_v) \in \mathbb Z_p^{\leq \ell}$, $0 \leq v \leq \ell$.
 >     - **Output**: a digest $t \in \mathbb Z_p$.
->     - **Steps**: returns
->     $$H_\mathrm{poly}(k, (a_1, \dots, a_v)) = k^v + a_1 k^{v-1} + a_2 k^{v-2} + \dots + a_{v-1} k + a_v.$$
+>     - **Steps**:
+>         1. Returns
+>            $$H_\mathrm{poly}(k, (a_1, \dots, a_v)) = k^v + a_1 k^{v-1} + a_2 k^{v-2} + \dots + a_{v-1} k + a_v.$$
 >
 > `[BS §7.2.1]`
 

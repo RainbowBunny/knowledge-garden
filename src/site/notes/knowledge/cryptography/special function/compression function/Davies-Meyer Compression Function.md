@@ -12,14 +12,15 @@ Reference:
 > - $\mathcal X = \{0, 1\}^n$: the chaining space, the cipher's block space. $\mathcal K$: the cipher's key space, used as the message-block space.
 
 > [!definition] Building Blocks
-> - $\mathcal E = (E, D)$: any [[knowledge/cryptography/primitive/symmetric encryption/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ (universally quantified).
+> - $\mathcal E = (E, D)$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ (universally quantified).
 
 > [!definition] Davies-Meyer Compression Function
 > - $t \leftarrow h_\mathrm{DM}(x, y)$: (Deterministic) Compression algorithm.
 >     - **Input**: a chaining value $x \in \mathcal X$ and a message block $y \in \mathcal K$.
 >     - **Output**: a chaining value $t \in \mathcal X$.
->     - **Steps**: returns
->     $$h_\mathrm{DM}(x, y) = E(y, x) \oplus x.$$
+>     - **Steps**:
+>         1. Returns
+>            $$h_\mathrm{DM}(x, y) = E(y, x) \oplus x.$$
 >
 > The message block is the cipher's **key** and the chaining value its plaintext; $h_\mathrm{DM}$ is defined over $(\mathcal X \times \mathcal K, \mathcal X)$. `[BS §8.5.2]`
 
@@ -60,16 +61,16 @@ Reference:
 ### Addition instead of XOR
 
 > [!remark] $\boxplus$ in place of $\oplus$
-> The final $\oplus$ can be replaced by addition: [[knowledge/cryptography/special function/hash function/scheme/SHA-256\|SHA-256]] splits the 256-bit chaining value into eight 32-bit words and adds them word by word modulo $2^{32}$.
+> The final $\oplus$ can be replaced by addition: [[knowledge/cryptography/special function/hash function/scheme/Secure Hash Algorithm 256\|Secure Hash Algorithm 256]] splits the 256-bit chaining value into eight 32-bit words and adds them word by word modulo $2^{32}$.
 
 ## Related
 
 ### Constructions
-- [[knowledge/cryptography/special function/hash function/scheme/SHA-256\|SHA-256]] — Davies–Meyer on the SHACAL-2 cipher, with word-wise addition, inside [[knowledge/cryptography/special function/hash function/Merkle-Damgard Transform\|Merkle–Damgård]]
+- [[knowledge/cryptography/special function/hash function/scheme/Secure Hash Algorithm 256\|Secure Hash Algorithm 256]] — Davies–Meyer on the SHACAL-2 cipher, with word-wise addition, inside [[knowledge/cryptography/special function/hash function/Merkle-Damgard Transform\|Merkle–Damgård]]
 
 ### Siblings
 - [[knowledge/cryptography/special function/compression function/scheme/Inefficient Compression Function\|Inefficient Compression Function]] — from a number-theoretic problem modulo a prime rather than from a block cipher
 - [[knowledge/cryptography/special function/compression function/scheme/Two-Input Lattice Hash\|Two-Input Lattice Hash]] — from Module-SIS
 
 ### Prerequisites
-- [[knowledge/cryptography/primitive/symmetric encryption/Block Ciphers\|Block Ciphers]], [[knowledge/cryptography/assumptions/idealized models/Ideal Cipher Model\|Ideal Cipher Model]], [[knowledge/cryptography/special function/compression function/Compression Functions\|Compression Functions]]
+- [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|Block Ciphers]], [[knowledge/cryptography/assumptions/idealized models/Ideal Cipher Model\|Ideal Cipher Model]], [[knowledge/cryptography/special function/compression function/Compression Functions\|Compression Functions]]
