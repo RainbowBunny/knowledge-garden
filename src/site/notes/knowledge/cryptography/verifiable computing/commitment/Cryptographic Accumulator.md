@@ -11,7 +11,10 @@ Reference:
 
 > [!definition] Parameters
 > - $\lambda$: the security parameter. $\mathrm{pp}$: public parameters, an implicit input of the other algorithms.
-> - $R = \{d_0, \dots, d_{N-1}\}$: a set of $N = \mathrm{poly}(\lambda)$ values. $u$: an accumulator value. $d$: a value. $w$: a membership witness.
+> - $R = \{d_0, \dots, d_{N-1}\}$: a set of $N = \mathrm{poly}(\lambda)$ values. 
+> - $u$: an accumulator value. 
+> - $d$: a value. 
+> - $w$: a membership witness.
 >
 > `[TNLPS26 §2.2]`
 
@@ -52,7 +55,8 @@ Reference:
 ### Security against false witnesses
 
 > [!definition] Parameters
-> - The accumulator's $\lambda, \mathrm{pp}$ from Syntax. $\mathcal A$: a PPT [[knowledge/cryptography/foundations/Adversary\|Adversary]].
+> - The accumulator's $\lambda, \mathrm{pp}$ from Syntax. 
+> - $\mathcal A$: a PPT [[knowledge/cryptography/foundations/Adversary\|Adversary]].
 
 > [!definition] Accumulator Security
 > ### Scope
@@ -87,20 +91,16 @@ Reference:
 
 ### Lattice Merkle-tree accumulator
 
+> [!definition] Building Blocks
+> - [[knowledge/cryptography/special function/compression function/scheme/Two-Input Lattice Hash\|Two-Input Lattice Hash]] $f_\mathbf H$: Import $(n, q_H, B, \beta, k_H, m, \mathcal C_\beta, \mathsf{dec}_B, \mathbf H = [\mathbf H_0 \mid \mathbf H_1])$ — two blocks of $\mathcal C_\beta^{n k_H}$ in, one block out, collision resistant under $\mathsf{MSIS}^{(\infty)}_{n, m, \beta, q_H}$.
+
 > [!definition] Parameters
-> - $\mathcal R_{q_H}$: a polynomial ring modulo $q_H$. $B > 1$: a base; $\beta = B - 1$; $k_H = \lceil \log_B q_H \rceil$; $m = 2 n k_H$.
-> - $\mathcal C_\beta$: ring elements with coefficients bounded by $\beta$. $\mathsf{dec}_B$: base-$B$ decomposition, with gadget matrix $\mathbf G_B$ ($\mathsf{dec}_B(\mathbf v) = \mathbf u$ means $\mathbf G_B \mathbf u = \mathbf v$).
 > - $N = 2^\ell$: the number of leaves.
 >
 > `[TNLPS26 §4.1]`
 
-> [!definition] Two-Input Lattice Hash
-> For $\mathbf H = [\mathbf H_0 \mid \mathbf H_1] \in \mathcal R_{q_H}^{n \times m}$ with $\mathbf H_0, \mathbf H_1 \in \mathcal R_{q_H}^{n \times n k_H}$, and $\mathbf u_0, \mathbf u_1 \in \mathcal C_\beta^{n k_H}$,
-> $$f_\mathbf H(\mathbf u_0, \mathbf u_1) = \mathsf{dec}_B(\mathbf H_0 \mathbf u_0 + \mathbf H_1 \mathbf u_1 \bmod q_H) \in \mathcal C_\beta^{n k_H}.$$
-> Under $\mathsf{MSIS}^{(\infty)}_{n, m, \beta, q_H}$ (the module, $\ell_\infty$ form of [[knowledge/cryptography/assumptions/lattice-based/SIS/Short Integer Solution\|Short Integer Solution]]) the family is collision resistant. `[TNLPS26 Def 7, Lemma 1]`
-
 > [!scheme] Algorithms `[TNLPS26 §4.1]`
-> - $\mathsf{Setup}(1^\lambda)$: chooses $q_H, n, B$; samples $\mathbf H \xleftarrow{\$} \mathcal R_{q_H}^{n \times m}$; returns $\mathrm{pp} = (q_H, n, B, \mathbf H = [\mathbf H_0 \mid \mathbf H_1])$.
+> - $\mathsf{Setup}(1^\lambda)$: runs the hash's $\mathsf{KeyGen}(1^\lambda)$ for $\mathbf H$; returns $\mathrm{pp} = (q_H, n, B, \mathbf H = [\mathbf H_0 \mid \mathbf H_1])$.
 > - $\mathsf{Acc}(R)$: places $d_j$ at the leaf $\mathbf u_{j_0, \dots, j_{\ell-1}}$, where $(j_0, \dots, j_{\ell-1})$ is $j$ in binary; computes each inner node as $\mathbf u_{b_0, \dots, b_{i-1}} = f_\mathbf H(\mathbf u_{b_0, \dots, b_{i-1}, 0}, \mathbf u_{b_0, \dots, b_{i-1}, 1})$; returns the root $u = f_\mathbf H(\mathbf u_0, \mathbf u_1)$.
 > - $\mathsf{Witness}(R, d)$: returns $\perp$ if $d \notin R$; otherwise, for $d = d_j$, returns the position and the siblings along the path, $w = \big((j_0, \dots, j_{\ell-1}), (\mathbf w_0, \dots, \mathbf w_{\ell-1})\big)$ with $\mathbf w_i = \mathbf u_{j_0, \dots, j_{i-1}, 1 - j_i}$.
 > - $\mathsf{Verify}(u, d, w)$: sets $\mathbf v_{\ell-1} = d$; for $k = \ell - 1, \dots, 0$ computes
@@ -111,7 +111,7 @@ Reference:
 > The accumulator above is correct, and secure in the sense of Accumulator Security under $\mathsf{MSIS}^{(\infty)}_{n, m, \beta, q_H}$.
 
 > [!remark] The binary original
-> `[LNWX18 Def 5, Lemma 1]` restate the case $B = 2$ over $\mathbb Z_q$: $h_\mathbf A(\mathbf u_0, \mathbf u_1) = \mathsf{bin}(\mathbf A_0 \mathbf u_0 + \mathbf A_1 \mathbf u_1 \bmod q)$ with $\mathbf A = [\mathbf A_0 \mid \mathbf A_1] \in \mathbb Z_q^{n \times m}$, $k = \lceil \log_2 q \rceil$, $m = 2nk$, secure under $\mathrm{SIS}^\infty_{n, m, q, 1}$. The base $B$ trades hash size against the assumption `[TNLPS26 abstract]`.
+> `[LNWX18 Def 5, Lemma 1]` build the same tree over $\mathbb Z_q$ from the binary hash $h_\mathbf A$ — [[knowledge/cryptography/special function/compression function/scheme/Two-Input Lattice Hash#The binary original\|Two-Input Lattice Hash#The binary original]].
 
 ### Number-theoretic accumulators
 
@@ -125,4 +125,4 @@ RSA accumulators — the accumulator and each witness are one element of a group
 
 ### Constructions
 - [[knowledge/cryptography/verifiable computing/relation/Set Membership Relation\|Set Membership Relation]] — a zero-knowledge proof of a valid witness for a hidden value
-- [[knowledge/cryptography/special function/hash function/scheme/Ajtai Hash Function\|Ajtai Hash Function]] — the one-input SIS hash behind $f_\mathbf H$
+- [[knowledge/cryptography/special function/compression function/scheme/Two-Input Lattice Hash\|Two-Input Lattice Hash]] — the hash $f_\mathbf H$ at each inner node

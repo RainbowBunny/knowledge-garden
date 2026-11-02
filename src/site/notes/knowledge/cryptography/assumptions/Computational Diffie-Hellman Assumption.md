@@ -62,6 +62,7 @@ Reference:
 ### Constructions
 - [[knowledge/cryptography/primitive/key establishment/key exchange/scheme/Diffie-Hellman Key Exchange\|Diffie-Hellman Key Exchange]] — CDH is exactly the eavesdropper's problem: compute $g^{\alpha\beta}$ from the transcript $(g^\alpha, g^\beta)$
 - [[knowledge/cryptography/primitive/public-key encryption/scheme/Massey-Omura Three-Pass Cryptosystem\|Massey-Omura Three-Pass Cryptosystem]]
+- [[knowledge/cryptography/primitive/public-key encryption/scheme/ElGamal Encryption\|ElGamal Encryption]] — one-way under passive attack iff CDH `[Gal12 §20.4]`
 
 ### Siblings
 - [[knowledge/cryptography/assumptions/Discrete-Logarithm Assumption\|Discrete-Logarithm Assumption]], [[knowledge/cryptography/assumptions/Decisional Diffie-Hellman Assumption\|Decisional Diffie-Hellman Assumption]]

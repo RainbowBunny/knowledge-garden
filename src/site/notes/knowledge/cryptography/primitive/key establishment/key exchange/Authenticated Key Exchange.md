@@ -47,7 +47,8 @@ Reference:
 ### SK-security
 
 > [!definition] Parameters
-> - The protocol's parties, sessions and keys from Syntax. $\mathcal A$: a PPT adversary in the UM (or the AM).
+> - The protocol's parties, sessions and keys from Syntax. 
+> - $\mathcal A$: a PPT adversary in the UM (or the AM).
 
 > [!definition] SK-Security
 > ### Scope

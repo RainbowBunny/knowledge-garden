@@ -61,6 +61,7 @@ Reference:
 ## Related
 
 ### Constructions
+- [[knowledge/cryptography/primitive/public-key encryption/scheme/ElGamal Encryption\|ElGamal Encryption]] — IND-CPA iff DDH `[Gal12 §20.4]`
 - [[knowledge/cryptography/primitive/key establishment/key exchange/scheme/Diffie-Hellman Key Exchange\|Diffie-Hellman Key Exchange]] — its key is indistinguishable from random to an eavesdropper under DDH
 - [[knowledge/cryptography/primitive/key establishment/key exchange/scheme/Sign-and-MAC Key Exchange\|SIGMA]] — SK-secure under DDH
 
@@ -68,4 +69,4 @@ Reference:
 - [[knowledge/cryptography/assumptions/Discrete-Logarithm Assumption\|Discrete-Logarithm Assumption]], [[knowledge/cryptography/assumptions/Computational Diffie-Hellman Assumption\|Computational Diffie-Hellman Assumption]]
 
 ### Prerequisites
-- [[knowledge/complexity/problem/group/Discrete Logarithm Problem#Diffie-Hellman Decision Problem\|Discrete Logarithm Problem#Diffie-Hellman Decision Problem]] — the problem form
+- [[knowledge/complexity/problem/group/Discrete Logarithm Problem\|Discrete Logarithm Problem]] — the problem underneath the whole family

@@ -66,7 +66,10 @@ Instantiates:: [[knowledge/cryptography/special function/hash function/Hash Func
 
 ### Constructions
 - [[knowledge/cryptography/verifiable computing/commitment/scheme/Ajtai Commitment\|Ajtai Commitment]] — $f_\mathbf A$ on (randomness, message)
-- [[knowledge/cryptography/verifiable computing/commitment/Cryptographic Accumulator\|Cryptographic Accumulator]] — Merkle trees of two-input SIS hashes, $\mathsf{bin}(\mathbf A_0 \mathbf u_0 + \mathbf A_1 \mathbf u_1 \bmod q)$
+- [[knowledge/cryptography/verifiable computing/commitment/Cryptographic Accumulator\|Cryptographic Accumulator]] — Merkle trees of [[knowledge/cryptography/special function/compression function/scheme/Two-Input Lattice Hash\|two-input SIS hashes]]
+
+### Siblings
+- [[knowledge/cryptography/special function/compression function/scheme/Two-Input Lattice Hash\|Two-Input Lattice Hash]] — two short inputs and a decomposed output, so it can be iterated along a Merkle tree
 
 ### Prerequisites
 - [[knowledge/cryptography/special function/hash function/Hash Function\|Hash Function]], [[knowledge/cryptography/assumptions/lattice-based/SIS/Short Integer Solution\|Short Integer Solution]], [[knowledge/cryptography/assumptions/lattice-based/SIS/Short Integer Solution Problem#Application\|Short Integer Solution Problem#Application]]
