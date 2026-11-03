@@ -65,7 +65,7 @@ Reference:
 
 > [!definition] Parameters
 > - $H$: a keyed hash function defined over $(\mathcal K, \mathcal M, \mathcal T)$.
-> - $Q$: a bound on the length $s$ of the list $\mathcal A$ outputs; an $\mathcal A$ that always outputs $s \leq Q$ messages is a $Q$**-query UHF adversary**.
+> - $Q$: a bound on the length $s$ of the list $\mathcal A$ outputs, which makes $\mathcal A$ a $Q$**-query UHF adversary**.
 
 > [!definition] Multi-query UHF
 > ### Scope

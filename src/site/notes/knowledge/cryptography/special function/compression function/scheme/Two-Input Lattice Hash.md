@@ -11,27 +11,24 @@ Reference:
 Reference Name: $f_\mathbf H$
 Instantiates:: [[knowledge/cryptography/special function/compression function/Compression Functions\|Compression Functions]]
 
-### Setting
-
 > [!scheme] Setting
-> - $\mathcal R_{q_H}$: a polynomial ring modulo $q_H$ ([[knowledge/math/algebra/structures/polynomial/Quotient of Polynomial Ring\|Quotient of Polynomial Ring]]); vectors and matrices over it.
+> - $\mathcal R_{q_H}$: a polynomial ring modulo $q_H$ — [[knowledge/math/algebra/structures/polynomial/Quotient of Polynomial Ring\|Quotient of Polynomial Ring]].
+> - Vectors and matrices over $\mathcal R_{q_H}$.
 > - $\mathcal C_\beta$: the ring elements whose coefficients are bounded by $\beta$.
 > - $\mathsf{dec}_B$: base-$B$ decomposition, with gadget matrix $\mathbf G_B$: $\mathsf{dec}_B(\mathbf v) = \mathbf u$ means $\mathbf G_B \mathbf u = \mathbf v$ ([[knowledge/math/algebra/structures/lattice/Lattice Gadget Algorithm\|Lattice Gadget Algorithm]]).
 
-### Parameters
-
 > [!definition] Parameters
-> - $n$: the module rank. $q_H$: the modulus.
-> - $B > 1$: the base; $\beta = B - 1$.
+> - $n$: the module rank.
+> - $q_H$: the modulus.
+> - $B > 1$: the base.
+> - $\beta = B - 1$: the largest base-$B$ digit.
 > - $k_H = \lceil \log_B q_H \rceil$: the number of base-$B$ digits.
 > - $m = 2 n k_H$: the width of the key.
 > - $\mathbf H = [\mathbf H_0 \mid \mathbf H_1] \in \mathcal R_{q_H}^{n \times m}$, with $\mathbf H_0, \mathbf H_1 \in \mathcal R_{q_H}^{n \times n k_H}$: the key.
 >
 > `[TNLPS26 §4.1]`
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] Two-Input Lattice Hash
 > - $\mathbf H \leftarrow \mathsf{KeyGen}(1^\lambda)$: (Randomized) Key-generation algorithm.
 >     - **Input**: the security parameter $1^\lambda$.
 >     - **Output**: a key $\mathbf H \in \mathcal R_{q_H}^{n \times m}$.
@@ -75,7 +72,9 @@ Instantiates:: [[knowledge/cryptography/special function/compression function/Co
 ### The binary original
 
 > [!definition] Parameters
-> - $n = O(\lambda)$, $q = \tilde O(n^{1.5})$, $k = \lceil \log_2 q \rceil$, $m = 2nk$. $\mathbf A = [\mathbf A_0 \mid \mathbf A_1] \in \mathbb Z_q^{n \times m}$. $\mathsf{bin}$: binary decomposition, with the powers-of-2 matrix $\mathbf G$.
+> - $n = O(\lambda)$, $q = \tilde O(n^{1.5})$, $k = \lceil \log_2 q \rceil$, $m = 2nk$.
+> - $\mathbf A = [\mathbf A_0 \mid \mathbf A_1] \in \mathbb Z_q^{n \times m}$.
+> - $\mathsf{bin}$: binary decomposition, with the powers-of-2 matrix $\mathbf G$.
 
 > [!scheme] Binary SIS hash `[LNWX18 Def 5]`
 > $$h_\mathbf A(\mathbf u_0, \mathbf u_1) = \mathsf{bin}(\mathbf A_0 \mathbf u_0 + \mathbf A_1 \mathbf u_1 \bmod q) \in \{0, 1\}^{nk},$$

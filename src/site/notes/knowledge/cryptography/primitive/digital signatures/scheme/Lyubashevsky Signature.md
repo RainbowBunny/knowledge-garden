@@ -10,28 +10,25 @@ Reference:
 Reference Name: $\mathsf{Lyu}$
 Instantiates:: [[knowledge/cryptography/primitive/digital signatures/Digital Signature\|Digital Signature]]
 
-### Setting
-
 > [!scheme] Setting
-> - $\mathbb Z_q$: the integers modulo $q$; vectors and matrices over $\mathbb Z_q$ and over $\mathbb Z$.
-> - $D_\sigma^m$: the discrete Gaussian distribution on $\mathbb Z^m$ centred at $\mathbf 0$ with standard deviation $\sigma$; $D_{\mathbf v, \sigma}^m$: the same centred at $\mathbf v$ — [[knowledge/math/probability/discrete probability/distribution/Discrete Gaussian Distribution\|Discrete Gaussian Distribution]].
-
-### Parameters
+> - $\mathbb Z_q$: the integers modulo $q$.
+> - Vectors and matrices over $\mathbb Z_q$ and over $\mathbb Z$.
+> - $D_\sigma^m$: the discrete Gaussian distribution on $\mathbb Z^m$ centred at $\mathbf 0$ with standard deviation $\sigma$ — [[knowledge/math/probability/discrete probability/distribution/Discrete Gaussian Distribution\|Discrete Gaussian Distribution]].
+> - $D_{\mathbf v, \sigma}^m$: the same, centred at $\mathbf v$.
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/digital signatures/Digital Signature\|Digital Signature]]: Import $(\lambda, \mathrm{pk}, \mathrm{sk})$, with messages $\mu \in \{0, 1\}^*$ and signatures $(\mathbf z, \mathbf c)$.
-> - $n, m, k$: dimensions; $q$: the modulus; $d$: the bound on the secret entries.
+> - $n, m, k$: the dimensions.
+> - $q$: the modulus.
+> - $d$: the bound on the secret entries.
 > - $\kappa$: the weight of the challenge, large enough that $H$ has at least $2^{100}$ possible outputs `[Lyu12 Fig 2]`.
-> - $\sigma$: the Gaussian parameter, $\sigma \approx 12 d \kappa \sqrt m$; $M$: the rejection constant, about $2.72$ for the parameters of `[Lyu12 Fig 2]`.
-
-### Building Blocks
+> - $\sigma$: the Gaussian parameter, $\sigma \approx 12 d \kappa \sqrt m$.
+> - $M$: the rejection constant, about $2.72$ for the parameters of `[Lyu12 Fig 2]`.
 
 > [!definition] Building Blocks
 > - $H : \{0, 1\}^* \to \{\mathbf v \in \{-1, 0, 1\}^k : \|\mathbf v\|_1 \leq \kappa\}$: a [[knowledge/cryptography/special function/hash function/Hash Function\|Hash Function]], modeled as a [[knowledge/cryptography/assumptions/idealized models/Random Oracle Model\|random oracle]].
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] Lyubashevsky Signature
 > - $(\mathrm{pk}, \mathrm{sk}) \leftarrow \mathsf{KeyGen}(1^\lambda)$: (Randomized) Key-generation algorithm.
 >     - **Input**: the security parameter $1^\lambda$.
 >     - **Output**: $\mathrm{sk} = \mathbf S$ and $\mathrm{pk} = (\mathbf A, \mathbf T)$.

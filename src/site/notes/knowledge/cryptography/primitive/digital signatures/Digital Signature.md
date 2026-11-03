@@ -12,7 +12,8 @@ Reference:
 
 > [!definition] Parameters
 > - $\lambda$: the security parameter, given to $\mathsf{KeyGen}$ in unary.
-> - $\mathcal M$: the message space. $\Sigma$: the signature space.
+> - $\mathcal M$: the message space.
+> - $\Sigma$: the signature space.
 > - $(\mathrm{pk}, \mathrm{sk})$: a key pair — the public **verification key** and the secret **signing key**.
 
 > [!definition] Digital Signature Scheme
@@ -58,8 +59,11 @@ Reference:
 
 > [!definition] Parameters
 > - The scheme's $\mathsf{SIG}$, $\lambda$, $\mathcal M$, $\Sigma$ from Syntax.
-> - $\mathcal A$: an efficient [[knowledge/cryptography/foundations/Adversary\|Adversary]], one stateful machine. $Q$: a bound on the number of its signing queries.
-> - $m_i \in \mathcal M$: the $i$-th signing query; $\sigma_i \in \Sigma$: its answer. $(m, \sigma) \in \mathcal M \times \Sigma$: the candidate forgery.
+> - $\mathcal A$: an efficient [[knowledge/cryptography/foundations/Adversary\|Adversary]], one stateful machine.
+> - $Q$: a bound on the number of its signing queries.
+> - $m_i \in \mathcal M$: the $i$-th signing query.
+> - $\sigma_i \in \Sigma$: its answer.
+> - $(m, \sigma) \in \mathcal M \times \Sigma$: the candidate forgery.
 
 > [!definition] Existential Unforgeability under Chosen-Message Attack
 > ### Scope
@@ -106,7 +110,8 @@ Reference:
 #### Random-oracle version
 
 > [!definition] Parameters
-> - The scheme $\mathsf{SIG}$ and the adversary $\mathcal A$ above. $H$: a hash function that $\mathsf{Sign}$ and $\mathsf{Verify}$ call, modeled as a [[knowledge/cryptography/assumptions/idealized models/Random Oracle Model\|random oracle]] from $\mathcal X_H$ to $\mathcal Y_H$.
+> - The scheme $\mathsf{SIG}$ and the adversary $\mathcal A$ above.
+> - $H$: a hash function that $\mathsf{Sign}$ and $\mathsf{Verify}$ call, modeled as a [[knowledge/cryptography/assumptions/idealized models/Random Oracle Model\|random oracle]] from $\mathcal X_H$ to $\mathcal Y_H$.
 > - $Q_\mathrm{ro}$, $Q_\mathrm{s}$: bounds on the hash and signing queries.
 
 > [!definition] Unforgeability in the Random Oracle Model

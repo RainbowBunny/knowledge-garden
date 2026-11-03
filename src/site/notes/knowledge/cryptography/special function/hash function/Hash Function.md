@@ -67,7 +67,7 @@ Specializes [[knowledge/cryptography/special function/Special Functions#Collisio
 
 > [!definition] Parameters
 > - $H$: a keyless hash function defined over $(\mathcal M, \mathcal T)$.
-> - $\mathbb A$: the class of efficient [[knowledge/cryptography/foundations/Adversary\|adversaries]]; one that plays this game is a **collision finder**.
+> - $\mathbb A$: the class of efficient [[knowledge/cryptography/foundations/Adversary\|adversaries]], each a **collision finder** when it plays this game.
 
 > [!definition] Collision Resistance
 > ### Scope
@@ -109,7 +109,8 @@ Specializes [[knowledge/cryptography/special function/Special Functions#Collisio
 ### Target Collision Resistance
 
 > [!definition] Parameters
-> - $H$: a keyed hash function defined over $(\mathcal K, \mathcal M, \mathcal T)$; the key $r \in \mathcal K$ is a public random **salt**.
+> - $H$: a keyed hash function defined over $(\mathcal K, \mathcal M, \mathcal T)$.
+> - $r \in \mathcal K$: the key, a public random **salt**.
 > - $\mathcal A$: an efficient [[knowledge/cryptography/foundations/Adversary\|Adversary]].
 
 > [!definition] Target Collision Resistance

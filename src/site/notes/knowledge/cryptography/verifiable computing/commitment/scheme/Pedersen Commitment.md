@@ -12,22 +12,16 @@ Reference:
 Reference Name: $\mathsf{Ped}$
 Instantiates:: [[knowledge/cryptography/verifiable computing/commitment/Commitment Scheme\|Commitment Scheme]]
 
-### Setting
-
 > [!scheme] Setting
 > - $\mathbb G$: a [[knowledge/math/algebra/structures/group/special group/Cyclic Group\|Cyclic Group]] of prime order $p$, written additively: $\mathbf m A$ is the $\mathbf m$-fold sum of $A \in \mathbb G$, for $\mathbf m \in \mathbb Z_p$.
 > - $\mathcal M_\mathrm{pp} = \mathbb Z_p$, $\mathcal R_\mathrm{pp} = \mathbb Z_p$, $\mathcal C_\mathrm{pp} = \mathbb G$. `[BBB+18 Def 5]`
-
-### Parameters
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/verifiable computing/commitment/Commitment Scheme\|Commitment Scheme]]: Import $(\lambda, \mathrm{pp}, \mathbf m, \mathrm{cm}, \mathrm{st}, r)$; the scheme is randomness-based, $\mathrm{st} = r$.
 > - $p$: a prime, the order of $\mathbb G$.
 > - $A_\mathrm{com} \in \mathbb G$: the generator that carries the message. $A_\mathrm{hide} \in \mathbb G$: the generator that carries the randomness.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] Pedersen Commitment
 > - $\mathrm{pp} \leftarrow \mathsf{Setup}(1^\lambda)$: (Randomized) Setup algorithm.
 >     - **Input**: the security parameter $1^\lambda$.
 >     - **Output**: $\mathrm{pp} = (\mathbb G, p, A_\mathrm{com}, A_\mathrm{hide})$.

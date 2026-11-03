@@ -13,25 +13,22 @@ Reference:
 Reference Name: $\mathsf{ElGamal}$
 Instantiates:: [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption Scheme\|Public-Key Encryption Scheme]]
 
-### Setting
-
 > [!scheme] Setting
 > - $\mathbb G$: a [[knowledge/math/algebra/structures/group/special group/Cyclic Group\|Cyclic Group]] of prime order $q$ with generator $g$, written multiplicatively.
 >
 > `[Gal12 §20.3]` takes $\langle g \rangle$ inside an algebraic group over a finite field — $\mathbb F_p^*$, or an [[knowledge/math/algebra/structures/elliptic curve/Elliptic Curves over Finite Fields\|elliptic curve]]. `[HAC Alg 8.17]` takes all of $\mathbb Z_p^*$, whose order $p - 1$ is not prime — see Cryptanalysis.
 
-### Parameters
-
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/public-key encryption/Public-Key Encryption Scheme\|Public-Key Encryption Scheme]]: Import $(\lambda, \mathrm{aux}, \mathcal M, \mathcal C, \mathcal R, \mathrm{pk}, \mathrm{sk})$, with
->     - $\mathrm{aux} = (\mathbb G, q, g)$;
->     - $\mathcal M = \mathbb G$, $\mathcal C = \mathbb G \times \mathbb G$, $\mathcal R = \{1, \dots, q - 1\}$.
-> - $a \in \{1, \dots, q - 1\}$: the secret exponent. $y = g^a$: the public element.
+>     - $\mathrm{aux} = (\mathbb G, q, g)$.
+>     - $\mathcal M = \mathbb G$.
+>     - $\mathcal C = \mathbb G \times \mathbb G$.
+>     - $\mathcal R = \{1, \dots, q - 1\}$.
+> - $a \in \{1, \dots, q - 1\}$: the secret exponent.
+> - $y = g^a$: the public element.
 > - $r \in \mathcal R$: the encryption randomness, fresh for every message.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] ElGamal Encryption
 > - $(\mathrm{pk}, \mathrm{sk}) \leftarrow \mathsf{KeyGen}(1^\lambda)$: (Randomized) Key-generation algorithm.
 >     - **Input**: the security parameter $1^\lambda$.
 >     - **Output**: a public key $\mathrm{pk} = (\mathrm{aux}, y)$ and a secret key $\mathrm{sk} = (\mathrm{aux}, a)$.

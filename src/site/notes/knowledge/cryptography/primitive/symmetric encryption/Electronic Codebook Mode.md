@@ -9,7 +9,8 @@ Reference:
 
 > [!definition] Parameters
 > - $\ell \geq 1$: a poly-bounded number of blocks.
-> - $m = (m[0], \dots, m[v-1]) \in \mathcal X^{\leq \ell}$: a message of $v \leq \ell$ data blocks; $c \in \mathcal X^{\leq \ell}$: a ciphertext.
+> - $m = (m[0], \dots, m[v-1]) \in \mathcal X^{\leq \ell}$: a message of $v \leq \ell$ data blocks.
+> - $c \in \mathcal X^{\leq \ell}$: a ciphertext.
 
 > [!definition] Building Blocks
 > - $\mathcal E = (E, D)$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ (universally quantified).

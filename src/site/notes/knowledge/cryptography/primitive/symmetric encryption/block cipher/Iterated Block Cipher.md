@@ -10,7 +10,9 @@ Reference:
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|Block Ciphers]]: Import $(\mathcal K, \mathcal X)$ — the key and data block spaces of the cipher built.
-> - $d$: the number of **rounds**. $\hat{\mathcal K}$: the round-key space. $k_1, \dots, k_d \in \hat{\mathcal K}$: the **round keys**.
+> - $d$: the number of **rounds**.
+> - $\hat{\mathcal K}$: the round-key space.
+> - $k_1, \dots, k_d \in \hat{\mathcal K}$: the **round keys**.
 
 > [!definition] Building Blocks
 > - $\hat{\mathcal E} = (\hat E, \hat D)$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\hat{\mathcal K}, \mathcal X)$, the **round cipher** — simple, and insecure on its own.

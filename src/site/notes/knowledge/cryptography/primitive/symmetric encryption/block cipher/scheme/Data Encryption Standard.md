@@ -14,27 +14,28 @@ Reference:
 Reference Name: $\mathsf{DES}$
 Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|Block Ciphers]]
 
-### Setting
-
 > [!scheme] Setting
-> - Bit strings, with $\oplus$ the bitwise XOR; $L \| R$ splits a 64-bit block into 32-bit halves.
-
-### Parameters
+> - Bit strings.
+> - $\oplus$: the bitwise XOR.
+> - $L \| R$: a 64-bit block, split into its 32-bit halves $L$ and $R$.
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|Block Ciphers]]: Import $(\mathcal K, \mathcal X)$, with $\mathcal X = \{0, 1\}^{64}$ and $\mathcal K = \{0, 1\}^{64}$: 56 key bits and 8 parity bits, one per byte, set for odd parity and not used by the algorithm `[SP800-67 §2]` `[FIPS46-3 p. 19]`.
 > - $16$ rounds, with round keys $k_1, \dots, k_{16} \in \{0, 1\}^{48}$.
-> - Fixed tables `[FIPS46-3]`: the initial permutation $\mathrm{IP}$ of 64 bits; the expansion $E : \{0, 1\}^{32} \to \{0, 1\}^{48}$; the eight S-boxes $S_1, \dots, S_8 : \{0, 1\}^6 \to \{0, 1\}^4$; the permutation $P$ of 32 bits; $\mathrm{PC\text{-}1} : \{0, 1\}^{64} \to \{0, 1\}^{56}$; $\mathrm{PC\text{-}2} : \{0, 1\}^{56} \to \{0, 1\}^{48}$; the left-shift schedule $1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1$.
-
-### Building Blocks
+> - Fixed tables `[FIPS46-3]`:
+>     - $\mathrm{IP}$: the initial permutation of 64 bits.
+>     - $E : \{0, 1\}^{32} \to \{0, 1\}^{48}$: the expansion.
+>     - $S_1, \dots, S_8 : \{0, 1\}^6 \to \{0, 1\}^4$: the eight S-boxes.
+>     - $P$: the permutation of 32 bits.
+>     - $\mathrm{PC\text{-}1} : \{0, 1\}^{64} \to \{0, 1\}^{56}$: permuted choice 1, the key bits that enter the key schedule.
+>     - $\mathrm{PC\text{-}2} : \{0, 1\}^{56} \to \{0, 1\}^{48}$: permuted choice 2, the bits that form each round key.
+>     - $1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1$: the left-shift schedule.
 
 > [!definition] Building Blocks
 > - [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Feistel Network\|Feistel Network]] — sixteen rounds, the $i$-th with round function $F(k_i, \cdot)$.
 > - [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Iterated Block Cipher\|Iterated Block Cipher]] — round keys from a key schedule.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] Data Encryption Standard
 > - $y \leftarrow F(k_i, R)$: (Deterministic) The cipher function $f$.
 >     - **Input**: a round key $k_i \in \{0, 1\}^{48}$ and a half block $R \in \{0, 1\}^{32}$.
 >     - **Output**: $y \in \{0, 1\}^{32}$.

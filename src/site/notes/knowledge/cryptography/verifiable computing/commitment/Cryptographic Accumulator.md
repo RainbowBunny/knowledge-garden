@@ -10,7 +10,8 @@ Reference:
 ## Syntax
 
 > [!definition] Parameters
-> - $\lambda$: the security parameter. $\mathrm{pp}$: public parameters, an implicit input of the other algorithms.
+> - $\lambda$: the security parameter.
+> - $\mathrm{pp}$: public parameters, an implicit input of the other algorithms.
 > - $R = \{d_0, \dots, d_{N-1}\}$: a set of $N = \mathrm{poly}(\lambda)$ values. 
 > - $u$: an accumulator value. 
 > - $d$: a value. 
@@ -91,21 +92,45 @@ Reference:
 
 ### Lattice Merkle-tree accumulator
 
-> [!definition] Building Blocks
-> - [[knowledge/cryptography/special function/compression function/scheme/Two-Input Lattice Hash\|Two-Input Lattice Hash]] $f_\mathbf H$: Import $(n, q_H, B, \beta, k_H, m, \mathcal C_\beta, \mathsf{dec}_B, \mathbf H = [\mathbf H_0 \mid \mathbf H_1])$ — two blocks of $\mathcal C_\beta^{n k_H}$ in, one block out, collision resistant under $\mathsf{MSIS}^{(\infty)}_{n, m, \beta, q_H}$.
-
 > [!definition] Parameters
+> - [[knowledge/cryptography/special function/compression function/scheme/Two-Input Lattice Hash\|Two-Input Lattice Hash]]: Import $(n, q_H, B, \beta, k_H, m, \mathcal C_\beta, \mathsf{dec}_B, \mathbf H = [\mathbf H_0 \mid \mathbf H_1])$.
 > - $N = 2^\ell$: the number of leaves.
+> - $\mathbf u_{b_0, \dots, b_{i-1}}$: the node of the tree reached from the root along $b_0, \dots, b_{i-1} \in \{0, 1\}$.
 >
 > `[TNLPS26 §4.1]`
 
-> [!scheme] Algorithms `[TNLPS26 §4.1]`
-> - $\mathsf{Setup}(1^\lambda)$: runs the hash's $\mathsf{KeyGen}(1^\lambda)$ for $\mathbf H$; returns $\mathrm{pp} = (q_H, n, B, \mathbf H = [\mathbf H_0 \mid \mathbf H_1])$.
-> - $\mathsf{Acc}(R)$: places $d_j$ at the leaf $\mathbf u_{j_0, \dots, j_{\ell-1}}$, where $(j_0, \dots, j_{\ell-1})$ is $j$ in binary; computes each inner node as $\mathbf u_{b_0, \dots, b_{i-1}} = f_\mathbf H(\mathbf u_{b_0, \dots, b_{i-1}, 0}, \mathbf u_{b_0, \dots, b_{i-1}, 1})$; returns the root $u = f_\mathbf H(\mathbf u_0, \mathbf u_1)$.
-> - $\mathsf{Witness}(R, d)$: returns $\perp$ if $d \notin R$; otherwise, for $d = d_j$, returns the position and the siblings along the path, $w = \big((j_0, \dots, j_{\ell-1}), (\mathbf w_0, \dots, \mathbf w_{\ell-1})\big)$ with $\mathbf w_i = \mathbf u_{j_0, \dots, j_{i-1}, 1 - j_i}$.
-> - $\mathsf{Verify}(u, d, w)$: sets $\mathbf v_{\ell-1} = d$; for $k = \ell - 1, \dots, 0$ computes
->     $$\mathbf v_{k-1} = \mathsf{dec}_B\big(\mathbf H_{j_k} \mathbf v_k + \mathbf H_{1 - j_k} \mathbf w_k \bmod q_H\big);$$
->     returns $1$ iff $\mathbf v_{-1} = u$.
+> [!definition] Building Blocks
+> - [[knowledge/cryptography/special function/compression function/scheme/Two-Input Lattice Hash\|Two-Input Lattice Hash]] $f_\mathbf H$ — two blocks of $\mathcal C_\beta^{n k_H}$ in, one block out, collision resistant under $\mathsf{MSIS}^{(\infty)}_{n, m, \beta, q_H}$.
+
+> [!scheme] Lattice Merkle-Tree Accumulator `[TNLPS26 §4.1]`
+> - $\mathrm{pp} \leftarrow \mathsf{Setup}(1^\lambda)$: (Randomized) Setup algorithm.
+>     - **Input**: the security parameter $1^\lambda$.
+>     - **Output**: $\mathrm{pp} = (q_H, n, B, \mathbf H = [\mathbf H_0 \mid \mathbf H_1])$.
+>     - **Steps**:
+>         1. $\mathbf H \leftarrow$ the key generation of the hash on $1^\lambda$.
+>         2. Returns $\mathrm{pp}$.
+> - $u \leftarrow \mathsf{Acc}(R)$: (Deterministic) Accumulation algorithm.
+>     - **Input**: a set $R = \{d_0, \dots, d_{N-1}\}$.
+>     - **Output**: the root $u$.
+>     - **Steps**:
+>         1. For $j = 0, \dots, N - 1$: place $d_j$ at the leaf $\mathbf u_{j_0, \dots, j_{\ell-1}}$, where $(j_0, \dots, j_{\ell-1})$ is $j$ in binary.
+>         2. For $i = \ell - 1, \dots, 1$ and each inner node at depth $i$: $\mathbf u_{b_0, \dots, b_{i-1}} \leftarrow f_\mathbf H(\mathbf u_{b_0, \dots, b_{i-1}, 0}, \mathbf u_{b_0, \dots, b_{i-1}, 1})$.
+>         3. Returns $u \leftarrow f_\mathbf H(\mathbf u_0, \mathbf u_1)$.
+> - $w \leftarrow \mathsf{Witness}(R, d)$: (Deterministic) Witness algorithm.
+>     - **Input**: a set $R$ and a value $d$.
+>     - **Output**: the position of $d$ and the siblings along its path, or $\perp$.
+>     - **Steps**:
+>         1. If $d \notin R$: returns $\perp$.
+>         2. Take $j$ with $d = d_j$, and its binary digits $(j_0, \dots, j_{\ell-1})$.
+>         3. For $i = 0, \dots, \ell - 1$: $\mathbf w_i \leftarrow \mathbf u_{j_0, \dots, j_{i-1}, 1 - j_i}$.
+>         4. Returns $w = \big((j_0, \dots, j_{\ell-1}), (\mathbf w_0, \dots, \mathbf w_{\ell-1})\big)$.
+> - $b \leftarrow \mathsf{Verify}(u, d, w)$: (Deterministic) Verification algorithm.
+>     - **Input**: an accumulator value $u$, a value $d$ and a witness $w = \big((j_0, \dots, j_{\ell-1}), (\mathbf w_0, \dots, \mathbf w_{\ell-1})\big)$.
+>     - **Output**: $1$ or $0$.
+>     - **Steps**:
+>         1. $\mathbf v_{\ell-1} \leftarrow d$.
+>         2. For $k = \ell - 1, \dots, 0$: $\mathbf v_{k-1} \leftarrow \mathsf{dec}_B\big(\mathbf H_{j_k} \mathbf v_k + \mathbf H_{1 - j_k} \mathbf w_k \bmod q_H\big)$.
+>         3. Returns $1$ iff $\mathbf v_{-1} = u$.
 
 > [!theorem] Security of the Merkle-tree accumulator `[TNLPS26 Thm 1]`
 > The accumulator above is correct, and secure in the sense of Accumulator Security under $\mathsf{MSIS}^{(\infty)}_{n, m, \beta, q_H}$.

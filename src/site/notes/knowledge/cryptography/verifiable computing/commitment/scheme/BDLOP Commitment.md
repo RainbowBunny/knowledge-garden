@@ -15,14 +15,10 @@ Reference:
 Reference Name: $\mathsf{BDLOP}$
 Instantiates:: [[knowledge/cryptography/verifiable computing/commitment/Commitment Scheme\|Commitment Scheme]]
 
-### Setting
-
 > [!scheme] Setting
 > - $\mathcal R_q$: a polynomial ring modulo $q$ ([[knowledge/math/algebra/structures/polynomial/Polynomial Ring\|Polynomial Ring]], [[knowledge/math/algebra/structures/polynomial/Quotient of Polynomial Ring\|Quotient of Polynomial Ring]]); vectors and matrices over $\mathcal R_q$ ([[knowledge/math/algebra/structures/ring/module/R-Module\|R-Module]]).
 > - $\chi$: a distribution of short ring vectors; `[ALS20 §2.4]` uses the centered binomial distribution on $\{-1, 0, 1\}$ coefficients.
 > - $\mathcal M_\mathrm{pp} = \mathcal R_q^\ell$ — any message modulo $q$; $\mathcal R_\mathrm{pp}$: short vectors in $\mathcal R_q^k$; $\mathcal C_\mathrm{pp} = \mathcal R_q^{n + \ell}$. `[LNS22 §1.3]`
-
-### Parameters
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/verifiable computing/commitment/Commitment Scheme\|Commitment Scheme]]: Import $(\lambda, \mathrm{pp}, \mathbf m, \mathrm{cm}, \mathrm{st}, r)$; here the randomness is a vector $\mathbf r$, and $\mathrm{st} = \mathbf r$.
@@ -30,9 +26,7 @@ Instantiates:: [[knowledge/cryptography/verifiable computing/commitment/Commitme
 > - $\mathbf A \in \mathcal R_q^{n \times k}$: the binding matrix. $\mathbf B \in \mathcal R_q^{\ell \times k}$: the matrix that masks the message.
 > - $\beta$: the norm bound an opening must meet.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] BDLOP Commitment
 > - $\mathrm{pp} \leftarrow \mathsf{Setup}(1^\lambda)$: (Randomized) Setup algorithm.
 >     - **Input**: the security parameter $1^\lambda$.
 >     - **Output**: $\mathrm{pp} = (q, \mathbf A, \mathbf B)$.

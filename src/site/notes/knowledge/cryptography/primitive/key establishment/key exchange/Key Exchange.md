@@ -10,9 +10,10 @@ Reference:
 
 > [!definition] Parameters
 > - $\lambda$: the security parameter.
-> - $\mathcal K$: the key space; $\{0, 1\}^\lambda$ in `[KL]`.
+> - $\mathcal K$: the key space, $\{0, 1\}^\lambda$ in `[KL]`.
 > - $P = (A, B)$: a key exchange protocol, run by Alice and Bob.
-> - $k_A, k_B \in \mathcal K$: the keys the two machines output; $k$ when they agree.
+> - $k_A, k_B \in \mathcal K$: the keys the two machines output.
+> - $k$: their common value, when they agree.
 > - $T_P$: the transcript of one run.
 
 > [!definition] Key Exchange Protocol

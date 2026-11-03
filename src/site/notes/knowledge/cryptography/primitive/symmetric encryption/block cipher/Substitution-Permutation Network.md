@@ -11,7 +11,8 @@ Reference:
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|Block Ciphers]]: Import $(\mathcal K, \mathcal X)$, with $\mathcal X = \{0, 1\}^n$ split into $n / b$ chunks of $b$ bits.
-> - $r$: the number of rounds. $k_1, \dots, k_r \in \{0, 1\}^n$: the round keys.
+> - $r$: the number of rounds.
+> - $k_1, \dots, k_r \in \{0, 1\}^n$: the round keys.
 
 > [!definition] Building Blocks
 > - $S_1, \dots, S_{n/b} : \{0, 1\}^b \to \{0, 1\}^b$: public **S-boxes**, each a permutation.

@@ -10,7 +10,8 @@ Reference:
 ## Syntax
 
 > [!definition] Parameters
-> - $\mathcal X = \{0, 1\}^n$: the half-block space; the cipher acts on $\mathcal X^2$.
+> - $\mathcal X = \{0, 1\}^n$: the half-block space.
+> - $\mathcal X^2$: the block space the cipher acts on.
 > - $r$: the number of rounds.
 > - $(u, v)$, $(x, y) \in \mathcal X^2$: data blocks, written as left and right halves.
 

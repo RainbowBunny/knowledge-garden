@@ -128,6 +128,7 @@ Current origins: [[knowledge/math/property/map/Homomorphism\|Homomorphism]] · [
 ```
 
 - **Parameters hold variables.** One bullet per symbol the definition uses. A symbol is declared once, in the note that owns it; every other note `Import`s it (see the `Import` row above). Import only symbols the source note lists in its own `Parameters` callout. If it does not, add the line to the source note first, or the import points at nothing.
+- **One item per line.** A bullet declares one symbol (or one tuple of symbols of the same kind, such as $n, m, k$: the dimensions). Never join two declarations with `;` or `. ` in one bullet. A family of related items, such as the fixed tables of a cipher, the sizes of a hash function or the components of $\mathrm{aux}$, goes in indented sub-bullets under one heading bullet, each written `symbol: role`, as in [[knowledge/cryptography/primitive/symmetric encryption/block cipher/scheme/Data Encryption Standard\|Data Encryption Standard]]. The same holds in `Setting`, `Building Blocks` and `Parties`. *Added 2026-11-02, on your DES question.*
 - **Building Blocks hold objects, never variables.** Other cryptographic objects the definition calls. Every bullet is a wikilink, except at an interface level (layout 7), where a bullet is a universally quantified type.
 - **Placement.** Where a layout puts the definition under a heading (`## Syntax`, `## Definition`), the two callouts sit directly under that heading, Parameters first.
 - **One per object, not one per note.** A note with several definitions (a correctness notion with a bound $\delta$, a game with oracles and a time bound) gives each its own `Parameters` callout, short as it may be. Omit the callout only when the definition introduces and uses no symbol.
@@ -400,34 +401,25 @@ Reference:
 Reference Name: $\mathsf{<Name>}$
 Instantiates:: [[<Primitive>]]
 
-### Setting
-
 > [!scheme] Setting
 > - <the ambient mathematics: $R_q$, a group $\mathbb G$, $\bmod^{\pm}$ — links into `math/`>
 
-### Parties                              ← protocols only
-
-> [!definition] Parties
+> [!definition] Parties                    ← protocols only
 > - <who exists and what each holds: the parties, a CA, a channel; a system parameter shared by all>
-
-### Parameters
 
 > [!definition] Parameters
 > - <the knobs you choose; these link nowhere>
 > - [[<Note>]]: Import $(\dots)$        ← the one exception: symbols another note declares
 
-### Building Blocks
-
 > [!definition] Building Blocks
 > - <other cryptographic objects it calls — **every bullet is a wikilink**>
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] <Name>                         ← the note's title, never "Algorithms"
 > - $out \leftarrow \mathsf{Alg}(in)$: (Randomized | Deterministic) <name>.
 >     - **Input**: <this scheme's concrete types>
 >     - **Output**: <…>
->     - **Steps**: 1. …
+>     - **Steps**:
+>         1. …
 
 ## Property
 
@@ -453,10 +445,12 @@ The security callout links **up** to the primitive's game and **down** to an ass
 > [!remark] The same layout serves a complexity protocol
 > An interactive protocol for one language — a Graph Non-Isomorphism protocol, [[knowledge/complexity/proof system/protocol/Sum-Check Protocol\|Sum-Check Protocol]],
 > [[knowledge/cryptography/verifiable computing/proof system/interactive/scheme/Schnorr Protocol\|Schnorr Protocol]] — is a Scheme whose primitive is a proof system: `Instantiates:: [[Probabilistic Interactive Proof System]]`,
-> `### Setting` points **down** at the language, `### Parties` are Prover and Verifier.
+> the `Setting` callout points **down** at the language, the `Parties` callout names Prover and Verifier.
 > Two adjustments: `## Security` holds the **soundness error** rather than a game, and `## Cryptanalysis` is omitted.
 
-Slot discipline: **Parameters** point nowhere (an `Import` line is the one exception: it points at the note that declares the symbol) · **Setting** points down into `math/` · **Spaces** point up into the primitive · **Building Blocks** point sideways · **Parties** point into the View remark. Write only the slots that have content; the minimum is Parameters + Algorithms.
+Slot discipline: **Parameters** point nowhere (an `Import` line is the one exception: it points at the note that declares the symbol) · **Setting** points down into `math/` · **Spaces** point up into the primitive · **Building Blocks** point sideways · **Parties** point into the View remark. Write only the slots that have content; the minimum is Parameters + the scheme callout.
+
+**No sub-headings for the slots.** The callouts sit directly under `## Scheme`, as they sit under `## Syntax` in layouts 5 and 7 and under `## Definition` everywhere else; the callout title already names the slot. The callout holding the algorithms or the protocol is titled with the scheme's name, like the definition callout of every other layout. To link to it, link to `#Scheme`. *Changed 2026-11-02, on your remark that schemes and the rest disagreed.*
 
 ## 7 · Transform
 

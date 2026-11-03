@@ -12,21 +12,15 @@ Reference:
 Reference Name: $f_\mathbf A$
 Instantiates:: [[knowledge/cryptography/special function/hash function/Hash Function\|Hash Function]]
 
-### Setting
-
 > [!scheme] Setting
 > - $\mathbb Z_q^{n \times m}$: matrices modulo $q$, acting on binary vectors ([[knowledge/math/number theory/Modular Arithmetic\|Modular Arithmetic]], [[knowledge/math/algebra/linear algebra/Matrix\|Matrix]]).
 > - Domain $\{0, 1\}^m$, range $\mathbb Z_q^n$.
-
-### Parameters
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/assumptions/lattice-based/SIS/Short Integer Solution\|Short Integer Solution]]: Import $(n, m, q)$, with $m > n \log q$.
 > - $\mathbf A \in \mathbb Z_q^{n \times m}$: the key.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] Ajtai Hash Function
 > - $\mathbf A \leftarrow \mathsf{KeyGen}(1^\lambda)$: (Randomized) Key-generation algorithm.
 >     - **Input**: the security parameter $1^\lambda$.
 >     - **Output**: a key $\mathbf A \in \mathbb Z_q^{n \times m}$.

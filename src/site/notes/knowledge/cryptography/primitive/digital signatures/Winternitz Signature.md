@@ -11,8 +11,11 @@ Reference:
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/digital signatures/Digital Signature\|Digital Signature]]: Import $(\lambda, \mathcal M, \mathrm{pk}, \mathrm{sk})$.
-> - $n$: the number of chains. $d$: the chain length. $I_d = \{0, 1, \dots, d\}$.
-> - $f^{(j)}$: $f$ applied $j$ times. $P : \mathcal M \to I_d^n$: the message encoding, $P(m) = (s_1, \dots, s_n)$.
+> - $n$: the number of chains.
+> - $d$: the chain length.
+> - $I_d = \{0, 1, \dots, d\}$: the positions along a chain.
+> - $f^{(j)}$: $f$ applied $j$ times.
+> - $P : \mathcal M \to I_d^n$: the message encoding, $P(m) = (s_1, \dots, s_n)$.
 
 > [!definition] Building Blocks
 > - $f$: a function over $(\mathcal X, \mathcal X)$, [[knowledge/cryptography/special function/trapdoor function/Trapdoor Functions#One-way on $d$ iterates\|one-way on $d$ iterates]].

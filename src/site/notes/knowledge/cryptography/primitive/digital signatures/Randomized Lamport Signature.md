@@ -10,7 +10,9 @@ Reference:
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/digital signatures/Lamport Signature\|Lamport Signature]]: Import $(v, \mathrm{pk}, \mathrm{sk})$.
-> - $\mathcal M$: the long messages to sign. $\mathcal R$: the salt space. $r \in \mathcal R$: a fresh salt for each signature.
+> - $\mathcal M$: the long messages to sign.
+> - $\mathcal R$: the salt space.
+> - $r \in \mathcal R$: a fresh salt for each signature.
 
 > [!definition] Building Blocks
 > - $\mathcal S_L = (\mathsf{KeyGen}, \mathsf{Sign}, \mathsf{Verify})$: the [[knowledge/cryptography/primitive/digital signatures/Lamport Signature\|Lamport Signature]] on $\{0, 1\}^v$.

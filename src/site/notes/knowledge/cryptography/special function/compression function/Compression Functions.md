@@ -9,7 +9,8 @@ Reference:
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/special function/hash function/Hash Function\|Hash Function]]: Import $(\mathcal M, \mathcal T)$.
-> - $\mathcal X$: the chaining space. $\mathcal Y$: the block space.
+> - $\mathcal X$: the chaining space.
+> - $\mathcal Y$: the block space.
 
 > [!definition] Compression Function
 > Extends:: [[knowledge/cryptography/special function/hash function/Hash Function\|Hash Function]]

@@ -12,13 +12,9 @@ Reference:
 Reference Name: $\mathsf{KTX}$
 Instantiates:: [[knowledge/cryptography/verifiable computing/commitment/Commitment Scheme\|Commitment Scheme]]
 
-### Setting
-
 > [!scheme] Setting
 > - $\mathbb Z_q$: the integers modulo $q$; matrices over $\mathbb Z_q$ act on binary vectors ([[knowledge/math/number theory/Modular Arithmetic\|Modular Arithmetic]], [[knowledge/math/algebra/linear algebra/Matrix\|Matrix]]).
 > - $\mathcal M_\mathrm{pp} = \{0, 1\}^{m/2}$, $\mathcal R_\mathrm{pp} = \{0, 1\}^{m/2}$, $\mathcal C_\mathrm{pp} = \mathbb Z_q^n$. `[KTX08 §3]`
-
-### Parameters
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/verifiable computing/commitment/Commitment Scheme\|Commitment Scheme]]: Import $(\lambda, \mathrm{pp}, \mathbf m, \mathrm{cm}, \mathrm{st}, r)$; here the randomness is a vector $\mathbf r$, and $\mathrm{st} = \mathbf r$.
@@ -28,9 +24,7 @@ Instantiates:: [[knowledge/cryptography/verifiable computing/commitment/Commitme
 >     - $q \geq 4 m n^{3/2}$.
 > - $\mathbf A_\mathrm{hide}, \mathbf A_\mathrm{com} \in \mathbb Z_q^{n \times m/2}$: the two halves of a matrix $\mathbf A = [\mathbf A_\mathrm{hide} \mid \mathbf A_\mathrm{com}] \in \mathbb Z_q^{n \times m}$.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] Ajtai Commitment
 > - $\mathrm{pp} \leftarrow \mathsf{Setup}(1^\lambda)$: (Randomized) Setup algorithm, run by a trusted party.
 >     - **Input**: the security parameter $1^\lambda$.
 >     - **Output**: $\mathrm{pp} = (n, m, q, \mathbf A_\mathrm{com}, \mathbf A_\mathrm{hide})$.

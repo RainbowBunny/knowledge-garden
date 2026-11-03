@@ -11,7 +11,8 @@ Reference:
 > [!definition] Parameters
 > - $\mathcal E = (E, D)$: a [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] with $\mathcal X = \{0, 1\}^n$ and $\mathcal K = \{0, 1\}^h$.
 > - $m[S] = m[i_1] \oplus \cdots \oplus m[i_\ell]$: the parity of the bits of $m$ in the positions $S = \{i_1, \dots, i_\ell\}$.
-> - $S_0, S_1 \subseteq \{0, \dots, n - 1\}$, $S_2 \subseteq \{0, \dots, h - 1\}$: sets of bit positions. $\varepsilon$: the **bias**.
+> - $S_0, S_1 \subseteq \{0, \dots, n - 1\}$, $S_2 \subseteq \{0, \dots, h - 1\}$: sets of bit positions.
+> - $\varepsilon$: the **bias**.
 
 > [!definition] Linear Relation
 > $\mathcal E$ has a **linear relation** with bias $\varepsilon$ if for every key $k$ and a uniformly random $m \in \mathcal X$,

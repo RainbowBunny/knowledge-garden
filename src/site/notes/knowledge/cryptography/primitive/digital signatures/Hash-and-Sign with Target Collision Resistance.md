@@ -10,7 +10,9 @@ Reference:
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/digital signatures/Digital Signature\|Digital Signature]]: Import $(\lambda, \Sigma, \mathrm{pk}, \mathrm{sk})$.
-> - $\mathcal M$: the long messages to sign. $\mathcal K_H$: the salt space. $\mathcal T$: the digest space.
+> - $\mathcal M$: the long messages to sign.
+> - $\mathcal K_H$: the salt space.
+> - $\mathcal T$: the digest space.
 > - $r \in \mathcal K_H$: a fresh salt for each signature.
 
 > [!definition] Building Blocks

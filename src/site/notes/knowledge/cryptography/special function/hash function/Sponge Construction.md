@@ -12,7 +12,8 @@ Reference:
 > - $n = r + c$: the state width.
 > - $r$: the **rate** — a larger rate evaluates faster.
 > - $c$: the **capacity** — a larger capacity gives better security bounds.
-> - $L$: a bound on the message length. $v > 0$: the output length.
+> - $L$: a bound on the message length.
+> - $v > 0$: the output length.
 
 > [!definition] Building Blocks
 > - $\pi : \{0, 1\}^n \to \{0, 1\}^n$: any public permutation (universally quantified).

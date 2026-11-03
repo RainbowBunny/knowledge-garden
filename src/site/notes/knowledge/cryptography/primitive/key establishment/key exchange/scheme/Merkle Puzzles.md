@@ -11,13 +11,9 @@ Reference:
 Reference Name: Merkle's puzzles
 Instantiates:: [[knowledge/cryptography/primitive/key establishment/key exchange/Key Exchange\|Key Exchange]]
 
-### Parties
-
 > [!definition] Parties
 > - $X$: builds and sends the puzzles. $Y$: solves one and answers.
 > - A key channel between them that anyone may read; that it delivers messages unmodified is an assumption of the scheme — see [[knowledge/cryptography/primitive/key establishment/key exchange/scheme/Merkle Puzzles#Security\|#Security]] ("The New Approach").
-
-### Parameters
 
 > [!definition] Parameters
 > - $N$: the number of puzzles, agreed by $X$ and $Y$. $C$: a constant.
@@ -25,14 +21,10 @@ Instantiates:: [[knowledge/cryptography/primitive/key establishment/key exchange
 > - $K_1, K_2$: auxiliary keys of $X$. $\mathrm{CONSTANT}$: a random value that marks a correct decryption.
 > - $\mathrm{ID}_i$, $\mathrm{key}_i$: the identifier and key hidden in puzzle $i$.
 
-### Building Blocks
-
 > [!definition] Building Blocks
 > - $F$: a strong encryption function — "any function the reader considers powerful" — such as a [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]]; `[Mer78]` suggests Lucifer. $F_K(m)$ encrypts $m$ under the key $K$.
 
-### Algorithms
-
-> [!scheme] Protocol `[Mer78, "The Method"]`
+> [!scheme] Merkle Puzzles `[Mer78, "The Method"]`
 > | | $X$ | | $Y$ |
 > | --- | --- | --- | --- |
 > | 1 | picks $K_1, K_2, \mathrm{CONSTANT}$<br>for $i = 1, \dots, N$:<br>$\mathrm{ID}_i = F_{K_1}(i)$<br>$\mathrm{key}_i = F_{K_2}(\mathrm{ID}_i)$<br>$r_i \xleftarrow{\$} \mathcal K_r$<br>$\mathrm{puzzle}_i = F_{r_i}(\mathrm{key}_i, \mathrm{ID}_i, \mathrm{CONSTANT})$ | $\xrightarrow{\ \mathrm{CONSTANT},\, \mathrm{puzzle}_1, \dots, \mathrm{puzzle}_N\ }$ | |

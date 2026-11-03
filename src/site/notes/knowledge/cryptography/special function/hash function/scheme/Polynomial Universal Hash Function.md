@@ -10,20 +10,17 @@ Reference:
 Reference Name: $H_\mathrm{poly}$
 Instantiates:: [[knowledge/cryptography/special function/hash function/Universal Hash Function\|Universal Hash Function]]
 
-### Setting
-
 > [!scheme] Setting
 > - $\mathbb Z_p$: the integers modulo a prime $p$, a [[knowledge/math/algebra/structures/field/Field\|field]].
 
-### Parameters
-
 > [!definition] Parameters
-> - $p$: a prime. $\ell$: a poly-bounded length parameter.
-> - $\mathcal K = \mathbb Z_p$: the key space. $\mathcal M = \mathbb Z_p^{\leq \ell}$: sequences of at most $\ell$ elements. $\mathcal T = \mathbb Z_p$: the digest space.
+> - $p$: a prime.
+> - $\ell$: a poly-bounded length parameter.
+> - $\mathcal K = \mathbb Z_p$: the key space.
+> - $\mathcal M = \mathbb Z_p^{\leq \ell}$: sequences of at most $\ell$ elements.
+> - $\mathcal T = \mathbb Z_p$: the digest space.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] Polynomial Universal Hash Function
 > - $t \leftarrow H_\mathrm{poly}(k, m)$: (Deterministic) Hash algorithm.
 >     - **Input**: a key $k \in \mathbb Z_p$ and a message $m = (a_1, \dots, a_v) \in \mathbb Z_p^{\leq \ell}$, $0 \leq v \leq \ell$.
 >     - **Output**: a digest $t \in \mathbb Z_p$.

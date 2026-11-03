@@ -9,7 +9,8 @@ Reference:
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/special function/compression function/Compression Functions\|Compression Functions]]: Import $(\mathcal X, \mathcal Y)$, with $\mathcal Y = \mathcal K$.
-> - $\mathcal X = \{0, 1\}^n$: the chaining space, the cipher's block space. $\mathcal K$: the cipher's key space, used as the message-block space.
+> - $\mathcal X = \{0, 1\}^n$: the chaining space, the cipher's block space.
+> - $\mathcal K$: the cipher's key space, used as the message-block space.
 
 > [!definition] Building Blocks
 > - $\mathcal E = (E, D)$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ (universally quantified).

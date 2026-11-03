@@ -10,7 +10,9 @@ Reference:
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/special function/hash function/Universal Hash Function\|Universal Hash Function]]: Import $(\mathcal K, \mathcal M, \mathcal T)$, with $\mathcal M = \mathcal X^{\leq \ell}$ and $\mathcal T = \mathcal Y$.
-> - $\mathcal X$: the block set, $|\mathcal X| > 1$. $\ell$: a poly-bounded length. $\mathcal Y$: the output set, of super-poly size.
+> - $\mathcal X$: the block set, $|\mathcal X| > 1$.
+> - $\ell$: a poly-bounded length.
+> - $\mathcal Y$: the output set, of super-poly size.
 
 > [!definition] Building Blocks
 > - $PF$: any [[knowledge/cryptography/special function/pseudorandom function/Pseudorandom Function#Prefix-free PRF\|prefix-free secure PRF]] over $(\mathcal K, \mathcal X^{\leq \ell + 1}, \mathcal Y)$ that is also [[knowledge/cryptography/special function/Special Functions#Extendable\|extendable]] (universally quantified).

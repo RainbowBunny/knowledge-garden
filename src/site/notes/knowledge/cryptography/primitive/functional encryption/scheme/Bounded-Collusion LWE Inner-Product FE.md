@@ -11,13 +11,9 @@ Reference:
 Reference Name: $\mathsf{FE}_\mathsf{LWE}$
 Instantiates:: [[knowledge/cryptography/primitive/functional encryption/Inner-Product Functional Encryption\|Inner-Product Functional Encryption]]
 
-### Setting
-
 > [!scheme] Setting
 > - $\mathbb Z_q$ with $q = p^k$ and $k \geq 2$: the plaintext modulus $p$ divides the ciphertext modulus, and a message $\mu \in \mathbb Z_p$ is encoded as $p^{k-1} \mu \in \mathbb Z_q$.
 > - Discrete Gaussians $\mathcal D_{\mathbb Z, \sigma}$ and $\mathcal D_{p\mathbb Z + x, \sigma}$ (over the coset $p\mathbb Z + x$), entrywise on vectors and matrices ([[knowledge/math/probability/discrete probability/distribution/Discrete Gaussian Distribution\|Discrete Gaussian Distribution]]).
-
-### Parameters
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/functional encryption/Inner-Product Functional Encryption\|Inner-Product Functional Encryption]]: Import $(\lambda, p)$; the vectors have length $2\ell$.
@@ -34,9 +30,7 @@ Instantiates:: [[knowledge/cryptography/primitive/functional encryption/Inner-Pr
 >     - $\sigma_0 \geq \Omega(p \kappa \ell \sigma_2)$;
 >     - $q^{n+1} / p^m \leq 2^{-\Omega(\kappa)}$.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] Bounded-Collusion LWE Inner-Product FE
 > - $(\mathrm{pk}, \mathrm{msk}) \leftarrow \mathsf{Setup}(1^\lambda, 1^L, 1^{2\ell})$: (Randomized) Setup algorithm.
 >     - **Input**: the security parameter, the collusion bound $L$ and the vector length $2\ell$, in unary.
 >     - **Output**: $\mathrm{pk} = (\mathbf A, \mathbf U)$ and $\mathrm{msk} = \mathbf Z$.

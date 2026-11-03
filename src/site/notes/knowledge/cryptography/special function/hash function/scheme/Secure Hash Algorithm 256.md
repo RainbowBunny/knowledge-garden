@@ -12,10 +12,10 @@ Reference:
 Reference Name: $\mathsf{SHA256}$
 Instantiates:: [[knowledge/cryptography/special function/hash function/Hash Function\|Hash Function]]
 
-### Setting
-
 > [!scheme] Setting
-> - Words: $\{0, 1\}^{32}$. $+$: addition modulo $2^{32}$. $\land, \lor, \oplus, \neg$: bitwise operations.
+> - Words: $\{0, 1\}^{32}$.
+> - $+$: addition modulo $2^{32}$.
+> - $\land, \lor, \oplus, \neg$: bitwise operations.
 > - $\mathrm{SHR}^n(x) = x \gg n$ and $\mathrm{ROTR}^n(x) = (x \gg n) \lor (x \ll 32 - n)$.
 > - For $x, y, z \in \{0, 1\}^{32}$ `[FIPS180-4 §4.1.2]`:
 > $$\begin{align}
@@ -27,22 +27,19 @@ Instantiates:: [[knowledge/cryptography/special function/hash function/Hash Func
 > \sigma_1(x) &= \mathrm{ROTR}^{17}(x) \oplus \mathrm{ROTR}^{19}(x) \oplus \mathrm{SHR}^{10}(x)
 > \end{align}$$
 
-### Parameters
-
 > [!definition] Parameters
-> - Message blocks of $512$ bits; chaining values and digest of $256$ bits, eight words; messages of fewer than $2^{64}$ bits `[FIPS180-4 §1]`.
+> - Sizes `[FIPS180-4 §1]`:
+>     - Message blocks: $512$ bits.
+>     - Chaining values and digest: $256$ bits, eight words.
+>     - Messages: fewer than $2^{64}$ bits.
 > - $K_0, \dots, K_{63}$: 64 constant words, the first 32 bits of the fractional parts of the cube roots of the first 64 primes `[FIPS180-4 §4.2.2]`.
 > - $IV = H^{(0)} = (\mathtt{6a09e667}, \dots, \mathtt{5be0cd19})$: eight words, from the square roots of the first eight primes `[FIPS180-4 §5.3.3]`.
-
-### Building Blocks
 
 > [!definition] Building Blocks
 > - [[knowledge/cryptography/special function/hash function/Merkle-Damgard Transform\|Merkle-Damgard Transform]] — with the padding $\mathsf{Pad}$ below and $IV = H^{(0)}$.
 > - [[knowledge/cryptography/special function/compression function/Davies-Meyer Compression Function\|Davies-Meyer Compression Function]] — on the cipher $E$ below, with word-wise $+$ in place of $\oplus$.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] Secure Hash Algorithm 256
 > - $\hat M \leftarrow \mathsf{Pad}(M)$: (Deterministic) Padding.
 >     - **Input**: a message $M$ of $l < 2^{64}$ bits.
 >     - **Output**: a padded message $\hat M$ whose length is a multiple of 512.

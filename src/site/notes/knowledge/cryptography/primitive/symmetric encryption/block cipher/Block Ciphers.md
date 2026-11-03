@@ -12,8 +12,8 @@ Reference:
 ## Syntax
 
 > [!definition] Parameters
-> - $\mathcal K$: the key space; a key $k$ is sampled uniformly from it.
-> - $\mathcal X$: the **data block space**, a finite set; its elements are **data blocks**.
+> - $\mathcal K$: the key space, from which a key $k$ is sampled uniformly.
+> - $\mathcal X$: the **data block space**, a finite set whose elements are **data blocks**.
 
 > [!definition] Block Cipher
 > A **block cipher** $\mathcal E = (E, D)$ defined over $(\mathcal K, \mathcal X)$ is a pair of efficient algorithms:
@@ -49,7 +49,7 @@ Reference:
 > [!definition] Parameters
 > - The block cipher $\mathcal E = (E, D)$ over $(\mathcal K, \mathcal X)$ from Syntax.
 > - $\mathrm{Perms}[\mathcal X]$: the set of all permutations of $\mathcal X$.
-> - $\mathcal A$: an efficient [[knowledge/cryptography/foundations/Adversary\|Adversary]]; it is a **$Q$-query adversary** if it makes at most $Q$ queries.
+> - $\mathcal A$: an efficient [[knowledge/cryptography/foundations/Adversary\|Adversary]], a **$Q$-query adversary** if it makes at most $Q$ queries.
 
 > [!definition] Secure Block Cipher
 > ### Scope
@@ -92,7 +92,8 @@ Reference:
 ### Strongly Secure Block Cipher
 
 > [!definition] Parameters
-> - As in [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers#Secure Block Cipher\|#Secure Block Cipher]]; $f^{-1}$: the inverse of $f$.
+> - As in [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers#Secure Block Cipher\|#Secure Block Cipher]].
+> - $f^{-1}$: the inverse of $f$.
 
 > [!definition] Strongly Secure Block Cipher
 > ### Scope
@@ -130,7 +131,8 @@ Reference:
 ### Unpredictability
 
 > [!definition] Parameters
-> - The block cipher $\mathcal E$ from Syntax. $Q$: the number of queries before the prediction.
+> - The block cipher $\mathcal E$ from Syntax.
+> - $Q$: the number of queries before the prediction.
 
 > [!definition] Unpredictable Block Cipher
 > ### Scope

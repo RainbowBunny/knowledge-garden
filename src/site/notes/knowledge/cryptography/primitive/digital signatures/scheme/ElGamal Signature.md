@@ -12,30 +12,27 @@ Reference:
 Reference Name: $\mathsf{ElGamalSig}$
 Instantiates:: [[knowledge/cryptography/primitive/digital signatures/Digital Signature\|Digital Signature]]
 
-### Setting
-
 > [!scheme] Setting
 > - $\mathbb Z_p^*$, for a large prime $p$, with a generator $g$: a [[knowledge/math/algebra/structures/group/special group/Cyclic Group\|Cyclic Group]] of order $p - 1$.
 > - Exponents live in $\mathbb Z_{p-1}$, so the signing equation is solved modulo $p - 1$.
 >
 > `[HAC Alg 11.63]`
 
-### Parameters
-
 > [!definition] Parameters
-> - $\lambda$: the security parameter. $(\mathrm{pk}, \mathrm{sk})$: a key pair. $m \in \{0, 1\}^*$: a message. $\sigma = (r, s) \in \mathbb Z_p^* \times \mathbb Z_{p-1}$: a signature.
-> - $p$: the prime. $g$: the generator.
-> - $a \in \{1, \dots, p - 2\}$: the secret exponent. $y = g^a \bmod p$: the public element.
+> - $\lambda$: the security parameter.
+> - $(\mathrm{pk}, \mathrm{sk})$: a key pair.
+> - $m \in \{0, 1\}^*$: a message.
+> - $\sigma = (r, s) \in \mathbb Z_p^* \times \mathbb Z_{p-1}$: a signature.
+> - $p$: the prime.
+> - $g$: the generator.
+> - $a \in \{1, \dots, p - 2\}$: the secret exponent.
+> - $y = g^a \bmod p$: the public element.
 > - $k \in \{1, \dots, p - 2\}$ with $\gcd(k, p - 1) = 1$: the per-signature secret, fresh for every message.
-
-### Building Blocks
 
 > [!definition] Building Blocks
 > - $H$: a [[knowledge/cryptography/special function/hash function/Hash Function\|Hash Function]] from messages to $\mathbb Z_{p-1}$.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] ElGamal Signature
 > - $(\mathrm{pk}, \mathrm{sk}) \leftarrow \mathsf{KeyGen}(1^\lambda)$: (Randomized) Key-generation algorithm.
 >     - **Input**: the security parameter $1^\lambda$.
 >     - **Output**: a public key $\mathrm{pk} = (p, g, y)$ and a secret key $\mathrm{sk} = (p, g, a)$.

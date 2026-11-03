@@ -11,7 +11,7 @@ Reference:
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/digital signatures/Digital Signature\|Digital Signature]]: Import $(\lambda, \mathcal M, \mathrm{pk}, \mathrm{sk})$.
 > - $n$: the number of secret values. $x_1, \dots, x_n \in \mathcal X$ and $y_i = f(x_i) \in \mathcal Y$.
-> - $P$: a function from $\mathcal M$ to subsets of $\{1, \dots, n\}$; $P(m) = \{s_1, \dots, s_\ell\}$.
+> - $P$: a function from $\mathcal M$ to subsets of $\{1, \dots, n\}$, written $P(m) = \{s_1, \dots, s_\ell\}$.
 
 > [!definition] Building Blocks
 > - $f$: any [[knowledge/cryptography/special function/one-way function/One-Way Functions\|one-way function]] over $(\mathcal X, \mathcal Y)$.

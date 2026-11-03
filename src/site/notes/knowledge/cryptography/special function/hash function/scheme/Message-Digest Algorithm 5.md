@@ -14,13 +14,9 @@ Reference:
 Reference Name: $\mathrm{MD5}$
 Instantiates:: [[knowledge/cryptography/special function/hash function/Hash Function\|Hash Function]]
 
-### Parameters
-
 > [!definition] Parameters
 > - Digest and chaining value: $128$ bits, four 32-bit words $A, B, C, D$ `[RFC1321 §1, §3.3]`.
 > - Message blocks: $512$ bits. Padding: a $1$ bit, then $0$ bits up to $448 \bmod 512$, then the length in 64 bits `[RFC1321 §3.1–3.2]`.
-
-### Building Blocks
 
 > [!definition] Building Blocks
 > - [[knowledge/cryptography/special function/hash function/Merkle-Damgard Transform\|Merkle-Damgard Transform]] — over a compression function that ends by adding the incoming chaining value to the result, word by word: $A = A + AA$, … `[RFC1321 §3.4]` `[Wu]`

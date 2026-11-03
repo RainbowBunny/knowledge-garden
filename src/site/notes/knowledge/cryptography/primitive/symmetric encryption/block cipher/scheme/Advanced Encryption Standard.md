@@ -12,29 +12,26 @@ Reference:
 Reference Name: $\mathsf{AES}$
 Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|Block Ciphers]]
 
-### Setting
-
 > [!scheme] Setting
 > - $\mathrm{GF}(2^8) = \mathrm{GF}(2)[x] / (x^8 + x^4 + x^3 + x + 1)$: a byte $b_7 \dots b_0$ is the polynomial $\sum b_i x^i$ `[FIPS197 §4.2]` — a [[knowledge/math/algebra/structures/field/Field\|Field]] with $256$ elements.
-> - The **state**: a $4 \times 4$ array of bytes $s_{r, c}$; the 16 bytes of a block fill it column by column, $s_{r, c} = \mathrm{in}[r + 4c]$.
-
-### Parameters
+> - The **state**: a $4 \times 4$ array of bytes $s_{r, c}$, filled column by column with the 16 bytes of a block, $s_{r, c} = \mathrm{in}[r + 4c]$.
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|Block Ciphers]]: Import $(\mathcal K, \mathcal X)$, with $\mathcal X = \{0, 1\}^{128}$ and $\mathcal K = \{0, 1\}^{32 N_k}$.
-> - $N_k \in \{4, 6, 8\}$: the key length in 32-bit words. $N_r \in \{10, 12, 14\}$: the number of rounds, for AES-128, AES-192 and AES-256. $N_b = 4$: the block length in words `[FIPS197 Table 3]`.
-> - $\mathrm{Rcon}[j] = (x^{j-1}, 00, 00, 00)$: the round constants; their first bytes are $01, 02, 04, 08, 10, 20, 40, 80, 1\mathrm b, 36$ `[FIPS197 §5.2]`.
+> - $N_k \in \{4, 6, 8\}$: the key length in 32-bit words.
+> - $N_r \in \{10, 12, 14\}$: the number of rounds, for AES-128, AES-192 and AES-256.
+> - $N_b = 4$: the block length in words `[FIPS197 Table 3]`.
+> - $\mathrm{Rcon}[j] = (x^{j-1}, 00, 00, 00)$: the round constants, with first bytes $01, 02, 04, 08, 10, 20, 40, 80, 1\mathrm b, 36$ `[FIPS197 §5.2]`.
 > - $S : \{0, 1\}^8 \to \{0, 1\}^8$: the S-box, $S(b) = A \cdot b^{-1} \oplus 63$, the inverse in $\mathrm{GF}(2^8)$ (with $0^{-1} = 0$) followed by a fixed affine map of $\mathrm{GF}(2)^8$ `[FIPS197 §5.1.1]`.
-
-### Building Blocks
 
 > [!definition] Building Blocks
 > - [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Iterated Block Cipher\|Iterated Block Cipher]] — the round below repeated $N_r$ times, with round keys from the key expansion.
-> - [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Substitution-Permutation Network\|Substitution-Permutation Network]] — the shape of the round: $\mathsf{AddRoundKey}$ mixes in the key, $\mathsf{SubBytes}$ substitutes, $\mathsf{ShiftRows}$ and $\mathsf{MixColumns}$ mix; $\mathsf{MixColumns}$ is a linear map on each column rather than a bit permutation `[Got22]`.
+> - [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Substitution-Permutation Network\|Substitution-Permutation Network]] — the shape of the round `[Got22]`:
+>     - $\mathsf{AddRoundKey}$: the key mixing.
+>     - $\mathsf{SubBytes}$: the substitution.
+>     - $\mathsf{ShiftRows}$ and $\mathsf{MixColumns}$: the mixing, in place of the bit permutation — $\mathsf{MixColumns}$ is a linear map on each column.
 
-### Algorithms
-
-> [!scheme] Algorithms
+> [!scheme] Advanced Encryption Standard
 > - $s \leftarrow \mathsf{SubBytes}(s)$: (Deterministic) Byte substitution.
 >     - **Input**: a state $s$.
 >     - **Output**: a state.

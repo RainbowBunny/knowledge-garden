@@ -10,10 +10,13 @@ Reference:
 
 > [!definition] Parameters
 > - [[knowledge/cryptography/special function/hash function/Hash Function\|Hash Function]]: Import $(\mathcal M, \mathcal T)$, with $\mathcal M = \{0, 1\}^{\leq L}$ and $\mathcal T = \mathcal X$.
-> - $\mathcal X$: the chaining space. $\mathcal Y = \{0, 1\}^\ell$: the block space. $L$: a poly-bounded bound on the message length.
+> - $\mathcal X$: the chaining space.
+> - $\mathcal Y = \{0, 1\}^\ell$: the block space.
+> - $L$: a poly-bounded bound on the message length.
 > - $IV \in \mathcal X$: the **initial value**, a fixed public constant.
-> - $PB$: the **padding block**, appended so that the padded length is a multiple of $\ell$; it contains an encoding of the length of the message `[Wu]`.
-> - $m_1, \dots, m_s \in \mathcal Y$: the **message blocks**. $t_0, \dots, t_s \in \mathcal X$: the **chaining variables**.
+> - $PB$: the **padding block**, appended so that the padded length is a multiple of $\ell$, and containing an encoding of the message length `[Wu]`.
+> - $m_1, \dots, m_s \in \mathcal Y$: the **message blocks**.
+> - $t_0, \dots, t_s \in \mathcal X$: the **chaining variables**.
 
 > [!definition] Building Blocks
 > - $h$: any [[knowledge/cryptography/special function/compression function/Compression Functions\|compression function]] $h : \mathcal X \times \mathcal Y \to \mathcal X$, a [[knowledge/cryptography/special function/hash function/Hash Function\|Hash Function]] over $(\mathcal X \times \mathcal Y, \mathcal X)$ (universally quantified).

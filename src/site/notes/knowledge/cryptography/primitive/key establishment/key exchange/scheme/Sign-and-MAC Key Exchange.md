@@ -11,12 +11,8 @@ Reference:
 Reference Name: $\Sigma_0$ (basic SIGMA)
 Instantiates:: [[knowledge/cryptography/primitive/key establishment/key exchange/Authenticated Key Exchange\|Authenticated Key Exchange]]
 
-### Setting
-
 > [!scheme] Setting
 > - $\mathbb G = \langle g \rangle$: a [[knowledge/math/algebra/structures/group/special group/Cyclic Group\|Cyclic Group]] of prime order $q$ in which DDH is assumed; `[CK02]` takes a prime-order subgroup of $\mathbb Z_p^*$.
-
-### Parties
 
 > [!definition] Parties
 > - $I$: the initiator, with identity $\mathrm{ID}_i$ and a long-term signing key.
@@ -24,24 +20,18 @@ Instantiates:: [[knowledge/cryptography/primitive/key establishment/key exchange
 > - A certification authority, or another trusted mechanism, that binds each identity to its public key `[Kra03 §2.1]`.
 > - Peers are post-specified: a session learns its peer during the run `[CK02 §2.2]` ([[knowledge/cryptography/primitive/key establishment/key exchange/Authenticated Key Exchange#Syntax\|Authenticated Key Exchange#Syntax]]).
 
-### Parameters
-
 > [!definition] Parameters
 > - [[knowledge/cryptography/primitive/key establishment/key exchange/Authenticated Key Exchange\|Authenticated Key Exchange]]: Import $(\lambda, s, Q, k)$.
 > - $x, y \in \mathbb Z_q$: the ephemeral exponents of $I$ and $R$.
 > - $k_0$: the session key. $k_1$: the MAC key. $k_2$: the encryption key of the identity-protecting variant.
 > - $\text{"0"}, \text{"1"}$: tags that mark the initiator's and the responder's messages.
 
-### Building Blocks
-
 > [!definition] Building Blocks
 > - $\mathsf{sig}$: a [[knowledge/cryptography/primitive/digital signatures/Digital Signature\|Digital Signature]] scheme, [[knowledge/cryptography/primitive/digital signatures/Digital Signature#Unforgeability\|unforgeable under chosen-message attack]]; $\mathsf{sig}_i, \mathsf{sig}_r$ sign with the keys of $I$ and $R$.
 > - $\mathsf{mac}$: a [[knowledge/cryptography/primitive/message authentication/Message Integrity#MAC Security\|secure MAC]].
 > - $\mathsf{prf}$: a [[knowledge/cryptography/special function/pseudorandom function/Pseudorandom Function#Secure PRF\|secure PRF]], keyed with the Diffie–Hellman value $g^{xy}$.
 
-### Algorithms
-
-> [!scheme] Protocol $\Sigma_0$ `[CK02 Fig. 1]`
+> [!scheme] Sign-and-MAC Key Exchange — protocol $\Sigma_0$ `[CK02 Fig. 1]`
 > | | initiator $I$ | | responder $R$ |
 > | --- | --- | --- | --- |
 > | 1 | $x \xleftarrow{\$} \mathbb Z_q$ | $\xrightarrow{\ s,\, g^x\ }$ | |

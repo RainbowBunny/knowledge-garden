@@ -17,15 +17,6 @@ Required Document:
 Deadline: 22/01/2027 (International Application)
 Reference Deadline: 31/01/2027.
 
-University:
-- Sorbonne-université (https://www.sorbonne-universite.fr/en).
-- Université Paris Cité (https://u-paris.fr/language/en/). 
-- ENS-PSL (Ulm) (https://www.ens.psl.eu/en).
-- Université Paris Dauphine-PSL (https://dauphine.psl.eu/en/).
-- Université Sorbonne Paris Nord (https://www.univ-spn.fr/).
-- Panthéon Sorbonne Université Paris 1 (https://welcome.pantheonsorbonne.fr/en).
-- Université Paris Nanterre (https://university.parisnanterre.fr/).
-
 Course:
 - M1 Parisian Research Master in Computer Science (M1_UPC_MPRI, Paris Cité).
 - M1 Mathematics and Computer Science for Cryptology (M1_UPC_MIC, Paris Cité).
@@ -83,8 +74,21 @@ Required Document:
 
 Deadline: 14/01/2027.
 
-## SMARTS-UPS
+
+
+## Effel
+
+Paris Saclay
 
 
 ## ENS International Selection
 
+
+## SMARTS-UPS (Paris Cite)
+
+November 14?
+
+## Ampere (ENS Lyon)
+
+
+## Graduate+ (ENS Lyon)
