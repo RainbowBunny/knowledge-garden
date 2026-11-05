@@ -70,7 +70,7 @@ Reference:
 
 > [!example] Small dihedral groups
 > - $D_3 \cong S_3$, of order 6, the nonabelian group of order $2 \cdot 3$ ([[knowledge/math/algebra/structures/group/classification/Groups of Order pq\|Groups of Order pq]]).
-> - $D_4$, of order 8, one of the two nonabelian groups of order 8 ([[knowledge/math/algebra/structures/group/classification/Groups of Order p³\|Groups of Order p³]]).
+> - $D_4$, of order 8, one of the two nonabelian groups of order 8 ([[Groups of Order p³\|Groups of Order p³]]).
 > - $D_{15}$, of order 30, has 15 elements of order 2 ([[knowledge/math/algebra/structures/group/classification/Groups of Order 30\|Groups of Order 30]]).
 
 ## Related

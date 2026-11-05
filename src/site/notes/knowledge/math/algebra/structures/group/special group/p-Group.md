@@ -68,7 +68,7 @@ Reference:
 > `[ConSyl §3]` — [[knowledge/math/algebra/structures/group/subgroup/Sylow Theorems#Property\|Sylow Theorems#Property]].
 
 > [!corollary] Order $p^2$ — abelian
-> Every group of order $p^2$ is abelian `[ConConj Cor 6.11]` — [[knowledge/math/algebra/structures/group/classification/Groups of Order p²\|Groups of Order p²]].
+> Every group of order $p^2$ is abelian `[ConConj Cor 6.11]` — [[Groups of Order p²\|Groups of Order p²]].
 
 ## Related
 
@@ -78,7 +78,7 @@ Reference:
 
 ### Constructions
 - [[knowledge/math/algebra/structures/group/subgroup/Sylow Subgroup\|Sylow Subgroup]] — the maximal $p$-subgroups of a finite group
-- [[knowledge/math/algebra/structures/group/classification/Groups of Order p²\|Groups of Order p²]], [[knowledge/math/algebra/structures/group/classification/Groups of Order p³\|Groups of Order p³]], [[knowledge/math/algebra/structures/group/classification/Groups of Order p⁴\|Groups of Order p⁴]] — the small $p$-groups
+- [[Groups of Order p²\|Groups of Order p²]], [[Groups of Order p³\|Groups of Order p³]], [[Groups of Order p⁴\|Groups of Order p⁴]] — the small $p$-groups
 
 ### Prerequisites
 - [[knowledge/math/algebra/structures/group/Group Order\|Group Order]] — the order $|G|$

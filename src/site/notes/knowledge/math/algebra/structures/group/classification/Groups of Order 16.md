@@ -84,13 +84,13 @@ Reference:
 ## Example
 
 > [!example] Central extensions
-> Every nonabelian group of order 16 has a central subgroup of order 2, so it is a central [[knowledge/math/algebra/structures/group/extension/Group Extension\|Group Extension]] of one of the five [[knowledge/math/algebra/structures/group/classification/Groups of Order p³\|groups of order 8]] by $C_2$. The cyclic-extension tables above are a more practical way to organize the same groups.
+> Every nonabelian group of order 16 has a central subgroup of order 2, so it is a central [[knowledge/math/algebra/structures/group/extension/Group Extension\|Group Extension]] of one of the five [[Groups of Order p³\|groups of order 8]] by $C_2$. The cyclic-extension tables above are a more practical way to organize the same groups.
 
 ## Related
 
 ### Siblings
-- [[knowledge/math/algebra/structures/group/classification/Groups of Order p⁴\|Groups of Order p⁴]] — the odd-prime analogue, with fifteen groups
-- [[knowledge/math/algebra/structures/group/classification/Groups of Order p³\|Groups of Order p³]] — the groups of order 8
+- [[Groups of Order p⁴\|Groups of Order p⁴]] — the odd-prime analogue, with fifteen groups
+- [[Groups of Order p³\|Groups of Order p³]] — the groups of order 8
 
 ### Prerequisites
 - [[knowledge/math/algebra/structures/group/extension/Cyclic Extension\|Cyclic Extension]], [[knowledge/math/algebra/structures/group/extension/Semidirect Product\|Semidirect Product]], [[knowledge/math/algebra/structures/group/example/Dihedral Group\|Dihedral Group]], [[knowledge/math/algebra/structures/group/example/Generalized Quaternion Group\|Generalized Quaternion Group]]

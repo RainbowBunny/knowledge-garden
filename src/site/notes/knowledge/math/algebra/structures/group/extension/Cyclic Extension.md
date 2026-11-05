@@ -119,7 +119,7 @@ Reference:
 
 ### Constructions
 - [[knowledge/math/algebra/structures/group/classification/Groups of Order 16\|Groups of Order 16]] — classified as cyclic extensions of a normal subgroup of order 8 by $C_2$
-- [[knowledge/math/algebra/structures/group/classification/Groups of Order p⁴\|Groups of Order p⁴]] — `[AGW16]` classifies the nonabelian ones by extension types
+- [[Groups of Order p⁴\|Groups of Order p⁴]] — `[AGW16]` classifies the nonabelian ones by extension types
 
 ### Siblings
 - [[knowledge/math/algebra/structures/group/extension/Semidirect Product\|Semidirect Product]] — the types with $v = e$

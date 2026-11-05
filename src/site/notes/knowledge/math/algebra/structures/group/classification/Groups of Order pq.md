@@ -17,7 +17,7 @@ Reference:
 >
 > ---
 > ### Condition
-> - $p \neq q$; for $p = q$ see [[knowledge/math/algebra/structures/group/classification/Groups of Order p²\|Groups of Order p²]].
+> - $p \neq q$; for $p = q$ see [[Groups of Order p²\|Groups of Order p²]].
 >
 > ---
 > ### Property
@@ -58,7 +58,7 @@ Reference:
 ## Related
 
 ### Siblings
-- [[knowledge/math/algebra/structures/group/classification/Groups of Order p²\|Groups of Order p²]], [[knowledge/math/algebra/structures/group/classification/Groups of Order pqr\|Groups of Order pqr]]
+- [[Groups of Order p²\|Groups of Order p²]], [[knowledge/math/algebra/structures/group/classification/Groups of Order pqr\|Groups of Order pqr]]
 
 ### Prerequisites
 - [[knowledge/math/algebra/structures/group/subgroup/Sylow Theorems\|Sylow Theorems]], [[knowledge/math/algebra/structures/group/extension/Semidirect Product\|Semidirect Product]], [[knowledge/math/algebra/structures/group/special group/Cyclic Group\|Cyclic Group]]

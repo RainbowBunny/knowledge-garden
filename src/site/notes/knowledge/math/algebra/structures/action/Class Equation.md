@@ -38,7 +38,7 @@ Reference:
 > - A nontrivial normal subgroup of a nontrivial finite $p$-group meets the center nontrivially.
 > - Every group of order $p^2$ is abelian.
 >
-> See [[knowledge/math/algebra/structures/group/special group/p-Group#Property\|p-Group#Property]] and [[knowledge/math/algebra/structures/group/classification/Groups of Order p²\|Groups of Order p²]].
+> See [[knowledge/math/algebra/structures/group/special group/p-Group#Property\|p-Group#Property]] and [[Groups of Order p²\|Groups of Order p²]].
 
 ## Example
 

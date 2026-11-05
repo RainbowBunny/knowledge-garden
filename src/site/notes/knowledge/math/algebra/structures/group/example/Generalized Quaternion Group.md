@@ -53,7 +53,7 @@ Reference:
 ## Example
 
 > [!example] Order 8 and 16
-> - $Q_8$ is one of the two nonabelian groups of order 8, with $D_4$ ([[knowledge/math/algebra/structures/group/classification/Groups of Order p³\|Groups of Order p³]]); $Q_8$ has one element of order 2, $D_4$ has five.
+> - $Q_8$ is one of the two nonabelian groups of order 8, with $D_4$ ([[Groups of Order p³\|Groups of Order p³]]); $Q_8$ has one element of order 2, $D_4$ has five.
 > - $Q_{16}$ is the extension type $(C_8, 2, x \mapsto x^{-1}, x^4)$ ([[knowledge/math/algebra/structures/group/extension/Cyclic Extension\|Cyclic Extension]], [[knowledge/math/algebra/structures/group/classification/Groups of Order 16\|Groups of Order 16]]).
 
 ## Related
