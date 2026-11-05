@@ -147,7 +147,9 @@ Worked examples: [[knowledge/cryptography/primitive/public-key encryption/scheme
 > - $out \leftarrow \mathsf{Alg}(in)$: (Randomized | Deterministic) <name of the algorithm>.
 >     - **Input**: <each argument, typed, and any promise about it>
 >     - **Output**: <each result, typed, including a rejection symbol>
->     - **Steps**: 1. …                    ← constructions only
+>     - **Steps**:                         ← constructions only
+>         1. …
+>         2. …
 ```
 
 - The signature line says what the algorithm is; Input and Output describe the arguments and results one by one; Steps say how.
@@ -155,7 +157,8 @@ Worked examples: [[knowledge/cryptography/primitive/public-key encryption/scheme
 - **Construction** (Scheme, 6; Transform, 7): Input, Output and Steps. In a Scheme, Input and Output give *this scheme's* concrete types ($\mathrm{pk} = (t, \rho)$); they do not restate the primitive.
 - **Promises go in Input** ("$\mathrm{bk}$ is an honest encryption of $\mathrm{sk}_1$ under $\mathrm{pk}_2$"). **Rejection goes in Output** ("or $\perp$").
 - **Both at once: split.** An algorithm that is a specification with several constructions (`Refresh`) gets a specification callout in `## Syntax`, each construction gets its own callout with Steps, and correctness is stated once, on the specification.
-- Layout 6's short form `out ← Alg(in): 1. …` remains fine for an algorithm whose Input and Output need no words; the signature then carries both.
+- **One step per line**, numbered, nested under **Steps**; a loop body is indented under its step. No inline `1. … 2. …`.
+- **Names are words.** An algorithm is named in `\mathsf` by a word or its abbreviation, never one letter: $\mathsf{KeyGen}$, $\mathsf{Enc}$, $\mathsf{Dec}$, $\mathsf{Sign}$, $\mathsf{Verify}$. A source's $E, D$ or $\mathsf{Gen}$ goes in *Notation in the literature*. A block cipher is $(\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$ like a symmetric-key scheme, its $\mathsf{KeyGen}$ sampling a uniform key; a derived cipher adds a subscript ($\mathsf{Enc}_2$, $\mathsf{Enc}_\mathrm{EX}$) or a prime ($\mathsf{Enc}'$). The fixed tables of a standard keep the standard's letters (DES's $E$, $P$, $\mathrm{IP}$). *Added 2026-11-03, on your DES remark.*
 
 ## Syntax is the most generic form — notation goes in a remark
 

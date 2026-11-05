@@ -15,13 +15,13 @@ Reference:
 > - $k_1, k_2, k_3 \in \mathcal K$: independent keys.
 
 > [!definition] Building Blocks
-> - $\mathcal E = (E, D)$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ (universally quantified).
+> - $\mathcal E = (\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ (universally quantified).
 
 > [!definition] Double and Triple Encryption
-> Block ciphers over $(\mathcal K^2, \mathcal X)$ and $(\mathcal K^3, \mathcal X)$:
-> - **2E**: $E_2((k_1, k_2), x) = E(k_2, E(k_1, x))$ `[BS §4.2.3]` `[HAC Def 7.31]`.
-> - **3E**: $E_3((k_1, k_2, k_3), x) = E(k_3, E(k_2, E(k_1, x)))$ `[BS §4.2.3]`.
-> - **E-D-E**: $E_\mathrm{EDE}((k_1, k_2, k_3), x) = E(k_3, D(k_2, E(k_1, x)))$ `[HAC Def 7.32]`.
+> Block ciphers over $(\mathcal K^2, \mathcal X)$ and $(\mathcal K^3, \mathcal X)$, whose key generation runs $\mathsf{KeyGen}$ of $\mathcal E$ two or three times, independently:
+> - **2E**: $\mathsf{Enc}_2((k_1, k_2), x) = \mathsf{Enc}(k_2, \mathsf{Enc}(k_1, x))$ `[BS §4.2.3]` `[HAC Def 7.31]`.
+> - **3E**: $\mathsf{Enc}_3((k_1, k_2, k_3), x) = \mathsf{Enc}(k_3, \mathsf{Enc}(k_2, \mathsf{Enc}(k_1, x)))$ `[BS §4.2.3]`.
+> - **E-D-E**: $\mathsf{Enc}_\mathrm{EDE}((k_1, k_2, k_3), x) = \mathsf{Enc}(k_3, \mathsf{Dec}(k_2, \mathsf{Enc}(k_1, x)))$ `[HAC Def 7.32]`.
 >
 > Decryption applies the inverses in reverse order.
 
@@ -39,13 +39,13 @@ Reference:
 > [!attack] Double encryption — meet in the middle `[BS §4.2.3]` `[HAC Fact 7.33]`
 > **Scope**
 > - $\mathcal E$: a block cipher over $(\mathcal K, \mathcal X)$.
-> - $(x_i, y_i)$, $i = 1, \dots, Q$: plaintext–ciphertext pairs under $E_2$.
+> - $(x_i, y_i)$, $i = 1, \dots, Q$: plaintext–ciphertext pairs under $\mathsf{Enc}_2$.
 >
 > ---
 > **Property**
 > An algorithm finds a key pair $(k_1, k_2) \in \mathcal K^2$ with
-> $$y_i = E_2((k_1, k_2), x_i) \quad \text{for all } i = 1, \dots, Q,$$
-> in time dominated by $2Q \cdot |\mathcal K|$ evaluations of $E$ and $D$ `[BS §4.2.3]`: tabulate $E(k_1, x_1)$ for every $k_1$, then look up $D(k_2, y_1)$ for every $k_2$ and check the matches on the other pairs. For a $k$-bit key this is about $2^k$ operations and $2^k$ storage `[HAC Fact 7.33]` — for double DES, $2^{56}$ time and space instead of $2^{112}$ time `[HAC Ex 7.36]`. So 2E is no more secure than $\mathcal E$ against exhaustive search.
+> $$y_i = \mathsf{Enc}_2((k_1, k_2), x_i) \quad \text{for all } i = 1, \dots, Q,$$
+> in time dominated by $2Q \cdot |\mathcal K|$ evaluations of $\mathsf{Enc}$ and $\mathsf{Dec}$ `[BS §4.2.3]`: tabulate $\mathsf{Enc}(k_1, x_1)$ for every $k_1$, then look up $\mathsf{Dec}(k_2, y_1)$ for every $k_2$ and check the matches on the other pairs. For a $k$-bit key this is about $2^k$ operations and $2^k$ storage `[HAC Fact 7.33]` — for double DES, $2^{56}$ time and space instead of $2^{112}$ time `[HAC Ex 7.36]`. So 2E is no more secure than $\mathcal E$ against exhaustive search.
 
 > [!security] Triple encryption in the ideal cipher model `[BS §4.2.3]`
 > **Scope**
@@ -64,7 +64,7 @@ Reference:
 ### Triple-DES
 
 > [!example] Triple-DES
-> 3E with $\mathcal E$ = [[knowledge/cryptography/primitive/symmetric encryption/block cipher/scheme/Data Encryption Standard\|Data Encryption Standard]] uses keys of $3 \times 56 = 168$ bits `[BS §4.2.3]`. The standard, TDEA, is the E-D-E form: $O = E_{K_3}(D_{K_2}(E_{K_1}(I)))$, decrypted by $D_{K_1}(E_{K_2}(D_{K_3}(\cdot)))$, with three keying options — three independent keys; $K_3 = K_1$; $K_1 = K_2 = K_3$ `[FIPS46-3]`. With three equal keys it computes single DES; this was checked by computation.
+> 3E with $\mathcal E$ = [[knowledge/cryptography/primitive/symmetric encryption/block cipher/scheme/Data Encryption Standard\|Data Encryption Standard]] uses keys of $3 \times 56 = 168$ bits `[BS §4.2.3]`. The standard, TDEA, is the E-D-E form: $O = \mathsf{Enc}(K_3, \mathsf{Dec}(K_2, \mathsf{Enc}(K_1, I)))$, decrypted by $\mathsf{Dec}(K_1, \mathsf{Enc}(K_2, \mathsf{Dec}(K_3, \cdot)))$, with three keying options — three independent keys; $K_3 = K_1$; $K_1 = K_2 = K_3$ `[FIPS46-3]`. With three equal keys it computes single DES; this was checked by computation.
 
 ## Related
 

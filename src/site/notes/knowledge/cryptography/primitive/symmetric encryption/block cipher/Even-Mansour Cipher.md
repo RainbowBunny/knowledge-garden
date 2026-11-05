@@ -14,16 +14,20 @@ Reference:
 
 > [!definition] Building Blocks
 > - $\pi : \mathcal X \to \mathcal X$: a public permutation, with inverse $\pi^{-1}$ — for Even–Mansour.
-> - $\mathcal E = (E, D)$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ — for EX.
+> - $\mathcal E = (\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ — for EX.
 
 > [!definition] Even–Mansour Cipher
-> $\mathcal E_\mathrm{EM} = (E, D)$ over $(\mathcal X^2, \mathcal X)$:
-> - $y \leftarrow E((P_1, P_2), x)$: (Deterministic) Encryption algorithm.
+> $\mathcal E_\mathrm{EM} = (\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$ over $(\mathcal X^2, \mathcal X)$:
+> - $(P_1, P_2) \leftarrow \mathsf{KeyGen}()$: (Randomized) Key-generation algorithm.
+>     - **Output**: a key $(P_1, P_2) \in \mathcal X^2$.
+>     - **Steps**:
+>         1. Returns $(P_1, P_2) \xleftarrow{\$} \mathcal X^2$.
+> - $y \leftarrow \mathsf{Enc}((P_1, P_2), x)$: (Deterministic) Encryption algorithm.
 >     - **Input**: a key $(P_1, P_2) \in \mathcal X^2$ and a data block $x \in \mathcal X$.
 >     - **Output**: a data block $y \in \mathcal X$.
 >     - **Steps**:
 >         1. Returns $\pi(x \oplus P_1) \oplus P_2$.
-> - $x \leftarrow D((P_1, P_2), y)$: (Deterministic) Decryption algorithm.
+> - $x \leftarrow \mathsf{Dec}((P_1, P_2), y)$: (Deterministic) Decryption algorithm.
 >     - **Input**: a key $(P_1, P_2) \in \mathcal X^2$ and a data block $y \in \mathcal X$.
 >     - **Output**: a data block $x \in \mathcal X$.
 >     - **Steps**:
@@ -36,17 +40,23 @@ Reference:
 ### The EX construction
 
 > [!definition] EX Construction
-> Whitening around a block cipher instead of a public permutation: $\mathcal E X = (EX, DX)$ over $(\mathcal K \times \mathcal X^2, \mathcal X)$,
-> - $y \leftarrow EX((k, P_1, P_2), x)$: (Deterministic) Encryption algorithm.
+> Whitening around a block cipher instead of a public permutation: $\mathcal E_\mathrm{EX} = (\mathsf{KeyGen}_\mathrm{EX}, \mathsf{Enc}_\mathrm{EX}, \mathsf{Dec}_\mathrm{EX})$ over $(\mathcal K \times \mathcal X^2, \mathcal X)$,
+> - $(k, P_1, P_2) \leftarrow \mathsf{KeyGen}_\mathrm{EX}()$: (Randomized) Key-generation algorithm.
+>     - **Output**: a key $(k, P_1, P_2) \in \mathcal K \times \mathcal X^2$.
+>     - **Steps**:
+>         1. $k \leftarrow \mathsf{KeyGen}()$.
+>         2. $(P_1, P_2) \xleftarrow{\$} \mathcal X^2$.
+>         3. Returns $(k, P_1, P_2)$.
+> - $y \leftarrow \mathsf{Enc}_\mathrm{EX}((k, P_1, P_2), x)$: (Deterministic) Encryption algorithm.
 >     - **Input**: a key $(k, P_1, P_2) \in \mathcal K \times \mathcal X^2$ and a data block $x \in \mathcal X$.
 >     - **Output**: a data block $y \in \mathcal X$.
 >     - **Steps**:
->         1. Returns $E(k, x \oplus P_1) \oplus P_2$.
-> - $x \leftarrow DX((k, P_1, P_2), y)$: (Deterministic) Decryption algorithm.
+>         1. Returns $\mathsf{Enc}(k, x \oplus P_1) \oplus P_2$.
+> - $x \leftarrow \mathsf{Dec}_\mathrm{EX}((k, P_1, P_2), y)$: (Deterministic) Decryption algorithm.
 >     - **Input**: a key $(k, P_1, P_2)$ and a data block $y \in \mathcal X$.
 >     - **Output**: a data block $x \in \mathcal X$.
 >     - **Steps**:
->         1. Returns $D(k, y \oplus P_2) \oplus P_1$.
+>         1. Returns $\mathsf{Dec}(k, y \oplus P_2) \oplus P_1$.
 >
 > `[BS §4.7.3]`. With $\mathcal E$ = [[knowledge/cryptography/primitive/symmetric encryption/block cipher/scheme/Data Encryption Standard\|Data Encryption Standard]] it is **DESX**: $\mathrm{DESX}_{k, k_1, k_2}(x) = k_2 \oplus \mathrm{DES}_k(k_1 \oplus x)$, proposed by Rivest as a cheap protection of DES against exhaustive key search `[KR01]`.
 

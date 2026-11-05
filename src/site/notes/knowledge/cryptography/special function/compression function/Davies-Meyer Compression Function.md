@@ -13,7 +13,7 @@ Reference:
 > - $\mathcal K$: the cipher's key space, used as the message-block space.
 
 > [!definition] Building Blocks
-> - $\mathcal E = (E, D)$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ (universally quantified).
+> - $\mathcal E = (\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ (universally quantified).
 
 > [!definition] Davies-Meyer Compression Function
 > - $t \leftarrow h_\mathrm{DM}(x, y)$: (Deterministic) Compression algorithm.
@@ -21,7 +21,7 @@ Reference:
 >     - **Output**: a chaining value $t \in \mathcal X$.
 >     - **Steps**:
 >         1. Returns
->            $$h_\mathrm{DM}(x, y) = E(y, x) \oplus x.$$
+>            $$h_\mathrm{DM}(x, y) = \mathsf{Enc}(y, x) \oplus x.$$
 >
 > The message block is the cipher's **key** and the chaining value its plaintext; $h_\mathrm{DM}$ is defined over $(\mathcal X \times \mathcal K, \mathcal X)$. `[BS §8.5.2]`
 
@@ -43,21 +43,21 @@ Reference:
 > [!remark] Variants `[BS §8.5.2]`
 > | name | $h(x, y)$ | collision resistant |
 > | --- | --- | --- |
-> | Davies–Meyer | $E(y, x) \oplus x$ | yes |
-> | Matyas–Meyer–Oseas | $E(x, y) \oplus y$ | yes |
-> | Miyaguchi–Preneel | $E(x, y) \oplus y \oplus x$ | yes |
-> | — | $E(x \oplus y, y) \oplus y$ | yes |
-> | — | $E(y, x) \oplus y$ | no |
-> | — | $E(x, x \oplus y) \oplus x$ | no |
+> | Davies–Meyer | $\mathsf{Enc}(y, x) \oplus x$ | yes |
+> | Matyas–Meyer–Oseas | $\mathsf{Enc}(x, y) \oplus y$ | yes |
+> | Miyaguchi–Preneel | $\mathsf{Enc}(x, y) \oplus y \oplus x$ | yes |
+> | — | $\mathsf{Enc}(x \oplus y, y) \oplus y$ | yes |
+> | — | $\mathsf{Enc}(y, x) \oplus y$ | no |
+> | — | $\mathsf{Enc}(x, x \oplus y) \oplus x$ | no |
 >
 > "Yes" is in the ideal cipher model, as for Davies–Meyer above.
 
 > [!attack] Why the last two fail
 > Both can be inverted on any target $t$, which gives a collision with any $(x, y)$ such that $h(x, y) = t$:
-> - $h(x, y) = E(y, x) \oplus y$: pick any $y'$ and set $x' = D(y', t \oplus y')$; then $h(x', y') = t$.
-> - $h(x, y) = E(x, x \oplus y) \oplus x$: pick any $x'$ and set $y' = x' \oplus D(x', t \oplus x')$; then $h(x', y') = t$.
+> - $h(x, y) = \mathsf{Enc}(y, x) \oplus y$: pick any $y'$ and set $x' = \mathsf{Dec}(y', t \oplus y')$; then $h(x', y') = t$.
+> - $h(x, y) = \mathsf{Enc}(x, x \oplus y) \oplus x$: pick any $x'$ and set $y' = x' \oplus \mathsf{Dec}(x', t \oplus x')$; then $h(x', y') = t$.
 >
-> In Davies–Meyer the fed-forward value $x$ is also the plaintext, so $E(y', x') \oplus x' = t$ cannot be solved for $x'$ with one call to $D$.
+> In Davies–Meyer the fed-forward value $x$ is also the plaintext, so $\mathsf{Enc}(y', x') \oplus x' = t$ cannot be solved for $x'$ with one call to $\mathsf{Dec}$.
 
 ### Addition instead of XOR
 

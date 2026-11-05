@@ -9,14 +9,14 @@ Reference:
 ## Definition
 
 > [!definition] Parameters
-> - $\mathcal E = (E, D)$: a [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] with $\mathcal X = \{0, 1\}^n$ and $\mathcal K = \{0, 1\}^h$.
+> - $\mathcal E = (\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$: a [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] with $\mathcal X = \{0, 1\}^n$ and $\mathcal K = \{0, 1\}^h$.
 > - $m[S] = m[i_1] \oplus \cdots \oplus m[i_\ell]$: the parity of the bits of $m$ in the positions $S = \{i_1, \dots, i_\ell\}$.
 > - $S_0, S_1 \subseteq \{0, \dots, n - 1\}$, $S_2 \subseteq \{0, \dots, h - 1\}$: sets of bit positions.
 > - $\varepsilon$: the **bias**.
 
 > [!definition] Linear Relation
 > $\mathcal E$ has a **linear relation** with bias $\varepsilon$ if for every key $k$ and a uniformly random $m \in \mathcal X$,
-> $$\Pr\big[m[S_0] \oplus E(k, m)[S_1] = k[S_2]\big] \geq \frac{1}{2} + \varepsilon,$$
+> $$\Pr\big[m[S_0] \oplus \mathsf{Enc}(k, m)[S_1] = k[S_2]\big] \geq \frac{1}{2} + \varepsilon,$$
 > for a non-negligible $\varepsilon$. For an ideal cipher, plaintext and ciphertext behave like independent strings: the relation holds with probability exactly $1/2$, and $\varepsilon = 0$. `[BS §4.3.1]`
 
 ## Property
@@ -24,7 +24,7 @@ Reference:
 > [!lemma] Majority vote — enough known pairs reveal one key parity
 > **Scope**
 > - $\mathcal E$: a block cipher with a linear relation $(S_0, S_1, S_2)$ of bias $\varepsilon$.
-> - $m_1, \dots, m_t$: independent uniform messages; $c_i = E(k, m_i)$.
+> - $m_1, \dots, m_t$: independent uniform messages; $c_i = \mathsf{Enc}(k, m_i)$.
 >
 > ---
 > **Property**

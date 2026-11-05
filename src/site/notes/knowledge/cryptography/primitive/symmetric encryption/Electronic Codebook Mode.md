@@ -13,20 +13,20 @@ Reference:
 > - $c \in \mathcal X^{\leq \ell}$: a ciphertext.
 
 > [!definition] Building Blocks
-> - $\mathcal E = (E, D)$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ (universally quantified).
+> - $\mathcal E = (\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$: any [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Block Ciphers\|block cipher]] over $(\mathcal K, \mathcal X)$ (universally quantified).
 
 > [!definition] Electronic Codebook Mode
-> The **$\ell$-wise ECB cipher** $\mathcal E' = (E', D')$ is a [[knowledge/cryptography/primitive/symmetric encryption/Symmetric Key Encryption\|cipher]] over $(\mathcal K, \mathcal X^{\leq \ell}, \mathcal X^{\leq \ell})$:
-> - $c \leftarrow E'(k, m)$: (Deterministic) Encryption algorithm.
+> The **$\ell$-wise ECB cipher** $\mathcal E' = (\mathsf{KeyGen}, \mathsf{Enc}', \mathsf{Dec}')$ is a [[knowledge/cryptography/primitive/symmetric encryption/Symmetric Key Encryption\|cipher]] over $(\mathcal K, \mathcal X^{\leq \ell}, \mathcal X^{\leq \ell})$, with the key generation of $\mathcal E$:
+> - $c \leftarrow \mathsf{Enc}'(k, m)$: (Deterministic) Encryption algorithm.
 >     - **Input**: a key $k \in \mathcal K$ and a message $m \in \mathcal X^{\leq \ell}$ with $v = |m|$ blocks.
 >     - **Output**: a ciphertext $c \in \mathcal X^{v}$.
 >     - **Steps**:
->         1. Returns $c = (E(k, m[0]), \dots, E(k, m[v-1]))$.
-> - $m \leftarrow D'(k, c)$: (Deterministic) Decryption algorithm.
+>         1. Returns $c = (\mathsf{Enc}(k, m[0]), \dots, \mathsf{Enc}(k, m[v-1]))$.
+> - $m \leftarrow \mathsf{Dec}'(k, c)$: (Deterministic) Decryption algorithm.
 >     - **Input**: a key $k \in \mathcal K$ and a ciphertext $c \in \mathcal X^{\leq \ell}$ with $v = |c|$ blocks.
 >     - **Output**: a message $m \in \mathcal X^{v}$.
 >     - **Steps**:
->         1. Returns $m = (D(k, c[0]), \dots, D(k, c[v-1]))$.
+>         1. Returns $m = (\mathsf{Dec}(k, c[0]), \dots, \mathsf{Dec}(k, c[v-1]))$.
 >
 > `[BS §4.1.4]`
 
@@ -46,7 +46,7 @@ Reference:
 ## Cryptanalysis
 
 > [!attack] Repeated blocks show through
-> $E(k, \cdot)$ is deterministic, so equal message blocks give equal ciphertext blocks: $m[i] = m[j]$ iff $c[i] = c[j]$. An adversary who submits $m_0 = (a, a)$ and $m_1 = (a, b)$, $a \neq b$, tells them apart with certainty — which is why the theorem restricts the messages to distinct blocks.
+> $\mathsf{Enc}(k, \cdot)$ is deterministic, so equal message blocks give equal ciphertext blocks: $m[i] = m[j]$ iff $c[i] = c[j]$. An adversary who submits $m_0 = (a, a)$ and $m_1 = (a, b)$, $a \neq b$, tells them apart with certainty — which is why the theorem restricts the messages to distinct blocks.
 
 ## Related
 

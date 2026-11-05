@@ -12,24 +12,26 @@ Reference:
 ## Syntax
 
 > [!definition] Parameters
-> - $\mathcal K$: the key space, from which a key $k$ is sampled uniformly.
+> - $\mathcal K$: the key space.
 > - $\mathcal X$: the **data block space**, a finite set whose elements are **data blocks**.
 
 > [!definition] Block Cipher
-> A **block cipher** $\mathcal E = (E, D)$ defined over $(\mathcal K, \mathcal X)$ is a pair of efficient algorithms:
-> - $y \leftarrow E(k, x)$: (Deterministic) Encryption algorithm.
+> A **block cipher** $\mathcal E = (\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$ defined over $(\mathcal K, \mathcal X)$ is a triple of efficient algorithms:
+> - $k \leftarrow \mathsf{KeyGen}()$: (Randomized) Key-generation algorithm.
+>     - **Output**: a key $k \in \mathcal K$, uniform.
+> - $y \leftarrow \mathsf{Enc}(k, x)$: (Deterministic) Encryption algorithm.
 >     - **Input**: a key $k \in \mathcal K$ and a data block $x \in \mathcal X$.
 >     - **Output**: a data block $y \in \mathcal X$.
-> - $x \leftarrow D(k, y)$: (Deterministic) Decryption algorithm.
+> - $x \leftarrow \mathsf{Dec}(k, y)$: (Deterministic) Decryption algorithm.
 >     - **Input**: a key $k \in \mathcal K$ and a data block $y \in \mathcal X$.
 >     - **Output**: a data block $x \in \mathcal X$.
 >
-> It is a deterministic cipher whose message space and ciphertext space are the same set $\mathcal X$ `[BS §4.1]`: for each key, $E(k, \cdot)$ is a permutation of $\mathcal X$ and $D(k, \cdot)$ its inverse `[HAC Def 7.1]`.
+> It is a deterministic cipher whose message space and ciphertext space are the same set $\mathcal X$ `[BS §4.1]`: for each key, $\mathsf{Enc}(k, \cdot)$ is a permutation of $\mathcal X$ and $\mathsf{Dec}(k, \cdot)$ its inverse `[HAC Def 7.1]`.
 
 > [!remark] Notation in the literature
 > | source | algorithms | differences |
 > | --- | --- | --- |
-> | `[BS §4.1]` | $(E, D)$ over $(\mathcal K, \mathcal X)$ | no key generation: games sample $k \xleftarrow{R} \mathcal K$ |
+> | `[BS §4.1]` | $(E, D)$ over $(\mathcal K, \mathcal X)$ | one letter, $E$ and $D$, for $\mathsf{Enc}$ and $\mathsf{Dec}$; no key generation: games sample $k \xleftarrow{R} \mathcal K$, which is $\mathsf{KeyGen}$ here |
 > | `[HAC Def 7.1]` | $E(P, K)$ | the plaintext comes first; an $n$-bit block cipher has $\mathcal X = V_n = \{0, 1\}^n$ |
 > | `[Ros Def 7.1.2]` | keyed permutation $F^\pm = (F, F^{-1})$ | security named PRP; the block length is a parameter |
 
@@ -39,7 +41,7 @@ Reference:
 
 > [!definition] Correctness
 > For all $k \in \mathcal K$ and $x \in \mathcal X$,
-> $$D(k, E(k, x)) = x.$$
+> $$\mathsf{Dec}(k, \mathsf{Enc}(k, x)) = x.$$
 > `[BS §4.1]`
 
 ## Security
@@ -47,7 +49,7 @@ Reference:
 ### Secure Block Cipher
 
 > [!definition] Parameters
-> - The block cipher $\mathcal E = (E, D)$ over $(\mathcal K, \mathcal X)$ from Syntax.
+> - The block cipher $\mathcal E = (\mathsf{KeyGen}, \mathsf{Enc}, \mathsf{Dec})$ over $(\mathcal K, \mathcal X)$ from Syntax.
 > - $\mathrm{Perms}[\mathcal X]$: the set of all permutations of $\mathcal X$.
 > - $\mathcal A$: an efficient [[knowledge/cryptography/foundations/Adversary\|Adversary]], a **$Q$-query adversary** if it makes at most $Q$ queries.
 
@@ -57,7 +59,7 @@ Reference:
 >
 > ---
 > ### Condition
-> - **Access** — forward queries only: $\mathcal A$ sends data blocks and receives their images under $E(k, \cdot)$ in Game 0, under a uniform permutation $f$ in Game 1.
+> - **Access** — forward queries only: $\mathcal A$ sends data blocks and receives their images under $\mathsf{Enc}(k, \cdot)$ in Game 0, under a uniform permutation $f$ in Game 1.
 > - **Promise** — none.
 > - **Quantifier** — $\forall$ efficient $\mathcal A$.
 > - **Adaptivity** — each query may depend on the earlier answers.
@@ -70,7 +72,7 @@ Reference:
 > | --- | --- | --- | --- |
 > | 1 | **Game 0**: $k \xleftarrow{\$} \mathcal K$<br>**Game 1**: $f \xleftarrow{\$} \mathrm{Perms}[\mathcal X]$ | | |
 > | 2 | | $\xleftarrow{\ x_i\ }$ | **Queries** (repeated, adaptive): sends a data block $x_i \in \mathcal X$ |
-> | | **Game 0**: $y_i \leftarrow E(k, x_i)$<br>**Game 1**: $y_i \leftarrow f(x_i)$ | $\xrightarrow{\ y_i\ }$ | |
+> | | **Game 0**: $y_i \leftarrow \mathsf{Enc}(k, x_i)$<br>**Game 1**: $y_i \leftarrow f(x_i)$ | $\xrightarrow{\ y_i\ }$ | |
 > | 3 | | $\xleftarrow{\ b'\ }$ | outputs a bit $b'$ |
 >
 > **Goal**
@@ -85,7 +87,7 @@ Reference:
 > A *distinguishing* game, see [[knowledge/cryptography/foundations/Security Game\|Security Game]].
 
 > [!remark] Notation in the literature
-> - `[BS §4.1]` lets the challenger select $f \in \mathrm{Perms}[\mathcal X]$ in both experiments — $f \leftarrow E(k, \cdot)$ in Experiment 0 — and answers every query with $f(x_i)$; rows 1 and 2 write the two cases out. Its advantage is $\text{BCadv}[\mathcal A, \mathcal E]$.
+> - `[BS §4.1]` lets the challenger select $f \in \mathrm{Perms}[\mathcal X]$ in both experiments — $f \leftarrow \mathsf{Enc}(k, \cdot)$ in Experiment 0 — and answers every query with $f(x_i)$; rows 1 and 2 write the two cases out. Its advantage is $\text{BCadv}[\mathcal A, \mathcal E]$.
 > - `[Ros Def 7.1.2]` states the same as the indistinguishability of two libraries, one answering with $F(k, \cdot)$, the other with a random permutation.
 > - **Bit-guessing form** — the challenger picks $b$ at random and runs Game $b$; the bit-guessing advantage $|\Pr[b' = b] - 1/2|$ is half of $\mathsf{Adv}^{\mathsf{prp}}$ `[BS §4.1]`.
 
@@ -101,7 +103,7 @@ Reference:
 >
 > ---
 > ### Condition
-> - **Access** — forward queries, answered with $f(x_i)$, and inverse queries, answered with $f^{-1}(y_j)$, in any order; in Game 0 through $E(k, \cdot)$ and $D(k, \cdot)$.
+> - **Access** — forward queries, answered with $f(x_i)$, and inverse queries, answered with $f^{-1}(y_j)$, in any order; in Game 0 through $\mathsf{Enc}(k, \cdot)$ and $\mathsf{Dec}(k, \cdot)$.
 > - **Promise** — none.
 > - **Quantifier** — $\forall$ efficient $\mathcal A$.
 > - **Adaptivity** — each query may depend on the earlier answers.
@@ -114,9 +116,9 @@ Reference:
 > | --- | --- | --- | --- |
 > | 1 | **Game 0**: $k \xleftarrow{\$} \mathcal K$<br>**Game 1**: $f \xleftarrow{\$} \mathrm{Perms}[\mathcal X]$ | | |
 > | 2 | | $\xleftarrow{\ x_i\ }$ | **Forward queries** (repeated, adaptive): sends $x_i \in \mathcal X$ |
-> | | **Game 0**: $y_i \leftarrow E(k, x_i)$<br>**Game 1**: $y_i \leftarrow f(x_i)$ | $\xrightarrow{\ y_i\ }$ | |
+> | | **Game 0**: $y_i \leftarrow \mathsf{Enc}(k, x_i)$<br>**Game 1**: $y_i \leftarrow f(x_i)$ | $\xrightarrow{\ y_i\ }$ | |
 > | 3 | | $\xleftarrow{\ y_j\ }$ | **Inverse queries** (repeated, adaptive, interleaved with row 2): sends $y_j \in \mathcal X$ |
-> | | **Game 0**: $x_j \leftarrow D(k, y_j)$<br>**Game 1**: $x_j \leftarrow f^{-1}(y_j)$ | $\xrightarrow{\ x_j\ }$ | |
+> | | **Game 0**: $x_j \leftarrow \mathsf{Dec}(k, y_j)$<br>**Game 1**: $x_j \leftarrow f^{-1}(y_j)$ | $\xrightarrow{\ x_j\ }$ | |
 > | 4 | | $\xleftarrow{\ b'\ }$ | outputs a bit $b'$ |
 >
 > **Goal**
@@ -140,7 +142,7 @@ Reference:
 >
 > ---
 > ### Condition
-> - **Access** — forward queries to $E(k, \cdot)$.
+> - **Access** — forward queries to $\mathsf{Enc}(k, \cdot)$.
 > - **Promise** — none.
 > - **Quantifier** — $\forall$ efficient $\mathcal A$.
 > - **Adaptivity** — the queries and the final point may depend on the earlier answers.
@@ -153,9 +155,9 @@ Reference:
 > | --- | --- | --- | --- |
 > | 1 | $k \xleftarrow{\$} \mathcal K$ | | |
 > | 2 | | $\xleftarrow{\ x_i\ }$ | **Queries** (repeated, adaptive, $Q$ times): sends $x_i \in \mathcal X$ |
-> | | $y_i \leftarrow E(k, x_i)$ | $\xrightarrow{\ y_i\ }$ | |
+> | | $y_i \leftarrow \mathsf{Enc}(k, x_i)$ | $\xrightarrow{\ y_i\ }$ | |
 > | 3 | | $\xleftarrow{\ x_{Q+1},\, y\ }$ | outputs a pair $(x_{Q+1}, y) \in \mathcal X^2$ |
-> | 4 | $y^* \leftarrow E(k, x_{Q+1})$ | | |
+> | 4 | $y^* \leftarrow \mathsf{Enc}(k, x_{Q+1})$ | | |
 >
 > **Goal** — $\mathcal A$ wins iff all of:
 > - $x_{Q+1} \notin \{x_1, \dots, x_Q\}$;
@@ -177,7 +179,7 @@ Reference:
 >
 > ---
 > ### Condition
-> - **Access** — forward queries to $E(k, \cdot)$: chosen plaintexts.
+> - **Access** — forward queries to $\mathsf{Enc}(k, \cdot)$: chosen plaintexts.
 > - **Promise** — none.
 > - **Quantifier** — $\forall$ efficient $\mathcal A$.
 > - **Adaptivity** — each query may depend on the earlier answers.
@@ -190,7 +192,7 @@ Reference:
 > | --- | --- | --- | --- |
 > | 1 | $k \xleftarrow{\$} \mathcal K$ | | |
 > | 2 | | $\xleftarrow{\ x_i\ }$ | **Queries** (repeated, adaptive): sends $x_i \in \mathcal X$ |
-> | | $y_i \leftarrow E(k, x_i)$ | $\xrightarrow{\ y_i\ }$ | |
+> | | $y_i \leftarrow \mathsf{Enc}(k, x_i)$ | $\xrightarrow{\ y_i\ }$ | |
 > | 3 | | $\xleftarrow{\ k'\ }$ | outputs a candidate key $k' \in \mathcal K$ |
 > | 4 | compares $k'$ with $k$ | | |
 >
@@ -216,7 +218,7 @@ Reference:
 > `[BS §4.1.1]`. `⚠️ CLAUDE – verify:` the first implication needs $|\mathcal X|$ super-poly, since even a random permutation is predicted with probability $1/(|\mathcal X| - Q)$.
 
 > [!proof] Why the second
-> An adversary that recovers $k$ computes $E(k, x_{Q+1})$ for any new point and predicts it exactly.
+> An adversary that recovers $k$ computes $\mathsf{Enc}(k, x_{Q+1})$ for any new point and predicts it exactly.
 
 > [!theorem] Exhaustive search in the ideal cipher model — enough plaintext–ciphertext pairs determine the key
 > **Scope**

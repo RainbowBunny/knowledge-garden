@@ -32,6 +32,10 @@ Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cip
 >     - $\mathsf{ShiftRows}$ and $\mathsf{MixColumns}$: the mixing, in place of the bit permutation — $\mathsf{MixColumns}$ is a linear map on each column.
 
 > [!scheme] Advanced Encryption Standard
+> - $k \leftarrow \mathsf{KeyGen}()$: (Randomized) Key-generation algorithm.
+>     - **Output**: a key $k \in \{0, 1\}^{32 N_k}$ — 128, 192 or 256 bits.
+>     - **Steps**:
+>         1. Returns $k \xleftarrow{\$} \{0, 1\}^{32 N_k}$.
 > - $s \leftarrow \mathsf{SubBytes}(s)$: (Deterministic) Byte substitution.
 >     - **Input**: a state $s$.
 >     - **Output**: a state.
@@ -65,7 +69,7 @@ Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cip
 >             - $w_i \leftarrow w_{i - N_k} \oplus t$.
 >
 >     $\mathsf{RotWord}$ rotates the four bytes of a word left by one; $\mathsf{SubWord}$ applies $S$ to each byte `[FIPS197 §5.2, Alg 2]`.
-> - $y \leftarrow E(k, x)$: (Deterministic) Encryption algorithm — the cipher.
+> - $y \leftarrow \mathsf{Enc}(k, x)$: (Deterministic) Encryption algorithm — the cipher.
 >     - **Input**: a key $k$ and a block $x \in \{0, 1\}^{128}$.
 >     - **Output**: a block $y \in \{0, 1\}^{128}$.
 >     - **Steps**:
@@ -75,7 +79,7 @@ Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cip
 >         4. Returns $y \leftarrow s$.
 >
 >     `[FIPS197 §5.1, Alg 1]`
-> - $x \leftarrow D(k, y)$: (Deterministic) Decryption algorithm — the inverse cipher.
+> - $x \leftarrow \mathsf{Dec}(k, y)$: (Deterministic) Decryption algorithm — the inverse cipher.
 >     - **Input**: a key $k$ and a block $y \in \{0, 1\}^{128}$.
 >     - **Output**: a block $x \in \{0, 1\}^{128}$.
 >     - **Steps**:
@@ -94,7 +98,7 @@ Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cip
 ### Correctness
 
 > [!property] $\mathsf{AES}$ Correctness
-> Each of $\mathsf{SubBytes}$, $\mathsf{ShiftRows}$, $\mathsf{MixColumns}$ and $\mathsf{AddRoundKey}$ is invertible — $S$ is a permutation, the matrix is invertible over $\mathrm{GF}(2^8)$ — and the inverse cipher applies their inverses in reverse order `[FIPS197 §5.3]`, so $D(k, E(k, x)) = x$.
+> Each of $\mathsf{SubBytes}$, $\mathsf{ShiftRows}$, $\mathsf{MixColumns}$ and $\mathsf{AddRoundKey}$ is invertible — $S$ is a permutation, the matrix is invertible over $\mathrm{GF}(2^8)$ — and the inverse cipher applies their inverses in reverse order `[FIPS197 §5.3]`, so $\mathsf{Dec}(k, \mathsf{Enc}(k, x)) = x$.
 
 ### The S-box
 

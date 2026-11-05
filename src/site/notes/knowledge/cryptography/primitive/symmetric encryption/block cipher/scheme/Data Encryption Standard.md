@@ -36,6 +36,14 @@ Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cip
 > - [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Iterated Block Cipher\|Iterated Block Cipher]] — round keys from a key schedule.
 
 > [!scheme] Data Encryption Standard
+> - $k \leftarrow \mathsf{KeyGen}()$: (Randomized) Key-generation algorithm.
+>     - **Output**: a key $k \in \{0, 1\}^{64}$.
+>     - **Steps**:
+>         1. Draw the 56 key bits uniformly: the first seven bits of each byte.
+>         2. Set bits $8, 16, \dots, 64$ so that each byte has odd parity.
+>         3. Returns $k$.
+>
+>     `[FIPS46-3 p. 19]`
 > - $y \leftarrow F(k_i, R)$: (Deterministic) The cipher function $f$.
 >     - **Input**: a round key $k_i \in \{0, 1\}^{48}$ and a half block $R \in \{0, 1\}^{32}$.
 >     - **Output**: $y \in \{0, 1\}^{32}$.
@@ -53,7 +61,7 @@ Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cip
 >         2. For $i = 1, \dots, 16$: rotate $C_{i-1}$ and $D_{i-1}$ left by the $i$-th shift to get $C_i, D_i$, and set $k_i \leftarrow \mathrm{PC\text{-}2}(C_i \| D_i)$.
 >
 >     `[FIPS46-3 pp. 19–21]`
-> - $y \leftarrow E(k, x)$: (Deterministic) Encryption algorithm.
+> - $y \leftarrow \mathsf{Enc}(k, x)$: (Deterministic) Encryption algorithm.
 >     - **Input**: a key $k \in \{0, 1\}^{64}$ and a block $x \in \{0, 1\}^{64}$.
 >     - **Output**: a block $y \in \{0, 1\}^{64}$.
 >     - **Steps**:
@@ -63,11 +71,11 @@ Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cip
 >         4. Returns $y = \mathrm{IP}^{-1}(R_{16} \| L_{16})$ — the halves swapped, the **preoutput block**.
 >
 >     `[FIPS46-3 pp. 10–11]`
-> - $x \leftarrow D(k, y)$: (Deterministic) Decryption algorithm.
+> - $x \leftarrow \mathsf{Dec}(k, y)$: (Deterministic) Decryption algorithm.
 >     - **Input**: a key $k \in \{0, 1\}^{64}$ and a block $y \in \{0, 1\}^{64}$.
 >     - **Output**: a block $x \in \{0, 1\}^{64}$.
 >     - **Steps**:
->         1. Runs the computation of $E$ on $y$ with the round keys in reverse order: $k_{16}$ in the first round, $k_1$ in the last.
+>         1. Runs the computation of $\mathsf{Enc}$ on $y$ with the round keys in reverse order: $k_{16}$ in the first round, $k_1$ in the last.
 >
 >     `[FIPS46-3 p. 12]`
 
@@ -89,13 +97,13 @@ Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cip
 
 > [!property] Weak keys — encrypting twice is the identity
 > For the four weak keys `0101010101010101`, `FEFEFEFEFEFEFEFE`, `E0E0E0E0F1F1F1F1`, `1F1F1F1F0E0E0E0E` `[SP800-67 §3.4.2]`,
-> $$E(k, E(k, x)) = x \quad \text{for all } x.$$
+> $$\mathsf{Enc}(k, \mathsf{Enc}(k, x)) = x \quad \text{for all } x.$$
 > Checked by computation.
 
 > [!property] Semi-weak key pairs — one key decrypts what the other encrypts
 > `[SP800-67 §3.4.2]` lists pairs of semi-weak keys to avoid. For each pair $(k_a, k_b)$ below,
-> $$E(k_a, E(k_b, x)) = x \quad \text{for all } x,$$
-> that is, $E(k_a, \cdot) = D(k_b, \cdot)$:
+> $$\mathsf{Enc}(k_a, \mathsf{Enc}(k_b, x)) = x \quad \text{for all } x,$$
+> that is, $\mathsf{Enc}(k_a, \cdot) = \mathsf{Dec}(k_b, \cdot)$:
 >
 > | $k_a$ | $k_b$ |
 > | --- | --- |
@@ -111,7 +119,7 @@ Instantiates:: [[knowledge/cryptography/primitive/symmetric encryption/block cip
 ### Complementation
 
 > [!property] Complementing key and plaintext complements the ciphertext
-> $$E(\bar k, \bar x) = \overline{E(k, x)}.$$
+> $$\mathsf{Enc}(\bar k, \bar x) = \overline{\mathsf{Enc}(k, x)}.$$
 > Checked by computation. `⚠️ CLAUDE – verify:` none of the sources I could read states it; `[HAC §7.4]` treats DES properties in a part I could not read.
 
 ## Cryptanalysis

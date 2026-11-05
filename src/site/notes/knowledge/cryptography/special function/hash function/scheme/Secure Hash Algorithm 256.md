@@ -37,7 +37,7 @@ Instantiates:: [[knowledge/cryptography/special function/hash function/Hash Func
 
 > [!definition] Building Blocks
 > - [[knowledge/cryptography/special function/hash function/Merkle-Damgard Transform\|Merkle-Damgard Transform]] — with the padding $\mathsf{Pad}$ below and $IV = H^{(0)}$.
-> - [[knowledge/cryptography/special function/compression function/Davies-Meyer Compression Function\|Davies-Meyer Compression Function]] — on the cipher $E$ below, with word-wise $+$ in place of $\oplus$.
+> - [[knowledge/cryptography/special function/compression function/Davies-Meyer Compression Function\|Davies-Meyer Compression Function]] — on the cipher $\mathsf{Enc}$ below, with word-wise $+$ in place of $\oplus$.
 
 > [!scheme] Secure Hash Algorithm 256
 > - $\hat M \leftarrow \mathsf{Pad}(M)$: (Deterministic) Padding.
@@ -47,7 +47,7 @@ Instantiates:: [[knowledge/cryptography/special function/hash function/Hash Func
 >         1. Returns $\hat M = M \| 1 \| 0^k \| \langle l \rangle_{64}$, where $k \geq 0$ is the least integer with $l + 1 + k \equiv 448 \pmod{512}$ and $\langle l \rangle_{64}$ is $l$ in 64 bits.
 >
 >     `[FIPS180-4 §5.1.1]`
-> - $y \leftarrow E(k, x)$: (Deterministic) The block cipher SHACAL-2 `[Wu]`.
+> - $y \leftarrow \mathsf{Enc}(k, x)$: (Deterministic) The block cipher SHACAL-2 `[Wu]`.
 >     - **Input**: a key $k = k_0 \| \dots \| k_{15} \in \{0, 1\}^{512}$ — a message block — and a plaintext $x = x_0 \| \dots \| x_7 \in \{0, 1\}^{256}$ — a chaining value.
 >     - **Output**: a ciphertext $y \in \{0, 1\}^{256}$.
 >     - **Steps**:
@@ -64,7 +64,7 @@ Instantiates:: [[knowledge/cryptography/special function/hash function/Hash Func
 >     - **Input**: a chaining value $x \in \{0, 1\}^{256}$ and a message block $m \in \{0, 1\}^{512}$.
 >     - **Output**: a chaining value $t \in \{0, 1\}^{256}$.
 >     - **Steps**:
->         1. Returns $h_{256}(x, m) = E(m, x) + x$, the eight words added separately modulo $2^{32}$.
+>         1. Returns $h_{256}(x, m) = \mathsf{Enc}(m, x) + x$, the eight words added separately modulo $2^{32}$.
 >
 >     `[FIPS180-4 §6.2.2]`, step 4.
 > - $t \leftarrow \mathsf{SHA256}(M)$: (Deterministic) Hash algorithm — Merkle–Damgård.

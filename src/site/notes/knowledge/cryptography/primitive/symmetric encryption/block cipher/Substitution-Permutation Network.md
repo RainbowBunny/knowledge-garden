@@ -20,7 +20,11 @@ Reference:
 > - A key schedule that derives the round keys from the key — [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Iterated Block Cipher\|Iterated Block Cipher]].
 
 > [!definition] Substitution–Permutation Network
-> - $y \leftarrow E(k, x)$: (Deterministic) Encryption algorithm.
+> - $k \leftarrow \mathsf{KeyGen}()$: (Randomized) Key-generation algorithm.
+>     - **Output**: a key $k \in \mathcal K$.
+>     - **Steps**:
+>         1. Returns $k \xleftarrow{\$} \mathcal K$.
+> - $y \leftarrow \mathsf{Enc}(k, x)$: (Deterministic) Encryption algorithm.
 >     - **Input**: a key $k$ and a block $x \in \{0, 1\}^n$.
 >     - **Output**: a block $y \in \{0, 1\}^n$.
 >     - **Steps**:
@@ -29,7 +33,7 @@ Reference:
 >             - **Substitution**: $x \leftarrow S_1(x_1) \| \cdots \| S_{n/b}(x_{n/b})$, chunk by chunk.
 >             - **Permutation**: $x \leftarrow \pi(x)$, rearranging the bits.
 >         2. Returns $y \leftarrow x$.
-> - $x \leftarrow D(k, y)$: (Deterministic) Decryption algorithm.
+> - $x \leftarrow \mathsf{Dec}(k, y)$: (Deterministic) Decryption algorithm.
 >     - **Input**: a key $k$ and a block $y \in \{0, 1\}^n$.
 >     - **Output**: a block $x \in \{0, 1\}^n$.
 >     - **Steps**:
@@ -49,7 +53,7 @@ Reference:
 >
 > ---
 > **Property**
-> $E(k, \cdot)$ is a permutation of $\{0, 1\}^n$.
+> $\mathsf{Enc}(k, \cdot)$ is a permutation of $\{0, 1\}^n$.
 >
 > `[Blo21]`, citing Katz–Lindell Proposition 6.3: each step is a permutation, and so is their composition. The S-boxes must be invertible `[Got22]` — unlike the round functions of a [[knowledge/cryptography/primitive/symmetric encryption/block cipher/Feistel Network\|Feistel Network]].
 

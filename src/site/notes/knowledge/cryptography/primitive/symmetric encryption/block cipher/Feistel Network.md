@@ -28,7 +28,11 @@ Reference:
 
 > [!definition] Luby–Rackoff Cipher
 > The three-round Feistel network keyed by a PRF: a block cipher over $(\mathcal K^3, \mathcal X^2)$.
-> - $(x, y) \leftarrow E((k_1, k_2, k_3), (u, v))$: (Deterministic) Encryption algorithm.
+> - $(k_1, k_2, k_3) \leftarrow \mathsf{KeyGen}()$: (Randomized) Key-generation algorithm.
+>     - **Output**: a key $(k_1, k_2, k_3) \in \mathcal K^3$.
+>     - **Steps**:
+>         1. Returns $(k_1, k_2, k_3) \xleftarrow{\$} \mathcal K^3$.
+> - $(x, y) \leftarrow \mathsf{Enc}((k_1, k_2, k_3), (u, v))$: (Deterministic) Encryption algorithm.
 >     - **Input**: a key $(k_1, k_2, k_3) \in \mathcal K^3$ and a data block $(u, v) \in \mathcal X^2$.
 >     - **Output**: a data block $(x, y) \in \mathcal X^2$.
 >     - **Steps**:
@@ -36,7 +40,7 @@ Reference:
 >         2. $x \leftarrow v \oplus F(k_2, w)$.
 >         3. $y \leftarrow w \oplus F(k_3, x)$.
 >         4. Returns $(x, y)$.
-> - $(u, v) \leftarrow D((k_1, k_2, k_3), (x, y))$: (Deterministic) Decryption algorithm.
+> - $(u, v) \leftarrow \mathsf{Dec}((k_1, k_2, k_3), (x, y))$: (Deterministic) Decryption algorithm.
 >     - **Input**: a key $(k_1, k_2, k_3)$ and a data block $(x, y)$.
 >     - **Output**: a data block $(u, v)$.
 >     - **Steps**:
