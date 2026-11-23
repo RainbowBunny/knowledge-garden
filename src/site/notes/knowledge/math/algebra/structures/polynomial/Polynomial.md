@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 1.3: Polynomial rings.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 1.3: Polynomial rings.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_ (2025): https://abstract.ups.edu/aata/ — §16.4, §17.1–17.3, §18.2, §21.1, §22.1, §23.3 (numbering as in the HTML edition https://judsonbooks.org/aata-files/aata-html/).
 - `[Ax]` — S. Axler, _Linear Algebra Done Right_, 4th ed. (2024, open access): https://linear.axler.net/ — Chapter 4: Polynomials; §5B The Minimal Polynomial; §8B Generalized Eigenspace Decomposition.
 - `[Ax2]` — S. Axler, _Linear Algebra Done Right_, 2nd ed. (1997), Chapters 8–9 (eigenpairs, operators on real vector spaces). ⚠️ CLAUDE – verify: attribution inferred from the terminology; this edition was not opened.
@@ -21,7 +21,7 @@ Reference:
 > [!definition] Polynomial
 > A **polynomial** $f(x)$ in the **indeterminate** $x$ and with **coefficients** in $R$ is a **finite** linear combination of non-negative 'powers' of $x$ with coefficients in $R$:
 > $$f(x) = \sum_{i \geq 0} a_i x^i = a_0 + a_1 x + a_2 x^2 + \cdots,$$
-> where $a_i$ are elements of $R$ (the coefficients) and we require $a_i = 0$ for $i \gg 0$. `[Alu III.1.3]` `[Jud §17.1]`
+> where $a_i$ are elements of $R$ (the coefficients) and we require $a_i = 0$ for $i \gg 0$. `[Alu09 III.1.3]` `[Jud §17.1]`
 
 ### Degree
 
@@ -29,10 +29,10 @@ Reference:
 > - $f(x) = \sum_{i \geq 0} a_i x^i$: a nonzero polynomial over $R$.
 
 > [!definition] Degree
-> The **degree** of a nonzero polynomial $f(x) = \sum_{i \geq 0} a_i x^i$ is the largest integer $d$ for which $a_d \neq 0$. We denoted as $\deg f = d$. `[Alu III.1.3]` `[Jud §17.1]`
+> The **degree** of a nonzero polynomial $f(x) = \sum_{i \geq 0} a_i x^i$ is the largest integer $d$ for which $a_d \neq 0$. We denoted as $\deg f = d$. `[Alu09 III.1.3]` `[Jud §17.1]`
 
 > [!definition] Constants
-> Polynomial of degree $0$ (together with $0$) are called **constants**. `[Alu III.1.3]`
+> Polynomial of degree $0$ (together with $0$) are called **constants**. `[Alu09 III.1.3]`
 
 > [!remark]
 > It is sometimes convenient to assign to the polynomial $0$ the degree $-\infty$. `[Jud §17.1]` makes this the definition.

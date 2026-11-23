@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter IV: Groups, second encounter, Section 1.1: Actions of groups on sets, reminder.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter IV: Groups, second encounter, Section 1.1: Actions of groups on sets, reminder.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the LibreTexts copy, item numbers as there: https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_%28Judson%29), §14.1 Groups Acting on Sets.
 - `[Con]` — K. Conrad, _Group actions_ (expository notes): https://kconrad.math.uconn.edu/blurbs/grouptheory/gpaction.pdf
 
@@ -19,7 +19,7 @@ Reference:
 > ---
 > The **stabilizer** [[knowledge/math/algebra/structures/group/subgroup/Subgroup\|Subgroup]] of $a$ consists of the elements of $G$ which fix $a$:
 > $$\mathsf{Stab}_G(a) = \{g \in G \mid ga = a\}$$
-> Also written $G_a$ (the *isotropy subgroup*). `[Alu IV.1.1]` `[Jud §14.1, Prop 14.10]`
+> Also written $G_a$ (the *isotropy subgroup*). `[Alu09 IV.1.1]` `[Jud §14.1, Prop 14.10]`
 
 ## Property
 
@@ -30,7 +30,7 @@ Reference:
 > - $H = \mathsf{Stab}_G(a)$
 > - $\varphi: G/H \rightarrow A,\quad gH \mapsto ga$
 >
-> `[Alu IV.1.1]` `[Con Thm 3.36]`
+> `[Alu09 IV.1.1]` `[Con Thm 3.36]`
 
 > [!corollary] Orbit–stabilizer theorem — $|O| \cdot |\mathsf{Stab}_G(a)| = |G|$, so $|O|$ divides $|G|$
 > Requires:: [[knowledge/math/algebra/structures/group/special group/Coset\|Coset]].
@@ -42,12 +42,12 @@ Reference:
 > ---
 > $|O| \cdot |\mathsf{Stab}_G(a)| = |G|$ for any $a \in O$.
 >
-> `[Alu IV.1.1]` `[Jud Thm 14.11]` `[Con Thm 3.16(c)]`
+> `[Alu09 IV.1.1]` `[Jud Thm 14.11]` `[Con Thm 3.16(c)]`
 
 > [!proposition] Stabilizers along an orbit are conjugate — $\mathsf{Stab}_G(ga) = g \, \mathsf{Stab}_G(a) \, g^{-1}$
 > Suppose a [[knowledge/math/algebra/structures/group/Group\|Group]] $G$ acts on a [[knowledge/math/set theory/Set\|Set]] $A$; let $a \in A$ and $g \in G$, and put $b = ga$. Then
 > $$\mathsf{Stab}_G(b) = g \mathsf{Stab}_G(a) g^{-1}$$
-> `[Alu IV.1.1]` `[Con Thm 3.16(b)]`
+> `[Alu09 IV.1.1]` `[Con Thm 3.16(b)]`
 
 ## Related
 

@@ -3,8 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 1.5: Commutative Groups; Exercise 1.8.
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 5.2: The category R-Mod.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 1.5: Commutative Groups; Exercise 1.8; Chapter III: Rings and modules, Section 5.2: The category R-Mod.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the HTML edition at https://judsonbooks.org/aata-files/aata-html/; result numbers as there).
 
 ## Definition
@@ -16,7 +15,7 @@ Reference:
 > Extends:: [[knowledge/math/algebra/structures/group/Group\|Group]].
 >
 > ---
-> A [[knowledge/math/algebra/structures/group/Group\|Group]] $(G, \star)$ is called Abelian Group if its operation $\star$ is [[knowledge/math/property/operation/Commutativity\|Commutative]]. `[Alu II §1.5]` `[Jud §3.2]`
+> A [[knowledge/math/algebra/structures/group/Group\|Group]] $(G, \star)$ is called Abelian Group if its operation $\star$ is [[knowledge/math/property/operation/Commutativity\|Commutative]]. `[Alu09 II §1.5]` `[Jud §3.2]`
 
 > [!remark] Additive notation
 > The **operation** in an abelian group $A$ is denoted by $+$ and is called 'addition'; the **identity** is then called $0_A$; and the **inverse** of an element $a \in A$ is denoted $-a$. The 'power' notation is of course replaced by 'multiple': $0a = 0$, and for a positive integer $n$
@@ -26,12 +25,12 @@ Reference:
 ## Property
 
 > [!proposition] Exponent two forces commutativity — if $g^2 = e_G$ for every $g$, then $G$ is abelian
-> Suppose that $g^2 = e_G$ for all elements $g$ of a group $G$; then $G$ is commutative. `[Alu II §1.5]`
+> Suppose that $g^2 = e_G$ for all elements $g$ of a group $G$; then $G$ is commutative. `[Alu09 II §1.5]`
 
 > [!proposition] Product of all elements — in a finite abelian group with exactly one element $f$ of order 2, the product of all elements is $f$
 > Let $G$ be a finite abelian group with exactly one element $f$ of order 2. Then:
 > $$\prod_{g \in G} g = f.$$
-> `[Alu II Ex 1.8]`
+> `[Alu09 II Ex 1.8]`
 >
 > ---
 > Find element $a$ such that $a = a^{-1}$, or $a^2 = e_G$ because other element will cancel out; by hypothesis these are $e_G$ and $f$. Thus:
@@ -41,7 +40,7 @@ Reference:
 > Requires:: [[knowledge/math/algebra/structures/ring/module/R-Module\|R-Module]].
 >
 > ---
-> Every abelian group is a $\mathbb{Z}$-module, in exactly one way. `[Alu III §5.2]`
+> Every abelian group is a $\mathbb{Z}$-module, in exactly one way. `[Alu09 III §5.2]`
 
 ## Related
 

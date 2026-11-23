@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 5.2: The category R-Mod.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 5.2: The category R-Mod.
 - `[Las]` — _Modules over Rings and Algebras: Basics_, lecture notes on C. Lassueur's teaching page (RPTU Kaiserslautern-Landau; rings unital and associative): https://agag-lassueur.math.rptu.de/~lassueur/en/teaching/SumSchools/IKIU22/IKIU22/YAC21_ModAndAlgs.pdf
 
 ## Definition
@@ -20,7 +20,7 @@ Reference:
 > ---
 > Let $R$ be a [[knowledge/math/algebra/structures/ring/special ring/Commutative Ring\|Commutative Ring]]. An $R \mbox{-} \mathsf{algebra}$ is a [[knowledge/math/algebra/structures/ring/Ring Homomorphism\|Ring Homomorphism]] $\alpha: R \rightarrow S$ such that $\alpha(R)$ is contained in the [[knowledge/math/algebra/structures/ring/subring/Ring Center\|center]] of $S$.
 >
-> `[Alu III.5.2]`
+> `[Alu09 III.5.2]`
 
 > [!remark] Equivalent form — a ring that is an $R$-module
 > `[Las Def F.1(a)]` defines an $R$-algebra as a ring $S$ with a left [[knowledge/math/algebra/structures/ring/module/R-Module\|$R$-module]] structure on $(S, +)$ compatible with the multiplication:

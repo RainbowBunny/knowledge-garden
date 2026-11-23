@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter I: Preliminaries: Set theory and categories, Section 5.3: Quotients.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter I: Preliminaries: Set theory and categories, Section 5.3: Quotients.
 - `[Rie]` — E. Riehl, _Category Theory in Context_ (2016): https://math.jhu.edu/~eriehl/context.pdf — Exercise 1.1.iii (read at the mirror https://www.math.ucla.edu/~mopie/context.pdf).
 - `[Ter]` — I. Terek, _Equivalence relations, quotients, and examples_ (lecture notes): https://web.williams.edu/Mathematics/it3/texts/quotients.pdf — Theorem 1.
 
@@ -29,7 +29,7 @@ Reference:
 > \end{CD}$$
 > commutes.
 >
-> `[Alu I.5.3]` `[Ter Thm 1]`
+> `[Alu09 I.5.3]` `[Ter Thm 1]`
 
 > [!remark]
 > The objects are objects of the [[knowledge/math/algebra/category/example/Coslice Category\|Coslice Category]] $\mathsf{Set}^A$ (morphisms out of $A$, `[Rie Exer 1.1.iii]`) and the morphisms are exactly those of $\mathsf{Set}^A$: this is the full subcategory of $\mathsf{Set}^A$ on the functions constant on $\sim$-classes.
@@ -39,7 +39,7 @@ Reference:
 ### Universal Property
 
 > [!proposition] Quotient as initial object — $(\pi, A/{\sim})$ is initial
-> Denoting by $\pi$ the [[knowledge/math/set theory/function/Canonical Projection\|Canonical Projection]], the pair $(\pi, A/_\sim)$ is an [[knowledge/math/algebra/category/Universal Property\|initial object]] of this category. `[Alu I.5.3]` `[Ter Thm 1]`
+> Denoting by $\pi$ the [[knowledge/math/set theory/function/Canonical Projection\|Canonical Projection]], the pair $(\pi, A/_\sim)$ is an [[knowledge/math/algebra/category/Universal Property\|initial object]] of this category. `[Alu09 I.5.3]` `[Ter Thm 1]`
 
 ## Related
 

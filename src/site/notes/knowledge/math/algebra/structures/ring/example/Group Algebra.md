@@ -4,7 +4,7 @@
 
 Reference:
 - `[EGH+]` — P. Etingof, O. Golberg, S. Hensel, T. Liu, A. Schwendner, D. Vaintrob, E. Yudovina, _Introduction to Representation Theory_, AMS Student Mathematical Library 59 (2011); arXiv:0901.0827: https://arxiv.org/abs/0901.0827. Numbers follow the arXiv / MIT OCW 18.712 version; the printed book numbers differently.
-- [[academic/Book Reference\|Algebra: Chapter 0]] - Chapter III: Rings and modules, Section 1.4: Monoid rings.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 1.4: Monoid rings.
 - `[Bum]` — D. Bump, _Hecke Algebras_, lecture notes (2018): http://sporadic.stanford.edu/hecke.pdf
 
 ## Definition

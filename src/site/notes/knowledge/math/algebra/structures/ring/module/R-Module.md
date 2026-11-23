@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 5.1: Definition of (left-)R-module
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 5.1: Definition of (left-)R-module
 - `[Las]` — _Modules over Rings and Algebras: Basics_, lecture notes on C. Lassueur's teaching page (RPTU Kaiserslautern-Landau; rings unital and associative): https://agag-lassueur.math.rptu.de/~lassueur/en/teaching/SumSchools/IKIU22/IKIU22/YAC21_ModAndAlgs.pdf
 
 ## Definition
@@ -24,7 +24,7 @@ Reference:
 > - $(rs) \cdot m = r \cdot (s \cdot m)$
 > - $1_R \cdot m = m$
 >
-> `[Alu III.5.1]` `[Las Def A.1(a), Rem A.5(a)]`
+> `[Alu09 III.5.1]` `[Las Def A.1(a), Rem A.5(a)]`
 
 > [!remark] Equivalent form
 > The four axioms say exactly that $r \mapsto (m \mapsto r \cdot m)$ is a [[knowledge/math/algebra/structures/ring/Ring Homomorphism\|Ring Homomorphism]] $R \to \mathrm{End}(M)$ into the ring of endomorphisms of the abelian group $(M, +)$. `[Las Def A.1(a)]`
@@ -44,7 +44,7 @@ Reference:
 > Every [[knowledge/math/algebra/structures/group/special group/Abelian Group\|Abelian Group]] is a $\mathbb Z$-module, in exactly one way, and every $\mathbb Z$-module is an abelian group. `[Las Rem A.5(b)]`
 
 > [!example] $R$ over itself
-> $R$ is a left $R$-module, the action being the multiplication of $R$; its submodules are its left ideals (see [[knowledge/math/algebra/structures/ring/module/Submodule\|Submodule]]). `[Alu III.5.3]`
+> $R$ is a left $R$-module, the action being the multiplication of $R$; its submodules are its left ideals (see [[knowledge/math/algebra/structures/ring/module/Submodule\|Submodule]]). `[Alu09 III.5.3]`
 
 ## Related
 

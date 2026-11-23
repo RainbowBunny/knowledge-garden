@@ -3,12 +3,12 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 1.6: Order; Exercise 1.11; Exercise 1.14; Exercise 1.15; Section 4.2: Homomorphisms and order.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 1.6: Order; Exercise 1.11; Exercise 1.14; Exercise 1.15; Section 4.2: Homomorphisms and order.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the LibreTexts copy, item numbers as there: https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_%28Judson%29), §3.2 Definitions and Examples; §4.1 Cyclic Subgroups.
 
 ## Definition
 
-Specializes [[knowledge/math/set theory/Set Foundation#Cardinality\|cardinality]] — *order* is group theory's name for $|G|$.
+Specializes [[knowledge/math/set theory/cardinality/Cardinality\|cardinality]] — *order* is group theory's name for $|G|$.
 
 > [!definition] Parameters
 > - [[knowledge/math/algebra/structures/group/Group\|Group]]: Import $(G, \star, e_G)$.
@@ -17,7 +17,7 @@ Specializes [[knowledge/math/set theory/Set Foundation#Cardinality\|cardinality]
 > Requires:: [[knowledge/math/algebra/structures/group/Group\|Group]].
 >
 > ---
-> The **order of** [[knowledge/math/algebra/structures/group/Group\|Group]] $G$ is the number of elements in $G$; it is denoted by $|G|$ or $\# G$. We write $|G| = \infty$ if $G$ is infinite. `[Alu II.1.6]` `[Jud §3.2]`
+> The **order of** [[knowledge/math/algebra/structures/group/Group\|Group]] $G$ is the number of elements in $G$; it is denoted by $|G|$ or $\# G$. We write $|G| = \infty$ if $G$ is infinite. `[Alu09 II.1.6]` `[Jud §3.2]`
 
 ### Order of a Group Element
 
@@ -29,17 +29,17 @@ Specializes [[knowledge/math/set theory/Set Foundation#Cardinality\|cardinality]
 > Requires:: [[knowledge/math/algebra/structures/group/Group\|Group]].
 >
 > ---
-> Let $G$ be a [[knowledge/math/algebra/structures/group/Group\|Group]] and let $g \in G$ be an element of the group. Suppose there exists a positive integer $n$ with the property that $g^n = e_G$. The smallest such $n$ is called the **order of** $g$. If there is no such $n$, then $g$ is said to have **infinite order**. We denote the order of the element as $|g|$. `[Alu II.1.6]` `[Jud §4.1]`
+> Let $G$ be a [[knowledge/math/algebra/structures/group/Group\|Group]] and let $g \in G$ be an element of the group. Suppose there exists a positive integer $n$ with the property that $g^n = e_G$. The smallest such $n$ is called the **order of** $g$. If there is no such $n$, then $g$ is said to have **infinite order**. We denote the order of the element as $|g|$. `[Alu09 II.1.6]` `[Jud §4.1]`
 
 ## Property
 
 > [!proposition] Elements of a finite group have finite order — and $g^k = e_G$ forces $|g| \mid k$
-> Let $G$ be a finite group. Then every element of $G$ has finite order. Further, if $g \in G$ has order $n$ and if $g^k = e_G$, then $n \mid k$. `[Alu II.1.6]` `[Jud Prop 4.12]`
+> Let $G$ be a finite group. Then every element of $G$ has finite order. Further, if $g \in G$ has order $n$ and if $g^k = e_G$, then $n \mid k$. `[Alu09 II.1.6]` `[Jud Prop 4.12]`
 
 > [!proposition] Order of a power — $|g^m| = |g| / \gcd(m, |g|)$
 > Let $g \in G$ be an element of finite order. Then $g^m$ has finite order $\forall m \geq 0$, and in fact, for $m > 0$,
 > $$|g^m| = \frac{\text{lcm}(m, |g|)}{m} = \frac{|g|}{\gcd(m, |g|)}$$
-> `[Alu II.1.6]` `[Jud Thm 4.13]`
+> `[Alu09 II.1.6]` `[Jud Thm 4.13]`
 
 ### Commute Element
 
@@ -51,7 +51,7 @@ Specializes [[knowledge/math/set theory/Set Foundation#Cardinality\|cardinality]
 > ---
 > $(gh)^o = g^o h^o$.
 >
-> `[Alu II.1]`
+> `[Alu09 II.1]`
 
 > [!theorem] Swapped and conjugated elements — $|gh| = |hg|$ and $|aga^{-1}| = |g|$
 > $\forall g, h \in G: |gh| = |hg|$.
@@ -59,7 +59,7 @@ Specializes [[knowledge/math/set theory/Set Foundation#Cardinality\|cardinality]
 > ---
 > $\forall a, g \in G: |aga^{-1}| = |g|$ as $g^o = (a g a^{-1})^o = a g^o a^{-1}$.
 >
-> `[Alu II.1]`
+> `[Alu09 II.1]`
 
 > [!theorem] Maximal finite order in an abelian group — every finite order divides it
 > Let $G$ be an [[knowledge/math/algebra/structures/group/special group/Abelian Group\|Abelian Group]], and $g \in G$ be an element of maximal **finite** order, that is, $|h| \leq |g|$ for every $h \in G$ of finite order. Then:
@@ -76,18 +76,18 @@ Specializes [[knowledge/math/set theory/Set Foundation#Cardinality\|cardinality]
 > And thus we have the contradiction:
 > $$|g^{p^m} h^s| = p^n r > p^m r = |g|.$$
 >
-> `[Alu II.1]`
+> `[Alu09 II.1]`
 
 ### Group Homomorphism
 
 > [!proposition] Homomorphisms do not increase order — $|\varphi(g)|$ divides $|g|$
-> Let $\varphi: G \rightarrow H$ be a [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|Group Homomorphism]], and let $g \in G$ be an element of finite order. Then $|\varphi(g)|$ divides $|g|$. `[Alu II.4.2]`
+> Let $\varphi: G \rightarrow H$ be a [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|Group Homomorphism]], and let $g \in G$ be an element of finite order. Then $|\varphi(g)|$ divides $|g|$. `[Alu09 II.4.2]`
 
 ## Related
 
 ### Prerequisites
 - [[knowledge/math/algebra/structures/group/Group\|Group]] — the structure whose size and elements are measured
-- [[knowledge/math/set theory/Set Foundation#Cardinality\|Cardinality]] — the order of a group is its cardinality
+- [[knowledge/math/set theory/cardinality/Cardinality\|Cardinality]] — the order of a group is its cardinality
 
 ### Siblings
 - [[knowledge/math/algebra/structures/group/special group/p-Group\|p-Group]] — a finite group whose order is a power of a prime

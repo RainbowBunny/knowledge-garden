@@ -53,8 +53,8 @@ Reference:
 ## Related
 
 ### Siblings
-- [[Groups of Order p²\|Groups of Order p²]] — all abelian
-- [[Groups of Order p⁴\|Groups of Order p⁴]] — fifteen groups for odd $p$, fourteen for $p = 2$
+- [[knowledge/math/algebra/structures/group/classification/Groups of Order p Squared\|Groups of Order p Squared]] — all abelian
+- [[knowledge/math/algebra/structures/group/classification/Groups of Order p to the Fourth\|Groups of Order p to the Fourth]] — fifteen groups for odd $p$, fourteen for $p = 2$
 
 ### Prerequisites
 - [[knowledge/math/algebra/structures/group/special group/p-Group\|p-Group]], [[knowledge/math/algebra/structures/action/Class Equation\|Class Equation]], [[knowledge/math/algebra/structures/group/example/Dihedral Group\|Dihedral Group]], [[knowledge/math/algebra/structures/group/example/Generalized Quaternion Group\|Generalized Quaternion Group]]

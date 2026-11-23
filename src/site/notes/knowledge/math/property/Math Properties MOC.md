@@ -17,8 +17,9 @@ Every structure in the vault has the same three parts: a **carrier**, some **add
 | structure | carrier | added data | type of the data | axiom family |
 | --- | --- | --- | --- | --- |
 | [[knowledge/math/algebra/structures/Magma\|Magma]] → [[knowledge/math/algebra/structures/group/Group\|Group]] | $S$ | $\star$ | function $S \times S \to S$ | `operation/` |
-| [[knowledge/math/set theory/relation/Preorder\|Preorder]] → [[knowledge/math/set theory/relation/Total Order\|Total Order]] | $S$ | $\leq$ | subset $\subseteq S \times S$ | `relation/` |
+| [[knowledge/math/set theory/order/Preorder\|Preorder]] → [[knowledge/math/set theory/order/Total Order\|Total Order]] | $S$ | $\leq$ | subset $\subseteq S \times S$ | `relation/` |
 | set → metric space | $X$ | $d$ | function $X \times X \to \mathbb R$ | `metric/` |
+| set → [[knowledge/math/topology/Topological Space\|topological space]] | $X$ | $\mathcal T$ | subset $\subseteq \mathcal P(X)$ | `topology/`; the axioms of a topology itself are stated in the note |
 | [[knowledge/math/algebra/linear algebra/Vector Spaces\|vector space]] → normed space | $V$ | $\lVert \cdot \rVert$ | function $V \to \mathbb R$ | `metric/`, norm forms |
 | homomorphism, pairing | $A, B$ | $f$ | function $A \to B$ | `map/` |
 | [[knowledge/math/algebra/category/Category\|Category]] | $\mathsf{Obj}$ | $\mathsf{Hom}, \circ$ | **partial** function | `operation/`, read per composable triple |
@@ -29,7 +30,7 @@ So an ordered set $(S, \leq)$ is the same *kind* of thing as a group $(S, \star)
 > **Compatibility axioms.** An *ordered group* or *ordered field* carries an operation **and** an order, plus axioms linking them — $a \leq b \Rightarrow a + c \leq b + c$, and $0 \leq a, 0 \leq b \Rightarrow 0 \leq ab$. Those constrain the *interaction*, so they belong to neither `operation/` nor `relation/`. The vault already depends on them: [[knowledge/math/property/metric/Positive Definiteness\|Positive Definiteness]] writes $\lVert x \rVert \geq 0$ and [[knowledge/math/property/metric/Triangle Inequality\|Triangle Inequality]] writes $\leq$, both presupposing that $\mathbb R$ is an ordered field. A `property/compatibility/` folder is the place for these when they are needed.
 
 > [!remark] Where the two families merge
-> An **order-theoretic lattice** is simultaneously a [[knowledge/math/set theory/relation/Partial Order\|poset]] with meets and joins, *and* an algebraic structure with two [[knowledge/math/property/operation/Idempotence\|idempotent]], [[knowledge/math/property/operation/Commutativity\|commutative]], [[knowledge/math/property/operation/Associativity\|associative]] operations satisfying absorption — the two definitions are equivalent. It is the cleanest demonstration that operation axioms and relation axioms describe one thing from two sides. *(Name it `Lattice (Order Theory).md` when it exists — [[knowledge/math/algebra/structures/lattice/Lattices\|Lattices]] here is the geometric object.)*
+> An **order-theoretic lattice** is simultaneously a [[knowledge/math/set theory/order/Partial Order\|poset]] with meets and joins, *and* an algebraic structure with two [[knowledge/math/property/operation/Idempotence\|idempotent]], [[knowledge/math/property/operation/Commutativity\|commutative]], [[knowledge/math/property/operation/Associativity\|associative]] operations satisfying absorption — the two definitions are equivalent. It is the cleanest demonstration that operation axioms and relation axioms describe one thing from two sides. *(Name it `Lattice (Order Theory).md` when it exists — [[knowledge/math/algebra/structures/lattice/Lattices\|Lattices]] here is the geometric object.)*
 
 ## Convention
 
@@ -66,25 +67,31 @@ Structures: [[knowledge/math/algebra/structures/Magma\|Magma]] → [[knowledge/m
 Scope: a relation $R \subseteq O \times O$.
 
 - [[knowledge/math/property/relation/Reflexivity\|Reflexivity]]
+- [[knowledge/math/property/relation/Irreflexivity\|Irreflexivity]] — Munkres's *nonreflexivity*; the strict orders' replacement for reflexivity
 - [[knowledge/math/property/relation/Symmetry\|Symmetry]]
 - [[knowledge/math/property/relation/Antisymmetry\|Antisymmetry]]
+- [[knowledge/math/property/relation/Asymmetry\|Asymmetry]] — irreflexive + antisymmetric; implied by irreflexive + transitive
 - [[knowledge/math/property/relation/Transitivity\|Transitivity]]
-- [[knowledge/math/property/relation/Connexity\|Connexity]]
+- [[knowledge/math/property/relation/Comparability\|Comparability]] — two distinct elements are related one way or the other
+- [[knowledge/math/property/relation/Connexity\|Connexity]] — comparability + reflexivity
+- [[knowledge/math/property/relation/Least Upper Bound Property\|Least Upper Bound Property]] — on a total order: nonempty bounded-above subsets have suprema
 
-|  | reflexive | symmetric | antisymmetric | transitive | total |
-| --- | :-: | :-: | :-: | :-: | :-: |
-| [[knowledge/math/set theory/relation/Preorder\|preorder]] | ✓ |  |  | ✓ |  |
-| [[knowledge/math/set theory/relation/Partial Order\|partial order]] | ✓ |  | ✓ | ✓ |  |
-| [[knowledge/math/set theory/relation/Total Order\|total order]] | (✓) |  | ✓ | ✓ | ✓ |
-| [[knowledge/math/set theory/relation/Equivalence Relation\|equivalence]] | ✓ | ✓ |  | ✓ |  |
+|  | reflexive | irreflexive | symmetric | antisymmetric | transitive | comparable |
+| --- | :-: | :-: | :-: | :-: | :-: | :-: |
+| [[knowledge/math/set theory/order/Preorder\|preorder]] | ✓ |  |  |  | ✓ |  |
+| [[knowledge/math/set theory/order/Partial Order\|partial order]] | ✓ |  |  | ✓ | ✓ |  |
+| [[knowledge/math/set theory/order/Total Order\|total order]] | ✓ |  |  | ✓ | ✓ | ✓ |
+| [[knowledge/math/set theory/order/Strict Partial Order\|strict partial order]] |  | ✓ |  | (✓) | ✓ |  |
+| [[knowledge/math/set theory/order/Strict Total Order\|strict total order]] |  | ✓ |  | (✓) | ✓ | ✓ |
+| [[knowledge/math/set theory/relation/Equivalence Relation\|equivalence]] | ✓ |  | ✓ |  | ✓ |  |
 
 > [!remark] The parenthesised tick
-> [[knowledge/math/property/relation/Connexity\|Connexity]] as stated — $\forall x, y: (x \, R \, y) \lor (y \, R \, x)$ — **implies** [[knowledge/math/property/relation/Reflexivity\|Reflexivity]]: take $y = x$. So a total order needs only totality, antisymmetry and transitivity; reflexivity comes free. The tick is kept for readability against the rows above, but it is derived, not assumed.
+> Strict orders are antisymmetric for free: [[knowledge/math/property/relation/Irreflexivity\|Irreflexivity]] and [[knowledge/math/property/relation/Transitivity\|Transitivity]] give [[knowledge/math/property/relation/Asymmetry\|Asymmetry]], and an asymmetric relation is vacuously antisymmetric. Total orders have a shortcut of their own: [[knowledge/math/property/relation/Connexity\|Connexity]] — $\forall x, y: (x \, R \, y) \lor (y \, R \, x)$ — **implies** [[knowledge/math/property/relation/Reflexivity\|Reflexivity]] (take $y = x$), so a total order needs only connexity, antisymmetry and transitivity. Strict orders use [[knowledge/math/property/relation/Comparability\|Comparability]], the $x \neq y$ version, because connexity would contradict irreflexivity.
 
-The structures live with the objects, in `set theory/relation/`: [[knowledge/math/set theory/relation/Relation\|Relation]], [[knowledge/math/set theory/relation/Preorder\|Preorder]], [[knowledge/math/set theory/relation/Partial Order\|Partial Order]], [[knowledge/math/set theory/relation/Total Order\|Total Order]], [[knowledge/math/set theory/relation/Equivalence Relation\|Equivalence Relation]], [[knowledge/math/set theory/relation/Quotient Relation\|Quotient Relation]].
+The structures live with the objects: `set theory/relation/` holds [[knowledge/math/set theory/relation/Relation\|Relation]], [[knowledge/math/set theory/relation/Equivalence Relation\|Equivalence Relation]], [[knowledge/math/set theory/relation/Quotient Relation\|Quotient Relation]]; `set theory/order/` holds [[knowledge/math/set theory/order/Preorder\|Preorder]], [[knowledge/math/set theory/order/Partial Order\|Partial Order]], [[knowledge/math/set theory/order/Total Order\|Total Order]], [[knowledge/math/set theory/order/Strict Partial Order\|Strict Partial Order]], [[knowledge/math/set theory/order/Strict Total Order\|Strict Total Order]], [[knowledge/math/set theory/order/Well-Ordered Set\|Well-Ordered Set]].
 
 > [!remark] Orders as categories
-> A [[knowledge/math/set theory/relation/Preorder\|preorder]] is exactly a **thin category** — objects are the elements, and there is one morphism $a \to b$ precisely when $a \leq b$. Reflexivity gives the identity morphisms, transitivity gives composition. See `example/Poset as Category.md`.
+> A [[knowledge/math/set theory/order/Preorder\|preorder]] is exactly a **thin category** — objects are the elements, and there is one morphism $a \to b$ precisely when $a \leq b$. Reflexivity gives the identity morphisms, transitivity gives composition. See `example/Poset as Category.md`.
 
 ## Map axioms
 
@@ -95,7 +102,8 @@ Scope: a map between structured sets.
 - [[knowledge/math/property/map/Multilinearity\|Multilinearity]] — the $k$-argument generalisation
 - [[knowledge/math/property/map/Map Symmetry\|Map Symmetry]] — $f(x, y) = f(y, x)$; the *form* sense, distinct from relation [[knowledge/math/property/relation/Symmetry\|Symmetry]]
 - [[knowledge/math/property/map/Homomorphism\|Homomorphism]] — preserves every operation of a shared signature; the general case that [[knowledge/math/property/map/Linearity\|Linearity]] specialises
-- [[knowledge/math/property/map/Monotonicity\|Monotonicity]] — preserves order; the [[knowledge/math/set theory/relation/Preorder\|order]] family's structure-preserving map
+- [[knowledge/math/property/map/Monotonicity\|Monotonicity]] — preserves order; the [[knowledge/math/set theory/order/Preorder\|order]] family's structure-preserving map
+- [[knowledge/math/property/map/Continuity\|Continuity]] — preimages of open sets are open; the structure-preserving map of [[knowledge/math/topology/Topological Space\|topological spaces]]
 - [[knowledge/math/property/map/Injection\|Injection]] · [[knowledge/math/property/map/Surjection\|Surjection]] · [[knowledge/math/property/map/Bijection\|Bijection]] — the cardinality properties
 - [[knowledge/math/property/map/Involution\|Involution]] — $f \circ f = \mathrm{id}$
 - [[knowledge/math/property/map/Lipschitz Map\|Lipschitz Map]] — stretches distances by at most the constant $\mathrm{Lip}\, F$; [[knowledge/math/property/map/Contraction\|Contraction]] is the case $\mathrm{Lip}\, F < 1$, with the Banach fixed-point theorem (a contraction has exactly one fixed point)
@@ -103,7 +111,7 @@ Scope: a map between structured sets.
 Consumers: [[knowledge/math/algebra/linear algebra/Linear Maps\|Linear Maps]], [[knowledge/math/algebra/structures/elliptic curve/Bilinear Pairings\|Bilinear Pairings]], [[knowledge/math/algebra/linear algebra/Kronecker Product\|Kronecker Product]], [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|Group Homomorphism]], [[knowledge/cryptography/verifiable computing/relation/r1cs/Split-R1CS\|Split-R1CS]], [[knowledge/math/set theory/Function\|Function]], [[knowledge/math/algebra/structures/group/subgroup/Subgroup\|Subgroup]].
 
 > [!remark] One structure-preserving map per family
-> Algebra has [[knowledge/math/property/map/Homomorphism\|homomorphisms]], orders have [[knowledge/math/property/map/Monotonicity\|monotone maps]], categories have functors. A [[knowledge/math/algebra/category/Morphism\|morphism]] is *not* one of these: it is an arrow in an abstract [[knowledge/math/algebra/category/Category\|Category]] and need not be a function at all. The two coincide only in a **concrete** category — which is what licenses [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|Group Homomorphism]] to import [[knowledge/math/algebra/category/Morphism#Isomorphism\|iso]].
+> Algebra has [[knowledge/math/property/map/Homomorphism\|homomorphisms]], orders have [[knowledge/math/property/map/Monotonicity\|monotone maps]], topological spaces have [[knowledge/math/property/map/Continuity\|continuous maps]], categories have functors. A [[knowledge/math/algebra/category/Morphism\|morphism]] is *not* one of these: it is an arrow in an abstract [[knowledge/math/algebra/category/Category\|Category]] and need not be a function at all. The two coincide only in a **concrete** category — which is what licenses [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|Group Homomorphism]] to import [[knowledge/math/algebra/category/Morphism#Isomorphism\|iso]].
 
 ## Metric axioms
 
@@ -125,6 +133,15 @@ A function satisfying the first three is a **metric**; one satisfying positive d
 > $d(x,y) \geq 0$ is **not** an axiom — it follows from the other three: $0 = d(x,x) \leq d(x,y) + d(y,x) = 2\,d(x,y)$. It belongs in [[knowledge/math/calculus/Metric Space\|Metric Space]] as a proposition, never inside a definition callout.
 
 Consumers: [[knowledge/math/calculus/Metric Space\|Metric Space]], [[knowledge/math/algebra/linear algebra/Inner-Product Spaces\|Inner-Product Spaces]], [[knowledge/math/algebra/structures/lattice/Lattices\|Lattices]] and everything under `structures/lattice/`, and — the reason this library is not under `algebra/` — [[knowledge/information theory/coding theory/Code Distance\|Code Distance]], [[knowledge/information theory/coding theory/rank-metric/Rank Metric Codes\|Rank Metric Codes]], and [[knowledge/math/probability/Statistical Distance\|Statistical Distance]], since total variation distance is itself a metric.
+
+## Topology axioms
+
+Scope: a [[knowledge/math/topology/Topological Space\|Topological Space]] $(X, \mathcal T)$.
+
+- [[knowledge/math/property/topology/T1 Axiom\|T1 Axiom]] — finite sets are closed
+- [[knowledge/math/property/topology/Hausdorff Axiom\|Hausdorff Axiom]] — distinct points have disjoint neighborhoods; implies T1
+
+Structures: [[knowledge/math/topology/Hausdorff Space\|Hausdorff Space]]. The axioms of a topology itself (unions, finite intersections) are stated once, in [[knowledge/math/topology/Topological Space\|Topological Space]].
 
 ## Related
 

@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter I: Preliminaries: Set theory and categories, Section 3.1: Definition.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter I: Preliminaries: Set theory and categories, Section 3.1: Definition.
 - `[Lei]` — T. Leinster, _Basic Category Theory_ (2014), arXiv:1612.09375 — Definition 1.1.1; Example 1.1.8(d), (e).
 - `[Rie]` — E. Riehl, _Category Theory in Context_ (2016): https://math.jhu.edu/~eriehl/context.pdf — Definition 1.1.1; Example 1.1.3(i); Example 1.1.4(ii), (iii) (read at the mirror https://www.math.ucla.edu/~mopie/context.pdf).
 
@@ -28,7 +28,7 @@ Reference:
 >     - $1_B \circ f = f$.
 > - The sets $\mathsf{Hom}_{\mathsf{C}}(A, B)$ and $\mathsf{Hom}_{\mathsf{C}}(C, D)$ be *disjoint* unless $(A, B) = (C, D)$.
 >
-> `[Alu I.3.1]` `[Lei Def 1.1.1]` `[Rie Def 1.1.1]`
+> `[Alu09 I.3.1]` `[Lei Def 1.1.1]` `[Rie Def 1.1.1]`
 
 > [!remark]
 > $f \in \mathsf{Hom}_{\mathsf{C}}(A, B)$ is the general form of $f: A \rightarrow B$.
@@ -40,7 +40,7 @@ Reference:
 
 - [[knowledge/math/algebra/category/example/Category Set\|Category Set]] — sets and functions. `[Rie Ex 1.1.3(i)]`
 - A [[knowledge/math/algebra/structures/Monoid\|Monoid]] is a category with one object — see [[knowledge/math/algebra/structures/Monoid\|Monoid]]. `[Rie Ex 1.1.4(ii)]` `[Lei Ex 1.1.8(d)]`
-- A [[knowledge/math/set theory/relation/Preorder\|Preorder]] is a category with at most one morphism between two objects — see [[knowledge/math/algebra/category/example/Equivalence Category\|Equivalence Category]]. `[Rie Ex 1.1.4(iii)]` `[Lei Ex 1.1.8(e)]`
+- A [[knowledge/math/set theory/order/Preorder\|Preorder]] is a category with at most one morphism between two objects — see [[knowledge/math/algebra/category/example/Equivalence Category\|Equivalence Category]]. `[Rie Ex 1.1.4(iii)]` `[Lei Ex 1.1.8(e)]`
 
 ## Related
 

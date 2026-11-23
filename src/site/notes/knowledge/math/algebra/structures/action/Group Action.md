@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 9.1: Actions; Section 9.2: Actions on sets; Section 9.3: Transitive actions and the category G-Set.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 9.1: Actions; Section 9.2: Actions on sets; Section 9.3: Transitive actions and the category G-Set.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the LibreTexts copy, item numbers as there: https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_%28Judson%29), §9.1 Isomorphisms; §14.1 Groups Acting on Sets; §14.2 The Class Equation.
 - `[Con]` — K. Conrad, _Group actions_ (expository notes): https://kconrad.math.uconn.edu/blurbs/grouptheory/gpaction.pdf
 - `[Lei]` — T. Leinster, _Basic Category Theory_, arXiv:1612.09375, Example 1.2.8: https://arxiv.org/abs/1612.09375
@@ -19,7 +19,7 @@ Reference:
 > [!definition] Group Action
 > An **action** of a [[knowledge/math/algebra/structures/group/Group\|Group]] $G$ on an object $A$ of a [[knowledge/math/algebra/category/Category\|Category]] $\mathsf{C}$ is a [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|homomorphism]]
 > $$\sigma: G \rightarrow \mathsf{Aut}_\mathsf{C}(A).$$
-> `[Alu II.9.1]`
+> `[Alu09 II.9.1]`
 
 ### Action on a Set
 
@@ -37,12 +37,12 @@ Reference:
 >
 > Usually, we can just remove $\rho$ and have a simpler [[knowledge/math/property/operation/Associativity\|Associativity]] operation:
 > $$(\forall g, h \in G), (\forall a \in A): (gh) a = g (ha).$$
-> `[Alu II.9.2]` `[Jud §14.1]`
+> `[Alu09 II.9.2]` `[Jud §14.1]`
 
 ### Faithful
 
 > [!definition] Faithful
-> An action of a [[knowledge/math/algebra/structures/group/Group\|Group]] $G$ on an object $A$ of a [[knowledge/math/algebra/category/Category\|Category]] $\mathsf{C}$ is **faithful** (or **effective**) if the corresponding $\sigma: G \rightarrow \mathsf{Aut}_\mathsf{C}(A)$ is an [[knowledge/math/property/map/Injection\|Injection]]. `[Alu II.9.1]` `[Con Def 2.17]`
+> An action of a [[knowledge/math/algebra/structures/group/Group\|Group]] $G$ on an object $A$ of a [[knowledge/math/algebra/category/Category\|Category]] $\mathsf{C}$ is **faithful** (or **effective**) if the corresponding $\sigma: G \rightarrow \mathsf{Aut}_\mathsf{C}(A)$ is an [[knowledge/math/property/map/Injection\|Injection]]. `[Alu09 II.9.1]` `[Con Def 2.17]`
 
 ### Fixed Point
 
@@ -62,7 +62,7 @@ Reference:
 > ---
 > [[knowledge/math/algebra/structures/action/example/Group Action on Group\|Left Multiplication]].
 >
-> `[Alu II.9.2]` `[Jud Thm 9.12]`
+> `[Alu09 II.9.2]` `[Jud Thm 9.12]`
 
 > [!proposition] Orbit decomposition — $|A|$ is the number of fixed points plus the sizes of the nontrivial orbits
 > Let $A$ be finite, and let $B \subseteq A$ contain exactly one element of each nontrivial [[knowledge/math/algebra/structures/action/Orbit\|Orbit]] of the action; $G_a$ is the [[knowledge/math/algebra/structures/action/Stabilizer\|Stabilizer]] of $a$. Then,

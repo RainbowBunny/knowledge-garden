@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 1.2: Definition; Section 1.3: Basic Properties; Section 1.4: Cancellation; Exercise 1.3; Exercise 1.4; Exercise 1.5; Section 8.2: Presentations.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 1.2: Definition; Section 1.3: Basic Properties; Section 1.4: Cancellation; Exercise 1.3; Exercise 1.4; Exercise 1.5; Section 8.2: Presentations.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the LibreTexts copy, item numbers as there: https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_%28Judson%29), §3.2 Definitions and Examples; §9.1 Isomorphisms; §12.1 Matrix Groups.
 - `[WP]` — Wikipedia, _General linear group_ (GL over a commutative ring): https://en.wikipedia.org/wiki/General_linear_group
 - `[BR]` — L. Berger, S. Rozensztajn, _Modular representations of $\mathrm{GL}_2(\mathbb F_p)$_ (PROMYS notes), §1, Exercise 2: https://perso.ens-lyon.fr/laurent.berger/autrestextes/GL2promys.pdf
@@ -22,7 +22,7 @@ Reference:
 > A **group** consists of a nonempty set $G$ and a [[knowledge/math/set theory/operation/Binary Operation\|Binary Operation]] $\star$ on $G$:
 > - $\star$ satisfies [[knowledge/math/property/operation/Associativity\|Associativity]], [[knowledge/math/property/operation/Identity Element\|Identity Element]], [[knowledge/math/property/operation/Inverse Element\|Inverse Element]].
 >
-> `[Alu II.1.2]` `[Jud §3.2]`
+> `[Alu09 II.1.2]` `[Jud §3.2]`
 
 > [!definition] Group (Alternative)
 > Alternatively, a group is a [[knowledge/math/algebra/structures/Monoid\|Monoid]] with [[knowledge/math/property/operation/Inverse Element\|Inverse Element]]. `[Jud §3.2]`
@@ -32,12 +32,12 @@ Reference:
 ### Identity
 
 > [!proposition] Uniqueness of Identity — a group has exactly one identity
-> If $h \in G$ is an identity of $G$, then $h = e_G$. `[Alu II.1.3]` `[Jud Prop 3.17]`
+> If $h \in G$ is an identity of $G$, then $h = e_G$. `[Alu09 II.1.3]` `[Jud Prop 3.17]`
 
 ### Inverse
 
 > [!proposition] Uniqueness of Inverse — each element has exactly one inverse
-> If $h_1, h_2$ are both inverses of $g$ in $G$, then $h_1 = h_2$. `[Alu II.1.3]` `[Jud Prop 3.18]`
+> If $h_1, h_2$ are both inverses of $g$ in $G$, then $h_1 = h_2$. `[Alu09 II.1.3]` `[Jud Prop 3.18]`
 
 > [!proposition] Inverse of Product — the inverse of a product is the product of the inverses in reverse order
 > $$\forall g, h \in G, \quad (gh)^{-1} = h^{-1} g^{-1}$$
@@ -46,7 +46,7 @@ Reference:
 ### Cancellation
 
 > [!proposition] Cancellation — a group operation is cancellative
-> Let $(G, \star)$ be a group, [[knowledge/math/property/operation/Cancellativity\|Cancellativity]] for $\star$ holds. `[Alu II.1.4]` `[Jud Prop 3.22]`
+> Let $(G, \star)$ be a group, [[knowledge/math/property/operation/Cancellativity\|Cancellativity]] for $\star$ holds. `[Alu09 II.1.4]` `[Jud Prop 3.22]`
 
 ## Example
 

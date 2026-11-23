@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter I: Preliminaries: Set theory and categories, Section 3.2: Examples.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter I: Preliminaries: Set theory and categories, Section 3.2: Examples.
 - `[Rie]` — E. Riehl, _Category Theory in Context_ (2016): https://math.jhu.edu/~eriehl/context.pdf — Example 1.1.3(i) (read at the mirror https://www.math.ucla.edu/~mopie/context.pdf).
 - `[nLab]` — nLab, _coproduct_: https://ncatlab.org/nlab/show/coproduct
 
@@ -22,7 +22,7 @@ Reference:
 > $$\mathsf{Hom}_\mathsf{Set}(A, B) = B^A,$$
 > the set of [[knowledge/math/set theory/Function\|functions]] $A \to B$.
 >
-> `[Alu I.3.2]` `[Rie Ex 1.1.3(i)]`
+> `[Alu09 I.3.2]` `[Rie Ex 1.1.3(i)]`
 
 ## Property
 

@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 2.1: Symmetric Groups.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 2.1: Symmetric Groups.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the HTML edition at https://judsonbooks.org/aata-files/aata-html/; result numbers as there).
 
 ## Definition
@@ -16,7 +16,7 @@ Reference:
 > Instantiates:: [[knowledge/math/algebra/structures/group/Group\|Group]].
 >
 > ---
-> Let $A$ be a set. The **symmetric group**, or **group of permutations** of $A$, denoted $S_A$, is the group $\mathsf{Aut}_\mathsf{Set}(A)$. The group of permutations of the set $\{1, \dots, n\}$ is denoted by $S_n.$ `[Alu II §2.1]` `[Jud §5.1]`
+> Let $A$ be a set. The **symmetric group**, or **group of permutations** of $A$, denoted $S_A$, is the group $\mathsf{Aut}_\mathsf{Set}(A)$. The group of permutations of the set $\{1, \dots, n\}$ is denoted by $S_n.$ `[Alu09 II §2.1]` `[Jud §5.1]`
 
 ## Property
 

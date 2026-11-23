@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter I: Preliminaries: Set theory and categories, Section 5.1: Initial and final objects; Section 5.4: Products.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter I: Preliminaries: Set theory and categories, Section 5.1: Initial and final objects; Section 5.4: Products.
 - `[nLab]` — nLab, _cartesian product_ (the binary product in a category): https://ncatlab.org/nlab/show/product
 
 ## Definition
@@ -32,7 +32,7 @@ Reference:
 > @Vf_AVV @VV{\sigma}V @VVf_BV\\
 > A @<{\pi_A}<< A\times B @>{\pi_B}>> B
 > \end{CD}$$
-> commutes. `[Alu I.5.4]` `[nLab]`
+> commutes. `[Alu09 I.5.4]` `[nLab]`
 
 ## Example
 

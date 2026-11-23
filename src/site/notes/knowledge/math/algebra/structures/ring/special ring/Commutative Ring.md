@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 1.2: First examples and special classes of rings.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 1.2: First examples and special classes of rings.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_ (2025): https://abstract.ups.edu/aata/ — §16.1 Rings (read at the mirror https://judsonbooks.org/aata-files/aata-html/; item numbers as there).
 
 ## Definition
@@ -17,7 +17,7 @@ Reference:
 > ---
 > A [[knowledge/math/algebra/structures/ring/Ring\|Ring]] $(R, +, *)$ is a commutative ring if it also satisfies [[knowledge/math/property/operation/Commutativity\|Commutativity]] for $*$.
 >
-> `[Alu III.1.2]` `[Jud §16.1]`
+> `[Alu09 III.1.2]` `[Jud §16.1]`
 
 ## Related
 

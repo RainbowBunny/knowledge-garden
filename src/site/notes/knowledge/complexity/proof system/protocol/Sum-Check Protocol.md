@@ -4,7 +4,7 @@
 
 Reference: 
 - https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf
-- [[academic/Book Reference\|Computational Complexity: A Modern Approach]] - Chapter 8: Interactive Proofs, Section 8.3.2: Interactive protocol for $\# \mathsf{SAT}_\mathsf{D}$.
+- `[AB09]` — S. Arora, B. Barak, _Computational Complexity: A Modern Approach_, Cambridge University Press, 2009, Chapter 8: Interactive Proofs, Section 8.3.2: Interactive protocol for $\# \mathsf{SAT}_\mathsf{D}$.
 
 ## Scheme
 

@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 2.1: Ring homomorphisms; Section 2.3: Monomorphisms and epimorphisms; Section 3.1: Ideals; Section 3.2: Quotients; Section 3.3: Canonical decomposition and consequences.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 2.1: Ring homomorphisms; Section 2.3: Monomorphisms and epimorphisms; Section 3.1: Ideals; Section 3.2: Quotients; Section 3.3: Canonical decomposition and consequences.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_ (2025): https://abstract.ups.edu/aata/ — §16.3 Ring Homomorphisms and Ideals (read at the mirror https://judsonbooks.org/aata-files/aata-html/; item numbers as there).
 
 ## Definition
@@ -25,7 +25,7 @@ Reference:
 > - Identity is preserved:
 > $$\varphi(1_R) = 1_S$$
 >
-> `[Alu III.2.1]`
+> `[Alu09 III.2.1]`
 
 > [!remark] Convention: $\varphi(1_R) = 1_S$ is an axiom here
 > `[Jud §16.3]` asks only that $\varphi$ preserve $+$ and $\cdot$; there $\varphi(1_R) = 1_S$ follows only when $\varphi$ is onto (`[Jud Prop 16.3.3]`). So the zero map $R \to S$ is a homomorphism in `[Jud]` but not here. The third axiom is what makes $\mathbb Z$ initial in [[knowledge/math/algebra/structures/ring/Category Ring\|Category Ring]] and rules out homomorphisms from the [[knowledge/math/algebra/structures/ring/example/Zero Ring\|Zero Ring]] to a nonzero ring.
@@ -41,12 +41,12 @@ Specializes [[knowledge/math/set theory/function/Kernel\|knowledge/math/set theo
 > The **kernel** of a homomorphism $\varphi: R \rightarrow S$ of [[knowledge/math/algebra/structures/ring/Ring\|Ring]] is
 > $$\ker{\varphi} = \{r \in R \mid \varphi(r) = 0\}$$
 >
-> `[Alu III.3.1]` `[Jud §16.3]`
+> `[Alu09 III.3.1]` `[Jud §16.3]`
 
 > [!proposition] Kernel is an ideal — $\ker \varphi$ is a two-sided ideal of $R$
 > Let $\varphi: R \rightarrow S$ be any ring homomorphism. Then $\ker{\varphi}$ is an [[knowledge/math/algebra/structures/ring/ideal/Ideal\|Ideal]] of $R$.
 >
-> `[Alu III.3.1]` `[Jud Prop 16.3.8]`
+> `[Alu09 III.3.1]` `[Jud Prop 16.3.8]`
 >
 > ---
 > To be completed.
@@ -60,7 +60,7 @@ Specializes [[knowledge/math/set theory/function/Kernel\|knowledge/math/set theo
 > \end{CD}$$
 > commutes, where $\pi(r) = r + I$ is the [[knowledge/math/set theory/function/Canonical Projection\|Canonical Projection]] onto the [[knowledge/math/algebra/structures/ring/special ring/Quotient Ring\|Quotient Ring]] (`[Jud Thm 16.3.11]`).
 >
-> `[Alu III.3.2]`
+> `[Alu09 III.3.2]`
 >
 > ---
 > $\tilde{\varphi}(r + I) = \varphi(r)$.
@@ -75,13 +75,13 @@ Specializes [[knowledge/math/algebra/category/Morphism#Isomorphism\|Isomorphism]
 > Suppose $\varphi: R \rightarrow S$ is a [[knowledge/math/property/map/Surjection\|Surjective]] ring homomorphism. Then
 > $$S \cong \frac{R}{\ker{\varphi}}$$
 >
-> `[Alu III.3.3]` `[Jud Thm 16.3.12]`
+> `[Alu09 III.3.3]` `[Jud Thm 16.3.12]`
 
 > [!proposition] Third isomorphism theorem — $(R/I)/(J/I) \cong R/J$
 > Let $I$ be an [[knowledge/math/algebra/structures/ring/ideal/Ideal\|Ideal]] of a ring $R$, and let $J$ be an ideal of $R$ containing $I$. Then $J / I$ is an ideal of $R / I$ and
 > $$\frac{R/I}{J/I} \cong \frac{R}{J}.$$
 >
-> `[Alu III.3.3]` `[Jud Thm 16.3.14]`
+> `[Alu09 III.3.3]` `[Jud Thm 16.3.14]`
 
 ### Ring Monomorphism
 
@@ -93,7 +93,7 @@ Specializes [[knowledge/math/algebra/category/Morphism#Monomorphism\|Monomorphis
 > - $\mathrm{ker} \; \varphi = \{0\}$.
 > - $\varphi$ is an [[knowledge/math/property/map/Injection\|Injection]].
 >
-> `[Alu III.2.3]`
+> `[Alu09 III.2.3]`
 >
 > ---
 > To be completed.

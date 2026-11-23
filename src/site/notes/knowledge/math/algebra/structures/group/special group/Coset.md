@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 7.3: Cosets; Section 7.4: Quotient by normal subgroups.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 7.3: Cosets; Section 7.4: Quotient by normal subgroups.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the HTML edition at https://judsonbooks.org/aata-files/aata-html/; result numbers as there).
 - `[CasG]` — W. Casselman, _Introduction to admissible representations of p-adic groups_ (notes on $\mathrm{GL}_n$): https://personal.math.ubc.ca/~cass/research/pdf/GLN.pdf
 - `[Bum]` — D. Bump, _Hecke Algebras_, lecture notes (2018): http://sporadic.stanford.edu/hecke.pdf
@@ -22,7 +22,7 @@ Reference:
 > - The **left-cosets** of a [[knowledge/math/algebra/structures/group/subgroup/Subgroup\|Subgroup]] $H$ in a group $G$ are the sets $aH = \{ah : h \in H\}$, $a \in G$.
 > - The **right-cosets** of $H$ are the sets $Ha = \{ha : h \in H\}$, $a \in G$.
 >
-> `[Alu II §7.3]` `[Jud §6.1]`
+> `[Alu09 II §7.3]` `[Jud §6.1]`
 
 ### Double Coset
 
@@ -47,10 +47,10 @@ Reference:
 > - $a \sim_L b \iff a^{-1}b \in H \iff aH = bH$ `[Jud Lemma 6.1.3]`;
 > - $a \sim_R b \iff ab^{-1} \in H \iff Ha = Hb$.
 >
-> `[Alu II §7.3]`
+> `[Alu09 II §7.3]`
 
 > [!proposition] Left and right cosets agree exactly for normal subgroups
-> The relations $\sim_L, \sim_R$ corresponding to a [[knowledge/math/algebra/structures/group/subgroup/Subgroup\|Subgroup]] $H$ coincide if and only if $H$ is a [[knowledge/math/algebra/structures/group/subgroup/Normal Subgroup\|Normal Subgroup]]. `[Alu II §7.4]`
+> The relations $\sim_L, \sim_R$ corresponding to a [[knowledge/math/algebra/structures/group/subgroup/Subgroup\|Subgroup]] $H$ coincide if and only if $H$ is a [[knowledge/math/algebra/structures/group/subgroup/Normal Subgroup\|Normal Subgroup]]. `[Alu09 II §7.4]`
 >
 > Judson takes this as the definition of normality: $gH = Hg$ for all $g \in G$ `[Jud §10.1]`.
 

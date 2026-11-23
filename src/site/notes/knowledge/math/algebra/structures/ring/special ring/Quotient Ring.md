@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 3.2: Quotients.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 3.2: Quotients.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_ (2025): https://abstract.ups.edu/aata/ — §16.3 Ring Homomorphisms and Ideals (read at the mirror https://judsonbooks.org/aata-files/aata-html/; item numbers as there).
 
 ## Definition
@@ -24,7 +24,7 @@ Reference:
 >
 > Its zero is $0 + I$ and its identity is $1 + I$.
 >
-> `[Alu III.3.2]` `[Jud Thm 16.3.10]`
+> `[Alu09 III.3.2]` `[Jud Thm 16.3.10]`
 
 ## Property
 

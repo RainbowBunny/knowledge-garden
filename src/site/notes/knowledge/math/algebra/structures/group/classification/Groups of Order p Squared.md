@@ -40,7 +40,7 @@ Reference:
 
 ### Siblings
 - [[knowledge/math/algebra/structures/group/classification/Groups of Order pq\|Groups of Order pq]] — two distinct primes
-- [[Groups of Order p³\|Groups of Order p³]] — the first prime power with nonabelian groups
+- [[knowledge/math/algebra/structures/group/classification/Groups of Order p Cubed\|Groups of Order p Cubed]] — the first prime power with nonabelian groups
 
 ### Prerequisites
 - [[knowledge/math/algebra/structures/group/special group/p-Group\|p-Group]], [[knowledge/math/algebra/structures/action/Class Equation\|Class Equation]], [[knowledge/math/algebra/structures/group/special group/Cyclic Group\|Cyclic Group]]

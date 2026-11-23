@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 1.1: Definitions; Section 1.2: First examples and special classes of rings; Section 3.2: Quotients.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 1.1: Definitions; Section 1.2: First examples and special classes of rings; Section 3.2: Quotients.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_ (2025): https://abstract.ups.edu/aata/ — §16.1 Rings; §16.2 Integral Domains and Fields; Exercise 16.7.35 (read at the mirror https://judsonbooks.org/aata-files/aata-html/; item numbers as there).
 
 ## Definition
@@ -19,10 +19,10 @@ Reference:
 > - $(R, *)$ is a [[knowledge/math/algebra/structures/Monoid\|Monoid]].
 > - $+$ and $*$ satisfies [[knowledge/math/property/operation/Distributivity\|Distributivity]].
 >
-> `[Alu III.1.1]`
+> `[Alu09 III.1.1]`
 
 > [!remark] Convention: a ring has $1$
-> In this vault (following `[Alu]`) a ring has a multiplicative identity $1$, since $(R, *)$ is a monoid, and $0 = 1$ is allowed: that is the [[knowledge/math/algebra/structures/ring/example/Zero Ring\|Zero Ring]].
+> In this vault (following `[Alu09]`) a ring has a multiplicative identity $1$, since $(R, *)$ is a monoid, and $0 = 1$ is allowed: that is the [[knowledge/math/algebra/structures/ring/example/Zero Ring\|Zero Ring]].
 > `[Jud §16.1]` asks only that $*$ be associative. There a *ring with identity* (*unity*) is one with an element $1 \neq 0$ such that $1a = a1 = a$ for all $a$. Statements quoted from `[Jud]` are read with this difference in mind.
 
 ## Structure
@@ -38,7 +38,7 @@ Reference:
 > An element $a \in R$ is a **left-zero-divisor** if there exist elements $b \neq 0$ in $R$ for which $ab = 0$.
 > Similarly, an element $b \in R$ is a **right-zero-divisor** if there exist elements $a \neq 0$ for which $ab = 0$.
 >
-> `[Alu III.1.2]`
+> `[Alu09 III.1.2]`
 
 > [!remark] Zero divisors in `[Jud]`
 > `[Jud §16.1]` defines a zero divisor only in a commutative ring, and only for a *nonzero* element $a$. With the definition above, $0$ is a left- and right-zero-divisor in every nonzero ring (take $b = 1$).
@@ -46,7 +46,7 @@ Reference:
 > [!proposition] Zero-divisors and injectivity — $a$ is not a left-zero-divisor iff $x \mapsto ax$ is injective
 > In a ring $R$, $a \in R$ is not a left-(right-)zero-divisor if and only if left (resp., right) multiplication by $a$ is an [[knowledge/math/property/map/Injection\|Injection]] on $R$.
 >
-> `[Alu III.1.2]`
+> `[Alu09 III.1.2]`
 
 ### Unit
 
@@ -60,7 +60,7 @@ Reference:
 > - $\exists v \in R: uv = 1$ (left-unit).
 > - $\exists v \in R: vu = 1$ (right-unit).
 >
-> `[Alu III.1.2]` `[Jud §16.1]`
+> `[Alu09 III.1.2]` `[Jud §16.1]`
 
 > [!proposition] Properties of units — one-sided units, uniqueness of the inverse, the group of units
 > In a ring $R$:
@@ -69,7 +69,7 @@ Reference:
 > - The inverse of a two-sided unit is unique.
 > - Two-sided units form a [[knowledge/math/algebra/structures/group/Group\|Group]] under multiplication.
 >
-> `[Alu III.1.2]` `[Jud Ex 16.7.35]` (the group of units $U(R)$)
+> `[Alu09 III.1.2]` `[Jud Ex 16.7.35]` (the group of units $U(R)$)
 
 ### Characteristic
 
@@ -82,7 +82,7 @@ Reference:
 > $$\exists n \in \mathbb{N}: \ker \varphi = n \mathbb{Z}.$$
 > $n$ is called the **characteristic** of $R$.
 >
-> `[Alu III]`
+> `[Alu09 III]`
 
 > [!remark] The same number as in `[Jud]`
 > `[Jud §16.2]` defines the characteristic as the least positive integer $n$ such that $nr = 0$ for all $r \in R$, and $0$ if there is no such integer. For a ring with $1$ this is the additive order of $1$ (`[Jud Lemma 16.2.7]`), which generates $\ker \varphi$: the two definitions agree.
@@ -93,7 +93,7 @@ Reference:
 > In a ring $R$:
 > $$\forall r \in R: 0 \cdot r = 0 = r \cdot 0$$
 >
-> `[Alu III.1]` `[Jud Prop 16.1.8]`
+> `[Alu09 III.1]` `[Jud Prop 16.1.8]`
 
 ## Related
 

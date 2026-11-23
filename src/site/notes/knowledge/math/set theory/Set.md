@@ -3,8 +3,8 @@
 ---
 
 Reference:
-- [[academic/Book Reference\|Algebra: Chapter 0]] - Chapter I: Preliminaries: Set theory and categories, Section 1.3: Operations between sets.
-- [[academic/Book Reference\|Element of Set Theory]] - Chapter 1: Introduction, Section: Baby Set Theory.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter I: Preliminaries: Set theory and categories, Section 1.3: Operations between sets.
+- `[End77]` — H. B. Enderton, _Elements of Set Theory_, Academic Press, 1977, Chapter 1: Introduction, Section: Baby Set Theory.
 
 
 ## Definition

@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 1.2: First examples and special classes of rings.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 1.2: First examples and special classes of rings.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_ (2025): https://abstract.ups.edu/aata/ (numbering as on the LibreTexts / AIM mirrors).
 - `[Ax]` — S. Axler, _Linear Algebra Done Right_ (4th ed., open access): https://linear.axler.net/
 - `[Wiki]` — Wikipedia, _Field trace_ (§ Finite fields) and _Euler's formula_: https://en.wikipedia.org/wiki/Field_trace · https://en.wikipedia.org/wiki/Euler%27s_formula
@@ -17,7 +17,7 @@ Reference:
 > ---
 > A field is a [[knowledge/math/algebra/structures/ring/special ring/Commutative Ring\|Commutative Ring]] with $1 \neq 0$ in which every nonzero element has a multiplicative [[knowledge/math/property/operation/Inverse Element\|inverse]] (or being a [[knowledge/math/algebra/structures/ring/Ring#Unit\|Unit]]).
 >
-> `[Alu III.1.2]` `[Jud §16.2]`
+> `[Alu09 III.1.2]` `[Jud §16.2]`
 
 ## Structure
 
@@ -43,7 +43,7 @@ Specializes [[knowledge/math/algebra/structures/ring/Ring#Characteristic\|Charac
 > [!proposition] Fields are integral domains — a field has no zero divisors
 > Every field is an [[knowledge/math/algebra/structures/ring/special ring/Integral Domain\|Integral Domain]].
 >
-> `[Alu III.1.2]`
+> `[Alu09 III.1.2]`
 
 ### Arithmetic in a field
 

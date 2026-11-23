@@ -3,8 +3,7 @@
 ---
 
 Reference:
-- [[academic/Book Reference\|Algebra: Chapter 0]] - Chapter II: Groups, first encounter, Section 8.1: Canonical decomposition.
-- [[academic/Book Reference\|Algebra: Chapter 0]] - Chapter III: Rings and modules, Section 3.3: Canonical decomposition and consequences.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 8.1: Canonical decomposition; Chapter III: Rings and modules, Section 3.3: Canonical decomposition and consequences.
 
 ## Definition
 

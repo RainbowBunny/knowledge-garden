@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 6.1: Definition.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 6.1: Definition.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the HTML edition at https://judsonbooks.org/aata-files/aata-html/; result numbers as there).
 
 ## Definition
@@ -17,7 +17,7 @@ Reference:
 > Extends:: [[knowledge/math/algebra/structures/Substructure\|Substructure]].
 >
 > ---
-> Let $(G, \cdot)$ be a [[knowledge/math/algebra/structures/group/Group\|Group]], and let $(H, \circ)$ be another group, whose underlying set $H$ is a subset of $G$. $(H, \circ)$ is a **subgroup** of $G$ if the [[knowledge/math/set theory/function/Inclusion Function\|Inclusion Function]] $i: H \hookrightarrow G$ is a [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|Group Homomorphism]]. `[Alu II §6.1]`
+> Let $(G, \cdot)$ be a [[knowledge/math/algebra/structures/group/Group\|Group]], and let $(H, \circ)$ be another group, whose underlying set $H$ is a subset of $G$. $(H, \circ)$ is a **subgroup** of $G$ if the [[knowledge/math/set theory/function/Inclusion Function\|Inclusion Function]] $i: H \hookrightarrow G$ is a [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|Group Homomorphism]]. `[Alu09 II §6.1]`
 >
 > Equivalently, $H \subseteq G$ is a group under the operation of $G$ restricted to $H$ `[Jud §3.3]`.
 
@@ -26,15 +26,15 @@ Reference:
 > [!proposition] One-step subgroup criterion — a nonempty $H$ with $ab^{-1} \in H$ for all $a, b \in H$ is a subgroup
 > A nonempty subset $H$ of a group $G$ is a subgroup if and only if
 > $$(\forall a, b \in H): ab^{-1} \in H.$$
-> `[Alu II §6.1]` `[Jud Prop 3.3.8]`
+> `[Alu09 II §6.1]` `[Jud Prop 3.3.8]`
 
 > [!lemma] Intersections of subgroups are subgroups
 > If $\{H_\alpha\}_{\alpha \in A}$ is any family of subgroups of a group $G$, then
 > $$H = \bigcap_{\alpha \in A} H_\alpha$$
-> is a subgroup of $G$. `[Alu II §6.1]`
+> is a subgroup of $G$. `[Alu09 II §6.1]`
 
 > [!lemma] Preimages of subgroups are subgroups
-> Let $\varphi: G \rightarrow G'$ be a group homomorphism, and let $H'$ be a subgroup of $G'$. Then $\varphi^{-1}(H')$ is a subgroup of $G$. `[Alu II §6.1]` `[Jud Prop 11.1.4]`
+> Let $\varphi: G \rightarrow G'$ be a group homomorphism, and let $H'$ be a subgroup of $G'$. Then $\varphi^{-1}(H')$ is a subgroup of $G$. `[Alu09 II §6.1]` `[Jud Prop 11.1.4]`
 
 > [!theorem] Lagrange's theorem — the order of a subgroup divides the order of the group
 > Let $H$ be a subgroup of a finite group $G$. Then $|H|$ divides $|G|$. `[Jud Thm 6.2.2]`

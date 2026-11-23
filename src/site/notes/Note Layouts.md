@@ -35,6 +35,9 @@ Insertable copies are in `templates/`, prefixed `layout-` — **Insert template*
 
 **The two tests that decide most cases.** Does it declare carriers of its own? If no, it is a Property, not a Structure. Does the theorem about it carry a multiplicative loss factor? If yes, it is a Transform, not a Bridge.
 
+> [!warning] File names publish as URLs
+> Digital Garden turns each file path into a URL by dropping every character that is not a letter, digit or space. Two names that differ only in symbols then collide and the site build fails: `Groups of Order p²`, `p³`, `p⁴` all became `groups-of-order-p`. Spell symbols out in file names (`Groups of Order p Squared`) and keep the symbol form as an alias. Accented letters (`Gröbner`) are fine. *Added 2026-11-05, after the build error.*
+
 ## Header fields — provenance above, relations inside
 
 **Revised 2026-09-09.** Two kinds, and they do not belong in the same place:
@@ -71,6 +74,21 @@ Fields:
 > **The key is plain text; links belong in the value.** Put the concept link on its own
 > `Requires::` line above.
 
+> [!remark] Citation style — `[[Book Reference]]` is being retired
+> *Added 2026-11-19, at your request.* You will remove `academic/Book Reference.md` over time. Every `Reference:` line now carries its own full entry under a citation key, and statements cite the key inline:
+>
+> ```markdown
+> Reference:
+> - `[AB09]` — S. Arora, B. Barak, _Computational Complexity: A Modern Approach_, Cambridge University Press, 2009, Chapter 2, Definition 2.1, p. 39.
+> - `[Hat]` — A. Hatcher, _Notes on Introductory Point-Set Topology_, p. 11: https://pi.math.cornell.edu/~hatcher/Top/TopNotes.pdf
+> ```
+>
+> - **Key**: first author's name, shortened, plus the two-digit year (`[Mun00]`, `[AB09]`); no year when the source has none (`[Hat]`).
+> - **Entry**: authors, title in italics, edition, publisher, year, then the chapters, sections, labels and pages used, then the URL if there is one.
+> - **Inline**: the key with the most precise label known, `[AB09 Def 2.1]`, otherwise the section, `[Mun00 §17]`.
+>
+> New notes do not link `[[Book Reference|…]]`. *2026-11-19:* all 310 links in 267 notes were converted to this style, so nothing in the vault links the file any more and it can be deleted. Aluffi's key became `[Alu09]` everywhere, inline citations included; Sipser stays `[Sip]` with "(edition not recorded)" until you say which edition you read.
+
 ### Extends or Generalizes — the direction test
 
 > **`X Extends:: Y`** iff every X **is** a Y, once you forget X's extra axioms.
@@ -106,7 +124,7 @@ Current origins: [[knowledge/math/property/map/Homomorphism\|Homomorphism]] · [
 
 - **A theorem that recurs across structures** — [[knowledge/math/set theory/function/Canonical Decomposition\|Canonical Decomposition]] is the model: one note, one section per structure, because the comparison *is* the content. Theorems stay together; definitions spread out to their structures.
 - **Same name, different concept** — lattice (geometric) vs lattice (order), ring ideal vs order ideal, completeness (proof systems / metric spaces / NP), characteristic of a ring vs characteristic function. These get qualified names and no origin. The test: can you write one Scope that both instances fill in? If not, they are homonyms.
-- **One word, several concepts** — sort every occurrence *before* looking for an origin. *Order* is four concepts plus homonyms: **size** (order of a group = [[knowledge/math/set theory/Set Foundation#Cardinality\|cardinality]]), **element order** (origin [[knowledge/math/algebra/structures/group/Group Order\|Group Order]]; $\mathbb F_q^*$ and $(\mathbb Z/p)^*$ specialize it), **valuation** ($\mathrm{ord}_p(a)$, multiplicity of a zero or pole), **ordering** ([[knowledge/math/set theory/relation/Preorder\|Preorder]] → [[knowledge/math/set theory/relation/Partial Order\|Partial Order]] → [[knowledge/math/set theory/relation/Total Order\|Total Order]]); order of an ODE and first-order logic are homonyms. *Characteristic* is three: **of a ring** (origin [[knowledge/math/algebra/structures/ring/Ring#Characteristic\|Ring#Characteristic]]), **characteristic polynomial** (a family of its own, over operators), **characteristic function** (indicator $\chi_S$ vs probability $\varphi_X$ — homonyms).
+- **One word, several concepts** — sort every occurrence *before* looking for an origin. *Order* is four concepts plus homonyms: **size** (order of a group = [[knowledge/math/set theory/cardinality/Cardinality\|cardinality]]), **element order** (origin [[knowledge/math/algebra/structures/group/Group Order\|Group Order]]; $\mathbb F_q^*$ and $(\mathbb Z/p)^*$ specialize it), **valuation** ($\mathrm{ord}_p(a)$, multiplicity of a zero or pole), **ordering** ([[knowledge/math/set theory/order/Preorder\|Preorder]] → [[knowledge/math/set theory/order/Partial Order\|Partial Order]] → [[knowledge/math/set theory/order/Total Order\|Total Order]]); order of an ODE and first-order logic are homonyms. *Characteristic* is three: **of a ring** (origin [[knowledge/math/algebra/structures/ring/Ring#Characteristic\|Ring#Characteristic]]), **characteristic polynomial** (a family of its own, over operators), **characteristic function** (indicator $\chi_S$ vs probability $\varphi_X$ — homonyms).
 
 
 ---
@@ -663,6 +681,9 @@ Those four Condition lines are not a wish list: **each one is a place something 
 
 <one sentence: what this area is>
 
+> [!intuition] Why this field
+> <two or three sentences: the question this field answers, and where the rest of the vault uses it>
+
 ## Theory
 ## <Concrete things>
 ## Related
@@ -857,7 +878,7 @@ Reference:
 
 | slot | holds | never holds |
 | --- | --- | --- |
-| `## Intuition` | the friendly reading, for sharing | anything the skeleton depends on |
+| `## Intuition` | **why the concept is needed** — the problem it solves, what fails without it — and the friendly reading; one `[!intuition] Why` callout, placed before `## Definition` | anything the skeleton depends on |
 | `## Definition` | what you must **stipulate** | consequences |
 | `## Syntax` | the tuple, the spaces, one line per algorithm | any bound, any adversary |
 | `[!definition] Parameters` | the variables the next definition uses: new ones, and `Import` lines for symbols another note declares | building blocks, anything with a definition of its own |
@@ -874,7 +895,9 @@ Reference:
 
 `definition` · `theorem` · `proposition` · `lemma` · `corollary` · `remark` · `example` · `property` · `security` · `scheme` · `algorithm` · `pseudocode` (CLRS-style code) · `construction` · `question` · `conjecture` · `principle` · `proof` · `todo`
 
-Two are styled and unused — start using them: **`[!intuition]`** for the `## Intuition` section, **`[!attack]`** for `## Cryptanalysis`.
+**`[!intuition]`** is for the `## Intuition` section and the *Why this field* callout of a MOC; **`[!attack]`** (styled, still unused) is for `## Cryptanalysis`.
+
+**Say why.** *Added 2026-11-16, at your request.* Every MOC opens with a `[!intuition] Why this field` callout under its one-sentence description: what question the field answers and where the vault uses it, in two or three sentences. A note gets `## Intuition` with one `[!intuition] Why` callout whenever its definition does not by itself say why anyone would define it — what problem the concept solves, or what goes wrong without it. Skip it for one-line axioms whose use is obvious ([[knowledge/math/property/relation/Irreflexivity\|Irreflexivity]], [[knowledge/math/property/relation/Asymmetry\|Asymmetry]]). The callout motivates; it never states a result the rest of the note depends on.
 
 ## Where the reasoning lives
 

@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 1.4: Monoid rings.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 1.4: Monoid rings.
 - `[WP]` — Wikipedia, _Monoid ring_: https://en.wikipedia.org/wiki/Monoid_ring (read 2026-10-20).
 
 ## Definition
@@ -24,7 +24,7 @@ Reference:
 > 	- $A \cdot B = \sum_{m \in M} \sum_{m_1 \cdot m_2 = m} (a_{m_1} b_{m_2}) \cdot m$.
 > - The identity in $R[M]$ is $1_R \cdot 1_M$.
 >
-> `[Alu III.1.4]` `[WP]`
+> `[Alu09 III.1.4]` `[WP]`
 
 ## Property
 

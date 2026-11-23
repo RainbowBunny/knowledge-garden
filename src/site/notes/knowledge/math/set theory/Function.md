@@ -3,7 +3,9 @@
 ---
 
 Reference:
-- [[academic/Book Reference\|Algebra: Chapter 0]] - Chapter I: Preliminaries: Set theory and categories, Section 2.1: Definition; Section 2.3: Composition of functions; Section 2.5: Injections, surjections, bijections: Second viewpoint.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter I: Preliminaries: Set theory and categories, Section 2.1: Definition; Section 2.3: Composition of functions; Section 2.5: Injections, surjections, bijections: Second viewpoint.
+
+- `[Mun00]` — J. R. Munkres, _Topology_, 2nd ed., Prentice Hall, 2000, Chapter 1, §9, Exercise 5.
 
 ## Definition
 
@@ -94,5 +96,8 @@ Reference:
 
 > [!corollary]
 > A function $f: A \rightarrow B$ is a bijection if and only if it has a (two-sided) inverse.
+
+> [!remark] The right inverse needs choice
+> Part 2 picks one preimage $a \in f^{-1}(b)$ for every $b \in B$ at once: a choice function on the fibres, so the [[knowledge/math/set theory/choice/Axiom of Choice\|Axiom of Choice]] `[Mun00 §9 Ex 5a]`. Part 1 needs only one fixed $a_0 \in A$, sent to by every point outside the image `[Mun00 §9 Ex 5b]`.
 
 

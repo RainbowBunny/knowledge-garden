@@ -18,7 +18,7 @@ What everything else silently stands on — and the honest note is short, becaus
 ## Class vs Set — the boundary the vault has already met
 
 > [!definition] Class, Proper Class
-> A **class** is a collection defined by a shared property. A **proper class** is a class that is not a set. The class of all sets $V$, the class of all ordinals, and Russell's class $\{x : x \notin x\}$ are proper — Russell's paradox ([[knowledge/math/set theory/Set Foundation\|Set Foundation]]) is exactly the proof for the last one.
+> A **class** is a collection defined by a shared property. A **proper class** is a class that is not a set. The class of all sets $V$, the class of all ordinals, and Russell's class $\{x : x \notin x\}$ are proper — Russell's paradox ([[knowledge/math/set theory/Axiom of Set Theory#Russell's Paradox\|Axiom of Set Theory#Russell's Paradox]]) is exactly the proof for the last one.
 
 > [!remark] Where it bites here
 > $\mathsf{Obj}(\mathbf{Set})$ and $\mathsf{Obj}(\mathbf{Grp})$ are proper classes — which is why [[knowledge/math/algebra/category/Category\|Category]] needs *small* / *locally small*, and why "the category of all categories" needs care. ZFC handles classes as informal shorthand; NBG makes them first-class objects. For this vault, the remark in [[knowledge/math/algebra/category/Category\|Category]] suffices.
@@ -26,4 +26,4 @@ What everything else silently stands on — and the honest note is short, becaus
 ## Axiom of Choice — noted, not needed
 
 > [!remark]
-> AC is equivalent to Zorn's lemma, which gives maximal ideals in every [[knowledge/math/algebra/structures/ring/Ring\|Ring]] and bases in every [[knowledge/math/algebra/linear algebra/Vector Spaces\|vector space]]. Everything cryptographic in this vault is finite or countable, where AC is silent. Flag it if a note ever invokes Zorn; otherwise it stays here.
+> [[knowledge/math/set theory/choice/Axiom of Choice\|AC]] is equivalent to [[knowledge/math/set theory/choice/Zorn's Lemma\|Zorn's Lemma]], which gives maximal ideals in every [[knowledge/math/algebra/structures/ring/Ring\|Ring]] and bases in every [[knowledge/math/algebra/linear algebra/Vector Spaces\|vector space]]. Everything cryptographic in this vault is finite or countable, where AC is silent. The notes that invoke it are listed in [[knowledge/math/set theory/choice/Axiom of Choice#Where choice is used\|Axiom of Choice#Where choice is used]].

@@ -4,6 +4,11 @@
 
 Reference:
 
+## Intuition
+
+> [!intuition] Why
+> <what problem this concept solves, or what fails without it>
+
 ## Definition
 
 > [!definition] 

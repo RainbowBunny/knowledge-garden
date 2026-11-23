@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 3.2: $\mathsf{Grp}$: Definition; Section 3.4: Product et al.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 3.2: $\mathsf{Grp}$: Definition; Section 3.4: Product et al.
 - `[Lei]` — T. Leinster, _Basic Category Theory_, arXiv:1612.09375: https://arxiv.org/abs/1612.09375
 
 ## Definition
@@ -21,19 +21,19 @@ Reference:
 > $$\mathsf{Hom}_\mathsf{Grp}(G, H)$$
 > to be the set of [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|Group Homomorphism]] $G \rightarrow H$.
 >
-> `[Alu II.3.2]` `[Lei Ex 1.1.3(b)]`
+> `[Alu09 II.3.2]` `[Lei Ex 1.1.3(b)]`
 
 ## Property
 
 ### Universal Property
 
 > [!proposition] Initial and Final Object — the trivial group is both
-> [[knowledge/math/algebra/structures/group/example/Trivial Group\|Trivial Group]] are both [[knowledge/math/algebra/category/Universal Property\|Initial]] and [[knowledge/math/algebra/category/Universal Property\|Final]] in $\mathsf{Grp}$. `[Alu II.3]`
+> [[knowledge/math/algebra/structures/group/example/Trivial Group\|Trivial Group]] are both [[knowledge/math/algebra/category/Universal Property\|Initial]] and [[knowledge/math/algebra/category/Universal Property\|Final]] in $\mathsf{Grp}$. `[Alu09 II.3]`
 
 ### Product
 
 > [!proposition] Product — the direct product is the categorical product
-> With operation defined component-wise, $G \times H$ is a [[knowledge/math/algebra/category/Categorical Product\|Product]] in $\mathsf{Grp}$. `[Alu II.3.4]`
+> With operation defined component-wise, $G \times H$ is a [[knowledge/math/algebra/category/Categorical Product\|Product]] in $\mathsf{Grp}$. `[Alu09 II.3.4]`
 
 ## Related
 

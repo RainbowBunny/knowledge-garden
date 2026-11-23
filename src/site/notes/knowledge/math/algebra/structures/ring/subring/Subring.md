@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 2.3: Monomorphisms and epimorphisms.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 2.3: Monomorphisms and epimorphisms.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_ (2025): https://abstract.ups.edu/aata/ — §16.1 Rings (read at the mirror https://judsonbooks.org/aata-files/aata-html/; item numbers as there).
 
 ## Definition
@@ -18,7 +18,7 @@ Reference:
 > ---
 > A **subring** $S$ of a [[knowledge/math/algebra/structures/ring/Ring\|Ring]] $R$ is a ring where $S \subseteq R$ and [[knowledge/math/set theory/function/Inclusion Function\|Inclusion Function]] $S \hookrightarrow R$ is a [[knowledge/math/algebra/structures/ring/Ring Homomorphism\|Ring Homomorphism]].
 >
-> `[Alu III.2.3]`
+> `[Alu09 III.2.3]`
 
 > [!remark] A subring contains $1_R$
 > A ring homomorphism sends $1$ to $1$, so a subring contains $1_R$. A subset $S \subseteq R$ is then a subring iff

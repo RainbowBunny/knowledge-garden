@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 1.2: Definition.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 1.2: Definition.
 
 ## Definition
 
@@ -19,7 +19,7 @@ Reference:
 > $$e \star e = e.$$
 > The group $(G, \star)$ is usually called the **trivial group**.
 >
-> `[Alu II.1.2]`
+> `[Alu09 II.1.2]`
 
 ## Property
 

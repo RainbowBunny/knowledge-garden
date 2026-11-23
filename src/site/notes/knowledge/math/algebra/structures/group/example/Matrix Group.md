@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 1.2: First examples and special classes of rings.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 1.2: First examples and special classes of rings.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the LibreTexts copy, item numbers as there: https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_%28Judson%29), §12.1 Matrix Groups.
 - `[CasG]` — W. Casselman, _Introduction to admissible representations of p-adic groups_ (notes on $\mathrm{GL}_n$): https://personal.math.ubc.ca/~cass/research/pdf/GLN.pdf
 - `[CasH]` — W. Casselman, _The construction of Hecke algebras associated to a Coxeter group_: https://personal.math.ubc.ca/~cass/research/pdf/Hecke.pdf
@@ -22,7 +22,7 @@ Reference:
 > - Object: Invertible $n \times n$ [[knowledge/math/algebra/linear algebra/Matrix\|Matrix]] on $\mathbb{R}$.
 > - Operation: Matrix multiplication.
 >
-> `[Alu III.1.2]` `[Jud §12.1]`
+> `[Alu09 III.1.2]` `[Jud §12.1]`
 
 ## Property
 

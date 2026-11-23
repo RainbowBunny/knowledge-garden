@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter I: Preliminaries: Set theory and categories, Exercise 3.7.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter I: Preliminaries: Set theory and categories, Exercise 3.7.
 - `[Rie]` — E. Riehl, _Category Theory in Context_ (2016): https://math.jhu.edu/~eriehl/context.pdf — Exercise 1.1.iii (read at the mirror https://www.math.ucla.edu/~mopie/context.pdf).
 
 ## Definition
@@ -26,7 +26,7 @@ Reference:
 > \end{CD}$$
 > commutes, i.e. $\sigma \circ \varphi_1 = \varphi_2$.
 >
-> `[Alu Exer I.3.7]` `[Rie Exer 1.1.iii]`
+> `[Alu09 Exer I.3.7]` `[Rie Exer 1.1.iii]`
 
 > [!remark] Notation
 > `[Rie Exer 1.1.iii]` writes $A/\mathsf C$ and calls it the slice category of $\mathsf C$ *under* $A$.

@@ -3,14 +3,14 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 5.1: Motivation.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 5.1: Motivation.
 - `[McG24]` — McGovern, Math 504 (University of Washington), Lecture 10-4: _Free groups and the Nielsen–Schreier Theorem_ (2024): https://sites.math.washington.edu/~mcgovern/504%20pdf%202024/504.10-4.pdf
 - `[WikFG]` — Wikipedia, _Free group_: https://en.wikipedia.org/wiki/Free_group
 
 ## Definition
 
 > [!remark] Motivation
-> Given a set $A$, whose elements have no special 'group-theoretic' property, we want to construct the **free group** $F(A)$ containing $A$ 'in the most efficient way' for every set $A$. `[Alu II §5.1]`
+> Given a set $A$, whose elements have no special 'group-theoretic' property, we want to construct the **free group** $F(A)$ containing $A$ 'in the most efficient way' for every set $A$. `[Alu09 II §5.1]`
 
 > [!definition] Parameters
 > - $A$: a [[knowledge/math/set theory/Set\|Set]].

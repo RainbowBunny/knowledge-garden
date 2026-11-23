@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter II: Groups, first encounter, Section 7.1: Normal subgroups; Section 7.6: Kernel $\iff$ Normal; Section 8.4: $HK/H$ vs. $K/(H \cap K)$.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 7.1: Normal subgroups; Section 7.6: Kernel $\iff$ Normal; Section 8.4: $HK/H$ vs. $K/(H \cap K)$.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the HTML edition at https://judsonbooks.org/aata-files/aata-html/; result numbers as there).
 
 ## Definition
@@ -18,7 +18,7 @@ Reference:
 > ---
 > A subgroup $N$ of a group $G$ is normal if $\forall g \in G, \forall n \in N$,
 > $$gng^{-1} \in N$$
-> `[Alu II §7.1]` `[Jud Thm 10.1.3]`
+> `[Alu09 II §7.1]` `[Jud Thm 10.1.3]`
 
 > [!remark] Judson's definition
 > [Jud §10.1] defines $N$ to be normal when $gN = Ng$ for all $g \in G$; this is equivalent to the condition above, $gNg^{-1} \subseteq N$ for all $g \in G$ `[Jud Thm 10.1.3]`. So $N$ is normal exactly when its left and right [[knowledge/math/algebra/structures/group/special group/Coset\|cosets]] agree.
@@ -26,13 +26,13 @@ Reference:
 ## Property
 
 > [!lemma] Kernels are normal — $\ker \varphi$ is a normal subgroup of $G$
-> If $\varphi: G \rightarrow G'$ is any [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|Group Homomorphism]], then $\ker{\varphi}$ is normal subgroup of $G$. `[Alu II §7.6]` `[Jud Thm 11.1.5]`
+> If $\varphi: G \rightarrow G'$ is any [[knowledge/math/algebra/structures/group/homomorphism/Group Homomorphism\|Group Homomorphism]], then $\ker{\varphi}$ is normal subgroup of $G$. `[Alu09 II §7.6]` `[Jud Thm 11.1.5]`
 >
 > ---
 > For $n \in \ker\varphi$: $\varphi(g n g^{-1}) = \varphi(g) \varphi(n) \varphi(g^{-1}) = \varphi(g)\, e_{G'}\, \varphi(g)^{-1} = e_{G'} \implies gng^{-1} \in \ker{\varphi}$.
 
 > [!proposition] Normal subgroups are kernels — $N$ is the kernel of $G \rightarrow G/N$
-> Every normal subgroup is a [[knowledge/math/algebra/structures/group/subgroup/Kernel of Group Homomorphism\|Kernel of Group Homomorphism]]. `[Alu II §7.6]`
+> Every normal subgroup is a [[knowledge/math/algebra/structures/group/subgroup/Kernel of Group Homomorphism\|Kernel of Group Homomorphism]]. `[Alu09 II §7.6]`
 >
 > Namely of the canonical homomorphism $G \rightarrow G/N$, $g \mapsto gN$ `[Jud §11.2]`.
 
@@ -43,7 +43,7 @@ Reference:
 > - $H \cap K$ is normal in $K$;
 > - $$\frac{HK}{H} \cong \frac{K}{H \cap K}.$$
 >
-> `[Alu II §8.4]` `[Jud Thm 11.2.3]`
+> `[Alu09 II §8.4]` `[Jud Thm 11.2.3]`
 
 ## Related
 

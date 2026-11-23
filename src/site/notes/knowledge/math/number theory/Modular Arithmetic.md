@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- [[academic/Book Reference\|Algebra: Chapter 0]] - Chapter II: Groups, first encounter, Section 2.3: Cyclic groups and modular arithmetic.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter II: Groups, first encounter, Section 2.3: Cyclic groups and modular arithmetic.
 
 ## Definition
 

@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter I: Preliminaries: Set theory and categories, Section 5.1: Initial and final objects; Section 5.5: Coproducts.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter I: Preliminaries: Set theory and categories, Section 5.1: Initial and final objects; Section 5.5: Coproducts.
 - `[nLab]` — nLab, _coproduct_: https://ncatlab.org/nlab/show/coproduct
 
 ## Definition
@@ -32,7 +32,7 @@ Reference:
 > @A{f_A}AA @AA{\sigma}A @AA{f_B}A\\
 > A @>>{\iota_A}> A \amalg B @<<{\iota_B}< B
 > \end{CD}$$
-> commutes. `[Alu I.5.5]` `[nLab]`
+> commutes. `[Alu09 I.5.5]` `[nLab]`
 
 > [!remark]
 > $\iota_A, \iota_B$ are called coprojections, or sometimes injections or inclusions; in a general category they need not be [[knowledge/math/algebra/category/Morphism#Monomorphism\|monomorphisms]]. `[nLab]`

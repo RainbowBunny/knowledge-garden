@@ -36,7 +36,7 @@ Reference:
 ## Related
 
 ### Siblings
-- [[Groups of Order p³\|Groups of Order p³]], [[knowledge/math/algebra/structures/group/classification/Groups of Order 16\|Groups of Order 16]]
+- [[knowledge/math/algebra/structures/group/classification/Groups of Order p Cubed\|Groups of Order p Cubed]], [[knowledge/math/algebra/structures/group/classification/Groups of Order 16\|Groups of Order 16]]
 
 ### Prerequisites
 - [[knowledge/math/algebra/structures/group/extension/Cyclic Extension\|Cyclic Extension]], [[knowledge/math/algebra/structures/group/special group/p-Group\|p-Group]]

@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter IV: Groups, second encounter, Section 1.1: Actions of groups on sets, reminder.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter IV: Groups, second encounter, Section 1.1: Actions of groups on sets, reminder.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_: https://abstract.ups.edu/aata/ (read in the HTML edition at https://judsonbooks.org/aata-files/aata-html/; result numbers as there).
 - `[ConConj]` — K. Conrad, _Conjugation in a group_, expository notes, Theorems 6.8, 6.9, Corollary 6.11: https://kconrad.math.uconn.edu/blurbs/grouptheory/conjclass.pdf
 - `[ConSyl]` — K. Conrad, _The Sylow theorems_, expository notes, equation (2.1), §3: https://kconrad.math.uconn.edu/blurbs/grouptheory/sylowpf.pdf
@@ -18,7 +18,7 @@ Reference:
 > Extends:: [[knowledge/math/algebra/structures/group/Group\|Group]].
 >
 > ---
-> A $p$-group is a finite [[knowledge/math/algebra/structures/group/Group\|Group]] whose order is a power of a prime integer $p$. `[Alu IV §1.1]`
+> A $p$-group is a finite [[knowledge/math/algebra/structures/group/Group\|Group]] whose order is a power of a prime integer $p$. `[Alu09 IV §1.1]`
 
 > [!remark] Judson's definition
 > [Jud §15.1] calls $G$ a $p$-group if every element of $G$ has as its order a power of $p$, without assuming $G$ finite. For a finite group the two definitions agree: $G$ is a $p$-group if and only if $|G| = p^n$ `[Jud Cor 15.1.2]`.
@@ -68,7 +68,7 @@ Reference:
 > `[ConSyl §3]` — [[knowledge/math/algebra/structures/group/subgroup/Sylow Theorems#Property\|Sylow Theorems#Property]].
 
 > [!corollary] Order $p^2$ — abelian
-> Every group of order $p^2$ is abelian `[ConConj Cor 6.11]` — [[Groups of Order p²\|Groups of Order p²]].
+> Every group of order $p^2$ is abelian `[ConConj Cor 6.11]` — [[knowledge/math/algebra/structures/group/classification/Groups of Order p Squared\|Groups of Order p Squared]].
 
 ## Related
 
@@ -78,7 +78,7 @@ Reference:
 
 ### Constructions
 - [[knowledge/math/algebra/structures/group/subgroup/Sylow Subgroup\|Sylow Subgroup]] — the maximal $p$-subgroups of a finite group
-- [[Groups of Order p²\|Groups of Order p²]], [[Groups of Order p³\|Groups of Order p³]], [[Groups of Order p⁴\|Groups of Order p⁴]] — the small $p$-groups
+- [[knowledge/math/algebra/structures/group/classification/Groups of Order p Squared\|Groups of Order p Squared]], [[knowledge/math/algebra/structures/group/classification/Groups of Order p Cubed\|Groups of Order p Cubed]], [[knowledge/math/algebra/structures/group/classification/Groups of Order p to the Fourth\|Groups of Order p to the Fourth]] — the small $p$-groups
 
 ### Prerequisites
 - [[knowledge/math/algebra/structures/group/Group Order\|Group Order]] — the order $|G|$

@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- [[academic/Book Reference\|Element of Set Theory]] - Chapter 2: Axioms and Operations, Section: Axioms.
+- `[End77]` — H. B. Enderton, _Elements of Set Theory_, Academic Press, 1977, Chapter 2: Axioms and Operations, Section: Axioms.
 
 ## Definition
 

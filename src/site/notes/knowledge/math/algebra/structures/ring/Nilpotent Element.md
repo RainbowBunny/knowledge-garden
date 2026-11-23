@@ -3,7 +3,7 @@
 ---
 
 Reference:
-- `[Alu]` — [[academic/Book Reference\|Algebra: Chapter 0]] (P. Aluffi), Chapter III: Rings and modules, Section 1.2: First examples and special classes of rings; Exercise 1.6.
+- `[Alu09]` — P. Aluffi, _Algebra: Chapter 0_, Graduate Studies in Mathematics 104, American Mathematical Society, 2009, Chapter III: Rings and modules, Section 1.2: First examples and special classes of rings; Exercise 1.6.
 - `[Jud]` — T. W. Judson, _Abstract Algebra: Theory and Applications_ (2025): https://abstract.ups.edu/aata/ — Exercise 16.7.27 (read at the mirror https://judsonbooks.org/aata-files/aata-html/; item numbers as there).
 
 ## Definition
@@ -16,14 +16,14 @@ Reference:
 > [!definition] Nilpotent Element
 > An element $a$ of a [[knowledge/math/algebra/structures/ring/Ring\|Ring]] $R$ is *nilpotent* if $a^n = 0$ for some positive integer $n$.
 >
-> `[Alu III.1.2]` `[Jud Ex 16.7.27]`
+> `[Alu09 III.1.2]` `[Jud Ex 16.7.27]`
 
 ## Property
 
 > [!proposition] Commuting nilpotents add — if $a, b$ are nilpotent and commute, $a + b$ is nilpotent
 > If $a$ and $b$ are nilpotent in $R$ and $ab = ba$, then $a + b$ is also nilpotent.
 >
-> `[Alu III Ex 1.6]`
+> `[Alu09 III Ex 1.6]`
 
 > [!proposition] Nilpotents form an ideal — in a commutative ring the nilpotent elements form an ideal
 > If $R$ is a [[knowledge/math/algebra/structures/ring/special ring/Commutative Ring\|Commutative Ring]], the set of nilpotent elements of $R$ is an [[knowledge/math/algebra/structures/ring/ideal/Ideal\|Ideal]] of $R$.
